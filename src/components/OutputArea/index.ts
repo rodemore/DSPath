@@ -1,0 +1,1 @@
+export { OutputArea } from './OutputArea';

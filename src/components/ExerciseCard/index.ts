@@ -1,0 +1,1 @@
+export { ExerciseCard } from './ExerciseCard';

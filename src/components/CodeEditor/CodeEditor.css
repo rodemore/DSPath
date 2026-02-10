@@ -1,0 +1,98 @@
+/* CodeEditor Syntax Highlighting Styles */
+
+/* Override default editor styles */
+.code-editor {
+  background: var(--bg-editor) !important;
+  color: var(--text) !important;
+  caret-color: var(--accent) !important;
+}
+
+.code-editor-textarea {
+  outline: none !important;
+}
+
+.code-editor-textarea::placeholder {
+  color: var(--scrollbar-thumb) !important;
+  opacity: 0.6;
+}
+
+/* ━━━━━ DARK THEME SYNTAX HIGHLIGHTING ━━━━━ */
+:root, [data-theme="dark"] {
+  /* Python syntax colors for dark theme */
+  --prism-comment: #546e8a;
+  --prism-keyword: #c792ea;
+  --prism-string: #c3e88d;
+  --prism-number: #f78c6c;
+  --prism-function: #82aaff;
+  --prism-builtin: #ffcb6b;
+  --prism-operator: #89ddff;
+  --prism-punctuation: #a6accd;
+  --prism-class: #ffcb6b;
+  --prism-boolean: #f78c6c;
+}
+
+/* ━━━━━ LIGHT THEME SYNTAX HIGHLIGHTING ━━━━━ */
+[data-theme="light"] {
+  /* Python syntax colors for light theme */
+  --prism-comment: #708090;
+  --prism-keyword: #9c27b0;
+  --prism-string: #558b2f;
+  --prism-number: #d84315;
+  --prism-function: #0277bd;
+  --prism-builtin: #f57c00;
+  --prism-operator: #00838f;
+  --prism-punctuation: #616161;
+  --prism-class: #f57c00;
+  --prism-boolean: #d84315;
+}
+
+/* ━━━━━ PRISM SYNTAX TOKEN STYLES ━━━━━ */
+.code-editor .token.comment {
+  color: var(--prism-comment);
+  font-style: italic;
+}
+
+.code-editor .token.keyword {
+  color: var(--prism-keyword);
+  font-weight: 600;
+}
+
+.code-editor .token.string {
+  color: var(--prism-string);
+}
+
+.code-editor .token.number,
+.code-editor .token.boolean {
+  color: var(--prism-number);
+}
+
+.code-editor .token.function {
+  color: var(--prism-function);
+}
+
+.code-editor .token.builtin,
+.code-editor .token.class-name {
+  color: var(--prism-builtin);
+}
+
+.code-editor .token.operator {
+  color: var(--prism-operator);
+}
+
+.code-editor .token.punctuation {
+  color: var(--prism-punctuation);
+}
+
+.code-editor .token.decorator {
+  color: var(--prism-function);
+  font-style: italic;
+}
+
+/* Selection styles */
+.code-editor ::selection {
+  background: var(--accent-glow);
+}
+
+.code-editor ::-moz-selection {
+  background: var(--accent-glow);
+}
