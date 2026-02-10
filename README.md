@@ -1,4 +1,4 @@
-# PyLab - Interactive Python Learning Platform
+# DSPath - Interactive Python Learning Platform
 
 An interactive web application for learning Python hands-on, with real-time exercises and automatic validation.
 
@@ -40,7 +40,7 @@ An interactive web application for learning Python hands-on, with real-time exer
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/rodemore/DSPath.git
 
 # Navigate to directory
 cd dspath
@@ -68,110 +68,110 @@ npm run build
 npm run preview
 ```
 
-## Estructura del Proyecto
+## Project Structure
 
 ```
 src/
-├── components/         # Componentes React reutilizables
-│   ├── CodeEditor/    # Editor de código con highlighting
-│   ├── CodeExample/   # Ejemplos de código
-│   ├── ExerciseCard/  # Tarjetas de ejercicios
-│   ├── Header/        # Encabezado con estado de Python
-│   ├── Navigation/    # Navegación entre módulos
-│   ├── OutputArea/    # Área de salida del código
-│   ├── ProgressBar/   # Barra de progreso
-│   ├── Section/       # Contenedor de módulos
-│   ├── TheoryBlock/   # Bloques de teoría
-│   └── ThemeToggle/   # Toggle tema claro/oscuro
-├── contexts/          # Contextos de React
-│   └── ThemeContext/  # Gestión del tema
+├── components/         # Reusable React components
+│   ├── CodeEditor/    # Code editor with highlighting
+│   ├── CodeExample/   # Code examples
+│   ├── ExerciseCard/  # Exercise cards
+│   ├── Header/        # Header with Python status
+│   ├── Navigation/    # Navigation between modules
+│   ├── OutputArea/    # Code output area
+│   ├── ProgressBar/   # Progress bar
+│   ├── Section/       # Module container
+│   ├── TheoryBlock/   # Theory blocks
+│   └── ThemeToggle/   # Light/dark theme toggle
+├── contexts/          # React contexts
+│   └── ThemeContext/  # Theme management
 ├── hooks/             # Custom hooks
-│   └── usePyodide/    # Hook para gestionar Pyodide
-├── modules/           # Contenido de los módulos
+│   └── usePyodide/    # Hook to manage Pyodide
+├── modules/           # Module content
 │   ├── module01-variables/
 │   ├── module02-operations/
 │   ├── module03-strings/
 │   ├── module04-lists-intro/
 │   ├── module05-lists-methods/
 │   └── module06-dictionaries/
-├── data/              # Configuración de módulos
-├── types/             # Tipos TypeScript
-└── styles/            # Estilos globales
+├── data/              # Module configuration
+├── types/             # TypeScript types
+└── styles/            # Global styles
 ```
 
-## Agregar Nuevos Módulos
+## Adding New Modules
 
-Para agregar un nuevo módulo:
+To add a new module:
 
-1. **Crear directorio del módulo**:
+1. **Create module directory**:
 ```bash
-src/modules/module07-nombre/
+src/modules/module07-name/
 ```
 
-2. **Crear archivos necesarios**:
-- `content.ts`: Contenido teórico y ejercicios
-- `validators.ts`: Validadores personalizados
+2. **Create required files**:
+- `content.ts`: Theory content and exercises
+- `validators.ts`: Custom validators
 
-3. **Registrar en `src/data/sections.ts`**:
+3. **Register in `src/data/sections.ts`**:
 ```typescript
 export const sectionsMetadata = [
-  // ... módulos existentes
-  { id: 6, moduleNumber: 'Módulo 07', title: 'Título', titleHighlight: 'Destacado' },
+  // ... existing modules
+  { id: 6, moduleNumber: 'Module 07', title: 'Title', titleHighlight: 'Highlight' },
 ];
 
 const moduleLoaders = {
-  // ... loaders existentes
-  6: () => import('../modules/module07-nombre/content').then(m => ({ default: m.module07 })),
+  // ... existing loaders
+  6: () => import('../modules/module07-name/content').then(m => ({ default: m.module07 })),
 };
 ```
 
-4. **Actualizar contador de ejercicios** en `getTotalExercisesCount()`
+4. **Update exercise counter** in `getTotalExercisesCount()`
 
-## Características de los Validadores
+## Validator Features
 
-Cada ejercicio puede usar:
+Each exercise can use:
 
-- **Validación exacta**: Compara la salida con un string esperado
-- **Validación personalizada**: Función que valida el código ejecutado
-- **Validación de variables**: Verifica existencia y tipos de variables
-- **Validación de salida**: Verifica que el output contenga ciertos valores
+- **Exact validation**: Compares output with an expected string
+- **Custom validation**: Function that validates the executed code
+- **Variable validation**: Verifies existence and types of variables
+- **Output validation**: Verifies that the output contains certain values
 
-Ejemplo de validador personalizado:
+Example of custom validator:
 
 ```typescript
 export const validateExample = (
   code: string,
   output: string
 ): { isValid: boolean; message: string } => {
-  // Tu lógica de validación
+  // Your validation logic
   return {
     isValid: true,
-    message: 'Ejercicio completado correctamente'
+    message: 'Exercise completed correctly'
   };
 };
 ```
 
-## Scripts Disponibles
+## Available Scripts
 
-- `npm run dev` - Inicia servidor de desarrollo
-- `npm run build` - Construye para producción
-- `npm run preview` - Vista previa de la build de producción
-- `npm run lint` - Ejecuta ESLint
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-## Licencia
+## License
 
-Este proyecto está bajo la licencia MIT.
+This project is under the MIT License.
 
-## Contribuir
+## Contributing
 
-Las contribuciones son bienvenidas. Por favor:
+Contributions are welcome. Please:
 
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Soporte
+## Support
 
-Si encuentras algún problema o tienes sugerencias, por favor abre un issue en el repositorio.
+If you encounter any issues or have suggestions, please open an issue in the repository.
