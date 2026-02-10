@@ -1,177 +1,177 @@
-# PyLab - Plataforma Interactiva de Aprendizaje de Python
+# PyLab - Interactive Python Learning Platform
 
-Una aplicación web interactiva para aprender Python de forma práctica, con ejercicios en tiempo real y validación automática.
+An interactive web application for learning Python hands-on, with real-time exercises and automatic validation.
 
-## Características
+## Features
 
-- **Editor de código en el navegador**: Ejecuta código Python directamente en el navegador usando Pyodide
-- **6 módulos de aprendizaje progresivo**: Desde conceptos básicos hasta estructuras de datos avanzadas
-- **21 ejercicios interactivos**: Con validación automática y retroalimentación instantánea
-- **Sistema de progreso**: Sigue tu avance a través de los módulos
-- **Tema claro/oscuro**: Cambia entre temas según tu preferencia
-- **Diseño responsive**: Funciona perfectamente en dispositivos móviles y escritorio
-- **Zero-config**: No requiere instalación de Python en tu sistema
+- **In-browser code editor**: Run Python code directly in the browser using Pyodide
+- **6 progressive learning modules**: From basic concepts to advanced data structures
+- **21 interactive exercises**: With automatic validation and instant feedback
+- **Progress tracking system**: Follow your advancement through the modules
+- **Light/dark theme**: Switch between themes according to your preference
+- **Responsive design**: Works perfectly on mobile and desktop devices
+- **Zero-config**: No Python installation required on your system
 
-## Módulos de Aprendizaje
+## Learning Modules
 
-1. **Módulo 01**: Variables y Tipos de Datos
-2. **Módulo 02**: Operaciones Numéricas
-3. **Módulo 03**: Strings - Cadenas de Texto
-4. **Módulo 04**: Listas 1 - Fundamentos
-5. **Módulo 05**: Listas 2 - Métodos
-6. **Módulo 06**: Diccionarios - Datos Clave-Valor
+1. **Module 01**: Variables and Data Types
+2. **Module 02**: Numeric Operations
+3. **Module 03**: Strings - Text Chains
+4. **Module 04**: Lists 1 - Fundamentals
+5. **Module 05**: Lists 2 - Methods
+6. **Module 06**: Dictionaries - Key-Value Data
 
-## Stack Tecnológico
+## Tech Stack
 
 - **Frontend**: React 19 + TypeScript
 - **Build Tool**: Vite 7
 - **Python Runtime**: Pyodide 0.29
-- **Editor**: react-simple-code-editor con sintaxis highlighting (Prism.js)
-- **Styling**: CSS Modules con variables CSS para temas
+- **Editor**: react-simple-code-editor with syntax highlighting (Prism.js)
+- **Styling**: CSS Modules with CSS variables for theming
 
-## Instalación y Uso
+## Installation and Usage
 
-### Prerrequisitos
+### Prerequisites
 
-- Node.js 18 o superior
-- npm o yarn
+- Node.js 18 or higher
+- npm or yarn
 
-### Instalación
+### Installation
 
 ```bash
-# Clonar el repositorio
-git clone <url-del-repositorio>
+# Clone the repository
+git clone <repository-url>
 
-# Navegar al directorio
+# Navigate to directory
 cd dspath
 
-# Instalar dependencias
+# Install dependencies
 npm install
 ```
 
-### Desarrollo
+### Development
 
 ```bash
-# Iniciar servidor de desarrollo
+# Start development server
 npm run dev
 ```
 
-La aplicación estará disponible en `http://localhost:5173`
+The application will be available at `http://localhost:5173`
 
-### Producción
+### Production
 
 ```bash
-# Construir para producción
+# Build for production
 npm run build
 
-# Vista previa de la build
+# Preview the build
 npm run preview
 ```
 
-## Estructura del Proyecto
+## Project Structure
 
 ```
 src/
-├── components/         # Componentes React reutilizables
-│   ├── CodeEditor/    # Editor de código con highlighting
-│   ├── CodeExample/   # Ejemplos de código
-│   ├── ExerciseCard/  # Tarjetas de ejercicios
-│   ├── Header/        # Encabezado con estado de Python
-│   ├── Navigation/    # Navegación entre módulos
-│   ├── OutputArea/    # Área de salida del código
-│   ├── ProgressBar/   # Barra de progreso
-│   ├── Section/       # Contenedor de módulos
-│   ├── TheoryBlock/   # Bloques de teoría
-│   └── ThemeToggle/   # Toggle tema claro/oscuro
-├── contexts/          # Contextos de React
-│   └── ThemeContext/  # Gestión del tema
+├── components/         # Reusable React components
+│   ├── CodeEditor/    # Code editor with highlighting
+│   ├── CodeExample/   # Code examples
+│   ├── ExerciseCard/  # Exercise cards
+│   ├── Header/        # Header with Python status
+│   ├── Navigation/    # Navigation between modules
+│   ├── OutputArea/    # Code output area
+│   ├── ProgressBar/   # Progress bar
+│   ├── Section/       # Module container
+│   ├── TheoryBlock/   # Theory blocks
+│   └── ThemeToggle/   # Light/dark theme toggle
+├── contexts/          # React contexts
+│   └── ThemeContext/  # Theme management
 ├── hooks/             # Custom hooks
-│   └── usePyodide/    # Hook para gestionar Pyodide
-├── modules/           # Contenido de los módulos
+│   └── usePyodide/    # Hook to manage Pyodide
+├── modules/           # Module content
 │   ├── module01-variables/
 │   ├── module02-operations/
 │   ├── module03-strings/
 │   ├── module04-lists-intro/
 │   ├── module05-lists-methods/
 │   └── module06-dictionaries/
-├── data/              # Configuración de módulos
-├── types/             # Tipos TypeScript
-└── styles/            # Estilos globales
+├── data/              # Module configuration
+├── types/             # TypeScript types
+└── styles/            # Global styles
 ```
 
-## Agregar Nuevos Módulos
+## Adding New Modules
 
-Para agregar un nuevo módulo:
+To add a new module:
 
-1. **Crear directorio del módulo**:
+1. **Create module directory**:
 ```bash
-src/modules/module07-nombre/
+src/modules/module07-name/
 ```
 
-2. **Crear archivos necesarios**:
-- `content.ts`: Contenido teórico y ejercicios
-- `validators.ts`: Validadores personalizados
+2. **Create required files**:
+- `content.ts`: Theory content and exercises
+- `validators.ts`: Custom validators
 
-3. **Registrar en `src/data/sections.ts`**:
+3. **Register in `src/data/sections.ts`**:
 ```typescript
 export const sectionsMetadata = [
-  // ... módulos existentes
-  { id: 6, moduleNumber: 'Módulo 07', title: 'Título', titleHighlight: 'Destacado' },
+  // ... existing modules
+  { id: 6, moduleNumber: 'Module 07', title: 'Title', titleHighlight: 'Highlight' },
 ];
 
 const moduleLoaders = {
-  // ... loaders existentes
-  6: () => import('../modules/module07-nombre/content').then(m => ({ default: m.module07 })),
+  // ... existing loaders
+  6: () => import('../modules/module07-name/content').then(m => ({ default: m.module07 })),
 };
 ```
 
-4. **Actualizar contador de ejercicios** en `getTotalExercisesCount()`
+4. **Update exercise counter** in `getTotalExercisesCount()`
 
-## Características de los Validadores
+## Validator Features
 
-Cada ejercicio puede usar:
+Each exercise can use:
 
-- **Validación exacta**: Compara la salida con un string esperado
-- **Validación personalizada**: Función que valida el código ejecutado
-- **Validación de variables**: Verifica existencia y tipos de variables
-- **Validación de salida**: Verifica que el output contenga ciertos valores
+- **Exact validation**: Compares output with an expected string
+- **Custom validation**: Function that validates the executed code
+- **Variable validation**: Verifies existence and types of variables
+- **Output validation**: Verifies that the output contains certain values
 
-Ejemplo de validador personalizado:
+Example of custom validator:
 
 ```typescript
 export const validateExample = (
   code: string,
   output: string
 ): { isValid: boolean; message: string } => {
-  // Tu lógica de validación
+  // Your validation logic
   return {
     isValid: true,
-    message: 'Ejercicio completado correctamente'
+    message: 'Exercise completed correctly'
   };
 };
 ```
 
-## Scripts Disponibles
+## Available Scripts
 
-- `npm run dev` - Inicia servidor de desarrollo
-- `npm run build` - Construye para producción
-- `npm run preview` - Vista previa de la build de producción
-- `npm run lint` - Ejecuta ESLint
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-## Licencia
+## License
 
-Este proyecto está bajo la licencia MIT.
+This project is under the MIT License.
 
-## Contribuir
+## Contributing
 
-Las contribuciones son bienvenidas. Por favor:
+Contributions are welcome. Please:
 
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## Soporte
+## Support
 
-Si encuentras algún problema o tienes sugerencias, por favor abre un issue en el repositorio.
+If you encounter any issues or have suggestions, please open an issue in the repository.
