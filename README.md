@@ -68,110 +68,110 @@ npm run build
 npm run preview
 ```
 
-## Project Structure
+## Estructura del Proyecto
 
 ```
 src/
-├── components/         # Reusable React components
-│   ├── CodeEditor/    # Code editor with highlighting
-│   ├── CodeExample/   # Code examples
-│   ├── ExerciseCard/  # Exercise cards
-│   ├── Header/        # Header with Python status
-│   ├── Navigation/    # Navigation between modules
-│   ├── OutputArea/    # Code output area
-│   ├── ProgressBar/   # Progress bar
-│   ├── Section/       # Module container
-│   ├── TheoryBlock/   # Theory blocks
-│   └── ThemeToggle/   # Light/dark theme toggle
-├── contexts/          # React contexts
-│   └── ThemeContext/  # Theme management
+├── components/         # Componentes React reutilizables
+│   ├── CodeEditor/    # Editor de código con highlighting
+│   ├── CodeExample/   # Ejemplos de código
+│   ├── ExerciseCard/  # Tarjetas de ejercicios
+│   ├── Header/        # Encabezado con estado de Python
+│   ├── Navigation/    # Navegación entre módulos
+│   ├── OutputArea/    # Área de salida del código
+│   ├── ProgressBar/   # Barra de progreso
+│   ├── Section/       # Contenedor de módulos
+│   ├── TheoryBlock/   # Bloques de teoría
+│   └── ThemeToggle/   # Toggle tema claro/oscuro
+├── contexts/          # Contextos de React
+│   └── ThemeContext/  # Gestión del tema
 ├── hooks/             # Custom hooks
-│   └── usePyodide/    # Hook to manage Pyodide
-├── modules/           # Module content
+│   └── usePyodide/    # Hook para gestionar Pyodide
+├── modules/           # Contenido de los módulos
 │   ├── module01-variables/
 │   ├── module02-operations/
 │   ├── module03-strings/
 │   ├── module04-lists-intro/
 │   ├── module05-lists-methods/
 │   └── module06-dictionaries/
-├── data/              # Module configuration
-├── types/             # TypeScript types
-└── styles/            # Global styles
+├── data/              # Configuración de módulos
+├── types/             # Tipos TypeScript
+└── styles/            # Estilos globales
 ```
 
-## Adding New Modules
+## Agregar Nuevos Módulos
 
-To add a new module:
+Para agregar un nuevo módulo:
 
-1. **Create module directory**:
+1. **Crear directorio del módulo**:
 ```bash
-src/modules/module07-name/
+src/modules/module07-nombre/
 ```
 
-2. **Create required files**:
-- `content.ts`: Theory content and exercises
-- `validators.ts`: Custom validators
+2. **Crear archivos necesarios**:
+- `content.ts`: Contenido teórico y ejercicios
+- `validators.ts`: Validadores personalizados
 
-3. **Register in `src/data/sections.ts`**:
+3. **Registrar en `src/data/sections.ts`**:
 ```typescript
 export const sectionsMetadata = [
-  // ... existing modules
-  { id: 6, moduleNumber: 'Module 07', title: 'Title', titleHighlight: 'Highlight' },
+  // ... módulos existentes
+  { id: 6, moduleNumber: 'Módulo 07', title: 'Título', titleHighlight: 'Destacado' },
 ];
 
 const moduleLoaders = {
-  // ... existing loaders
-  6: () => import('../modules/module07-name/content').then(m => ({ default: m.module07 })),
+  // ... loaders existentes
+  6: () => import('../modules/module07-nombre/content').then(m => ({ default: m.module07 })),
 };
 ```
 
-4. **Update exercise counter** in `getTotalExercisesCount()`
+4. **Actualizar contador de ejercicios** en `getTotalExercisesCount()`
 
-## Validator Features
+## Características de los Validadores
 
-Each exercise can use:
+Cada ejercicio puede usar:
 
-- **Exact validation**: Compares output with an expected string
-- **Custom validation**: Function that validates the executed code
-- **Variable validation**: Verifies existence and types of variables
-- **Output validation**: Verifies that the output contains certain values
+- **Validación exacta**: Compara la salida con un string esperado
+- **Validación personalizada**: Función que valida el código ejecutado
+- **Validación de variables**: Verifica existencia y tipos de variables
+- **Validación de salida**: Verifica que el output contenga ciertos valores
 
-Example of custom validator:
+Ejemplo de validador personalizado:
 
 ```typescript
 export const validateExample = (
   code: string,
   output: string
 ): { isValid: boolean; message: string } => {
-  // Your validation logic
+  // Tu lógica de validación
   return {
     isValid: true,
-    message: 'Exercise completed correctly'
+    message: 'Ejercicio completado correctamente'
   };
 };
 ```
 
-## Available Scripts
+## Scripts Disponibles
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
+- `npm run dev` - Inicia servidor de desarrollo
+- `npm run build` - Construye para producción
+- `npm run preview` - Vista previa de la build de producción
+- `npm run lint` - Ejecuta ESLint
 
-## License
+## Licencia
 
-This project is under the MIT License.
+Este proyecto está bajo la licencia MIT.
 
-## Contributing
+## Contribuir
 
-Contributions are welcome. Please:
+Las contribuciones son bienvenidas. Por favor:
 
-1. Fork the project
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
 
-## Support
+## Soporte
 
-If you encounter any issues or have suggestions, please open an issue in the repository.
+Si encuentras algún problema o tienes sugerencias, por favor abre un issue en el repositorio.
