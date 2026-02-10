@@ -1,4 +1,4 @@
-# PyLab - Plataforma Interactiva de Aprendizaje de Python
+# DSPath - Plataforma Interactiva de Aprendizaje de Python
 
 Una aplicación web interactiva para aprender Python de forma práctica, con ejercicios en tiempo real y validación automática.
 
