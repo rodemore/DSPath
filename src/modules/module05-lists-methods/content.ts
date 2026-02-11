@@ -103,7 +103,7 @@ export const module05: Section = {
     {
       id: 'ex-5-1',
       number: 'EJERCICIO 5.1',
-      description: 'Crea una lista vacía llamada <span class="inline-code">colores</span>. Usa <span class="inline-code">.append()</span> para agregar 3 colores. Imprime la lista resultante.',
+      description: 'Crea una lista vacía llamada <span class="inline-code">colores</span>.<br><br>Usa <span class="inline-code">.append()</span> para agregar 3 colores.<br><br>Imprime la lista resultante.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateAppendMethod,
@@ -111,7 +111,7 @@ export const module05: Section = {
     {
       id: 'ex-5-2',
       number: 'EJERCICIO 5.2',
-      description: 'Crea una lista <span class="inline-code">numeros = [1, 2, 3]</span>. Usa <span class="inline-code">.extend()</span> para agregar los números 4, 5 y 6. Imprime la lista resultante.',
+      description: 'Crea una lista <span class="inline-code">numeros = [1, 2, 3]</span>.<br><br>Usa <span class="inline-code">.extend()</span> para agregar los números 4, 5 y 6.<br><br>Imprime la lista resultante.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateExtendMethod,
@@ -119,7 +119,7 @@ export const module05: Section = {
     {
       id: 'ex-5-3',
       number: 'EJERCICIO 5.3',
-      description: 'Crea una lista <span class="inline-code">letras = ["a", "b", "c"]</span>. Usa <span class="inline-code">.insert()</span> para insertar "x" en la posición 1. Luego usa <span class="inline-code">.pop()</span> para eliminar el último elemento. Imprime la lista resultante.',
+      description: 'Crea una lista <span class="inline-code">letras = ["a", "b", "c"]</span>.<br><br>Usa <span class="inline-code">.insert()</span> para insertar "x" en la posición 1. Luego usa <span class="inline-code">.pop()</span> para eliminar el último elemento.<br><br>Imprime la lista resultante.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateInsertAndPop,

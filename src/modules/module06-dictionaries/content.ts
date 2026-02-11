@@ -93,7 +93,7 @@ export const module06: Section = {
     {
       id: 'ex-6-1',
       number: 'EJERCICIO 6.1',
-      description: 'Crea un diccionario llamado <span class="inline-code">libro</span> con las claves <span class="inline-code">"titulo"</span>, <span class="inline-code">"autor"</span> y <span class="inline-code">"año"</span> con los valores que prefieras. Luego imprime el valor de <span class="inline-code">"autor"</span>.',
+      description: 'Crea un diccionario llamado <span class="inline-code">libro</span> con las claves <span class="inline-code">"titulo"</span>, <span class="inline-code">"autor"</span> y <span class="inline-code">"año"</span> con los valores que prefieras.<br><br>Luego imprime el valor de <span class="inline-code">"autor"</span>.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateCreateDictAndAccess,
@@ -101,7 +101,7 @@ export const module06: Section = {
     {
       id: 'ex-6-2',
       number: 'EJERCICIO 6.2',
-      description: 'Crea un diccionario <span class="inline-code">colores</span> con al menos 3 pares clave-valor (ejemplo: <span class="inline-code">"cielo": "azul"</span>). Usa el método <span class="inline-code">.keys()</span> y conviértelo a lista con <span class="inline-code">list()</span> para imprimir todas las claves.',
+      description: 'Crea un diccionario <span class="inline-code">colores</span> con al menos 3 pares clave-valor (ejemplo: <span class="inline-code">"cielo": "azul"</span>).<br><br>Usa el método <span class="inline-code">.keys()</span> y conviértelo a lista con <span class="inline-code">list()</span> para imprimir todas las claves.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateKeysMethod,
@@ -117,7 +117,7 @@ export const module06: Section = {
     {
       id: 'ex-6-4',
       number: 'EJERCICIO 6.4',
-      description: 'Crea un diccionario <span class="inline-code">usuario</span> con <span class="inline-code">"nombre"</span> y <span class="inline-code">"edad"</span>. Actualiza la edad a un nuevo valor y agrega una nueva clave <span class="inline-code">"email"</span> con un correo. Imprime el diccionario completo.',
+      description: 'Crea un diccionario <span class="inline-code">usuario</span> con <span class="inline-code">"nombre"</span> y <span class="inline-code">"edad"</span>.<br><br>Actualiza la edad a un nuevo valor y agrega una nueva clave <span class="inline-code">"email"</span> con un correo.<br><br>Imprime el diccionario completo.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateUpdateDict,

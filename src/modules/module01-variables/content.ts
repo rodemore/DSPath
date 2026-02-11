@@ -91,7 +91,7 @@ export const module01: Section = {
     {
       id: 'ex-1-2',
       number: 'EJERCICIO 1.2',
-      description: 'Crea una variable <span class="inline-code">pi</span> con valor <span class="inline-code">3.14159</span> y una variable <span class="inline-code">es_positivo</span> con valor <span class="inline-code">True</span>. Imprime el tipo de cada una usando <span class="inline-code">type()</span>.',
+      description: 'Crea una variable <span class="inline-code">pi</span> con valor <span class="inline-code">3.14159</span> y una variable <span class="inline-code">es_positivo</span> con valor <span class="inline-code">True</span>.<br><br>Imprime el tipo de cada una usando <span class="inline-code">type()</span>.',
       expectedOutput: '', // No se usa en validación custom
       validationMode: 'custom',
       customValidator: validateTwoVariablesAndTypes,
@@ -99,7 +99,7 @@ export const module01: Section = {
     {
       id: 'ex-1-3',
       number: 'EJERCICIO 1.3',
-      description: 'Crea dos variables: <span class="inline-code">ciudad</span> con tu ciudad y <span class="inline-code">pais</span> con tu país. Usa <span class="inline-code">print()</span> para mostrar un mensaje como: "Vivo en [ciudad], [pais]" combinando texto y variables con comas.',
+      description: 'Crea dos variables: <span class="inline-code">ciudad</span> con tu ciudad y <span class="inline-code">pais</span> con tu país.<br><br>Usa <span class="inline-code">print()</span> para mostrar un mensaje como: "Vivo en [ciudad], [pais]" combinando texto y variables con comas.',
       expectedOutput: '', // No se usa en validación custom
       validationMode: 'custom',
       customValidator: validatePrintWithTextAndVariables,

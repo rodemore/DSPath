@@ -82,7 +82,7 @@ export const module04: Section = {
     {
       id: 'ex-4-1',
       number: 'EJERCICIO 4.1',
-      description: 'Crea una lista llamada <span class="inline-code">frutas</span> con al menos 4 frutas. Imprime el primer elemento y el último elemento usando índices.',
+      description: 'Crea una lista llamada <span class="inline-code">frutas</span> con al menos 4 frutas.<br><br>Imprime el primer elemento y el último elemento usando índices.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateCreateListAndAccess,
@@ -90,7 +90,7 @@ export const module04: Section = {
     {
       id: 'ex-4-2',
       number: 'EJERCICIO 4.2',
-      description: 'Crea una lista llamada <span class="inline-code">numeros</span> con los números del 1 al 10. Usa slicing para obtener e imprimir los números del 3 al 7.',
+      description: 'Crea una lista llamada <span class="inline-code">numeros</span> con los números del 1 al 10.<br><br>Usa slicing para obtener e imprimir los números del 3 al 7.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateListSlicing,

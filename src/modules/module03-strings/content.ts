@@ -125,7 +125,7 @@ export const module03: Section = {
     {
       id: 'ex-3-1',
       number: 'EJERCICIO 3.1',
-      description: 'Crea una variable <span class="inline-code">placa</span> con el valor <span class="inline-code">"GTS-4512"</span>. Obtén el primer carácter usando índice e imprímelo.',
+      description: 'Crea una variable <span class="inline-code">placa</span> con el valor <span class="inline-code">"GTS-4512"</span>.<br><br>Obtén el primer carácter usando índice e imprímelo.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validatePlacaFirstChar,
@@ -141,7 +141,7 @@ export const module03: Section = {
     {
       id: 'ex-3-3',
       number: 'EJERCICIO 3.3',
-      description: 'Crea una variable <span class="inline-code">frase</span> con <span class="inline-code">"Hola Mundo"</span>. Usa slicing para extraer e imprimir solo la palabra "Mundo".',
+      description: 'Crea una variable <span class="inline-code">frase</span> con <span class="inline-code">"Hola Mundo"</span>.<br><br>Usa slicing para extraer e imprimir solo la palabra "Mundo".',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateExtractMundo,
@@ -149,7 +149,7 @@ export const module03: Section = {
     {
       id: 'ex-3-4',
       number: 'EJERCICIO 3.4',
-      description: 'Crea una variable <span class="inline-code">frase</span> con <span class="inline-code">"Hola Mundo"</span>. Conviértela a mayúsculas usando el método apropiado e imprime el resultado.',
+      description: 'Crea una variable <span class="inline-code">frase</span> con <span class="inline-code">"Hola Mundo"</span>.<br><br>Conviértela a mayúsculas usando el método apropiado e imprime el resultado.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateUpperCase,
@@ -157,7 +157,7 @@ export const module03: Section = {
     {
       id: 'ex-3-5',
       number: 'EJERCICIO 3.5',
-      description: 'Crea una variable <span class="inline-code">nombre</span> con el valor <span class="inline-code">"robert moreno"</span>. Conviértelo a formato título (primera letra de cada palabra en mayúscula) e imprímelo.',
+      description: 'Crea una variable <span class="inline-code">nombre</span> con el valor <span class="inline-code">"robert moreno"</span>.<br><br>Conviértelo a formato título (primera letra de cada palabra en mayúscula) e imprímelo.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateTitleCase,

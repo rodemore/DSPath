@@ -98,7 +98,7 @@ export const module02: Section = {
     {
       id: 'ex-2-2',
       number: 'EJERCICIO 2.2',
-      description: 'Crea dos variables: <span class="inline-code">base</span> con valor 8 y <span class="inline-code">altura</span> con valor 5. Calcula el área del rectángulo (base × altura) e imprime el resultado.',
+      description: 'Crea dos variables: <span class="inline-code">base</span> con valor 8 y <span class="inline-code">altura</span> con valor 5.<br><br>Calcula el área del rectángulo (base × altura) e imprime el resultado.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateRectangleArea,
@@ -106,7 +106,7 @@ export const module02: Section = {
     {
       id: 'ex-2-3',
       number: 'EJERCICIO 2.3',
-      description: 'Crea dos variables: <span class="inline-code">numero</span> y <span class="inline-code">exponente</span> con los valores que quieras. Calcula la potencia usando el operador <span class="inline-code">**</span> e imprime el resultado.',
+      description: 'Crea dos variables: <span class="inline-code">numero</span> y <span class="inline-code">exponente</span> con los valores que quieras.<br><br>Calcula la potencia usando el operador <span class="inline-code">**</span> e imprime el resultado.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validatePowerOperation,
@@ -114,7 +114,7 @@ export const module02: Section = {
     {
       id: 'ex-2-4',
       number: 'EJERCICIO 2.4',
-      description: 'Crea dos variables: <span class="inline-code">dividendo</span> con valor 23 y <span class="inline-code">divisor</span> con valor 4. Calcula e imprime el cociente usando <span class="inline-code">//</span> y el residuo usando <span class="inline-code">%</span>.',
+      description: 'Crea dos variables: <span class="inline-code">dividendo</span> con valor 23 y <span class="inline-code">divisor</span> con valor 4.<br><br>Calcula e imprime el cociente usando <span class="inline-code">//</span> y el residuo usando <span class="inline-code">%</span>.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateDivisionAndModulo,
