@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "start": "serve -s dist -l 3000",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -14,7 +15,8 @@
     "pyodide": "^0.29.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-simple-code-editor": "^0.14.1"
+    "react-simple-code-editor": "^0.14.1",
+    "serve": "^14.2.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
