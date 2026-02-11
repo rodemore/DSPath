@@ -1,0 +1,124 @@
+.super-module-card {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 0.75rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  overflow: hidden;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+}
+
+.super-module-card:not(.locked):hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: var(--module-color);
+}
+
+.super-module-card.locked {
+  cursor: not-allowed;
+  opacity: 0.6;
+  filter: grayscale(0.5);
+}
+
+.super-module-icon {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  text-align: center;
+}
+
+.super-module-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  color: var(--text-primary);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.super-module-description {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  line-height: 1.25;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  flex-grow: 1;
+}
+
+.locked-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 12px;
+}
+
+.lock-icon {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.locked-text {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.available-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.35rem 0.7rem;
+  background: var(--module-color);
+  color: white;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 0.65rem;
+  transition: all 0.3s ease;
+}
+
+.super-module-card:not(.locked):hover .available-badge {
+  transform: translateX(4px);
+}
+
+.available-badge .arrow {
+  transition: transform 0.3s ease;
+}
+
+.super-module-card:not(.locked):hover .available-badge .arrow {
+  transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .super-module-card {
+    padding: 1.5rem;
+  }
+
+  .super-module-icon {
+    font-size: 3rem;
+  }
+
+  .super-module-title {
+    font-size: 1.5rem;
+  }
+
+  .super-module-description {
+    font-size: 0.9rem;
+    min-height: auto;
+  }
+}
