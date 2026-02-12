@@ -41,7 +41,7 @@ export const Section = ({ section, isActive, onRunCode, onExerciseComplete, next
       <div className="exercise-area">
         <div className="exercise-label">🧪 Práctica</div>
         <div className="exercise-title">
-          {section.id === 6 ? 'Crea tus propias funciones' :
+          {section.id === 6 ? 'Desafíos combinados' :
            section.id === 5 ? 'Usa diccionarios' :
            section.id === 4 ? 'Manipula listas' :
            section.id === 3 ? 'Trabaja con listas' :

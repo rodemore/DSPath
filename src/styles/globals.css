@@ -883,20 +883,20 @@ body {
 .next-section-button {
   position: relative;
   background: linear-gradient(135deg, var(--accent-dim) 0%, var(--accent) 100%);
-  border: 2px solid var(--accent);
+  border: 1.5px solid var(--accent);
   color: var(--bg-deep);
-  padding: 16px 32px;
-  border-radius: 12px;
+  padding: 10px 20px;
+  border-radius: 8px;
   font-family: 'Outfit', sans-serif;
-  font-size: 1rem;
+  font-size: 0.7rem;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  min-width: 280px;
+  gap: 4px;
+  min-width: 196px;
   overflow: hidden;
 }
 
@@ -926,23 +926,23 @@ body {
 }
 
 .next-section-text {
-  font-size: 0.8rem;
+  font-size: 0.56rem;
   font-weight: 500;
-  letter-spacing: 1px;
+  letter-spacing: 0.7px;
   text-transform: uppercase;
   opacity: 0.9;
 }
 
 .next-section-title {
-  font-size: 1.05rem;
+  font-size: 0.735rem;
   font-weight: 700;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.2px;
 }
 
 .next-section-arrow {
   position: absolute;
-  right: 20px;
-  font-size: 1.5rem;
+  right: 14px;
+  font-size: 1.05rem;
   transition: transform 0.3s ease;
 }
 
@@ -953,14 +953,14 @@ body {
 @media (max-width: 640px) {
   .next-section-button {
     min-width: 100%;
-    padding: 14px 24px;
+    padding: 9px 16px;
   }
 
   .next-section-text {
-    font-size: 0.75rem;
+    font-size: 0.52rem;
   }
 
   .next-section-title {
-    font-size: 0.95rem;
+    font-size: 0.665rem;
   }
 }
