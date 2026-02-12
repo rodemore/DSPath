@@ -11,9 +11,11 @@ interface SectionProps {
     customValidator?: (code: string, output: string) => { isValid: boolean; message?: string }
   ) => Promise<ExerciseResult>;
   onExerciseComplete: (exerciseId: string) => void;
+  nextSection?: { id: number; title: string } | null;
+  onNavigateToNext?: () => void;
 }
 
-export const Section = ({ section, isActive, onRunCode, onExerciseComplete }: SectionProps) => {
+export const Section = ({ section, isActive, onRunCode, onExerciseComplete, nextSection, onNavigateToNext }: SectionProps) => {
   if (!isActive) return null;
 
   return (
@@ -57,6 +59,19 @@ export const Section = ({ section, isActive, onRunCode, onExerciseComplete }: Se
           />
         ))}
       </div>
+
+      {nextSection && onNavigateToNext && (
+        <div className="next-section-container">
+          <button
+            className="next-section-button"
+            onClick={onNavigateToNext}
+          >
+            <span className="next-section-text">Siguiente sección</span>
+            <span className="next-section-title">{nextSection.title}</span>
+            <span className="next-section-arrow">→</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 };

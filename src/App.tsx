@@ -87,6 +87,35 @@ function App() {
     });
   };
 
+  // Calculate next section
+  const getNextSection = () => {
+    if (activeSuperModule === null) return null;
+
+    const currentSuperModuleSections = superModules[activeSuperModule].sections;
+    const currentIndex = currentSuperModuleSections.indexOf(activeSection);
+
+    if (currentIndex === -1 || currentIndex >= currentSuperModuleSections.length - 1) {
+      return null; // No hay siguiente sección en este supermódulo
+    }
+
+    const nextSectionId = currentSuperModuleSections[currentIndex + 1];
+    const nextSectionMetadata = sectionsMetadata.find(s => s.id === nextSectionId);
+
+    if (!nextSectionMetadata) return null;
+
+    return {
+      id: nextSectionId,
+      title: `${nextSectionMetadata.title} ${nextSectionMetadata.titleHighlight}`.trim()
+    };
+  };
+
+  const handleNavigateToNextSection = () => {
+    const nextSection = getNextSection();
+    if (nextSection) {
+      handleSectionChange(nextSection.id);
+    }
+  };
+
   return (
     <div className="app">
       <Header status={status} showStatus={viewMode === 'sections'} />
@@ -137,6 +166,8 @@ function App() {
                 isActive={true}
                 onRunCode={runCode}
                 onExerciseComplete={handleExerciseComplete}
+                nextSection={getNextSection()}
+                onNavigateToNext={handleNavigateToNextSection}
               />
             ) : null}
           </main>
