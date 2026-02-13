@@ -21,12 +21,9 @@ export const Header = ({ status, showStatus = true }: HeaderProps) => {
     <header className="hero">
       <div className="hero-content">
         <div className="logo">
-          <span className="py">DS</span>
+          <div className="py">DS</div>
           <span className="lab">Path</span>
         </div>
-        <p className="tagline">
-          Aprende Python desde cero con ejercicios interactivos
-        </p>
         {showStatus && (
           <div className="status-bar">
             <span className={getStatusDotClass()} />
