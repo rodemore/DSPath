@@ -770,33 +770,139 @@ body {
               radial-gradient(ellipse at 80% 50%, rgba(88,73,199,0.04) 0%, transparent 50%);
 }
 
+/* ─── LANDING NAVIGATION ─── */
+.landing-nav {
+  background: var(--bg-main);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.nav-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--text-bright);
+}
+
+.nav-link.active {
+  color: var(--accent);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+}
+
 /* ─── SUPER MODULES VIEW ─── */
 .super-modules-header {
+  position: relative;
   text-align: center;
-  padding: 15px 20px 12px;
-  background: linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-main) 100%);
+  padding: 80px 20px 60px;
+  background: var(--bg-deep);
+  overflow: hidden;
 }
 
 .super-modules-title {
-  font-size: 1.35rem;
+  position: relative;
+  font-size: 3.5rem;
   font-weight: 800;
   color: var(--text-bright);
-  margin-bottom: 6px;
+  margin-bottom: 24px;
+  animation: fadeIn 0.8s ease-out;
+  line-height: 1.2;
+}
+
+.highlight-python {
+  color: var(--accent);
+  background: linear-gradient(135deg, var(--accent) 0%, #22c997 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .super-modules-subtitle {
-  font-size: 0.8rem;
+  position: relative;
+  font-size: 1.25rem;
   color: var(--text-dim);
-  max-width: 450px;
+  max-width: 800px;
   margin: 0 auto;
+  animation: fadeIn 0.8s ease-out 0.2s backwards;
+  line-height: 1.6;
+}
+
+/* ─── MODULES SECTION ─── */
+.modules-section {
+  background: var(--bg-main);
+  padding: 40px 20px 80px;
+  min-height: 50vh;
+}
+
+.modules-section-header {
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.modules-section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-icon {
+  font-size: 1.5rem;
+}
+
+.progress-indicator {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  padding: 0.5rem 1rem;
+  background: var(--bg-card);
+  border-radius: 20px;
+  border: 1px solid var(--border);
 }
 
 .super-modules-grid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.85rem;
-  padding: 15px 20px 20px;
-  max-width: 800px;
+  gap: 2rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -846,22 +952,47 @@ body {
 }
 
 @media (max-width: 768px) {
+  .landing-nav {
+    padding: 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
   .super-modules-header {
-    padding: 30px 15px 20px;
+    padding: 60px 20px 40px;
   }
 
   .super-modules-title {
-    font-size: 1.75rem;
+    font-size: 2.5rem;
   }
 
   .super-modules-subtitle {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+  }
+
+  .modules-section {
+    padding: 30px 15px 60px;
+  }
+
+  .modules-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .modules-section-title {
+    font-size: 1.5rem;
   }
 
   .super-modules-grid {
     grid-template-columns: 1fr;
-    padding: 20px 15px;
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
 
   .breadcrumb {

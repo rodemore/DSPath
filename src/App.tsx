@@ -118,28 +118,52 @@ function App() {
 
   return (
     <div className="app">
-      <Header status={status} showStatus={viewMode === 'sections'} />
-
       {viewMode === 'super-modules' ? (
         <>
+          <nav className="landing-nav">
+            <div className="nav-content">
+              <div className="logo">
+                <span className="py">DS</span>
+                <span className="lab">Path</span>
+              </div>
+              <div className="nav-links">
+                <a href="#" className="nav-link active">Cursos</a>
+                <a href="#" className="nav-link">Proyectos</a>
+                <a href="#" className="nav-link">Comunidad</a>
+              </div>
+            </div>
+          </nav>
           <div className="super-modules-header">
-            <h1 className="super-modules-title">Curso Completo de Python</h1>
+            <h1 className="super-modules-title">
+              Curso Completo de <span className="highlight-python">Python</span>
+            </h1>
             <p className="super-modules-subtitle">
-              Acompaña tu camino a aprender Python
+              Acompaña tu camino a aprender Python desde cero con ejercicios interactivos y casos de uso reales.
             </p>
           </div>
-          <main className="super-modules-grid">
-            {superModules.map((superModule) => (
-              <SuperModuleCard
-                key={superModule.id}
-                superModule={superModule}
-                onSelect={handleSuperModuleSelect}
-              />
-            ))}
-          </main>
+          <div className="modules-section">
+            <div className="modules-section-header">
+              <h2 className="modules-section-title">
+                <span className="section-icon">📖</span> Módulos del Curso
+              </h2>
+              <div className="progress-indicator">
+                {Math.round((completedExercises.size / totalExercises) * 100)}% Completado
+              </div>
+            </div>
+            <main className="super-modules-grid">
+              {superModules.map((superModule) => (
+                <SuperModuleCard
+                  key={superModule.id}
+                  superModule={superModule}
+                  onSelect={handleSuperModuleSelect}
+                />
+              ))}
+            </main>
+          </div>
         </>
       ) : (
         <>
+          <Header status={status} showStatus={viewMode === 'sections'} />
           <div className="breadcrumb">
             <button onClick={handleBackToSuperModules} className="back-button">
               ← Volver al inicio

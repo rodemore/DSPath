@@ -49,13 +49,19 @@ export const validateRectangleArea = (code: string, output: string): { isValid: 
   const hasAltura = /altura\s*=\s*\d+/.test(code);
 
   if (!hasBase || !hasAltura) {
-    return { isValid: false, message: 'Debes crear dos variables: base y altura con valores numéricos. Ejemplo: base = 5, altura = 10' };
+    return { isValid: false, message: 'Debes crear dos variables: base y altura con valores numéricos. Ejemplo: base = 8, altura = 5' };
   }
 
   // Verificar que usa multiplicación
   const hasMultiplication = /\*/.test(code);
   if (!hasMultiplication) {
     return { isValid: false, message: 'Debes usar el operador * para calcular el área. Área = base * altura' };
+  }
+
+  // Verificar que crea la variable 'area'
+  const hasAreaVariable = /area\s*=/.test(code);
+  if (!hasAreaVariable) {
+    return { isValid: false, message: 'Debes crear una variable llamada "area" con el resultado de base * altura. Ejemplo: area = base * altura' };
   }
 
   // Verificar que imprime
@@ -66,7 +72,7 @@ export const validateRectangleArea = (code: string, output: string): { isValid: 
 
   // Verificar que el output es un número
   if (!/^\d+$/.test(output.trim())) {
-    return { isValid: false, message: 'El resultado debe ser un número. Asegúrate de multiplicar base * altura' };
+    return { isValid: false, message: 'El resultado debe ser un número. Asegúrate de multiplicar base * altura y guardar en area' };
   }
 
   return { isValid: true };
@@ -123,19 +129,31 @@ export const validateDivisionAndModulo = (code: string, output: string): { isVal
   const hasDivisor = /divisor\s*=\s*\d+/.test(code);
 
   if (!hasDividendo || !hasDivisor) {
-    return { isValid: false, message: 'Debes crear dos variables: dividendo y divisor. Ejemplo: dividendo = 17, divisor = 5' };
+    return { isValid: false, message: 'Debes crear dos variables: dividendo y divisor. Ejemplo: dividendo = 23, divisor = 4' };
   }
 
   // Verificar que usa división entera //
   const hasFloorDiv = /\/\//.test(code);
   if (!hasFloorDiv) {
-    return { isValid: false, message: 'Debes usar el operador // para división entera (cociente). Ejemplo: dividendo // divisor' };
+    return { isValid: false, message: 'Debes usar el operador // para división entera (cociente). Ejemplo: cociente = dividendo // divisor' };
   }
 
   // Verificar que usa módulo %
   const hasModulo = /%/.test(code);
   if (!hasModulo) {
-    return { isValid: false, message: 'Debes usar el operador % para obtener el residuo. Ejemplo: dividendo % divisor' };
+    return { isValid: false, message: 'Debes usar el operador % para obtener el residuo. Ejemplo: residuo = dividendo % divisor' };
+  }
+
+  // Verificar que crea la variable 'cociente'
+  const hasCocienteVariable = /cociente\s*=/.test(code);
+  if (!hasCocienteVariable) {
+    return { isValid: false, message: 'Debes crear una variable llamada "cociente" con el resultado de dividendo // divisor' };
+  }
+
+  // Verificar que crea la variable 'residuo'
+  const hasResiduoVariable = /residuo\s*=/.test(code);
+  if (!hasResiduoVariable) {
+    return { isValid: false, message: 'Debes crear una variable llamada "residuo" con el resultado de dividendo % divisor' };
   }
 
   // Verificar que imprime al menos dos valores
@@ -147,7 +165,7 @@ export const validateDivisionAndModulo = (code: string, output: string): { isVal
   // Verificar que el output tiene al menos 2 líneas
   const lines = output.trim().split('\n');
   if (lines.length < 2) {
-    return { isValid: false, message: 'Debes imprimir dos valores: el cociente (dividendo // divisor) y el residuo (dividendo % divisor)' };
+    return { isValid: false, message: 'Debes imprimir dos valores: cociente y residuo' };
   }
 
   return { isValid: true };

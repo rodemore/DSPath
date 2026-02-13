@@ -32,7 +32,7 @@ export function SuperModuleCard({ superModule, onSelect }: SuperModuleCardProps)
 
       {superModule.isAvailable && (
         <div className="available-badge">
-          <span>Disponible</span>
+          <span>Empezar Módulo</span>
           <span className="arrow">→</span>
         </div>
       )}

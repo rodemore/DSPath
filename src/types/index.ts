@@ -21,6 +21,7 @@ export interface TheoryBlock {
   content: string | string[];
   codeExample?: CodeExample;
   table?: InfoTable;
+  exercises?: Exercise[];
 }
 
 export type ValidationMode = 'exact' | 'custom';

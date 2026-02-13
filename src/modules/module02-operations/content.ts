@@ -98,7 +98,7 @@ export const module02: Section = {
     {
       id: 'ex-2-2',
       number: 'EJERCICIO 2.2',
-      description: 'Crea dos variables: <span class="inline-code">base</span> con valor 8 y <span class="inline-code">altura</span> con valor 5.<br><br>Calcula el área del rectángulo (base × altura) e imprime el resultado.',
+      description: 'Crea dos variables: <span class="inline-code">base</span> con valor 8 y <span class="inline-code">altura</span> con valor 5.<br><br>Calcula el área del rectángulo (base × altura) y guarda el resultado en una variable llamada <span class="inline-code">area</span>. Finalmente, imprime el valor de <span class="inline-code">area</span>.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateRectangleArea,
@@ -114,7 +114,7 @@ export const module02: Section = {
     {
       id: 'ex-2-4',
       number: 'EJERCICIO 2.4',
-      description: 'Crea dos variables: <span class="inline-code">dividendo</span> con valor 23 y <span class="inline-code">divisor</span> con valor 4.<br><br>Calcula e imprime el cociente usando <span class="inline-code">//</span> y el residuo usando <span class="inline-code">%</span>.',
+      description: 'Crea dos variables: <span class="inline-code">dividendo</span> con valor 23 y <span class="inline-code">divisor</span> con valor 4.<br><br>Calcula el cociente usando <span class="inline-code">//</span> y guárdalo en una variable llamada <span class="inline-code">cociente</span>. Calcula el residuo usando <span class="inline-code">%</span> y guárdalo en una variable llamada <span class="inline-code">residuo</span>. Finalmente, imprime ambas variables.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateDivisionAndModulo,

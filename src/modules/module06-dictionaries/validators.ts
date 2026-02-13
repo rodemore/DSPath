@@ -169,3 +169,44 @@ export const validateUpdateDict = (code: string, output: string): { isValid: boo
 
   return { isValid: true };
 };
+
+export const validateItemsMethod = (code: string, output: string): { isValid: boolean; message?: string } => {
+  if (!code.trim()) {
+    return { isValid: false, message: 'No has escrito ningún código' };
+  }
+
+  if (!output.trim()) {
+    return { isValid: false, message: 'Tu código no imprime nada. Usa print()' };
+  }
+
+  // Verificar que crea un diccionario
+  const hasDictCreation = /\w+\s*=\s*\{/.test(code);
+  if (!hasDictCreation) {
+    return { isValid: false, message: 'Debes crear un diccionario. Ejemplo: inventario = {"manzanas": 10, ...}' };
+  }
+
+  // Verificar que usa el método .items()
+  const hasItemsMethod = /\.items\s*\(\s*\)/.test(code);
+  if (!hasItemsMethod) {
+    return { isValid: false, message: 'Debes usar el método .items() en tu diccionario. Ejemplo: inventario.items()' };
+  }
+
+  // Verificar que usa list()
+  const hasListConversion = /list\s*\(/.test(code);
+  if (!hasListConversion) {
+    return { isValid: false, message: 'Debes convertir los items a lista usando list(). Ejemplo: list(inventario.items())' };
+  }
+
+  // Verificar que usa print()
+  const hasPrint = /print\s*\(/.test(code);
+  if (!hasPrint) {
+    return { isValid: false, message: 'Debes usar print() para mostrar los pares clave-valor' };
+  }
+
+  // Verificar que el output es una lista de tuplas (debe contener [ y ( )
+  if (!output.includes('[') || !output.includes('(')) {
+    return { isValid: false, message: 'El output debe ser una lista de tuplas (pares clave-valor). Asegúrate de usar list(inventario.items())' };
+  }
+
+  return { isValid: true };
+};

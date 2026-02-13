@@ -28,7 +28,21 @@ export const Section = ({ section, isActive, onRunCode, onExerciseComplete, next
       </div>
 
       {section.theoryBlocks.map((block, index) => (
-        <TheoryBlock key={index} block={block} />
+        <div key={index}>
+          <TheoryBlock block={block} />
+          {block.exercises && block.exercises.length > 0 && (
+            <div className="exercise-area inline-exercises">
+              {block.exercises.map((exercise) => (
+                <ExerciseCard
+                  key={exercise.id}
+                  exercise={exercise}
+                  onRun={onRunCode}
+                  onComplete={onExerciseComplete}
+                />
+              ))}
+            </div>
+          )}
+        </div>
       ))}
 
       {section.tipBox && (
@@ -38,27 +52,29 @@ export const Section = ({ section, isActive, onRunCode, onExerciseComplete, next
         </div>
       )}
 
-      <div className="exercise-area">
-        <div className="exercise-label">🧪 Práctica</div>
-        <div className="exercise-title">
-          {section.id === 6 ? 'Desafíos combinados' :
-           section.id === 5 ? 'Usa diccionarios' :
-           section.id === 4 ? 'Manipula listas' :
-           section.id === 3 ? 'Trabaja con listas' :
-           section.id === 2 ? 'Manipula cadenas de texto' :
-           section.id === 1 ? 'Calcula con Python' :
-           'Pon a prueba lo aprendido'}
-        </div>
+      {section.exercises && section.exercises.length > 0 && (
+        <div className="exercise-area">
+          <div className="exercise-label">🧪 Práctica</div>
+          <div className="exercise-title">
+            {section.id === 6 ? 'Desafíos combinados' :
+             section.id === 5 ? 'Usa diccionarios' :
+             section.id === 4 ? 'Manipula listas' :
+             section.id === 3 ? 'Trabaja con listas' :
+             section.id === 2 ? 'Manipula cadenas de texto' :
+             section.id === 1 ? 'Calcula con Python' :
+             'Pon a prueba lo aprendido'}
+          </div>
 
-        {section.exercises.map((exercise) => (
-          <ExerciseCard
-            key={exercise.id}
-            exercise={exercise}
-            onRun={onRunCode}
-            onComplete={onExerciseComplete}
-          />
-        ))}
-      </div>
+          {section.exercises.map((exercise) => (
+            <ExerciseCard
+              key={exercise.id}
+              exercise={exercise}
+              onRun={onRunCode}
+              onComplete={onExerciseComplete}
+            />
+          ))}
+        </div>
+      )}
 
       {nextSection && onNavigateToNext && (
         <div className="next-section-container">

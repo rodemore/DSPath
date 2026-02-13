@@ -7,7 +7,7 @@ export const superModules: SuperModule[] = [
     description: 'Fundamentos de Python: variables, operaciones, strings, listas y diccionarios',
     icon: '🐍',
     isAvailable: true,
-    sections: [0, 1, 2, 3, 4, 5, 6], // All current modules
+    sections: [0, 1, 2, 3, 4, 5, 6],
     color: '#3b82f6', // Blue
   },
   {
@@ -15,8 +15,8 @@ export const superModules: SuperModule[] = [
     title: 'Estructuras de Control y Bucles',
     description: 'Condicionales (if/else), bucles (for/while) y control de flujo',
     icon: '🔄',
-    isAvailable: false,
-    sections: [], // Will be populated later
+    isAvailable: true,
+    sections: [7, 8, 9, 10, 11],
     color: '#8b5cf6', // Purple
   },
   {
