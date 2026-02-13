@@ -1,184 +1,171 @@
 .super-module-card {
   position: relative;
   background: var(--bg-card);
-  border-radius: 16px;
+  border-radius: 24px;
   padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   border: 1px solid var(--border);
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 220px;
+  gap: 1.5rem;
   animation: fadeIn 0.6s ease-out backwards;
 }
 
-.super-module-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, var(--module-color) 0%, transparent 100%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
 .super-module-card:not(.locked):hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  border-color: var(--module-color);
-}
-
-.super-module-card:not(.locked):hover::before {
-  opacity: 0.08;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(45, 212, 168, 0.1);
 }
 
 .super-module-card.locked {
   cursor: not-allowed;
-  opacity: 0.6;
-  filter: grayscale(0.5);
+  opacity: 0.75;
+}
+
+/* Header con icono y badge */
+.super-module-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.super-module-icon-container {
+  padding: 0.75rem;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .super-module-icon-container {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] .super-module-icon-container {
+  background: var(--bg-card-hover);
+}
+
+.super-module-card.locked .super-module-icon-container {
+  background: var(--bg-card-hover);
 }
 
 .super-module-icon {
-  position: relative;
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  transition: transform 0.4s ease;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  display: block;
 }
 
-.super-module-card:not(.locked):hover .super-module-icon {
-  transform: scale(1.1) rotate(5deg);
-}
-
-.super-module-title {
-  position: relative;
-  font-size: 1.5rem;
+/* Badge de bloqueado */
+.locked-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  background: var(--bg-card-hover);
+  border-radius: 20px;
+  font-size: 0.625rem;
   font-weight: 700;
-  margin-bottom: 0.75rem;
-  color: var(--text-bright);
-  text-align: center;
-  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
 }
 
+/* Título */
+.super-module-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-bright);
+  line-height: 1.3;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.super-module-card:not(.locked):hover .super-module-title {
+  color: var(--accent);
+}
+
+/* Descripción */
 .super-module-description {
-  position: relative;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   color: var(--text-dim);
   line-height: 1.6;
-  text-align: center;
-  margin-bottom: 1.5rem;
+  margin: 0;
   flex-grow: 1;
 }
 
-.locked-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  border-radius: 16px;
-}
-
-.lock-icon {
-  font-size: 2.5rem;
-  opacity: 0.9;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-}
-
-.locked-text {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-bright);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  letter-spacing: 0.5px;
-}
-
+/* Botón de acción */
 .available-badge {
-  position: relative;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, var(--module-color) 0%, var(--module-color) 100%);
+  padding: 1rem 2rem;
+  background: var(--module-color);
   color: white;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 0.9rem;
+  border: none;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-}
-
-.available-badge::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-  transition: left 0.5s ease;
+  cursor: pointer;
 }
 
 .super-module-card:not(.locked):hover .available-badge {
-  transform: scale(1.05);
+  filter: brightness(1.1);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
 }
 
-.super-module-card:not(.locked):hover .available-badge::before {
-  left: 100%;
+.super-module-card:not(.locked):active .available-badge {
+  transform: scale(0.95);
 }
 
 .available-badge .arrow {
   transition: transform 0.3s ease;
-  font-size: 1.2rem;
 }
 
 .super-module-card:not(.locked):hover .available-badge .arrow {
   transform: translateX(4px);
 }
 
-/* Staggered animation delays for cards */
+/* Botón deshabilitado */
+.disabled-badge {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: var(--bg-card-hover);
+  color: var(--text-dim);
+  border: none;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: not-allowed;
+}
+
+/* Animaciones escalonadas */
 .super-module-card:nth-child(1) { animation-delay: 0.1s; }
 .super-module-card:nth-child(2) { animation-delay: 0.2s; }
 .super-module-card:nth-child(3) { animation-delay: 0.3s; }
 .super-module-card:nth-child(4) { animation-delay: 0.4s; }
+.super-module-card:nth-child(5) { animation-delay: 0.5s; }
 
 /* Responsive */
 @media (max-width: 768px) {
   .super-module-card {
-    padding: 2rem;
-    min-height: 200px;
-  }
-
-  .super-module-icon {
-    font-size: 2.5rem;
+    padding: 1.5rem;
+    gap: 1.25rem;
   }
 
   .super-module-title {
-    font-size: 1.3rem;
+    font-size: 1.15rem;
   }
 
   .super-module-description {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
-  .available-badge {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.85rem;
+  .available-badge,
+  .disabled-badge {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
   }
 }

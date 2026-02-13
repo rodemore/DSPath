@@ -72,7 +72,7 @@ export interface SuperModule {
   id: number;
   title: string;
   description: string;
-  icon: string;
+  icon: string; // Icon name from lucide-react
   isAvailable: boolean;
   sections: number[]; // IDs of sections that belong to this super module
   color: string; // For theming
