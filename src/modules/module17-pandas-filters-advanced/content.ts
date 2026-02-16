@@ -123,7 +123,7 @@ df = pd.read_csv('iris.csv')
     {
       icon: '🔎',
       title: 'query(): Filtrar con strings (SQL-like)',
-      content: 'El método <span class="inline-code">.query()</span> permite escribir filtros como strings, similar a SQL. Es muy útil para filtros complejos y hace el código más legible.',
+      content: 'El método <span class="inline-code">.query()</span> permite escribir filtros como strings, similar a SQL. Es muy útil para filtros complejos y hace el código más legible. <strong>Importante:</strong> Usa <span class="inline-code">and</span>, <span class="inline-code">or</span>, <span class="inline-code">not</span> en minúsculas (no AND, OR, NOT).',
       codeExample: {
         filename: 'query.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -148,7 +148,7 @@ df = pd.read_csv('iris.csv')
         {
           id: 'ex-17-3',
           number: 'EJERCICIO 17.3',
-          description: 'Usa <span class="inline-code">.query()</span> para filtrar flores con <span class="inline-code">petal_length > 4</span> Y <span class="inline-code">petal_width > 1.5</span>. Guarda el resultado en <span class="inline-code">petalos_grandes</span> e imprime las primeras 5 filas.',
+          description: 'Usa <span class="inline-code">.query()</span> para filtrar flores con <span class="inline-code">petal_length > 4</span> Y <span class="inline-code">petal_width > 1.5</span>. Recuerda usar <span class="inline-code">and</span> en minúsculas dentro del query. Guarda el resultado en <span class="inline-code">petalos_grandes</span> e imprime las primeras 5 filas.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateQuery,
