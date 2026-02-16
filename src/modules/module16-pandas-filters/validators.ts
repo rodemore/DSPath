@@ -1,6 +1,6 @@
 // Validadores para Módulo 16: Pandas - Filtros y Operadores Lógicos
 
-export const validateSimpleFilter = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateSimpleFilter = (code: string, _output: string): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }

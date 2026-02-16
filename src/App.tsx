@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate, useParams, useLocation } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { usePyodide } from './hooks/usePyodide';
 import { Header } from './components/Header';
 import { Navigation } from './components/Navigation';

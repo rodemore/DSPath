@@ -77,7 +77,7 @@ export const validateSelectMultipleColumns = (code: string, output: string): { i
   return { isValid: true };
 };
 
-export const validateIloc = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateIloc = (code: string, _output: string): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }

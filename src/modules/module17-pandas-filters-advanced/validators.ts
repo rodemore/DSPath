@@ -47,7 +47,7 @@ export const validateIsin = (code: string, output: string): { isValid: boolean; 
   return { isValid: true };
 };
 
-export const validateBetween = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateBetween = (code: string, _output: string): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -85,7 +85,7 @@ export const validateBetween = (code: string, output: string): { isValid: boolea
   return { isValid: true };
 };
 
-export const validateQuery = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateQuery = (code: string, _output: string): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
