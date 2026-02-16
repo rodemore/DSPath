@@ -225,7 +225,11 @@ body {
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.25s;
-  white-space: nowrap;
+  white-space: normal;
+  min-width: 120px;
+  max-width: 160px;
+  text-align: left;
+  line-height: 1.3;
 }
 
 .nav-btn:hover {

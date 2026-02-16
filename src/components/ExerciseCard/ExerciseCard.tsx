@@ -8,12 +8,14 @@ interface ExerciseCardProps {
   onRun: (
     code: string,
     expectedOutput: string,
-    customValidator?: (code: string, output: string) => { isValid: boolean; message?: string }
+    customValidator?: (code: string, output: string) => { isValid: boolean; message?: string },
+    initialCode?: string
   ) => Promise<ExerciseResult>;
   onComplete: (exerciseId: string) => void;
+  sectionInitialCode?: string;
 }
 
-export const ExerciseCard = ({ exercise, onRun, onComplete }: ExerciseCardProps) => {
+export const ExerciseCard = ({ exercise, onRun, onComplete, sectionInitialCode }: ExerciseCardProps) => {
   const [result, setResult] = useState<ExerciseResult | null>(null);
   const [showOutput, setShowOutput] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
@@ -22,7 +24,7 @@ export const ExerciseCard = ({ exercise, onRun, onComplete }: ExerciseCardProps)
     setIsRunning(true);
     setShowOutput(true);
 
-    const execResult = await onRun(code, exercise.expectedOutput, exercise.customValidator);
+    const execResult = await onRun(code, exercise.expectedOutput, exercise.customValidator, sectionInitialCode);
     setResult(execResult);
 
     if (execResult.isCorrect) {
@@ -67,6 +69,7 @@ export const ExerciseCard = ({ exercise, onRun, onComplete }: ExerciseCardProps)
         onRun={handleRun}
         onReset={handleReset}
         initialCode={exercise.initialCode}
+        starterCode={exercise.starterCode}
         isRunning={isRunning}
       />
       <OutputArea result={result} show={showOutput} />

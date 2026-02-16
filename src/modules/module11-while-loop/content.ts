@@ -31,6 +31,16 @@ export const module11: Section = {
 <span class="output"># → Contador: 3</span>
 <span class="output"># → Fin del bucle</span>`,
       },
+      exercises: [
+        {
+          id: 'ex-11-1',
+          number: 'EJERCICIO 11.1',
+          description: 'Crea una variable <span class="inline-code">contador = 1</span>.<br><br>Usa un bucle <span class="inline-code">while</span> para imprimir los números del 1 al 5. Recuerda incrementar el contador dentro del bucle.',
+          expectedOutput: '',
+          validationMode: 'custom',
+          customValidator: validateWhileBasic,
+        },
+      ],
     },
     {
       icon: '⚠️',
@@ -56,6 +66,16 @@ export const module11: Section = {
 <span class="output"># → 64</span>
 <span class="output"># → 128</span>`,
       },
+      exercises: [
+        {
+          id: 'ex-11-2',
+          number: 'EJERCICIO 11.2',
+          description: 'Crea una variable <span class="inline-code">numero = 10</span>.<br><br>Usa un bucle <span class="inline-code">while</span> para imprimir números descendentes del 10 al 1. Disminuye el número en 1 en cada iteración.',
+          expectedOutput: '',
+          validationMode: 'custom',
+          customValidator: validateWhileCounter,
+        },
+      ],
     },
     {
       icon: '⚙️',
@@ -79,11 +99,21 @@ export const module11: Section = {
 <span class="comment">#     print(x)</span>
 <span class="comment">#     # ¡Olvidamos actualizar x! Bucle infinito</span>`,
       },
+      exercises: [
+        {
+          id: 'ex-11-3',
+          number: 'EJERCICIO 11.3',
+          description: 'Crea dos variables: <span class="inline-code">suma = 0</span> y <span class="inline-code">numero = 1</span>.<br><br>Usa un bucle <span class="inline-code">while</span> para sumar los números del 1 al 10. En cada iteración, suma el número actual a la variable suma e incrementa numero. Al final (fuera del bucle), imprime la suma total.',
+          expectedOutput: '',
+          validationMode: 'custom',
+          customValidator: validateWhileSum,
+        },
+      ],
     },
     {
       icon: '🛑',
       title: 'BREAK: Salir del bucle',
-      content: 'La palabra clave <span class="inline-code">break</span> permite <strong>salir inmediatamente</strong> de un bucle, sin importar si la condición aún es verdadera.',
+      content: 'La palabra clave <span class="inline-code">break</span> permite <strong>salir inmediatamente</strong> de un bucle, sin importar si la condición aún es verdadera. Es muy útil cuando encontramos lo que buscamos y no necesitamos seguir iterando.',
       codeExample: {
         filename: 'break.py',
         code: `<span class="identifier">numero</span> = <span class="number">1</span>
@@ -105,6 +135,16 @@ export const module11: Section = {
 <span class="output"># → Alcanzamos el límite, saliendo...</span>
 <span class="output"># → Fuera del bucle</span>`,
       },
+      exercises: [
+        {
+          id: 'ex-11-4',
+          number: 'EJERCICIO 11.4',
+          description: 'Crea una variable <span class="inline-code">numero = 1</span>.<br><br>Usa un bucle <span class="inline-code">while True</span> (bucle infinito) para imprimir los números. Usa <span class="inline-code">if</span> con <span class="inline-code">break</span> para salir del bucle cuando el número sea mayor a 5. No olvides incrementar el número.',
+          expectedOutput: '',
+          validationMode: 'custom',
+          customValidator: validateWhileBreak,
+        },
+      ],
     },
     {
       icon: '⏭️',
@@ -163,38 +203,5 @@ export const module11: Section = {
     icon: '⚠️',
     content: '<strong>Cuidado con los bucles infinitos:</strong> Asegúrate siempre de que la condición del <span class="inline-code">while</span> eventualmente se vuelva falsa, o usa <span class="inline-code">break</span> para salir. Un bucle infinito puede hacer que tu programa se congele.',
   },
-  exercises: [
-    {
-      id: 'ex-11-1',
-      number: 'EJERCICIO 11.1',
-      description: 'Crea una variable <span class="inline-code">contador = 1</span>.<br><br>Usa un bucle <span class="inline-code">while</span> para imprimir los números del 1 al 5. Recuerda incrementar el contador dentro del bucle.',
-      expectedOutput: '',
-      validationMode: 'custom',
-      customValidator: validateWhileBasic,
-    },
-    {
-      id: 'ex-11-2',
-      number: 'EJERCICIO 11.2',
-      description: 'Crea una variable <span class="inline-code">numero = 10</span>.<br><br>Usa un bucle <span class="inline-code">while</span> para imprimir números descendentes del 10 al 1. Disminuye el número en 1 en cada iteración.',
-      expectedOutput: '',
-      validationMode: 'custom',
-      customValidator: validateWhileCounter,
-    },
-    {
-      id: 'ex-11-3',
-      number: 'EJERCICIO 11.3',
-      description: 'Crea dos variables: <span class="inline-code">suma = 0</span> y <span class="inline-code">numero = 1</span>.<br><br>Usa un bucle <span class="inline-code">while</span> para sumar los números del 1 al 10. En cada iteración, suma el número actual a la variable suma e incrementa numero. Al final (fuera del bucle), imprime la suma total.',
-      expectedOutput: '',
-      validationMode: 'custom',
-      customValidator: validateWhileSum,
-    },
-    {
-      id: 'ex-11-4',
-      number: 'EJERCICIO 11.4',
-      description: 'Crea una variable <span class="inline-code">numero = 1</span>.<br><br>Usa un bucle <span class="inline-code">while True</span> (bucle infinito) para imprimir los números. Usa <span class="inline-code">if</span> con <span class="inline-code">break</span> para salir del bucle cuando el número sea mayor a 5. No olvides incrementar el número.',
-      expectedOutput: '',
-      validationMode: 'custom',
-      customValidator: validateWhileBreak,
-    },
-  ],
+  exercises: [],
 };

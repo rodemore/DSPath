@@ -1,0 +1,97 @@
+.terminal-block {
+  background: #1e1e1e;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}
+
+.terminal-header {
+  background: #323232;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid #404040;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot.red {
+  background: #ff5f56;
+}
+
+.dot.yellow {
+  background: #ffbd2e;
+}
+
+.dot.green {
+  background: #27c93f;
+}
+
+.terminal-title {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.terminal-body {
+  padding: 1rem 1.25rem;
+  background: #1e1e1e;
+}
+
+.terminal-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.terminal-prompt {
+  color: #10b981;
+  font-weight: 600;
+  font-size: 0.95rem;
+  user-select: none;
+}
+
+.terminal-command {
+  color: #e5e7eb;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.terminal-description {
+  color: #9ca3af;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* Efecto de cursor parpadeante opcional */
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.terminal-line::after {
+  content: '▋';
+  color: #10b981;
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}

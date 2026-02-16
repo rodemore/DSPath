@@ -41,7 +41,10 @@ export const usePyodide = () => {
           indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.25.1/full/',
         });
 
-        console.log('✅ Pyodide cargado correctamente');
+        console.log('📊 Cargando paquetes de Python (pandas, numpy)...');
+        await pyodide.loadPackage(['pandas', 'numpy']);
+
+        console.log('✅ Pyodide cargado correctamente con pandas');
         pyodideRef.current = pyodide;
         setStatus({ isReady: true, isLoading: false, error: null });
       } catch (error) {
@@ -58,7 +61,8 @@ export const usePyodide = () => {
     async (
       code: string,
       expectedOutput: string,
-      customValidator?: (code: string, output: string) => { isValid: boolean; message?: string }
+      customValidator?: (code: string, output: string) => { isValid: boolean; message?: string },
+      initialCode?: string
     ): Promise<ExerciseResult> => {
       if (!pyodideRef.current || !status.isReady) {
         return {
@@ -77,6 +81,11 @@ export const usePyodide = () => {
       }
 
       try {
+        // Execute initialCode first (if provided) - invisible to the student
+        if (initialCode) {
+          await pyodideRef.current.runPythonAsync(initialCode);
+        }
+
         // Capture stdout
         await pyodideRef.current.runPythonAsync(`
 import sys, io

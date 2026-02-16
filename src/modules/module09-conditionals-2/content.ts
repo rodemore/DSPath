@@ -28,6 +28,16 @@ export const module09: Section = {
 
 <span class="output"># → Eres menor de edad</span>`,
       },
+      exercises: [
+        {
+          id: 'ex-9-1',
+          number: 'EJERCICIO 9.1',
+          description: 'Crea una variable <span class="inline-code">temperatura = 30</span>.<br><br>Usa <span class="inline-code">if-else</span> para verificar si la temperatura es mayor a 25. Si es así, imprime "Hace calor", de lo contrario imprime "Clima agradable".',
+          expectedOutput: '',
+          validationMode: 'custom',
+          customValidator: validateIfElse,
+        },
+      ],
     },
     {
       icon: '💡',
@@ -54,6 +64,16 @@ export const module09: Section = {
 
 <span class="output"># → Compra aprobada</span>`,
       },
+      exercises: [
+        {
+          id: 'ex-9-2',
+          number: 'EJERCICIO 9.2',
+          description: 'Crea una variable <span class="inline-code">edad = 16</span>.<br><br>Usa <span class="inline-code">if-else</span> para verificar si la edad es mayor o igual a 18. Si es así, imprime "Puedes votar", de lo contrario imprime "No puedes votar aún".',
+          expectedOutput: '',
+          validationMode: 'custom',
+          customValidator: validateIfElseAge,
+        },
+      ],
     },
     {
       icon: '🎯',
@@ -74,6 +94,16 @@ export const module09: Section = {
 
 <span class="output"># → Bueno</span>`,
       },
+      exercises: [
+        {
+          id: 'ex-9-3',
+          number: 'EJERCICIO 9.3',
+          description: 'Crea una variable <span class="inline-code">hora = 14</span>.<br><br>Usa <span class="inline-code">if-elif-else</span> para imprimir un saludo según la hora:<br>- Si hora &lt; 12: "Buenos días"<br>- Si hora &lt; 18: "Buenas tardes"<br>- De lo contrario: "Buenas noches"',
+          expectedOutput: '',
+          validationMode: 'custom',
+          customValidator: validateIfElifElse,
+        },
+      ],
     },
     {
       icon: '📊',
@@ -96,6 +126,16 @@ export const module09: Section = {
 <span class="output"># → Adulto</span>
 <span class="comment"># Se detiene aquí, no evalúa las siguientes</span>`,
       },
+      exercises: [
+        {
+          id: 'ex-9-4',
+          number: 'EJERCICIO 9.4',
+          description: 'Crea una variable <span class="inline-code">nota = 78</span>.<br><br>Usa <span class="inline-code">if-elif-else</span> para clasificar la nota:<br>- Si nota &gt;&#61; 90: "Excelente"<br>- Si nota &gt;&#61; 80: "Muy bueno"<br>- Si nota &gt;&#61; 70: "Bueno"<br>- Si nota &gt;&#61; 60: "Aprobado"<br>- De lo contrario: "Reprobado"',
+          expectedOutput: '',
+          validationMode: 'custom',
+          customValidator: validateIfElifElseGrade,
+        },
+      ],
     },
     {
       icon: '🎮',
@@ -147,52 +187,21 @@ export const module09: Section = {
 <span class="output"># → Eres mayor de edad</span>
 <span class="output"># → Puedes conducir</span>`,
       },
+      exercises: [
+        {
+          id: 'ex-9-5',
+          number: 'EJERCICIO 9.5',
+          description: 'Crea tres variables: <span class="inline-code">edad = 25</span>, <span class="inline-code">es_estudiante = True</span> y <span class="inline-code">tiene_descuento = False</span>.<br><br>Usa <span class="inline-code">if-elif-else</span> para determinar el precio del boleto:<br>- Si edad &lt; 18 OR es_estudiante: imprime "Precio: $5"<br>- Si edad &gt;&#61; 65: imprime "Precio: $7"<br>- De lo contrario: imprime "Precio: $10"',
+          expectedOutput: '',
+          validationMode: 'custom',
+          customValidator: validateComplexConditions,
+        },
+      ],
     },
   ],
   tipBox: {
     icon: '⚠️',
     content: '<strong>Importante:</strong> Recuerda que <span class="inline-code">elif</span> y <span class="inline-code">else</span> solo funcionan después de un <span class="inline-code">if</span>. No pueden existir solos. Además, <span class="inline-code">else</span> siempre debe ir al final.',
   },
-  exercises: [
-    {
-      id: 'ex-9-1',
-      number: 'EJERCICIO 9.1',
-      description: 'Crea una variable <span class="inline-code">temperatura = 30</span>.<br><br>Usa <span class="inline-code">if-else</span> para verificar si la temperatura es mayor a 25. Si es así, imprime "Hace calor", de lo contrario imprime "Clima agradable".',
-      expectedOutput: '',
-      validationMode: 'custom',
-      customValidator: validateIfElse,
-    },
-    {
-      id: 'ex-9-2',
-      number: 'EJERCICIO 9.2',
-      description: 'Crea una variable <span class="inline-code">edad = 16</span>.<br><br>Usa <span class="inline-code">if-else</span> para verificar si la edad es mayor o igual a 18. Si es así, imprime "Puedes votar", de lo contrario imprime "No puedes votar aún".',
-      expectedOutput: '',
-      validationMode: 'custom',
-      customValidator: validateIfElseAge,
-    },
-    {
-      id: 'ex-9-3',
-      number: 'EJERCICIO 9.3',
-      description: 'Crea una variable <span class="inline-code">hora = 14</span>.<br><br>Usa <span class="inline-code">if-elif-else</span> para imprimir un saludo según la hora:<br>- Si hora &lt; 12: "Buenos días"<br>- Si hora &lt; 18: "Buenas tardes"<br>- De lo contrario: "Buenas noches"',
-      expectedOutput: '',
-      validationMode: 'custom',
-      customValidator: validateIfElifElse,
-    },
-    {
-      id: 'ex-9-4',
-      number: 'EJERCICIO 9.4',
-      description: 'Crea una variable <span class="inline-code">nota = 78</span>.<br><br>Usa <span class="inline-code">if-elif-else</span> para clasificar la nota:<br>- Si nota &gt;&#61; 90: "Excelente"<br>- Si nota &gt;&#61; 80: "Muy bueno"<br>- Si nota &gt;&#61; 70: "Bueno"<br>- Si nota &gt;&#61; 60: "Aprobado"<br>- De lo contrario: "Reprobado"',
-      expectedOutput: '',
-      validationMode: 'custom',
-      customValidator: validateIfElifElseGrade,
-    },
-    {
-      id: 'ex-9-5',
-      number: 'EJERCICIO 9.5',
-      description: 'Crea tres variables: <span class="inline-code">edad = 25</span>, <span class="inline-code">es_estudiante = True</span> y <span class="inline-code">tiene_descuento = False</span>.<br><br>Usa <span class="inline-code">if-elif-else</span> para determinar el precio del boleto:<br>- Si edad &lt; 18 OR es_estudiante: imprime "Precio: $5"<br>- Si edad &gt;&#61; 65: imprime "Precio: $7"<br>- De lo contrario: imprime "Precio: $10"',
-      expectedOutput: '',
-      validationMode: 'custom',
-      customValidator: validateComplexConditions,
-    },
-  ],
+  exercises: [],
 };

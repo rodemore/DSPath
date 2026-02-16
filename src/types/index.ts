@@ -15,16 +15,37 @@ export interface InfoTable {
   rows: TableRow[];
 }
 
+export interface TerminalCommand {
+  command: string;
+  description?: string;
+}
+
 export interface TheoryBlock {
   icon: string;
   title: string;
   content: string | string[];
   codeExample?: CodeExample;
+  terminalCommand?: TerminalCommand;
   table?: InfoTable;
   exercises?: Exercise[];
+  quizzes?: Quiz[]; // Nueva propiedad para quizzes
 }
 
 export type ValidationMode = 'exact' | 'custom';
+
+export interface QuizOption {
+  id: string;
+  text: string;
+  isCorrect: boolean;
+  feedback?: string; // Feedback específico cuando se selecciona esta opción
+}
+
+export interface Quiz {
+  id: string;
+  number: string;
+  question: string;
+  options: QuizOption[];
+}
 
 export interface Exercise {
   id: string;
@@ -32,6 +53,7 @@ export interface Exercise {
   description: string;
   expectedOutput: string;
   initialCode?: string;
+  starterCode?: string; // Código base que aparece por defecto y se mantiene al limpiar
   hints?: string[];
   validationMode?: ValidationMode;
   customValidator?: (code: string, output: string) => { isValid: boolean; message?: string };
@@ -48,6 +70,7 @@ export interface Section {
     content: string;
   };
   exercises: Exercise[];
+  initialCode?: string; // Código que se ejecuta antes de cada ejercicio (invisible para el estudiante)
 }
 
 export interface PyodideStatus {

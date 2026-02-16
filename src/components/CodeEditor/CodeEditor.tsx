@@ -8,18 +8,21 @@ interface CodeEditorProps {
   onRun: (code: string) => void;
   onReset: () => void;
   initialCode?: string;
+  starterCode?: string; // Código base que se mantiene al limpiar
   isRunning: boolean;
 }
 
-export const CodeEditor = ({ onRun, onReset, initialCode = '', isRunning }: CodeEditorProps) => {
-  const [code, setCode] = useState(initialCode);
+export const CodeEditor = ({ onRun, onReset, initialCode = '', starterCode, isRunning }: CodeEditorProps) => {
+  // Si hay starterCode, usarlo; si no, usar initialCode
+  const [code, setCode] = useState(starterCode || initialCode);
 
   const handleRun = () => {
     onRun(code);
   };
 
   const handleReset = () => {
-    setCode('');
+    // Si hay starterCode, restaurarlo; si no, limpiar completamente
+    setCode(starterCode || '');
     onReset();
   };
 

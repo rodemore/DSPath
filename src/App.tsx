@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate, useParams, useLocation } from 'react-router-dom';
 import { usePyodide } from './hooks/usePyodide';
 import { Header } from './components/Header';
 import { Navigation } from './components/Navigation';
@@ -6,7 +7,7 @@ import { ProgressBar } from './components/ProgressBar';
 import { Section } from './components/Section';
 import { ThemeToggle } from './components/ThemeToggle';
 import { SuperModuleCard } from './components/SuperModuleCard';
-import { sectionsMetadata, loadModule, getTotalExercisesCount } from './data/sections';
+import { sectionsMetadata, loadModule, getTotalExercisesCount, getExercisesCountForSuperModule } from './data/sections';
 import { superModules } from './data/superModules';
 import type { ProgressData, Section as SectionType } from './types';
 import './styles/globals.css';
@@ -15,12 +16,28 @@ type ViewMode = 'super-modules' | 'sections';
 
 function App() {
   const { status, runCode } = usePyodide();
-  const [viewMode, setViewMode] = useState<ViewMode>('super-modules');
-  const [activeSuperModule, setActiveSuperModule] = useState<number | null>(null);
-  const [activeSection, setActiveSection] = useState(0);
-  const [completedExercises, setCompletedExercises] = useState<Set<string>>(new Set());
+  const navigate = useNavigate();
+  const params = useParams();
+
+  const [completedExercises, setCompletedExercises] = useState<Set<string>>(() => {
+    const saved = localStorage.getItem('completedExercises');
+    return saved ? new Set(JSON.parse(saved)) : new Set();
+  });
   const [currentSection, setCurrentSection] = useState<SectionType | null>(null);
   const [isLoadingSection, setIsLoadingSection] = useState(false);
+
+  // Save completed exercises to localStorage
+  useEffect(() => {
+    localStorage.setItem('completedExercises', JSON.stringify(Array.from(completedExercises)));
+  }, [completedExercises]);
+
+  // Parse URL params
+  const superModuleIdFromUrl = params.superModuleId ? parseInt(params.superModuleId) : null;
+  const sectionIdFromUrl = params.sectionId ? parseInt(params.sectionId) : null;
+
+  const viewMode: ViewMode = superModuleIdFromUrl !== null ? 'sections' : 'super-modules';
+  const activeSuperModule = superModuleIdFromUrl;
+  const activeSection = sectionIdFromUrl ?? (activeSuperModule !== null ? superModules[activeSuperModule]?.sections[0] ?? 0 : 0);
 
   // Calculate total exercises
   const totalExercises = getTotalExercisesCount();
@@ -43,11 +60,26 @@ function App() {
     }
   }, [activeSection, viewMode, activeSuperModule]);
 
-  // Progress data
+  // Progress data - solo para el supermódulo actual
+  const currentSuperModuleExercises = activeSuperModule !== null
+    ? getExercisesCountForSuperModule(superModules[activeSuperModule].sections)
+    : totalExercises;
+
+  // Contar ejercicios completados solo del supermódulo actual
+  const completedInCurrentSuperModule = activeSuperModule !== null
+    ? Array.from(completedExercises).filter(exerciseId => {
+        // El exerciseId tiene formato: "section-X-exercise-Y"
+        const sectionId = parseInt(exerciseId.split('-')[1]);
+        return superModules[activeSuperModule].sections.includes(sectionId);
+      }).length
+    : completedExercises.size;
+
   const progressData: ProgressData = {
     completedExercises,
-    totalExercises,
-    percentage: totalExercises > 0 ? (completedExercises.size / totalExercises) * 100 : 0,
+    totalExercises: currentSuperModuleExercises,
+    percentage: currentSuperModuleExercises > 0
+      ? (completedInCurrentSuperModule / currentSuperModuleExercises) * 100
+      : 0,
   };
 
   // Navigation items (filter by active super module)
@@ -61,22 +93,24 @@ function App() {
     : [];
 
   const handleSuperModuleSelect = (superModuleId: number) => {
-    setActiveSuperModule(superModuleId);
-    setActiveSection(superModules[superModuleId].sections[0] || 0);
-    setViewMode('sections');
+    const firstSection = superModules[superModuleId].sections[0] || 0;
+    const newPath = `/module/${superModuleId}/section/${firstSection}`;
+    console.log('Navigating to:', newPath);
+    navigate(newPath);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleBackToSuperModules = () => {
-    setViewMode('super-modules');
-    setActiveSuperModule(null);
+    navigate('/');
     setCurrentSection(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSectionChange = (sectionId: number) => {
-    setActiveSection(sectionId);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (activeSuperModule !== null) {
+      navigate(`/module/${activeSuperModule}/section/${sectionId}`);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleExerciseComplete = (exerciseId: string) => {

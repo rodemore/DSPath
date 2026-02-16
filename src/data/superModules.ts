@@ -33,8 +33,8 @@ export const superModules: SuperModule[] = [
     title: 'Introducción a Pandas',
     description: 'Manipulación y análisis de datos con la librería líder en Data Science.',
     icon: 'Database',
-    isAvailable: false,
-    sections: [], // Will be populated later
+    isAvailable: true,
+    sections: [12, 13, 14, 15, 16], // Módulo 13-17: Intro, Lectura, Selección, Filtros, Filtros Avanzados
     color: '#10b981', // Green
   },
   {

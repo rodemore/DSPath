@@ -1,5 +1,6 @@
 import type { TheoryBlock as TheoryBlockType } from '../../types';
 import { CodeExample } from '../CodeExample';
+import { TerminalBlock } from '../TerminalBlock';
 
 interface TheoryBlockProps {
   block: TheoryBlockType;
@@ -51,6 +52,12 @@ export const TheoryBlock = ({ block }: TheoryBlockProps) => {
         {block.title}
       </h3>
       {renderContent()}
+      {block.terminalCommand && (
+        <TerminalBlock
+          command={block.terminalCommand.command}
+          description={block.terminalCommand.description}
+        />
+      )}
       {block.codeExample && <CodeExample example={block.codeExample} />}
       {renderTable()}
     </div>

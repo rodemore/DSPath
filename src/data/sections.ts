@@ -14,6 +14,11 @@ export const sectionsMetadata = [
   { id: 9, moduleNumber: 'Módulo 10', title: 'Bucle FOR:', titleHighlight: 'Iteración sobre Secuencias' },
   { id: 10, moduleNumber: 'Módulo 11', title: 'Bucle WHILE:', titleHighlight: 'Repetición Condicional' },
   { id: 11, moduleNumber: 'Módulo 12', title: 'Desafíos:', titleHighlight: 'Integrando Conceptos' },
+  { id: 12, moduleNumber: 'Módulo 13', title: 'Intro', titleHighlight: '' },
+  { id: 13, moduleNumber: 'Módulo 14', title: 'Lectura', titleHighlight: '' },
+  { id: 14, moduleNumber: 'Módulo 15', title: 'Selección', titleHighlight: '' },
+  { id: 15, moduleNumber: 'Módulo 16', title: 'Filtros', titleHighlight: '' },
+  { id: 16, moduleNumber: 'Módulo 17', title: 'Filtros 2', titleHighlight: '' },
 ];
 
 // Funciones de carga dinámica para cada módulo (lazy loading)
@@ -30,6 +35,11 @@ const moduleLoaders: Record<number, () => Promise<{ default: Section }>> = {
   9: () => import('../modules/module10-for-loop/content').then(m => ({ default: m.module10 })),
   10: () => import('../modules/module11-while-loop/content').then(m => ({ default: m.module11 })),
   11: () => import('../modules/module12-integrative-challenges/content').then(m => ({ default: m.module12 })),
+  12: () => import('../modules/module13-pandas-intro/content').then(m => ({ default: m.module13 })),
+  13: () => import('../modules/module14-pandas-dataframes/content').then(m => ({ default: m.module14 })),
+  14: () => import('../modules/module15-pandas-selection/content').then(m => ({ default: m.module15 })),
+  15: () => import('../modules/module16-pandas-filters/content').then(m => ({ default: m.module16 })),
+  16: () => import('../modules/module17-pandas-filters-advanced/content').then(m => ({ default: m.module17 })),
 };
 
 // Función para cargar un módulo específico
@@ -42,10 +52,35 @@ export const loadModule = async (moduleId: number): Promise<Section> => {
   return module.default;
 };
 
+// Conteo de ejercicios por módulo (hardcodeado para evitar cargar módulos completos)
+const exercisesPerSection: Record<number, number> = {
+  0: 3,   // Variables
+  1: 4,   // Operaciones
+  2: 7,   // Strings
+  3: 2,   // Listas 1
+  4: 6,   // Listas 2
+  5: 5,   // Diccionarios
+  6: 9,   // Misceláneos
+  7: 6,   // Condicionales 1 (agregamos ejercicio de IN)
+  8: 5,   // Condicionales 2
+  9: 5,   // Bucle FOR
+  10: 4,  // Bucle WHILE
+  11: 9,  // Desafíos
+  12: 2,  // Pandas 0 - Introducción a Pandas (2 quizzes)
+  13: 3,  // Pandas 1 - Lectura de DataFrames
+  14: 5,  // Pandas 2 - iloc/loc y Selección (3 ejercicios + 2 quizzes)
+  15: 4,  // Pandas 3 - Filtros y Operadores Lógicos (4 ejercicios)
+  16: 3,  // Pandas 4 - Filtros Avanzados (3 ejercicios: isin, between, query)
+};
+
 // Calcular total de ejercicios sin cargar módulos completos
 export const getTotalExercisesCount = (): number => {
-  // Hardcodeado por ahora para evitar cargar todos los módulos
-  // Módulos 1-7: Python Basics
-  // Módulos 8-12: Estructuras de Control y Bucles
-  return 3 + 4 + 7 + 2 + 6 + 5 + 9 + 5 + 5 + 5 + 4 + 9; // Total: 64 ejercicios
+  return Object.values(exercisesPerSection).reduce((sum, count) => sum + count, 0);
+};
+
+// Calcular total de ejercicios para un supermódulo específico
+export const getExercisesCountForSuperModule = (sectionIds: number[]): number => {
+  return sectionIds.reduce((sum, sectionId) => {
+    return sum + (exercisesPerSection[sectionId] || 0);
+  }, 0);
 };

@@ -1,6 +1,7 @@
 import type { Section as SectionType, ExerciseResult } from '../../types';
 import { TheoryBlock } from '../TheoryBlock';
 import { ExerciseCard } from '../ExerciseCard';
+import { QuizCard } from '../QuizCard';
 
 interface SectionProps {
   section: SectionType;
@@ -8,7 +9,8 @@ interface SectionProps {
   onRunCode: (
     code: string,
     expectedOutput: string,
-    customValidator?: (code: string, output: string) => { isValid: boolean; message?: string }
+    customValidator?: (code: string, output: string) => { isValid: boolean; message?: string },
+    initialCode?: string
   ) => Promise<ExerciseResult>;
   onExerciseComplete: (exerciseId: string) => void;
   nextSection?: { id: number; title: string } | null;
@@ -30,6 +32,17 @@ export const Section = ({ section, isActive, onRunCode, onExerciseComplete, next
       {section.theoryBlocks.map((block, index) => (
         <div key={index}>
           <TheoryBlock block={block} />
+          {block.quizzes && block.quizzes.length > 0 && (
+            <div className="quiz-area inline-quizzes">
+              {block.quizzes.map((quiz) => (
+                <QuizCard
+                  key={quiz.id}
+                  quiz={quiz}
+                  onComplete={onExerciseComplete}
+                />
+              ))}
+            </div>
+          )}
           {block.exercises && block.exercises.length > 0 && (
             <div className="exercise-area inline-exercises">
               {block.exercises.map((exercise) => (
@@ -38,6 +51,7 @@ export const Section = ({ section, isActive, onRunCode, onExerciseComplete, next
                   exercise={exercise}
                   onRun={onRunCode}
                   onComplete={onExerciseComplete}
+                  sectionInitialCode={section.initialCode}
                 />
               ))}
             </div>
@@ -71,6 +85,7 @@ export const Section = ({ section, isActive, onRunCode, onExerciseComplete, next
               exercise={exercise}
               onRun={onRunCode}
               onComplete={onExerciseComplete}
+              sectionInitialCode={section.initialCode}
             />
           ))}
         </div>

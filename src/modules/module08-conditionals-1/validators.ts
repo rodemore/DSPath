@@ -238,3 +238,60 @@ export const validateIfWithCondition = (code: string, output: string): { isValid
 
   return { isValid: true };
 };
+
+export const validateInOperator = (code: string, output: string): { isValid: boolean; message?: string } => {
+  if (!code.trim()) {
+    return { isValid: false, message: 'No has escrito ningún código' };
+  }
+
+  if (!output.trim()) {
+    return { isValid: false, message: 'Tu código no imprime nada. Usa print()' };
+  }
+
+  // Verificar que crea la lista de colores
+  const hasColores = /colores\s*=\s*\[/.test(code);
+  if (!hasColores) {
+    return { isValid: false, message: 'Debes crear una lista llamada "colores" con los valores especificados' };
+  }
+
+  // Verificar que la lista contiene los colores correctos
+  const hasRojo = /["']rojo["']/.test(code);
+  const hasAzul = /["']azul["']/.test(code);
+  const hasVerde = /["']verde["']/.test(code);
+
+  if (!hasRojo || !hasAzul || !hasVerde) {
+    return { isValid: false, message: 'La lista debe contener los colores: "rojo", "azul", "verde"' };
+  }
+
+  // Verificar que crea la variable color_favorito
+  const hasColorFavorito = /color_favorito\s*=\s*["']azul["']/.test(code);
+  if (!hasColorFavorito) {
+    return { isValid: false, message: 'Debes crear la variable color_favorito = "azul"' };
+  }
+
+  // Verificar que usa el operador in
+  const hasIn = /\bin\b/.test(code);
+  if (!hasIn) {
+    return { isValid: false, message: 'Debes usar el operador "in" para verificar si color_favorito está en la lista' };
+  }
+
+  // Verificar que usa if
+  const hasIf = /\bif\b/.test(code);
+  if (!hasIf) {
+    return { isValid: false, message: 'Debes usar la estructura "if" con el operador "in"' };
+  }
+
+  // Verificar que usa print
+  const hasPrint = /print\s*\(/.test(code);
+  if (!hasPrint) {
+    return { isValid: false, message: 'Debes usar print() dentro del if para mostrar el mensaje' };
+  }
+
+  // Verificar que el output contiene el mensaje esperado
+  const outputClean = output.trim().toLowerCase();
+  if (!outputClean.includes('color disponible')) {
+    return { isValid: false, message: 'El mensaje debe ser "Color disponible". Recuerda que debe estar dentro del if' };
+  }
+
+  return { isValid: true };
+};
