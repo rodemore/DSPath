@@ -13,16 +13,32 @@ interface ExerciseCardProps {
   ) => Promise<ExerciseResult>;
   onComplete: (exerciseId: string) => void;
   sectionInitialCode?: string;
+  savedCode?: string;
+  onSaveCode?: (code: string) => void;
+  isCompleted?: boolean;
 }
 
-export const ExerciseCard = ({ exercise, onRun, onComplete, sectionInitialCode }: ExerciseCardProps) => {
-  const [result, setResult] = useState<ExerciseResult | null>(null);
+export const ExerciseCard = ({
+  exercise,
+  onRun,
+  onComplete,
+  sectionInitialCode,
+  savedCode,
+  onSaveCode,
+  isCompleted = false
+}: ExerciseCardProps) => {
+  const [result, setResult] = useState<ExerciseResult | null>(isCompleted ? { isCorrect: true, output: '', error: null } : null);
   const [showOutput, setShowOutput] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
 
   const handleRun = async (code: string) => {
     setIsRunning(true);
     setShowOutput(true);
+
+    // Guardar el código antes de ejecutar
+    if (onSaveCode) {
+      onSaveCode(code);
+    }
 
     const execResult = await onRun(code, exercise.expectedOutput, exercise.customValidator, sectionInitialCode);
     setResult(execResult);
@@ -41,6 +57,7 @@ export const ExerciseCard = ({ exercise, onRun, onComplete, sectionInitialCode }
 
   const getCardClassName = () => {
     let className = 'exercise-card';
+    if (isCompleted) className += ' completed';
     if (result?.isCorrect) className += ' success';
     else if (result && !result.isCorrect) className += ' error';
     return className;
@@ -48,7 +65,9 @@ export const ExerciseCard = ({ exercise, onRun, onComplete, sectionInitialCode }
 
   return (
     <div className={getCardClassName()} id={exercise.id}>
-      <div className="task-number">{exercise.number}</div>
+      <div className="task-number">
+        {isCompleted ? `✓ ${exercise.number}` : exercise.number}
+      </div>
       <div
         className="task-desc"
         dangerouslySetInnerHTML={{ __html: exercise.description }}
@@ -71,6 +90,7 @@ export const ExerciseCard = ({ exercise, onRun, onComplete, sectionInitialCode }
         initialCode={exercise.initialCode}
         starterCode={exercise.starterCode}
         isRunning={isRunning}
+        savedCode={savedCode}
       />
       <OutputArea result={result} show={showOutput} />
     </div>

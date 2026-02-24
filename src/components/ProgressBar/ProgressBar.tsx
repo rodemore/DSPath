@@ -8,7 +8,7 @@ export const ProgressBar = ({ progress }: ProgressBarProps) => {
   return (
     <div className="progress-container">
       <span className="progress-label">
-        {progress.completedExercises.size} / {progress.totalExercises} ejercicios
+        {progress.completedInCurrentScope} / {progress.totalExercises} ejercicios
       </span>
       <div className="progress-bar">
         <div

@@ -6,10 +6,10 @@ import {
   validateQuery,
 } from './validators';
 
-export const module17: Section = {
-  id: 16,
-  moduleNumber: 'Módulo 17',
-  title: 'Pandas 4:',
+export const module20: Section = {
+  id: 19,
+  moduleNumber: 'Módulo 20',
+  title: 'Pandas 7:',
   titleHighlight: 'Filtros Avanzados',
 
   // Código que se ejecuta antes de cada ejercicio (invisible para el estudiante)

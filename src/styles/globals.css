@@ -569,6 +569,15 @@ body {
   border-color: var(--error);
 }
 
+.exercise-card.completed {
+  border-left: 4px solid var(--success);
+}
+
+.exercise-card.completed .task-number {
+  color: var(--success);
+  background: rgba(16, 185, 129, 0.12);
+}
+
 .exercise-card .task-number {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.7rem;
@@ -579,6 +588,7 @@ body {
   border-radius: 20px;
   margin-bottom: 10px;
   letter-spacing: 1px;
+  transition: color 0.3s, background 0.3s;
 }
 
 .exercise-card .task-desc {

@@ -1,4 +1,4 @@
-import { Lock, Terminal, Layers, Code2, Database, FolderKanban, ChevronRight } from 'lucide-react';
+import { Lock, Terminal, Layers, Code2, Table2, TrendingUp, FolderKanban, ChevronRight } from 'lucide-react';
 import type { SuperModule } from '../../types';
 import './SuperModuleCard.css';
 
@@ -11,7 +11,8 @@ const iconMap: Record<string, typeof Terminal> = {
   Terminal,
   Layers,
   Code2,
-  Database,
+  Table2,
+  TrendingUp,
   FolderKanban,
 };
 

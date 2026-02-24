@@ -5,9 +5,10 @@ import './QuizCard.css';
 interface QuizCardProps {
   quiz: Quiz;
   onComplete: (quizId: string) => void;
+  isCompleted?: boolean;
 }
 
-export const QuizCard = ({ quiz, onComplete }: QuizCardProps) => {
+export const QuizCard = ({ quiz, onComplete, isCompleted = false }: QuizCardProps) => {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
@@ -42,6 +43,7 @@ export const QuizCard = ({ quiz, onComplete }: QuizCardProps) => {
 
   const getCardClassName = () => {
     let className = 'quiz-card';
+    if (isCompleted) className += ' completed';
     if (isSubmitted && selectedOption) {
       const selected = quiz.options.find(opt => opt.id === selectedOption);
       if (selected?.isCorrect) {
@@ -77,7 +79,9 @@ export const QuizCard = ({ quiz, onComplete }: QuizCardProps) => {
 
   return (
     <div className={getCardClassName()} id={quiz.id}>
-      <div className="quiz-number">{quiz.number}</div>
+      <div className="quiz-number">
+        {isCompleted ? `✓ ${quiz.number}` : quiz.number}
+      </div>
       <div className="quiz-question">{quiz.question}</div>
 
       <div className="quiz-options">

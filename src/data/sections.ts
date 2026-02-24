@@ -18,7 +18,15 @@ export const sectionsMetadata = [
   { id: 13, moduleNumber: 'Módulo 14', title: 'Lectura', titleHighlight: '' },
   { id: 14, moduleNumber: 'Módulo 15', title: 'Selección', titleHighlight: '' },
   { id: 15, moduleNumber: 'Módulo 16', title: 'Filtros', titleHighlight: '' },
-  { id: 16, moduleNumber: 'Módulo 17', title: 'Filtros 2', titleHighlight: '' },
+  { id: 16, moduleNumber: 'Módulo 17', title: 'Operaciones', titleHighlight: '' },
+  { id: 17, moduleNumber: 'Módulo 18', title: '.str', titleHighlight: '' },
+  { id: 18, moduleNumber: 'Módulo 19', title: 'Agregaciones', titleHighlight: '' },
+  { id: 19, moduleNumber: 'Módulo 20', title: 'Filtros 2', titleHighlight: '' },
+  { id: 20, moduleNumber: 'Módulo 21', title: 'GroupBy', titleHighlight: '' },
+  { id: 21, moduleNumber: 'Módulo 22', title: 'GroupBy + Agg', titleHighlight: '' },
+  { id: 22, moduleNumber: 'Módulo 23', title: 'Sort & Top', titleHighlight: '' },
+  { id: 23, moduleNumber: 'Módulo 24', title: 'Concat & Merge', titleHighlight: '' },
+  { id: 24, moduleNumber: 'Módulo 25', title: 'Apply', titleHighlight: '' },
 ];
 
 // Funciones de carga dinámica para cada módulo (lazy loading)
@@ -39,7 +47,16 @@ const moduleLoaders: Record<number, () => Promise<{ default: Section }>> = {
   13: () => import('../modules/module14-pandas-dataframes/content').then(m => ({ default: m.module14 })),
   14: () => import('../modules/module15-pandas-selection/content').then(m => ({ default: m.module15 })),
   15: () => import('../modules/module16-pandas-filters/content').then(m => ({ default: m.module16 })),
-  16: () => import('../modules/module17-pandas-filters-advanced/content').then(m => ({ default: m.module17 })),
+  16: () => import('../modules/module17-pandas-new-columns/content').then(m => ({ default: m.module17 })),
+  17: () => import('../modules/module18-pandas-str/content').then(m => ({ default: m.module18 })),
+  18: () => import('../modules/module19-pandas-aggregations/content').then(m => ({ default: m.module19 })),
+  19: () => import('../modules/module20-pandas-filters-advanced/content').then(m => ({ default: m.module20 })),
+  20: () => import('../modules/module21-pandas-groupby/content').then(m => ({ default: m.module21 })),
+  21: () => import('../modules/module22-pandas-groupby-agg/content').then(m => ({ default: m.module22 })),
+  22: () => import('../modules/module23-pandas-sort-top/content').then(m => ({ default: m.module23 })),
+  23: () => import('../modules/module24-pandas-concat-merge/content').then(m => ({ default: m.module24 })),
+  24: () => import('../modules/module25-pandas-apply/content').then(m => ({ default: m.module25 })),
+  25: () => import('../modules/module26-pandas-apply-columns/content').then(m => ({ default: m.module26 })),
 };
 
 // Función para cargar un módulo específico
@@ -70,7 +87,15 @@ const exercisesPerSection: Record<number, number> = {
   13: 3,  // Pandas 1 - Lectura de DataFrames
   14: 5,  // Pandas 2 - iloc/loc y Selección (3 ejercicios + 2 quizzes)
   15: 4,  // Pandas 3 - Filtros y Operadores Lógicos (4 ejercicios)
-  16: 3,  // Pandas 4 - Filtros Avanzados (3 ejercicios: isin, between, query)
+  16: 3,  // Pandas 5 - Operaciones (3 ejercicios)
+  17: 3,  // Pandas 6 - Strings .str (3 ejercicios)
+  18: 5,  // Pandas 7 - Agregaciones (5 ejercicios)
+  19: 3,  // Pandas 8 - Filtros Avanzados (3 ejercicios: isin, between, query)
+  20: 3,  // Pandas 9 - GroupBy básico (3 ejercicios)
+  21: 3,  // Pandas 10 - GroupBy + .agg() (3 ejercicios)
+  22: 4,  // Pandas 11 - Sort & Top (4 ejercicios)
+  23: 4,  // Pandas 12 - Concat & Merge (4 ejercicios)
+  24: 4,  // Pandas 13 - Apply (4 ejercicios)
 };
 
 // Calcular total de ejercicios sin cargar módulos completos

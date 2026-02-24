@@ -87,6 +87,7 @@ export interface ExerciseResult {
 
 export interface ProgressData {
   completedExercises: Set<string>;
+  completedInCurrentScope: number; // Ejercicios completados en el supermódulo actual
   totalExercises: number;
   percentage: number;
 }

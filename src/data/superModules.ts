@@ -30,15 +30,24 @@ export const superModules: SuperModule[] = [
   },
   {
     id: 3,
-    title: 'Introducción a Pandas',
+    title: 'Introducción a Pandas I',
     description: 'Manipulación y análisis de datos con la librería líder en Data Science.',
-    icon: 'Database',
+    icon: 'Table2',
     isAvailable: true,
-    sections: [12, 13, 14, 15, 16], // Módulo 13-17: Intro, Lectura, Selección, Filtros, Filtros Avanzados
+    sections: [12, 13, 14, 15, 16, 17, 18], // Módulo 13-19: Intro, Lectura, Selección, Filtros, Operaciones, .str, Agregaciones
     color: '#10b981', // Green
   },
   {
     id: 4,
+    title: 'Introducción a Pandas II',
+    description: 'Agrupaciones, agregaciones avanzadas y análisis por grupos con GroupBy.',
+    icon: 'TrendingUp',
+    isAvailable: true,
+    sections: [19, 20, 21, 22, 23, 24], // Módulo 20-25: Filtros Avanzados, GroupBy, GroupBy Agg, Sort & Top, Concat & Merge, Apply
+    color: '#06b6d4', // Cyan
+  },
+  {
+    id: 5,
     title: 'Proyectos Prácticos',
     description: 'Desarrolla proyectos reales aplicando todos los conocimientos adquiridos.',
     icon: 'FolderKanban',

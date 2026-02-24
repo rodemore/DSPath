@@ -15,9 +15,22 @@ interface SectionProps {
   onExerciseComplete: (exerciseId: string) => void;
   nextSection?: { id: number; title: string } | null;
   onNavigateToNext?: () => void;
+  savedCode: Record<string, string>;
+  onSaveCode: (code: Record<string, string>) => void;
+  completedExercises: Set<string>;
 }
 
-export const Section = ({ section, isActive, onRunCode, onExerciseComplete, nextSection, onNavigateToNext }: SectionProps) => {
+export const Section = ({
+  section,
+  isActive,
+  onRunCode,
+  onExerciseComplete,
+  nextSection,
+  onNavigateToNext,
+  savedCode,
+  onSaveCode,
+  completedExercises
+}: SectionProps) => {
   if (!isActive) return null;
 
   return (
@@ -39,6 +52,7 @@ export const Section = ({ section, isActive, onRunCode, onExerciseComplete, next
                   key={quiz.id}
                   quiz={quiz}
                   onComplete={onExerciseComplete}
+                  isCompleted={completedExercises.has(quiz.id)}
                 />
               ))}
             </div>
@@ -52,6 +66,9 @@ export const Section = ({ section, isActive, onRunCode, onExerciseComplete, next
                   onRun={onRunCode}
                   onComplete={onExerciseComplete}
                   sectionInitialCode={section.initialCode}
+                  savedCode={savedCode[exercise.id]}
+                  onSaveCode={(code) => onSaveCode({ ...savedCode, [exercise.id]: code })}
+                  isCompleted={completedExercises.has(exercise.id)}
                 />
               ))}
             </div>
@@ -86,6 +103,9 @@ export const Section = ({ section, isActive, onRunCode, onExerciseComplete, next
               onRun={onRunCode}
               onComplete={onExerciseComplete}
               sectionInitialCode={section.initialCode}
+              savedCode={savedCode[exercise.id]}
+              onSaveCode={(code) => onSaveCode({ ...savedCode, [exercise.id]: code })}
+              isCompleted={completedExercises.has(exercise.id)}
             />
           ))}
         </div>

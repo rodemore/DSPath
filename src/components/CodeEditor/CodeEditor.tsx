@@ -10,11 +10,12 @@ interface CodeEditorProps {
   initialCode?: string;
   starterCode?: string; // Código base que se mantiene al limpiar
   isRunning: boolean;
+  savedCode?: string; // Código guardado previamente
 }
 
-export const CodeEditor = ({ onRun, onReset, initialCode = '', starterCode, isRunning }: CodeEditorProps) => {
-  // Si hay starterCode, usarlo; si no, usar initialCode
-  const [code, setCode] = useState(starterCode || initialCode);
+export const CodeEditor = ({ onRun, onReset, initialCode = '', starterCode, isRunning, savedCode }: CodeEditorProps) => {
+  // Prioridad: savedCode > starterCode > initialCode
+  const [code, setCode] = useState(savedCode || starterCode || initialCode);
 
   const handleRun = () => {
     onRun(code);

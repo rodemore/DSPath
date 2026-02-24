@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Terminal, Layers, Code2, Table2, TrendingUp, FolderKanban } from 'lucide-react';
 import { usePyodide } from './hooks/usePyodide';
 import { Header } from './components/Header';
 import { Navigation } from './components/Navigation';
@@ -9,8 +10,13 @@ import { ThemeToggle } from './components/ThemeToggle';
 import { SuperModuleCard } from './components/SuperModuleCard';
 import { sectionsMetadata, loadModule, getTotalExercisesCount, getExercisesCountForSuperModule } from './data/sections';
 import { superModules } from './data/superModules';
+import { cacheStorage } from './utils/cacheStorage';
 import type { ProgressData, Section as SectionType } from './types';
 import './styles/globals.css';
+
+const iconMap: Record<string, typeof Terminal> = {
+  Terminal, Layers, Code2, Table2, TrendingUp, FolderKanban,
+};
 
 type ViewMode = 'super-modules' | 'sections';
 
@@ -19,17 +25,37 @@ function App() {
   const navigate = useNavigate();
   const params = useParams();
 
-  const [completedExercises, setCompletedExercises] = useState<Set<string>>(() => {
-    const saved = localStorage.getItem('completedExercises');
-    return saved ? new Set(JSON.parse(saved)) : new Set();
-  });
+  const [completedExercises, setCompletedExercises] = useState<Set<string>>(new Set());
+  const [savedCode, setSavedCode] = useState<Record<string, string>>({});
   const [currentSection, setCurrentSection] = useState<SectionType | null>(null);
   const [isLoadingSection, setIsLoadingSection] = useState(false);
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
 
-  // Save completed exercises to localStorage
+  // Cargar datos del cache al iniciar
   useEffect(() => {
-    localStorage.setItem('completedExercises', JSON.stringify(Array.from(completedExercises)));
-  }, [completedExercises]);
+    const loadCachedData = async () => {
+      const exercises = await cacheStorage.getCompletedExercises();
+      const code = await cacheStorage.getExerciseCode();
+      setCompletedExercises(exercises);
+      setSavedCode(code);
+      setIsDataLoaded(true);
+    };
+    loadCachedData();
+  }, []);
+
+  // Guardar ejercicios completados en cache
+  useEffect(() => {
+    if (isDataLoaded) {
+      cacheStorage.saveCompletedExercises(completedExercises);
+    }
+  }, [completedExercises, isDataLoaded]);
+
+  // Guardar código de ejercicios en cache
+  useEffect(() => {
+    if (isDataLoaded) {
+      cacheStorage.saveExerciseCode(savedCode);
+    }
+  }, [savedCode, isDataLoaded]);
 
   // Parse URL params
   const superModuleIdFromUrl = params.superModuleId ? parseInt(params.superModuleId) : null;
@@ -76,6 +102,7 @@ function App() {
 
   const progressData: ProgressData = {
     completedExercises,
+    completedInCurrentScope: completedInCurrentSuperModule,
     totalExercises: currentSuperModuleExercises,
     percentage: currentSuperModuleExercises > 0
       ? (completedInCurrentSuperModule / currentSuperModuleExercises) * 100
@@ -202,11 +229,16 @@ function App() {
             <button onClick={handleBackToSuperModules} className="back-button">
               ← Volver al inicio
             </button>
-            {activeSuperModule !== null && (
-              <span className="current-super-module">
-                {superModules[activeSuperModule].icon} {superModules[activeSuperModule].title}
-              </span>
-            )}
+            {activeSuperModule !== null && (() => {
+              const sm = superModules[activeSuperModule];
+              const IconComponent = iconMap[sm.icon] || Terminal;
+              return (
+                <span className="current-super-module">
+                  <IconComponent size={16} style={{ color: sm.color }} />
+                  {sm.title}
+                </span>
+              );
+            })()}
           </div>
           <Navigation
             sections={navItems}
@@ -226,6 +258,9 @@ function App() {
                 onExerciseComplete={handleExerciseComplete}
                 nextSection={getNextSection()}
                 onNavigateToNext={handleNavigateToNextSection}
+                savedCode={savedCode}
+                onSaveCode={setSavedCode}
+                completedExercises={completedExercises}
               />
             ) : null}
           </main>
