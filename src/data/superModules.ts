@@ -42,7 +42,7 @@ export const superModules: SuperModule[] = [
     title: 'Introducción a Pandas II',
     description: 'Agrupaciones, agregaciones avanzadas y análisis por grupos con GroupBy.',
     icon: 'TrendingUp',
-    isAvailable: true,
+    isAvailable: false,
     sections: [19, 20, 21, 22, 23, 24], // Módulo 20-25: Filtros Avanzados, GroupBy, GroupBy Agg, Sort & Top, Concat & Merge, Apply
     color: '#06b6d4', // Cyan
   },
