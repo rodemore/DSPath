@@ -133,7 +133,6 @@ export const validateResetIndex = (code: string, output: string): { isValid: boo
   }
 
   // Con reset_index el output debe mostrar "day" como columna normal (índice numérico 0,1,2...)
-  const hasNumericIndex = /0\s+\w|^\s*0\b/.test(output);
   const hasDayInOutput = output.includes('Fri') || output.includes('Sat') || output.includes('Sun') || output.includes('Thur');
   if (!hasDayInOutput) {
     return { isValid: false, message: 'El output debe mostrar los días como una columna normal del DataFrame' };
