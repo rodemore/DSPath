@@ -189,9 +189,8 @@ function App() {
               </div>
               <div className="nav-links">
                 <a href="/" className="nav-link active">Cursos</a>
-                <a href="#" className="nav-link">Proyectos</a>
+                <a href="#" className="nav-link disabled">Proyectos</a>
                 <a href="/guides" className="nav-link">Guías</a>
-                <a href="#" className="nav-link">Comunidad</a>
               </div>
             </div>
           </nav>
