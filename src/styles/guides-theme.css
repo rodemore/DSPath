@@ -1,0 +1,548 @@
+/* Guides Theme Overrides - Consistent with main app theme */
+
+/* ═══════════════════════════════════════════════════════
+   DARK THEME (Default)
+   ═══════════════════════════════════════════════════════ */
+
+:root, [data-theme="dark"] {
+  /* Guide-specific shared colors */
+  --guide-bg-main: var(--bg-deep);
+  --guide-bg-section: var(--bg-main);
+  --guide-bg-card: var(--bg-card);
+  --guide-bg-card-hover: var(--bg-card-hover);
+  --guide-border: var(--border);
+  --guide-text: var(--text);
+  --guide-text-dim: var(--text-dim);
+  --guide-text-bright: var(--text-bright);
+}
+
+/* Container backgrounds */
+.genia-guide-container,
+.colab-guide-container,
+.copilot-guide-container {
+  background-color: var(--bg-deep) !important;
+  color: var(--text) !important;
+}
+
+/* Sidebar */
+.guide-sidebar {
+  background-color: transparent !important;
+}
+
+.sidebar-title {
+  color: var(--text-bright) !important;
+}
+
+.sidebar-btn {
+  background: transparent !important;
+  color: var(--text-dim) !important;
+  border-color: var(--border) !important;
+}
+
+.sidebar-btn:hover {
+  background: var(--bg-card-hover) !important;
+  color: var(--text-bright) !important;
+  border-color: var(--accent) !important;
+}
+
+.sidebar-btn.active {
+  background: var(--accent-glow) !important;
+  border-color: var(--accent) !important;
+}
+
+/* Section content */
+.section-content {
+  color: var(--text) !important;
+}
+
+.section-title {
+  color: var(--text-bright) !important;
+}
+
+.section-intro,
+.section-text {
+  color: var(--text-dim) !important;
+}
+
+/* Cards */
+.feature-card,
+.principle-card,
+.context-card,
+.optimization-card,
+.validation-card,
+.function-card,
+.use-case,
+.practice-card,
+.use-case-card,
+.when-not-item,
+.takeaway-item,
+.command-card,
+.when-not-card,
+.demo-step,
+.shortcut-item,
+.boost-stat {
+  background: var(--bg-card) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+.feature-card:hover,
+.context-card:hover,
+.use-case-card:hover {
+  background: var(--bg-card-hover) !important;
+}
+
+.card-title,
+.feature-title,
+.principle-title-text,
+.context-title,
+.optimization-title,
+.validation-title,
+.function-title,
+.use-case-title,
+.practice-title,
+.command-name,
+.boost-number {
+  color: var(--text-bright) !important;
+}
+
+.card-description,
+.feature-description,
+.context-description,
+.optimization-description,
+.validation-description,
+.function-description,
+.use-case-description {
+  color: var(--text-dim) !important;
+}
+
+/* Tip boxes */
+.tip-box {
+  background: var(--bg-card) !important;
+  border-color: var(--border) !important;
+}
+
+.tip-box.tip {
+  background: rgba(45, 212, 168, 0.1) !important;
+  border-color: var(--accent) !important;
+}
+
+.tip-box.warning {
+  background: rgba(254, 202, 87, 0.1) !important;
+  border-color: var(--warning) !important;
+}
+
+.tip-box.success {
+  background: rgba(45, 212, 168, 0.1) !important;
+  border-color: var(--success) !important;
+}
+
+.tip-content {
+  color: var(--text) !important;
+}
+
+/* Code blocks and schema boxes - keep dark always for readability */
+.genia-code-block,
+.colab-code-block,
+.copilot-code-block,
+.context-schema {
+  background-color: #0f172a !important;
+  border-color: #1e293b !important;
+  color: #bfdbfe !important;
+}
+
+.code-language {
+  color: #60a5fa !important;
+}
+
+.code-content {
+  color: #bfdbfe !important;
+}
+
+/* Tip cards */
+.tip-card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+}
+
+.tip-card.dark {
+  background: rgba(45, 212, 168, 0.1) !important;
+  border-color: var(--accent) !important;
+}
+
+.tip-card.blue {
+  background: rgba(59, 130, 246, 0.1) !important;
+  border-color: #3b82f6 !important;
+}
+
+.tip-title {
+  color: var(--text-bright) !important;
+}
+
+.tip-text {
+  color: var(--text-dim) !important;
+}
+
+/* Prompt boxes */
+.prompt-box {
+  color: var(--text) !important;
+}
+
+.prompt-box.weak {
+  background-color: rgba(248, 113, 113, 0.1) !important;
+  border-color: #f87171 !important;
+  color: var(--text) !important;
+}
+
+.prompt-box.strong {
+  background-color: rgba(45, 212, 168, 0.1) !important;
+  border-color: var(--accent) !important;
+  color: var(--text) !important;
+}
+
+/* Strategy sections */
+.strategy-principle {
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.15) 0%, rgba(253, 230, 138, 0.15) 100%) !important;
+  border-color: var(--warning) !important;
+}
+
+.strategy-subtitle,
+.workflow-subtitle {
+  color: var(--text-bright) !important;
+}
+
+.strategy-text {
+  color: var(--text-dim) !important;
+}
+
+.strategy-card {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border) !important;
+}
+
+.strategy-header h4,
+.examples-title {
+  color: var(--text-bright) !important;
+}
+
+.strategy-workflow {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%) !important;
+  border-color: #3b82f6 !important;
+}
+
+/* EDA Card */
+.eda-card {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border) !important;
+}
+
+.eda-subtitle {
+  color: var(--text-bright) !important;
+}
+
+/* Case study sections */
+.case-subtitle {
+  color: var(--text-bright) !important;
+}
+
+.context-box {
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.15) 0%, rgba(253, 230, 138, 0.15) 100%) !important;
+  border-color: var(--warning) !important;
+}
+
+.context-box p {
+  color: var(--text-dim) !important;
+}
+
+.case-takeaway {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(124, 58, 237, 0.15) 100%) !important;
+  border-color: #7c3aed !important;
+}
+
+.takeaway-title {
+  color: var(--text-bright) !important;
+}
+
+/* Conversation steps */
+.step-header.user {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(37, 99, 235, 0.2) 100%) !important;
+  border-color: #3b82f6 !important;
+}
+
+.step-header.genia {
+  background: linear-gradient(135deg, rgba(45, 212, 168, 0.2) 0%, rgba(26, 138, 110, 0.2) 100%) !important;
+  border-color: var(--accent) !important;
+}
+
+.step-label,
+.step-title {
+  color: var(--text-bright) !important;
+}
+
+.step-header.user .step-label,
+.step-header.user .step-title {
+  color: #60a5fa !important;
+}
+
+.step-header.genia .step-label,
+.step-header.genia .step-title {
+  color: var(--accent) !important;
+}
+
+.step-content.response {
+  background-color: var(--bg-card) !important;
+  color: var(--text) !important;
+}
+
+/* Colab AI specific elements */
+.shortcuts-box {
+  background: linear-gradient(135deg, rgba(254, 243, 199, 0.15) 0%, rgba(253, 230, 138, 0.15) 100%) !important;
+  border-color: var(--warning) !important;
+}
+
+.shortcuts-title {
+  color: var(--text-bright) !important;
+}
+
+.comparison-label {
+  color: var(--text-dim) !important;
+}
+
+.comparison-label.success {
+  color: var(--accent) !important;
+}
+
+.bad-prompt .label,
+.good-prompt .label {
+  color: var(--text-bright) !important;
+}
+
+.security-tips h4 {
+  color: var(--error) !important;
+}
+
+.security-list li {
+  color: var(--text-dim) !important;
+}
+
+.security-list code {
+  background-color: var(--bg-card) !important;
+  color: var(--text) !important;
+}
+
+/* Copilot specific elements */
+.extension-box,
+.plan-box {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border) !important;
+}
+
+.extension-name,
+.plan-name {
+  color: var(--text-bright) !important;
+}
+
+.extension-description,
+.plan-price {
+  color: var(--text-dim) !important;
+}
+
+/* Headers - keep themed colors but adjust for dark mode */
+.genia-header {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%) !important;
+}
+
+.colab-header {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+}
+
+.copilot-header {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
+}
+
+.header-title,
+.header-subtitle,
+.header-author {
+  color: white !important;
+}
+
+.title-highlight {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Strategy/special sections */
+.strategy-card {
+  background: var(--bg-card) !important;
+  border-color: var(--accent) !important;
+}
+
+.strategy-title {
+  color: var(--text-bright) !important;
+}
+
+.strategy-points {
+  color: var(--text-dim) !important;
+}
+
+/* Conversation bubbles */
+.user-message {
+  background: var(--bg-card) !important;
+  border-color: var(--accent) !important;
+  color: var(--text) !important;
+}
+
+.assistant-message {
+  background: var(--accent-glow) !important;
+  border-color: var(--accent) !important;
+  color: var(--text) !important;
+}
+
+.message-label {
+  color: var(--accent) !important;
+}
+
+/* Footer */
+.genia-footer,
+.colab-footer,
+.copilot-footer {
+  background: var(--bg-main) !important;
+  border-top-color: var(--border) !important;
+  color: var(--text-dim) !important;
+}
+
+/* ═══════════════════════════════════════════════════════
+   LIGHT THEME
+   ═══════════════════════════════════════════════════════ */
+
+[data-theme="light"] {
+  --guide-bg-main: #ffffff;
+  --guide-bg-section: #f8fafc;
+  --guide-bg-card: #ffffff;
+  --guide-bg-card-hover: #f0f0f0;
+  --guide-border: #e0e0e0;
+  --guide-text: #2c3e50;
+  --guide-text-dim: #6c757d;
+  --guide-text-bright: #1a202c;
+}
+
+[data-theme="light"] .genia-guide-container,
+[data-theme="light"] .colab-guide-container,
+[data-theme="light"] .copilot-guide-container {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .feature-card,
+[data-theme="light"] .principle-card,
+[data-theme="light"] .context-card,
+[data-theme="light"] .optimization-card,
+[data-theme="light"] .validation-card,
+[data-theme="light"] .function-card,
+[data-theme="light"] .use-case,
+[data-theme="light"] .practice-card,
+[data-theme="light"] .use-case-card,
+[data-theme="light"] .when-not-item,
+[data-theme="light"] .takeaway-item,
+[data-theme="light"] .command-card,
+[data-theme="light"] .when-not-card,
+[data-theme="light"] .demo-step,
+[data-theme="light"] .shortcut-item,
+[data-theme="light"] .boost-stat {
+  background: white !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="light"] .card-title,
+[data-theme="light"] .feature-title,
+[data-theme="light"] .principle-title-text,
+[data-theme="light"] .context-title,
+[data-theme="light"] .optimization-title,
+[data-theme="light"] .validation-title,
+[data-theme="light"] .function-title,
+[data-theme="light"] .use-case-title,
+[data-theme="light"] .practice-title,
+[data-theme="light"] .section-title {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .card-description,
+[data-theme="light"] .feature-description,
+[data-theme="light"] .context-description,
+[data-theme="light"] .section-intro,
+[data-theme="light"] .section-text {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .sidebar-btn {
+  background: #f8fafc !important;
+  color: #64748b !important;
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] .sidebar-btn:hover {
+  background: #f1f5f9 !important;
+  color: #1e293b !important;
+}
+
+[data-theme="light"] .sidebar-btn.active {
+  background: rgba(26, 138, 110, 0.1) !important;
+  border-color: #1a8a6e !important;
+  color: #1a8a6e !important;
+}
+
+[data-theme="light"] .tip-box {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+[data-theme="light"] .tip-box.tip {
+  background: rgba(26, 138, 110, 0.1) !important;
+  border-color: #1a8a6e !important;
+}
+
+[data-theme="light"] .tip-box.warning {
+  background: rgba(243, 156, 18, 0.1) !important;
+  border-color: #f39c12 !important;
+}
+
+[data-theme="light"] .tip-box.success {
+  background: rgba(26, 138, 110, 0.1) !important;
+  border-color: #1a8a6e !important;
+}
+
+[data-theme="light"] .user-message {
+  background: white !important;
+  border-color: #1a8a6e !important;
+}
+
+[data-theme="light"] .assistant-message {
+  background: rgba(26, 138, 110, 0.05) !important;
+  border-color: #1a8a6e !important;
+}
+
+[data-theme="light"] .message-label {
+  color: #1a8a6e !important;
+}
+
+/* Headers in light mode */
+[data-theme="light"] .genia-header {
+  background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%) !important;
+}
+
+[data-theme="light"] .colab-header {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
+}
+
+[data-theme="light"] .copilot-header {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
+}
+
+[data-theme="light"] .genia-footer,
+[data-theme="light"] .colab-footer,
+[data-theme="light"] .copilot-footer {
+  background: white !important;
+  border-top-color: #e2e8f0 !important;
+  color: #64748b !important;
+}

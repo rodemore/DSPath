@@ -15,6 +15,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import './ColabAIGuide.css';
+import '../../styles/guides-theme.css';
 
 type SectionId = 'intro' | 'activacion' | 'funciones' | 'autocompletado' | 'generacion' | 'debugging' | 'mejores-practicas' | 'limitaciones';
 

@@ -18,6 +18,7 @@ import {
   Settings
 } from 'lucide-react';
 import './CopilotGuide.css';
+import '../../styles/guides-theme.css';
 
 type SectionId = 'intro' | 'instalacion' | 'autocompletado' | 'copilot-chat' | 'slash-commands' | 'mejores-practicas' | 'casos-uso' | 'limitaciones';
 

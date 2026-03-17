@@ -2,17 +2,18 @@
 
 .genia-guide-page {
   min-height: 100vh;
+  background: var(--bg-deep);
+  font-family: 'Outfit', sans-serif;
 }
 
 .guide-nav {
-  background-color: white;
-  border-bottom: 1px solid #e2e8f0;
+  background-color: var(--bg-main);
+  border-bottom: 1px solid var(--border);
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
   z-index: 100;
   backdrop-filter: blur(8px);
-  background-color: rgba(255, 255, 255, 0.9);
 }
 
 .back-to-guides-button {
@@ -20,9 +21,9 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.25rem;
-  background-color: #f1f5f9;
-  color: #475569;
-  border: 1px solid #e2e8f0;
+  background-color: var(--bg-card);
+  color: var(--text);
+  border: 1px solid var(--border);
   border-radius: 0.75rem;
   font-weight: 600;
   font-size: 0.875rem;
@@ -31,8 +32,8 @@
 }
 
 .back-to-guides-button:hover {
-  background-color: #e2e8f0;
-  color: #1e293b;
+  background-color: var(--bg-card-hover);
+  color: var(--text-bright);
   transform: translateX(-4px);
 }
 

@@ -15,6 +15,7 @@ import {
   FileCode
 } from 'lucide-react';
 import './GeniaGuide.css';
+import '../../styles/guides-theme.css';
 
 type SectionId = 'intro' | 'principios' | 'anatomia' | 'contexto' | 'eda' | 'optimization' | 'estrategia' | 'caso-real' | 'validación';
 

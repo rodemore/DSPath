@@ -2,7 +2,8 @@
 
 .guides-page {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+  background: var(--bg-deep);
+  font-family: 'Outfit', sans-serif;
 }
 
 .guides-header {
@@ -15,7 +16,7 @@
 .guides-title {
   font-size: 3rem;
   font-weight: 900;
-  color: var(--text-primary);
+  color: var(--text-bright);
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -27,12 +28,12 @@
 .guides-icon {
   display: flex;
   align-items: center;
-  color: var(--primary-color);
+  color: var(--accent);
 }
 
 .guides-subtitle {
   font-size: 1.25rem;
-  color: var(--text-secondary);
+  color: var(--text-dim);
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
@@ -51,7 +52,7 @@
 .guides-section-title {
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--text-bright);
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -65,19 +66,20 @@
 }
 
 .guide-card {
-  background: white;
+  background: var(--bg-card);
   border-radius: 1.5rem;
   padding: 2rem;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border);
   border-left: 4px solid;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
 .guide-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  background: var(--bg-card-hover);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
 }
 
 .guide-card-header {
@@ -95,20 +97,20 @@
   width: 64px;
   height: 64px;
   border-radius: 1rem;
-  background: rgba(59, 130, 246, 0.1);
+  background: var(--accent-glow);
 }
 
 .guide-card-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--text-bright);
   margin: 0;
   line-height: 1.3;
 }
 
 .guide-card-description {
   font-size: 1rem;
-  color: var(--text-secondary);
+  color: var(--text-dim);
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
