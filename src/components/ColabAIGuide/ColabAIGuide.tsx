@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import {
-  Terminal,
   Sparkles,
   Settings,
   Code2,
@@ -789,16 +788,6 @@ logging.info(f"Model trained with accuracy: {accuracy:.2%}")`} />
 
       {/* Footer */}
       <footer className="colab-footer">
-        <div className="footer-content">
-          <div className="footer-status">
-            <span className="status-text">Autor: Robert Moreno</span>
-          </div>
-          <div className="footer-tech">
-            <span className="tech-item"><Terminal className="tech-icon"/> Google Colab</span>
-            <span className="tech-item"><Sparkles className="tech-icon"/> Gemini AI</span>
-            <span className="tech-item"><Code2 className="tech-icon"/> Python 3.10+</span>
-          </div>
-        </div>
       </footer>
     </div>
   );

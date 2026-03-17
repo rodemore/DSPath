@@ -1026,16 +1026,6 @@ print(f'Accuracy: {score:.2%}')`} />
 
       {/* Footer */}
       <footer className="copilot-footer">
-        <div className="footer-content">
-          <div className="footer-status">
-            <span className="status-text">Autor: Robert Moreno</span>
-          </div>
-          <div className="footer-tech">
-            <span className="tech-item"><Terminal className="tech-icon"/> VS Code</span>
-            <span className="tech-item"><Sparkles className="tech-icon"/> GitHub Copilot</span>
-            <span className="tech-item"><Code2 className="tech-icon"/> Python / JS</span>
-          </div>
-        </div>
       </footer>
     </div>
   );

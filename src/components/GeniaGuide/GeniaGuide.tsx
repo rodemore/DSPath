@@ -4,7 +4,6 @@ import {
   Cpu,
   AlertTriangle,
   CheckCircle2,
-  Code2,
   BarChart3,
   BookOpen,
   Database,
@@ -12,7 +11,6 @@ import {
   Zap,
   ChevronRight,
   Target,
-  Layers,
   Lightbulb,
   FileCode
 } from 'lucide-react';
@@ -650,16 +648,6 @@ df['cluster'] = kmeans_final.fit_predict(X)`} />
 
       {/* Footer */}
       <footer className="genia-footer">
-        <div className="footer-content">
-          <div className="footer-status">
-            <span className="status-text">Autor: Robert Moreno</span>
-          </div>
-          <div className="footer-tech">
-            <span className="tech-item"><Terminal className="tech-icon"/> Pandas 2.1</span>
-            <span className="tech-item"><Layers className="tech-icon"/> Scikit-Learn 1.3</span>
-            <span className="tech-item"><Code2 className="tech-icon"/> Python 3.10+</span>
-          </div>
-        </div>
       </footer>
     </div>
   );
