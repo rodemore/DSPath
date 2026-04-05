@@ -1,6 +1,10 @@
 // Utilidades para guardar y recuperar datos del Cache API del navegador
 
-const CACHE_NAME = 'dspath-user-progress-v1';
+import { APP_CONFIG } from '@/config';
+
+const CACHE_NAME = APP_CONFIG.storage.cacheName;
+const COMPLETED_EXERCISES_KEY = APP_CONFIG.storage.keys.completedExercises;
+const EXERCISE_CODE_KEY = APP_CONFIG.storage.keys.exerciseCode;
 
 export const cacheStorage = {
   // Guardar ejercicios completados
@@ -13,7 +17,7 @@ export const cacheStorage = {
     } catch (error) {
       console.error('Error saving to cache:', error);
       // Fallback a localStorage
-      localStorage.setItem('completedExercises', JSON.stringify(Array.from(exercises)));
+      localStorage.setItem(COMPLETED_EXERCISES_KEY, JSON.stringify(Array.from(exercises)));
     }
   },
 
@@ -29,7 +33,7 @@ export const cacheStorage = {
       }
 
       // Fallback a localStorage si no existe en cache
-      const localData = localStorage.getItem('completedExercises');
+      const localData = localStorage.getItem(COMPLETED_EXERCISES_KEY);
       if (localData) {
         const exercises = new Set<string>(JSON.parse(localData) as string[]);
         // Migrar a cache
@@ -41,7 +45,7 @@ export const cacheStorage = {
     } catch (error) {
       console.error('Error reading from cache:', error);
       // Fallback a localStorage
-      const saved = localStorage.getItem('completedExercises');
+      const saved = localStorage.getItem(COMPLETED_EXERCISES_KEY);
       return saved ? new Set(JSON.parse(saved)) : new Set();
     }
   },
@@ -56,7 +60,7 @@ export const cacheStorage = {
     } catch (error) {
       console.error('Error saving code to cache:', error);
       // Fallback a localStorage
-      localStorage.setItem('exerciseCode', JSON.stringify(exerciseCode));
+      localStorage.setItem(EXERCISE_CODE_KEY, JSON.stringify(exerciseCode));
     }
   },
 
@@ -72,7 +76,7 @@ export const cacheStorage = {
       }
 
       // Fallback a localStorage si no existe en cache
-      const localData = localStorage.getItem('exerciseCode');
+      const localData = localStorage.getItem(EXERCISE_CODE_KEY);
       if (localData) {
         const code = JSON.parse(localData);
         // Migrar a cache
@@ -84,7 +88,7 @@ export const cacheStorage = {
     } catch (error) {
       console.error('Error reading code from cache:', error);
       // Fallback a localStorage
-      const saved = localStorage.getItem('exerciseCode');
+      const saved = localStorage.getItem(EXERCISE_CODE_KEY);
       return saved ? JSON.parse(saved) : {};
     }
   },
@@ -93,10 +97,10 @@ export const cacheStorage = {
   async clearProgress(): Promise<void> {
     try {
       await caches.delete(CACHE_NAME);
-      localStorage.removeItem('completedExercises');
-      localStorage.removeItem('exerciseCode');
+      localStorage.removeItem(COMPLETED_EXERCISES_KEY);
+      localStorage.removeItem(EXERCISE_CODE_KEY);
     } catch (error) {
       console.error('Error clearing cache:', error);
     }
-  }
+  },
 };

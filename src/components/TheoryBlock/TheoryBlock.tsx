@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import type { TheoryBlock as TheoryBlockType } from '../../types';
 import { CodeExample } from '../CodeExample';
 import { TerminalBlock } from '../TerminalBlock';
@@ -6,7 +7,7 @@ interface TheoryBlockProps {
   block: TheoryBlockType;
 }
 
-export const TheoryBlock = ({ block }: TheoryBlockProps) => {
+export const TheoryBlock = memo(function TheoryBlock({ block }: TheoryBlockProps) {
   const renderContent = () => {
     if (Array.isArray(block.content)) {
       return (
@@ -36,7 +37,10 @@ export const TheoryBlock = ({ block }: TheoryBlockProps) => {
           {block.table.rows.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {block.table!.headers.map((header, cellIndex) => (
-                <td key={cellIndex} dangerouslySetInnerHTML={{ __html: String(row[header] || '') }} />
+                <td
+                  key={cellIndex}
+                  dangerouslySetInnerHTML={{ __html: String(row[header] || '') }}
+                />
               ))}
             </tr>
           ))}
@@ -62,4 +66,4 @@ export const TheoryBlock = ({ block }: TheoryBlockProps) => {
       {renderTable()}
     </div>
   );
-};
+});

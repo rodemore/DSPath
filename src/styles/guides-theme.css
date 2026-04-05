@@ -4,7 +4,8 @@
    DARK THEME (Default)
    ═══════════════════════════════════════════════════════ */
 
-:root, [data-theme="dark"] {
+:root,
+[data-theme='dark'] {
   /* Guide-specific shared colors */
   --guide-bg-main: var(--bg-deep);
   --guide-bg-section: var(--bg-main);
@@ -203,7 +204,11 @@
 
 /* Strategy sections */
 .strategy-principle {
-  background: linear-gradient(135deg, rgba(254, 243, 199, 0.15) 0%, rgba(253, 230, 138, 0.15) 100%) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(254, 243, 199, 0.15) 0%,
+    rgba(253, 230, 138, 0.15) 100%
+  ) !important;
   border-color: var(--warning) !important;
 }
 
@@ -227,7 +232,11 @@
 }
 
 .strategy-workflow {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(37, 99, 235, 0.1) 100%) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(37, 99, 235, 0.1) 100%
+  ) !important;
   border-color: #3b82f6 !important;
 }
 
@@ -247,7 +256,11 @@
 }
 
 .context-box {
-  background: linear-gradient(135deg, rgba(254, 243, 199, 0.15) 0%, rgba(253, 230, 138, 0.15) 100%) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(254, 243, 199, 0.15) 0%,
+    rgba(253, 230, 138, 0.15) 100%
+  ) !important;
   border-color: var(--warning) !important;
 }
 
@@ -256,7 +269,11 @@
 }
 
 .case-takeaway {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(124, 58, 237, 0.15) 100%) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.15) 0%,
+    rgba(124, 58, 237, 0.15) 100%
+  ) !important;
   border-color: #7c3aed !important;
 }
 
@@ -266,12 +283,20 @@
 
 /* Conversation steps */
 .step-header.user {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(37, 99, 235, 0.2) 100%) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.2) 0%,
+    rgba(37, 99, 235, 0.2) 100%
+  ) !important;
   border-color: #3b82f6 !important;
 }
 
 .step-header.genia {
-  background: linear-gradient(135deg, rgba(45, 212, 168, 0.2) 0%, rgba(26, 138, 110, 0.2) 100%) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(45, 212, 168, 0.2) 0%,
+    rgba(26, 138, 110, 0.2) 100%
+  ) !important;
   border-color: var(--accent) !important;
 }
 
@@ -297,7 +322,11 @@
 
 /* Colab AI specific elements */
 .shortcuts-box {
-  background: linear-gradient(135deg, rgba(254, 243, 199, 0.15) 0%, rgba(253, 230, 138, 0.15) 100%) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(254, 243, 199, 0.15) 0%,
+    rgba(253, 230, 138, 0.15) 100%
+  ) !important;
   border-color: var(--warning) !important;
 }
 
@@ -415,7 +444,7 @@
    LIGHT THEME
    ═══════════════════════════════════════════════════════ */
 
-[data-theme="light"] {
+[data-theme='light'] {
   --guide-bg-main: #ffffff;
   --guide-bg-section: #f8fafc;
   --guide-bg-card: #ffffff;
@@ -426,122 +455,122 @@
   --guide-text-bright: #1a202c;
 }
 
-[data-theme="light"] .genia-guide-container,
-[data-theme="light"] .colab-guide-container,
-[data-theme="light"] .copilot-guide-container {
+[data-theme='light'] .genia-guide-container,
+[data-theme='light'] .colab-guide-container,
+[data-theme='light'] .copilot-guide-container {
   background-color: #f8fafc !important;
   color: #0f172a !important;
 }
 
-[data-theme="light"] .feature-card,
-[data-theme="light"] .principle-card,
-[data-theme="light"] .context-card,
-[data-theme="light"] .optimization-card,
-[data-theme="light"] .validation-card,
-[data-theme="light"] .function-card,
-[data-theme="light"] .use-case,
-[data-theme="light"] .practice-card,
-[data-theme="light"] .use-case-card,
-[data-theme="light"] .when-not-item,
-[data-theme="light"] .takeaway-item,
-[data-theme="light"] .command-card,
-[data-theme="light"] .when-not-card,
-[data-theme="light"] .demo-step,
-[data-theme="light"] .shortcut-item,
-[data-theme="light"] .boost-stat {
+[data-theme='light'] .feature-card,
+[data-theme='light'] .principle-card,
+[data-theme='light'] .context-card,
+[data-theme='light'] .optimization-card,
+[data-theme='light'] .validation-card,
+[data-theme='light'] .function-card,
+[data-theme='light'] .use-case,
+[data-theme='light'] .practice-card,
+[data-theme='light'] .use-case-card,
+[data-theme='light'] .when-not-item,
+[data-theme='light'] .takeaway-item,
+[data-theme='light'] .command-card,
+[data-theme='light'] .when-not-card,
+[data-theme='light'] .demo-step,
+[data-theme='light'] .shortcut-item,
+[data-theme='light'] .boost-stat {
   background: white !important;
   border-color: #e2e8f0 !important;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1) !important;
 }
 
-[data-theme="light"] .card-title,
-[data-theme="light"] .feature-title,
-[data-theme="light"] .principle-title-text,
-[data-theme="light"] .context-title,
-[data-theme="light"] .optimization-title,
-[data-theme="light"] .validation-title,
-[data-theme="light"] .function-title,
-[data-theme="light"] .use-case-title,
-[data-theme="light"] .practice-title,
-[data-theme="light"] .section-title {
+[data-theme='light'] .card-title,
+[data-theme='light'] .feature-title,
+[data-theme='light'] .principle-title-text,
+[data-theme='light'] .context-title,
+[data-theme='light'] .optimization-title,
+[data-theme='light'] .validation-title,
+[data-theme='light'] .function-title,
+[data-theme='light'] .use-case-title,
+[data-theme='light'] .practice-title,
+[data-theme='light'] .section-title {
   color: #0f172a !important;
 }
 
-[data-theme="light"] .card-description,
-[data-theme="light"] .feature-description,
-[data-theme="light"] .context-description,
-[data-theme="light"] .section-intro,
-[data-theme="light"] .section-text {
+[data-theme='light'] .card-description,
+[data-theme='light'] .feature-description,
+[data-theme='light'] .context-description,
+[data-theme='light'] .section-intro,
+[data-theme='light'] .section-text {
   color: #475569 !important;
 }
 
-[data-theme="light"] .sidebar-btn {
+[data-theme='light'] .sidebar-btn {
   background: #f8fafc !important;
   color: #64748b !important;
   border-color: #e2e8f0 !important;
 }
 
-[data-theme="light"] .sidebar-btn:hover {
+[data-theme='light'] .sidebar-btn:hover {
   background: #f1f5f9 !important;
   color: #1e293b !important;
 }
 
-[data-theme="light"] .sidebar-btn.active {
+[data-theme='light'] .sidebar-btn.active {
   background: rgba(26, 138, 110, 0.1) !important;
   border-color: #1a8a6e !important;
   color: #1a8a6e !important;
 }
 
-[data-theme="light"] .tip-box {
+[data-theme='light'] .tip-box {
   background: #f8fafc !important;
   border-color: #cbd5e1 !important;
 }
 
-[data-theme="light"] .tip-box.tip {
+[data-theme='light'] .tip-box.tip {
   background: rgba(26, 138, 110, 0.1) !important;
   border-color: #1a8a6e !important;
 }
 
-[data-theme="light"] .tip-box.warning {
+[data-theme='light'] .tip-box.warning {
   background: rgba(243, 156, 18, 0.1) !important;
   border-color: #f39c12 !important;
 }
 
-[data-theme="light"] .tip-box.success {
+[data-theme='light'] .tip-box.success {
   background: rgba(26, 138, 110, 0.1) !important;
   border-color: #1a8a6e !important;
 }
 
-[data-theme="light"] .user-message {
+[data-theme='light'] .user-message {
   background: white !important;
   border-color: #1a8a6e !important;
 }
 
-[data-theme="light"] .assistant-message {
+[data-theme='light'] .assistant-message {
   background: rgba(26, 138, 110, 0.05) !important;
   border-color: #1a8a6e !important;
 }
 
-[data-theme="light"] .message-label {
+[data-theme='light'] .message-label {
   color: #1a8a6e !important;
 }
 
 /* Headers in light mode */
-[data-theme="light"] .genia-header {
+[data-theme='light'] .genia-header {
   background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%) !important;
 }
 
-[data-theme="light"] .colab-header {
+[data-theme='light'] .colab-header {
   background: linear-gradient(135deg, #f97316 0%, #ea580c 100%) !important;
 }
 
-[data-theme="light"] .copilot-header {
+[data-theme='light'] .copilot-header {
   background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
 }
 
-[data-theme="light"] .genia-footer,
-[data-theme="light"] .colab-footer,
-[data-theme="light"] .copilot-footer {
+[data-theme='light'] .genia-footer,
+[data-theme='light'] .colab-footer,
+[data-theme='light'] .copilot-footer {
   background: white !important;
   border-top-color: #e2e8f0 !important;
   color: #64748b !important;

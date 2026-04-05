@@ -19,26 +19,29 @@ export const GuidesPage = () => {
     {
       id: 'genia',
       title: 'Guía de Uso de Genia',
-      description: 'Aprende a usar Genia como un profesional: desde prompts básicos hasta técnicas avanzadas de ingeniería de prompts para Data Science.',
+      description:
+        'Aprende a usar Genia como un profesional: desde prompts básicos hasta técnicas avanzadas de ingeniería de prompts para Data Science.',
       icon: <Sparkles size={32} />,
       color: '#3b82f6',
-      path: '/guides/genia'
+      path: '/guides/genia',
     },
     {
       id: 'colab-ai',
       title: 'Asistente de IA en Google Colab',
-      description: 'Guía completa para activar y sacarle el máximo provecho al asistente de IA de Google Colab: autocompletado, generación de código, debugging y más.',
+      description:
+        'Guía completa para activar y sacarle el máximo provecho al asistente de IA de Google Colab: autocompletado, generación de código, debugging y más.',
       icon: <Code2 size={32} />,
       color: '#f97316',
-      path: '/guides/colab-ai'
+      path: '/guides/colab-ai',
     },
     {
       id: 'copilot',
       title: 'GitHub Copilot en VS Code',
-      description: 'Domina GitHub Copilot en Visual Studio Code: instalación, Copilot Chat, Slash Commands, mejores prácticas y casos de uso reales.',
+      description:
+        'Domina GitHub Copilot en Visual Studio Code: instalación, Copilot Chat, Slash Commands, mejores prácticas y casos de uso reales.',
       icon: <Cpu size={32} />,
       color: '#7c3aed',
-      path: '/guides/copilot'
+      path: '/guides/copilot',
     },
   ];
 
@@ -61,16 +64,24 @@ export const GuidesPage = () => {
             <span className="lab">Path</span>
           </div>
           <div className="nav-links">
-            <a href="/" className="nav-link">Cursos</a>
-            <a href="#" className="nav-link disabled">Proyectos</a>
-            <a href="/guides" className="nav-link active">Guías</a>
+            <a href="/" className="nav-link">
+              Cursos
+            </a>
+            <a href="#" className="nav-link disabled">
+              Proyectos
+            </a>
+            <a href="/guides" className="nav-link active">
+              Guías
+            </a>
           </div>
         </div>
       </nav>
 
       <div className="guides-header">
         <h1 className="guides-title">
-          <span className="guides-icon"><BookOpen size={48} /></span>
+          <span className="guides-icon">
+            <BookOpen size={48} />
+          </span>
           Guías de Aprendizaje
         </h1>
         <p className="guides-subtitle">
@@ -100,10 +111,7 @@ export const GuidesPage = () => {
               </div>
               <p className="guide-card-description">{guide.description}</p>
               <div className="guide-card-footer">
-                <button
-                  className="guide-button"
-                  style={{ backgroundColor: guide.color }}
-                >
+                <button className="guide-button" style={{ backgroundColor: guide.color }}>
                   Ver guía →
                 </button>
               </div>

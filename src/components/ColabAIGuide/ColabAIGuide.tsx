@@ -12,12 +12,20 @@ import {
   Zap,
   BookOpen,
   PlayCircle,
-  ShieldCheck
+  ShieldCheck,
 } from 'lucide-react';
 import './ColabAIGuide.css';
 import '../../styles/guides-theme.css';
 
-type SectionId = 'intro' | 'activacion' | 'funciones' | 'autocompletado' | 'generacion' | 'debugging' | 'mejores-practicas' | 'limitaciones';
+type SectionId =
+  | 'intro'
+  | 'activacion'
+  | 'funciones'
+  | 'autocompletado'
+  | 'generacion'
+  | 'debugging'
+  | 'mejores-practicas'
+  | 'limitaciones';
 
 interface Section {
   id: SectionId;
@@ -35,7 +43,7 @@ interface TipBoxProps {
   children: React.ReactNode;
 }
 
-const CodeBlock = ({ code, language = "python" }: CodeBlockProps) => (
+const CodeBlock = ({ code, language = 'python' }: CodeBlockProps) => (
   <div className="colab-code-block">
     <div className="code-header">
       <span className="code-language">{language}</span>
@@ -45,9 +53,7 @@ const CodeBlock = ({ code, language = "python" }: CodeBlockProps) => (
         <div className="dot green"></div>
       </div>
     </div>
-    <pre className="code-content">
-      {code}
-    </pre>
+    <pre className="code-content">{code}</pre>
   </div>
 );
 
@@ -74,10 +80,18 @@ export const ColabAIGuide = () => {
     { id: 'intro', label: '1. Introducción', icon: <BookOpen className="w-4 h-4" /> },
     { id: 'activacion', label: '2. Activación', icon: <Settings className="w-4 h-4" /> },
     { id: 'funciones', label: '3. Funciones Principales', icon: <Sparkles className="w-4 h-4" /> },
-    { id: 'autocompletado', label: '4. Autocompletado Inteligente', icon: <Zap className="w-4 h-4" /> },
+    {
+      id: 'autocompletado',
+      label: '4. Autocompletado Inteligente',
+      icon: <Zap className="w-4 h-4" />,
+    },
     { id: 'generacion', label: '5. Generación de Código', icon: <Code2 className="w-4 h-4" /> },
     { id: 'debugging', label: '6. Debugging y Corrección', icon: <Bug className="w-4 h-4" /> },
-    { id: 'mejores-practicas', label: '7. Mejores Prácticas', icon: <CheckCircle2 className="w-4 h-4" /> },
+    {
+      id: 'mejores-practicas',
+      label: '7. Mejores Prácticas',
+      icon: <CheckCircle2 className="w-4 h-4" />,
+    },
     { id: 'limitaciones', label: '8. Limitaciones', icon: <ShieldCheck className="w-4 h-4" /> },
   ];
 
@@ -87,14 +101,14 @@ export const ColabAIGuide = () => {
       <header className="colab-header">
         <div className="header-content">
           <h1 className="header-title">
-            Guía Completa del <br/> <span className="title-highlight">Asistente de IA en Google Colab</span>
+            Guía Completa del <br />{' '}
+            <span className="title-highlight">Asistente de IA en Google Colab</span>
           </h1>
           <p className="header-subtitle">
-            Aprende a activar y sacarle el máximo provecho al asistente de IA de Google Colab para acelerar tu flujo de trabajo en Data Science.
+            Aprende a activar y sacarle el máximo provecho al asistente de IA de Google Colab para
+            acelerar tu flujo de trabajo en Data Science.
           </p>
-          <p className="header-author">
-            Por Robert Moreno
-          </p>
+          <p className="header-author">Por Robert Moreno</p>
         </div>
         <div className="header-blur"></div>
       </header>
@@ -111,9 +125,7 @@ export const ColabAIGuide = () => {
                 className={`sidebar-btn ${activeSection === s.id ? 'active' : ''}`}
               >
                 <div className="sidebar-btn-content">
-                  <span className="sidebar-icon">
-                    {s.icon}
-                  </span>
+                  <span className="sidebar-icon">{s.icon}</span>
                   {s.label}
                 </div>
                 {activeSection === s.id && <ChevronRight className="chevron-icon" />}
@@ -124,15 +136,15 @@ export const ColabAIGuide = () => {
 
         {/* Main Content */}
         <main className="guide-main">
-
           {/* SECTION: INTRO */}
           {activeSection === 'intro' && (
             <div className="section-content">
               <h2 className="section-title">1. ¿Qué es el Asistente de IA de Google Colab?</h2>
               <div className="section-text">
                 <p className="section-paragraph">
-                  Google Colab integra <strong>asistentes de IA generativa</strong> (Gemini) que te ayudan a escribir código,
-                  completar funciones, generar documentación y resolver errores, todo sin salir de tu notebook.
+                  Google Colab integra <strong>asistentes de IA generativa</strong> (Gemini) que te
+                  ayudan a escribir código, completar funciones, generar documentación y resolver
+                  errores, todo sin salir de tu notebook.
                 </p>
 
                 <div className="feature-grid">
@@ -141,20 +153,20 @@ export const ColabAIGuide = () => {
                       title: 'Autocompletado Inteligente',
                       desc: 'Sugerencias de código en tiempo real basadas en tu contexto.',
                       icon: <Zap className="feature-icon" />,
-                      color: 'blue'
+                      color: 'blue',
                     },
                     {
                       title: 'Generación de Código',
                       desc: 'Describe lo que necesitas y el AI genera el código completo.',
                       icon: <Code2 className="feature-icon" />,
-                      color: 'emerald'
+                      color: 'emerald',
                     },
                     {
                       title: 'Corrección de Errores',
                       desc: 'Detecta y sugiere correcciones para bugs y errores.',
                       icon: <Bug className="feature-icon" />,
-                      color: 'purple'
-                    }
+                      color: 'purple',
+                    },
                   ].map((item, idx) => (
                     <div key={idx} className={`feature-card ${item.color}`}>
                       <div className="feature-icon-container">{item.icon}</div>
@@ -165,7 +177,8 @@ export const ColabAIGuide = () => {
                 </div>
 
                 <TipBox type="tip">
-                  El asistente de IA en Colab está <strong>disponible de forma gratuita</strong>, aunque usuarios de Colab Pro tienen acceso a modelos más avanzados.
+                  El asistente de IA en Colab está <strong>disponible de forma gratuita</strong>,
+                  aunque usuarios de Colab Pro tienen acceso a modelos más avanzados.
                 </TipBox>
               </div>
             </div>
@@ -175,7 +188,9 @@ export const ColabAIGuide = () => {
           {activeSection === 'activacion' && (
             <div className="section-content">
               <h2 className="section-title">2. Cómo Activar el Asistente de IA</h2>
-              <p className="section-intro">Sigue estos pasos para habilitar el asistente en tu notebook de Colab:</p>
+              <p className="section-intro">
+                Sigue estos pasos para habilitar el asistente en tu notebook de Colab:
+              </p>
 
               <div className="steps-container">
                 <div className="activation-step">
@@ -183,7 +198,16 @@ export const ColabAIGuide = () => {
                   <div className="step-content-box">
                     <h3 className="step-title">Abre Google Colab</h3>
                     <p className="step-description">
-                      Ve a <a href="https://colab.research.google.com" target="_blank" rel="noopener noreferrer" className="link">colab.research.google.com</a> e inicia sesión con tu cuenta de Google.
+                      Ve a{' '}
+                      <a
+                        href="https://colab.research.google.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link"
+                      >
+                        colab.research.google.com
+                      </a>{' '}
+                      e inicia sesión con tu cuenta de Google.
                     </p>
                   </div>
                 </div>
@@ -193,8 +217,8 @@ export const ColabAIGuide = () => {
                   <div className="step-content-box">
                     <h3 className="step-title">Accede a Configuración</h3>
                     <p className="step-description">
-                      Haz clic en el ícono de <strong>⚙️ Configuración</strong> (Settings) en la esquina superior derecha,
-                      o usa el atajo de teclado <code>Cmd/Ctrl + ,</code>
+                      Haz clic en el ícono de <strong>⚙️ Configuración</strong> (Settings) en la
+                      esquina superior derecha, o usa el atajo de teclado <code>Cmd/Ctrl + ,</code>
                     </p>
                   </div>
                 </div>
@@ -208,7 +232,9 @@ export const ColabAIGuide = () => {
                     </p>
                     <div className="setting-option">
                       <input type="checkbox" checked readOnly />
-                      <span><strong>Enable AI-powered code completions</strong></span>
+                      <span>
+                        <strong>Enable AI-powered code completions</strong>
+                      </span>
                     </div>
                     <p className="step-description">
                       Activa el toggle para habilitar las sugerencias inteligentes.
@@ -221,14 +247,18 @@ export const ColabAIGuide = () => {
                   <div className="step-content-box">
                     <h3 className="step-title">¡Listo para Usar!</h3>
                     <p className="step-description">
-                      Ahora verás sugerencias de código mientras escribes. Las sugerencias aparecen en <span className="code-hint">texto gris</span> y puedes aceptarlas presionando <kbd>Tab</kbd>.
+                      Ahora verás sugerencias de código mientras escribes. Las sugerencias aparecen
+                      en <span className="code-hint">texto gris</span> y puedes aceptarlas
+                      presionando <kbd>Tab</kbd>.
                     </p>
                   </div>
                 </div>
               </div>
 
               <TipBox type="success">
-                <strong>Atajo rápido:</strong> Presiona <kbd>Ctrl + M</kbd> (Windows/Linux) o <kbd>Cmd + M</kbd> (Mac) para abrir el panel de comandos y buscar "AI" para ver todas las opciones disponibles.
+                <strong>Atajo rápido:</strong> Presiona <kbd>Ctrl + M</kbd> (Windows/Linux) o{' '}
+                <kbd>Cmd + M</kbd> (Mac) para abrir el panel de comandos y buscar "AI" para ver
+                todas las opciones disponibles.
               </TipBox>
             </div>
           )}
@@ -237,7 +267,10 @@ export const ColabAIGuide = () => {
           {activeSection === 'funciones' && (
             <div className="section-content">
               <h2 className="section-title">3. Funciones Principales del Asistente</h2>
-              <p className="section-intro">El asistente de IA en Colab ofrece múltiples capacidades para mejorar tu productividad:</p>
+              <p className="section-intro">
+                El asistente de IA en Colab ofrece múltiples capacidades para mejorar tu
+                productividad:
+              </p>
 
               <div className="functions-grid">
                 <div className="function-card">
@@ -246,7 +279,8 @@ export const ColabAIGuide = () => {
                     <h3>Autocompletado en Tiempo Real</h3>
                   </div>
                   <p className="function-desc">
-                    Mientras escribes código, el AI sugiere la continuación más probable basándose en:
+                    Mientras escribes código, el AI sugiere la continuación más probable basándose
+                    en:
                   </p>
                   <ul className="function-list">
                     <li>El contexto de tu código anterior</li>
@@ -254,7 +288,8 @@ export const ColabAIGuide = () => {
                     <li>Nombres de variables y funciones existentes</li>
                   </ul>
                   <div className="function-example">
-                    <strong>Ejemplo:</strong> Si escribes <code>df.grou</code>, automáticamente sugiere <code className="suggestion">pby(</code>
+                    <strong>Ejemplo:</strong> Si escribes <code>df.grou</code>, automáticamente
+                    sugiere <code className="suggestion">pby(</code>
                   </div>
                 </div>
 
@@ -266,7 +301,8 @@ export const ColabAIGuide = () => {
                   <p className="function-desc">
                     Escribe un comentario describiendo lo que necesitas y el AI genera el código:
                   </p>
-                  <CodeBlock code={`# Crea un gráfico de barras con las 10 ciudades más frecuentes
+                  <CodeBlock
+                    code={`# Crea un gráfico de barras con las 10 ciudades más frecuentes
 # El AI genera automáticamente:
 top_cities = df['city'].value_counts().head(10)
 plt.figure(figsize=(10, 6))
@@ -275,7 +311,8 @@ plt.xlabel('Ciudad')
 plt.ylabel('Frecuencia')
 plt.title('Top 10 Ciudades')
 plt.xticks(rotation=45)
-plt.show()`} />
+plt.show()`}
+                  />
                 </div>
 
                 <div className="function-card">
@@ -284,7 +321,8 @@ plt.show()`} />
                     <h3>Ayuda con Errores</h3>
                   </div>
                   <p className="function-desc">
-                    Cuando ocurre un error, Colab muestra un botón <strong>"✨ Explain error"</strong> que:
+                    Cuando ocurre un error, Colab muestra un botón{' '}
+                    <strong>"✨ Explain error"</strong> que:
                   </p>
                   <ul className="function-list">
                     <li>Explica la causa del error en lenguaje simple</li>
@@ -301,7 +339,8 @@ plt.show()`} />
                   <p className="function-desc">
                     Genera docstrings y comentarios explicativos para tus funciones:
                   </p>
-                  <CodeBlock code={`def process_data(df, threshold=0.5):
+                  <CodeBlock
+                    code={`def process_data(df, threshold=0.5):
     """
     Procesa el DataFrame aplicando filtros y transformaciones.
 
@@ -312,7 +351,8 @@ plt.show()`} />
     Returns:
         pd.DataFrame: DataFrame procesado
     """
-    # El AI puede generar esto automáticamente`} />
+    # El AI puede generar esto automáticamente`}
+                  />
                 </div>
               </div>
             </div>
@@ -322,7 +362,9 @@ plt.show()`} />
           {activeSection === 'autocompletado' && (
             <div className="section-content">
               <h2 className="section-title">4. Domina el Autocompletado Inteligente</h2>
-              <p className="section-intro">El autocompletado de Colab AI va más allá del autocompletado tradicional:</p>
+              <p className="section-intro">
+                El autocompletado de Colab AI va más allá del autocompletado tradicional:
+              </p>
 
               <div className="autocomplete-examples">
                 <div className="example-block">
@@ -330,14 +372,17 @@ plt.show()`} />
                   <div className="comparison-grid">
                     <div>
                       <h4 className="comparison-label">Tú escribes:</h4>
-                      <CodeBlock code={`import pandas as pd
+                      <CodeBlock
+                        code={`import pandas as pd
 df = pd.read_csv('datos.csv')
 
-# Quiero ver estadísticas de`} />
+# Quiero ver estadísticas de`}
+                      />
                     </div>
                     <div>
                       <h4 className="comparison-label success">El AI sugiere:</h4>
-                      <CodeBlock code={`import pandas as pd
+                      <CodeBlock
+                        code={`import pandas as pd
 df = pd.read_csv('datos.csv')
 
 # Quiero ver estadísticas de las columnas numéricas
@@ -345,7 +390,8 @@ df.describe()
 
 # O también sugiere:
 df.info()
-df.select_dtypes(include='number').describe()`} />
+df.select_dtypes(include='number').describe()`}
+                      />
                     </div>
                   </div>
                 </div>
@@ -355,13 +401,16 @@ df.select_dtypes(include='number').describe()`} />
                   <div className="comparison-grid">
                     <div>
                       <h4 className="comparison-label">Tú escribes:</h4>
-                      <CodeBlock code={`import matplotlib.pyplot as plt
+                      <CodeBlock
+                        code={`import matplotlib.pyplot as plt
 
-# Crear gráfico de dispersión entre edad y salario`} />
+# Crear gráfico de dispersión entre edad y salario`}
+                      />
                     </div>
                     <div>
                       <h4 className="comparison-label success">El AI completa:</h4>
-                      <CodeBlock code={`import matplotlib.pyplot as plt
+                      <CodeBlock
+                        code={`import matplotlib.pyplot as plt
 
 # Crear gráfico de dispersión entre edad y salario
 plt.figure(figsize=(10, 6))
@@ -370,13 +419,16 @@ plt.xlabel('Edad')
 plt.ylabel('Salario')
 plt.title('Relación entre Edad y Salario')
 plt.grid(True, alpha=0.3)
-plt.show()`} />
+plt.show()`}
+                      />
                     </div>
                   </div>
                 </div>
 
                 <TipBox type="tip">
-                  <strong>Truco Pro:</strong> Escribe comentarios muy específicos en español. El AI entiende perfectamente el contexto y genera código apropiado. Por ejemplo: <code># Normalizar columnas numéricas usando StandardScaler</code>
+                  <strong>Truco Pro:</strong> Escribe comentarios muy específicos en español. El AI
+                  entiende perfectamente el contexto y genera código apropiado. Por ejemplo:{' '}
+                  <code># Normalizar columnas numéricas usando StandardScaler</code>
                 </TipBox>
               </div>
 
@@ -408,7 +460,9 @@ plt.show()`} />
           {activeSection === 'generacion' && (
             <div className="section-content">
               <h2 className="section-title">5. Generación de Código con Prompts</h2>
-              <p className="section-intro">Aprende a escribir prompts efectivos para generar código de calidad:</p>
+              <p className="section-intro">
+                Aprende a escribir prompts efectivos para generar código de calidad:
+              </p>
 
               <div className="prompt-strategies">
                 <div className="strategy-box">
@@ -423,15 +477,19 @@ plt.show()`} />
                     </div>
                     <div className="good-prompt">
                       <span className="label good">✅ Prompt Específico</span>
-                      <CodeBlock code={`# Limpia el DataFrame df:
+                      <CodeBlock
+                        code={`# Limpia el DataFrame df:
 # 1. Elimina filas con NaN en la columna 'precio'
 # 2. Convierte 'fecha' a datetime
-# 3. Elimina duplicados basados en 'id'`} />
+# 3. Elimina duplicados basados en 'id'`}
+                      />
                       <div className="ai-result">
                         <strong>Resultado del AI:</strong>
-                        <CodeBlock code={`df = df.dropna(subset=['precio'])
+                        <CodeBlock
+                          code={`df = df.dropna(subset=['precio'])
 df['fecha'] = pd.to_datetime(df['fecha'])
-df = df.drop_duplicates(subset=['id'], keep='first')`} />
+df = df.drop_duplicates(subset=['id'], keep='first')`}
+                        />
                       </div>
                     </div>
                   </div>
@@ -443,16 +501,19 @@ df = df.drop_duplicates(subset=['id'], keep='first')`} />
                     <h3>Estrategia 2: Incluye Nombres de Variables</h3>
                   </div>
                   <TipBox type="success">
-                    El AI es más preciso cuando conoce los nombres exactos de tus variables y columnas.
+                    El AI es más preciso cuando conoce los nombres exactos de tus variables y
+                    columnas.
                   </TipBox>
-                  <CodeBlock code={`# Tengo un DataFrame 'ventas' con columnas: producto, cantidad, precio_unitario
+                  <CodeBlock
+                    code={`# Tengo un DataFrame 'ventas' con columnas: producto, cantidad, precio_unitario
 # Crea una columna 'total' que sea cantidad * precio_unitario
 # Luego agrupa por producto y suma los totales
 
 # El AI genera:
 ventas['total'] = ventas['cantidad'] * ventas['precio_unitario']
 resumen = ventas.groupby('producto')['total'].sum().reset_index()
-resumen = resumen.sort_values('total', ascending=False)`} />
+resumen = resumen.sort_values('total', ascending=False)`}
+                  />
                 </div>
 
                 <div className="strategy-box">
@@ -461,7 +522,8 @@ resumen = resumen.sort_values('total', ascending=False)`} />
                     <h3>Estrategia 3: Pide Código Paso a Paso</h3>
                   </div>
                   <p>Para tareas complejas, divide en pasos comentados:</p>
-                  <CodeBlock code={`# Modelo de Machine Learning para predecir churn:
+                  <CodeBlock
+                    code={`# Modelo de Machine Learning para predecir churn:
 # Paso 1: Separar features (X) y target (y), donde y = 'churn'
 
 # Paso 2: Dividir en train/test (80/20)
@@ -470,7 +532,8 @@ resumen = resumen.sort_values('total', ascending=False)`} />
 
 # Paso 4: Evaluar con accuracy y matriz de confusión
 
-# El AI genera código para cada paso automáticamente`} />
+# El AI genera código para cada paso automáticamente`}
+                  />
                 </div>
               </div>
 
@@ -479,11 +542,15 @@ resumen = resumen.sort_values('total', ascending=False)`} />
                 <div className="use-cases-grid">
                   <div className="use-case">
                     <h4>🔍 EDA (Exploratory Data Analysis)</h4>
-                    <code># Genera gráficos para análisis exploratorio de todas las columnas numéricas</code>
+                    <code>
+                      # Genera gráficos para análisis exploratorio de todas las columnas numéricas
+                    </code>
                   </div>
                   <div className="use-case">
                     <h4>🧹 Data Cleaning</h4>
-                    <code># Detecta y maneja outliers en columnas numéricas usando el método IQR</code>
+                    <code>
+                      # Detecta y maneja outliers en columnas numéricas usando el método IQR
+                    </code>
                   </div>
                   <div className="use-case">
                     <h4>🤖 Feature Engineering</h4>
@@ -491,7 +558,9 @@ resumen = resumen.sort_values('total', ascending=False)`} />
                   </div>
                   <div className="use-case">
                     <h4>📊 Visualizaciones</h4>
-                    <code># Crea un dashboard con 4 subplots: histograma, boxplot, scatter y heatmap</code>
+                    <code>
+                      # Crea un dashboard con 4 subplots: histograma, boxplot, scatter y heatmap
+                    </code>
                   </div>
                 </div>
               </div>
@@ -502,7 +571,9 @@ resumen = resumen.sort_values('total', ascending=False)`} />
           {activeSection === 'debugging' && (
             <div className="section-content">
               <h2 className="section-title">6. Debugging y Corrección de Errores</h2>
-              <p className="section-intro">El AI de Colab es excelente para ayudarte a resolver errores rápidamente:</p>
+              <p className="section-intro">
+                El AI de Colab es excelente para ayudarte a resolver errores rápidamente:
+              </p>
 
               <div className="debugging-guide">
                 <div className="error-workflow">
@@ -510,22 +581,36 @@ resumen = resumen.sort_values('total', ascending=False)`} />
                   <div className="workflow-steps-horizontal">
                     <div className="workflow-step-box">
                       <span className="workflow-num">1</span>
-                      <p><strong>Ejecuta tu código</strong><br/>y obtén un error</p>
+                      <p>
+                        <strong>Ejecuta tu código</strong>
+                        <br />y obtén un error
+                      </p>
                     </div>
                     <div className="workflow-arrow">→</div>
                     <div className="workflow-step-box">
                       <span className="workflow-num">2</span>
-                      <p><strong>Haz clic en</strong><br/>"✨ Explain error"</p>
+                      <p>
+                        <strong>Haz clic en</strong>
+                        <br />
+                        "✨ Explain error"
+                      </p>
                     </div>
                     <div className="workflow-arrow">→</div>
                     <div className="workflow-step-box">
                       <span className="workflow-num">3</span>
-                      <p><strong>Lee la explicación</strong><br/>y las soluciones</p>
+                      <p>
+                        <strong>Lee la explicación</strong>
+                        <br />y las soluciones
+                      </p>
                     </div>
                     <div className="workflow-arrow">→</div>
                     <div className="workflow-step-box">
                       <span className="workflow-num">4</span>
-                      <p><strong>Aplica el fix</strong><br/>sugerido</p>
+                      <p>
+                        <strong>Aplica el fix</strong>
+                        <br />
+                        sugerido
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -538,20 +623,27 @@ resumen = resumen.sort_values('total', ascending=False)`} />
                       <Bug className="error-icon" />
                       <h4>Error: KeyError</h4>
                     </div>
-                    <CodeBlock code={`# Tu código:
+                    <CodeBlock
+                      code={`# Tu código:
 df['precio_total'] = df['precio'] * df['cantidad']
 
 # Error:
-KeyError: 'precio'`} />
+KeyError: 'precio'`}
+                    />
                     <div className="ai-explanation">
                       <strong>🤖 Explicación del AI:</strong>
-                      <p>La columna 'precio' no existe en tu DataFrame. Verifica los nombres de columnas con <code>df.columns</code>.</p>
+                      <p>
+                        La columna 'precio' no existe en tu DataFrame. Verifica los nombres de
+                        columnas con <code>df.columns</code>.
+                      </p>
                       <strong>💡 Solución sugerida:</strong>
-                      <CodeBlock code={`# Primero verifica las columnas disponibles
+                      <CodeBlock
+                        code={`# Primero verifica las columnas disponibles
 print(df.columns)
 
 # Usa el nombre correcto (por ejemplo, 'price' en lugar de 'precio')
-df['precio_total'] = df['price'] * df['cantidad']`} />
+df['precio_total'] = df['price'] * df['cantidad']`}
+                      />
                     </div>
                   </div>
 
@@ -560,28 +652,39 @@ df['precio_total'] = df['price'] * df['cantidad']`} />
                       <Bug className="error-icon" />
                       <h4>Error: ValueError en reshape</h4>
                     </div>
-                    <CodeBlock code={`# Tu código:
+                    <CodeBlock
+                      code={`# Tu código:
 X = df[['feature1', 'feature2']].values
 X_reshaped = X.reshape(-1, 1)
 
 # Error:
-ValueError: cannot reshape array of size 200 into shape (100,1)`} />
+ValueError: cannot reshape array of size 200 into shape (100,1)`}
+                    />
                     <div className="ai-explanation">
                       <strong>🤖 Explicación del AI:</strong>
-                      <p>Estás intentando reshapear un array 2D a 1D. Si tienes 2 features, el tamaño total es 200 (100 filas × 2 columnas), no se puede convertir a (100, 1).</p>
+                      <p>
+                        Estás intentando reshapear un array 2D a 1D. Si tienes 2 features, el tamaño
+                        total es 200 (100 filas × 2 columnas), no se puede convertir a (100, 1).
+                      </p>
                       <strong>💡 Solución sugerida:</strong>
-                      <CodeBlock code={`# Si quieres mantener ambas features:
+                      <CodeBlock
+                        code={`# Si quieres mantener ambas features:
 X = df[['feature1', 'feature2']].values  # Ya está en forma correcta (100, 2)
 
 # Si solo necesitas una feature:
-X = df['feature1'].values.reshape(-1, 1)  # (100, 1)`} />
+X = df['feature1'].values.reshape(-1, 1)  # (100, 1)`}
+                      />
                     </div>
                   </div>
                 </div>
 
                 <TipBox type="tip">
-                  <strong>Pro Tip:</strong> También puedes <strong>pedirle ayuda manualmente</strong> escribiendo un comentario:
-                  <br/><code># ¿Por qué obtengo un TypeError aquí? [selecciona el código problemático]</code>
+                  <strong>Pro Tip:</strong> También puedes{' '}
+                  <strong>pedirle ayuda manualmente</strong> escribiendo un comentario:
+                  <br />
+                  <code>
+                    # ¿Por qué obtengo un TypeError aquí? [selecciona el código problemático]
+                  </code>
                 </TipBox>
               </div>
             </div>
@@ -614,11 +717,13 @@ X = df['feature1'].values.reshape(-1, 1)  # (100, 1)`} />
                     Cuanto más claro sea tu comentario, mejor será el código generado:
                   </p>
                   <div className="practice-example">
-                    <CodeBlock code={`# ❌ Malo:
+                    <CodeBlock
+                      code={`# ❌ Malo:
 # filtrar datos
 
 # ✅ Bueno:
-# Filtrar filas donde 'edad' > 18 y 'estado' == 'activo'`} />
+# Filtrar filas donde 'edad' > 18 y 'estado' == 'activo'`}
+                    />
                   </div>
                 </div>
 
@@ -626,13 +731,16 @@ X = df['feature1'].values.reshape(-1, 1)  # (100, 1)`} />
                   <div className="practice-number">3</div>
                   <h3 className="practice-title">Aprovecha el Contexto Existente</h3>
                   <p className="practice-text">
-                    El AI lee todo tu notebook. Si ya cargaste datos o definiste variables, no necesitas repetir el contexto:
+                    El AI lee todo tu notebook. Si ya cargaste datos o definiste variables, no
+                    necesitas repetir el contexto:
                   </p>
-                  <CodeBlock code={`# Celda 1 (ya ejecutada):
+                  <CodeBlock
+                    code={`# Celda 1 (ya ejecutada):
 df = pd.read_csv('ventas.csv')
 
 # Celda 2 (el AI ya conoce 'df'):
-# Agrupa por mes y suma las ventas`} />
+# Agrupa por mes y suma las ventas`}
+                  />
                 </div>
 
                 <div className="practice-card">
@@ -659,7 +767,8 @@ df = pd.read_csv('ventas.csv')
                   <p className="practice-text">
                     Usa el AI para el <strong>boilerplate</strong>, pero añade tu lógica de negocio:
                   </p>
-                  <CodeBlock code={`# El AI genera la estructura:
+                  <CodeBlock
+                    code={`# El AI genera la estructura:
 model = RandomForestClassifier(n_estimators=100)
 model.fit(X_train, y_train)
 
@@ -669,7 +778,8 @@ if len(X_train) < 1000:
 
 # Tú añades logging personalizado:
 accuracy = model.score(X_test, y_test)
-logging.info(f"Model trained with accuracy: {accuracy:.2%}")`} />
+logging.info(f"Model trained with accuracy: {accuracy:.2%}")`}
+                  />
                 </div>
 
                 <div className="practice-card">
@@ -678,12 +788,14 @@ logging.info(f"Model trained with accuracy: {accuracy:.2%}")`} />
                   <p className="practice-text">
                     Pide al AI que genere <strong>múltiples soluciones</strong> y compara:
                   </p>
-                  <CodeBlock code={`# Opción 1: Pide una solución simple
+                  <CodeBlock
+                    code={`# Opción 1: Pide una solución simple
 # Normaliza las columnas numéricas
 
 # Opción 2: Pide alternativas
 # Normaliza las columnas numéricas usando StandardScaler o MinMaxScaler
-# y explica cuándo usar cada uno`} />
+# y explica cuándo usar cada uno`}
+                  />
                 </div>
               </div>
             </div>
@@ -693,7 +805,9 @@ logging.info(f"Model trained with accuracy: {accuracy:.2%}")`} />
           {activeSection === 'limitaciones' && (
             <div className="section-content">
               <h2 className="section-title">8. Limitaciones y Consideraciones</h2>
-              <p className="section-intro">Es importante conocer las limitaciones para usar el AI de manera efectiva:</p>
+              <p className="section-intro">
+                Es importante conocer las limitaciones para usar el AI de manera efectiva:
+              </p>
 
               <div className="limitations-container">
                 <div className="limitation-card warning">
@@ -703,16 +817,20 @@ logging.info(f"Model trained with accuracy: {accuracy:.2%}")`} />
                   </div>
                   <ul className="limitation-list">
                     <li>
-                      <strong>Contexto limitado:</strong> El AI solo "ve" tu notebook actual, no puede acceder a archivos externos o APIs sin tu código.
+                      <strong>Contexto limitado:</strong> El AI solo "ve" tu notebook actual, no
+                      puede acceder a archivos externos o APIs sin tu código.
                     </li>
                     <li>
-                      <strong>Puede generar código desactualizado:</strong> A veces sugiere métodos deprecados. Verifica siempre la documentación oficial.
+                      <strong>Puede generar código desactualizado:</strong> A veces sugiere métodos
+                      deprecados. Verifica siempre la documentación oficial.
                     </li>
                     <li>
-                      <strong>No entiende lógica de negocio compleja:</strong> Reglas específicas de tu dominio deben ser codificadas por ti.
+                      <strong>No entiende lógica de negocio compleja:</strong> Reglas específicas de
+                      tu dominio deben ser codificadas por ti.
                     </li>
                     <li>
-                      <strong>Rendimiento variable:</strong> En horarios pico, las sugerencias pueden ser más lentas.
+                      <strong>Rendimiento variable:</strong> En horarios pico, las sugerencias
+                      pueden ser más lentas.
                     </li>
                   </ul>
                 </div>
@@ -723,15 +841,27 @@ logging.info(f"Model trained with accuracy: {accuracy:.2%}")`} />
                     <h3>🔒 Privacidad y Seguridad</h3>
                   </div>
                   <TipBox type="warning">
-                    <strong>IMPORTANTE:</strong> El código que escribes en Colab puede ser usado para entrenar modelos de AI de Google (según sus términos de servicio).
+                    <strong>IMPORTANTE:</strong> El código que escribes en Colab puede ser usado
+                    para entrenar modelos de AI de Google (según sus términos de servicio).
                   </TipBox>
                   <div className="security-tips">
                     <h4>Recomendaciones de Seguridad:</h4>
                     <ul className="security-list">
-                      <li>❌ <strong>NO</strong> incluyas credenciales, API keys o contraseñas en tu código</li>
-                      <li>❌ <strong>NO</strong> trabajes con datos sensibles o PII sin anonimizar</li>
-                      <li>✅ Usa variables de entorno para secretos: <code>from google.colab import userdata</code></li>
-                      <li>✅ Lee los términos de servicio de Colab si trabajas con datos confidenciales</li>
+                      <li>
+                        ❌ <strong>NO</strong> incluyas credenciales, API keys o contraseñas en tu
+                        código
+                      </li>
+                      <li>
+                        ❌ <strong>NO</strong> trabajes con datos sensibles o PII sin anonimizar
+                      </li>
+                      <li>
+                        ✅ Usa variables de entorno para secretos:{' '}
+                        <code>from google.colab import userdata</code>
+                      </li>
+                      <li>
+                        ✅ Lee los términos de servicio de Colab si trabajas con datos
+                        confidenciales
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -752,7 +882,10 @@ logging.info(f"Model trained with accuracy: {accuracy:.2%}")`} />
                     </div>
                     <div className="when-not-item">
                       <h4>Aprendizaje</h4>
-                      <p>Si estás aprendiendo, intenta resolver primero sin AI para fortalecer habilidades.</p>
+                      <p>
+                        Si estás aprendiendo, intenta resolver primero sin AI para fortalecer
+                        habilidades.
+                      </p>
                     </div>
                     <div className="when-not-item">
                       <h4>Optimización Extrema</h4>
@@ -765,7 +898,8 @@ logging.info(f"Model trained with accuracy: {accuracy:.2%}")`} />
                   <h3 className="final-title">🎯 Reflexión Final</h3>
                   <div className="final-content">
                     <p>
-                      El asistente de IA en Google Colab es una <strong>herramienta poderosa</strong>, no un reemplazo para tu conocimiento.
+                      El asistente de IA en Google Colab es una{' '}
+                      <strong>herramienta poderosa</strong>, no un reemplazo para tu conocimiento.
                       Úsalo para:
                     </p>
                     <div className="final-grid">
@@ -783,13 +917,11 @@ logging.info(f"Model trained with accuracy: {accuracy:.2%}")`} />
               </div>
             </div>
           )}
-
         </main>
       </div>
 
       {/* Footer */}
-      <footer className="colab-footer">
-      </footer>
+      <footer className="colab-footer"></footer>
     </div>
   );
 };

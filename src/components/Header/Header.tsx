@@ -1,4 +1,6 @@
+import { useTranslation } from 'react-i18next';
 import type { PyodideStatus } from '../../types';
+import { LanguageSelector } from '../LanguageSelector';
 
 interface HeaderProps {
   status: PyodideStatus;
@@ -6,11 +8,13 @@ interface HeaderProps {
 }
 
 export const Header = ({ status, showStatus = true }: HeaderProps) => {
+  const { t } = useTranslation('common');
+
   const getStatusText = () => {
-    if (status.error) return 'Error al cargar Python';
-    if (status.isLoading) return 'Cargando Python...';
-    if (status.isReady) return 'Python listo ✓';
-    return 'Inicializando...';
+    if (status.error) return t('pyodide.error');
+    if (status.isLoading) return t('pyodide.loading');
+    if (status.isReady) return t('pyodide.ready');
+    return t('pyodide.initializing');
   };
 
   const getStatusDotClass = () => {
@@ -24,12 +28,15 @@ export const Header = ({ status, showStatus = true }: HeaderProps) => {
           <div className="py">DS</div>
           <span className="lab">Path</span>
         </div>
-        {showStatus && (
-          <div className="status-bar">
-            <span className={getStatusDotClass()} />
-            <span>{getStatusText()}</span>
-          </div>
-        )}
+        <div className="header-actions">
+          {showStatus && (
+            <div className="status-bar">
+              <span className={getStatusDotClass()} />
+              <span>{getStatusText()}</span>
+            </div>
+          )}
+          <LanguageSelector />
+        </div>
       </div>
     </header>
   );

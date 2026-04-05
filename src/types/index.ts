@@ -85,6 +85,24 @@ export interface ExerciseResult {
   error: string | null;
 }
 
+export interface SmartHelpFeedback {
+  diagnosis: string;
+  hint: string;
+  encouragement: string;
+  syntaxErrors: string[] | null;
+}
+
+export interface SmartHelpResponse {
+  success: boolean;
+  feedback: SmartHelpFeedback;
+  metadata?: {
+    remainingRequests: number;
+    tokensUsed: number;
+    model: string;
+  };
+  error?: string;
+}
+
 export interface ProgressData {
   completedExercises: Set<string>;
   completedInCurrentScope: number; // Ejercicios completados en el supermódulo actual
