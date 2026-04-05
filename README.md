@@ -5,6 +5,9 @@ An interactive web application for learning Python hands-on, with real-time exer
 
 **Live Demo**: [https://dspath.onrender.com](https://dspath.onrender.com)
 
+<img width="1460" height="837" alt="Screenshot 2026-04-05 at 12 58 44 PM" src="https://github.com/user-attachments/assets/3138da8f-1f87-407f-b1b0-cf0e00ed1afe" />
+
+
 ## Features
 
 - **In-browser code editor**: Run Python code directly in the browser using Pyodide
