@@ -1,0 +1,51 @@
+{
+  "exercise": {
+    "practice": "Práctica",
+    "run": "Ejecutar",
+    "running": "Ejecutando...",
+    "reset": "Reiniciar",
+    "correct": "¡Correcto!",
+    "incorrect": "Incorrecto",
+    "tryAgain": "Intenta de nuevo",
+    "nextSection": "Siguiente sección",
+    "showHint": "Ver pista",
+    "hideHint": "Ocultar pista",
+    "hint": "Pista",
+    "output": "Salida",
+    "expectedOutput": "Salida esperada",
+    "yourOutput": "Tu salida",
+    "description": "Descripción",
+    "completed": "Completado",
+    "smartHelp": {
+      "needHelp": "¿Necesitas ayuda?",
+      "analyzing": "Analizando...",
+      "requestHelp": "Solicitar ayuda con IA",
+      "diagnosis": "Diagnóstico",
+      "suggestion": "Sugerencia",
+      "encouragement": "Ánimo",
+      "syntaxError": "Error de sintaxis",
+      "connectionError": "No se pudo conectar con el servicio de ayuda inteligente",
+      "retryMessage": "Verifica tu conexión a internet e intenta nuevamente",
+      "keepTrying": "No te rindas, sigue intentando!",
+      "rateLimit": "Has alcanzado el límite de solicitudes. Intenta más tarde.",
+      "wasHelpful": "¿Te ayudó esta sugerencia?"
+    }
+  },
+  "quiz": {
+    "question": "Pregunta",
+    "selectAnswer": "Selecciona una respuesta",
+    "checkAnswer": "Verificar respuesta",
+    "correct": "¡Respuesta correcta!",
+    "incorrect": "Respuesta incorrecta",
+    "tryAgain": "Intenta de nuevo",
+    "explanation": "Explicación"
+  },
+  "theory": {
+    "readMore": "Leer más",
+    "collapse": "Colapsar",
+    "example": "Ejemplo",
+    "note": "Nota",
+    "important": "Importante",
+    "tip": "Consejo"
+  }
+}

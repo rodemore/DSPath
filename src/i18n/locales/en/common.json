@@ -1,0 +1,44 @@
+{
+  "app": {
+    "name": "DSPath",
+    "tagline": "Complete {{language}} Course",
+    "subtitle": "Learn Python from scratch with interactive exercises and real-world use cases."
+  },
+  "navigation": {
+    "courses": "Courses",
+    "projects": "Projects",
+    "guides": "Guides",
+    "backToHome": "Back to home"
+  },
+  "modules": {
+    "title": "Course Modules",
+    "loading": "Loading module...",
+    "progressComplete": "{{percent}}% Complete"
+  },
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode",
+    "toggle": "Toggle theme"
+  },
+  "languages": {
+    "python": "Python",
+    "spanish": "Español",
+    "english": "English",
+    "switchLanguage": "Switch language"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "save": "Save"
+  },
+  "pyodide": {
+    "loading": "Loading Python...",
+    "ready": "Python ready ✓",
+    "error": "Error loading Python",
+    "initializing": "Initializing..."
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "exercise": {
+    "practice": "Practice",
+    "run": "Run",
+    "running": "Running...",
+    "reset": "Reset",
+    "correct": "Correct!",
+    "incorrect": "Incorrect",
+    "tryAgain": "Try again",
+    "nextSection": "Next section",
+    "showHint": "Show hint",
+    "hideHint": "Hide hint",
+    "hint": "Hint",
+    "output": "Output",
+    "expectedOutput": "Expected output",
+    "yourOutput": "Your output",
+    "description": "Description",
+    "completed": "Completed",
+    "smartHelp": {
+      "needHelp": "Need help?",
+      "analyzing": "Analyzing...",
+      "requestHelp": "Request AI help",
+      "diagnosis": "Diagnosis",
+      "suggestion": "Suggestion",
+      "encouragement": "Encouragement",
+      "syntaxError": "Syntax error",
+      "connectionError": "Could not connect to smart help service",
+      "retryMessage": "Check your internet connection and try again",
+      "keepTrying": "Don't give up, keep trying!",
+      "rateLimit": "You've reached the request limit. Try again later.",
+      "wasHelpful": "Was this suggestion helpful?"
+    }
+  },
+  "quiz": {
+    "question": "Question",
+    "selectAnswer": "Select an answer",
+    "checkAnswer": "Check answer",
+    "correct": "Correct answer!",
+    "incorrect": "Incorrect answer",
+    "tryAgain": "Try again",
+    "explanation": "Explanation"
+  },
+  "theory": {
+    "readMore": "Read more",
+    "collapse": "Collapse",
+    "example": "Example",
+    "note": "Note",
+    "important": "Important",
+    "tip": "Tip"
+  }
+}

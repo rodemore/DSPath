@@ -1,0 +1,44 @@
+{
+  "app": {
+    "name": "DSPath",
+    "tagline": "Curso Completo de {{language}}",
+    "subtitle": "Acompaña tu camino a aprender Python desde cero con ejercicios interactivos y casos de uso reales."
+  },
+  "navigation": {
+    "courses": "Cursos",
+    "projects": "Proyectos",
+    "guides": "Guías",
+    "backToHome": "Volver al inicio"
+  },
+  "modules": {
+    "title": "Módulos del Curso",
+    "loading": "Cargando módulo...",
+    "progressComplete": "{{percent}}% Completado"
+  },
+  "theme": {
+    "light": "Modo Claro",
+    "dark": "Modo Oscuro",
+    "toggle": "Cambiar tema"
+  },
+  "languages": {
+    "python": "Python",
+    "spanish": "Español",
+    "english": "English",
+    "switchLanguage": "Cambiar idioma"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "close": "Cerrar",
+    "save": "Guardar"
+  },
+  "pyodide": {
+    "loading": "Cargando Python...",
+    "ready": "Python listo ✓",
+    "error": "Error al cargar Python",
+    "initializing": "Inicializando..."
+  }
+}
