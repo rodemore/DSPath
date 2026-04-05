@@ -1,69 +1,80 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Terminal, Layers, Code2, Table2, TrendingUp, FolderKanban } from 'lucide-react';
 import { usePyodide } from './hooks/usePyodide';
+import { useProgressStore } from './stores/progressStore';
+import { useNavigationStore } from './stores/navigationStore';
 import { Header } from './components/Header';
 import { Navigation } from './components/Navigation';
 import { ProgressBar } from './components/ProgressBar';
 import { Section } from './components/Section';
 import { ThemeToggle } from './components/ThemeToggle';
+import { LanguageSelector } from './components/LanguageSelector';
 import { SuperModuleCard } from './components/SuperModuleCard';
-import { sectionsMetadata, loadModule, getTotalExercisesCount, getExercisesCountForSuperModule } from './data/sections';
+import { ErrorBoundary, SectionErrorFallback } from './components/ErrorBoundary';
+import {
+  sectionsMetadata,
+  loadModule,
+  getTotalExercisesCount,
+  getExercisesCountForSuperModule,
+} from './data/sections';
 import { superModules } from './data/superModules';
-import { cacheStorage } from './utils/cacheStorage';
-import type { ProgressData, Section as SectionType } from './types';
+import type { ProgressData } from './types';
 import './styles/globals.css';
 
 const iconMap: Record<string, typeof Terminal> = {
-  Terminal, Layers, Code2, Table2, TrendingUp, FolderKanban,
+  Terminal,
+  Layers,
+  Code2,
+  Table2,
+  TrendingUp,
+  FolderKanban,
 };
 
-type ViewMode = 'super-modules' | 'sections';
-
 function App() {
-  const { status, runCode } = usePyodide();
+  const { t } = useTranslation('common');
   const navigate = useNavigate();
   const params = useParams();
 
-  const [completedExercises, setCompletedExercises] = useState<Set<string>>(new Set());
-  const [savedCode, setSavedCode] = useState<Record<string, string>>({});
-  const [currentSection, setCurrentSection] = useState<SectionType | null>(null);
-  const [isLoadingSection, setIsLoadingSection] = useState(false);
-  const [isDataLoaded, setIsDataLoaded] = useState(false);
+  // Progress store
+  const { completedExercises, loadProgress } = useProgressStore();
 
-  // Cargar datos del cache al iniciar
-  useEffect(() => {
-    const loadCachedData = async () => {
-      const exercises = await cacheStorage.getCompletedExercises();
-      const code = await cacheStorage.getExerciseCode();
-      setCompletedExercises(exercises);
-      setSavedCode(code);
-      setIsDataLoaded(true);
-    };
-    loadCachedData();
-  }, []);
+  // Navigation store
+  const {
+    viewMode,
+    activeSuperModule,
+    activeSection,
+    currentSection,
+    isLoadingSection,
+    setActiveSuperModule,
+    setActiveSection,
+    setCurrentSection,
+    setIsLoadingSection,
+  } = useNavigationStore();
 
-  // Guardar ejercicios completados en cache
+  // Initialize Pyodide (has built-in initialization guard to prevent multiple loads)
+  const { status } = usePyodide();
+
+  // Load progress on mount
   useEffect(() => {
-    if (isDataLoaded) {
-      cacheStorage.saveCompletedExercises(completedExercises);
+    loadProgress();
+  }, [loadProgress]);
+
+  // Sync URL params with navigation store
+  useEffect(() => {
+    const superModuleId = params.superModuleId ? parseInt(params.superModuleId) : null;
+    const sectionId = params.sectionId ? parseInt(params.sectionId) : null;
+
+    if (superModuleId !== null) {
+      setActiveSuperModule(superModuleId);
+      const defaultSection = sectionId ?? superModules[superModuleId]?.sections[0] ?? 0;
+      setActiveSection(defaultSection);
+    } else {
+      setActiveSuperModule(null);
+      setActiveSection(0);
     }
-  }, [completedExercises, isDataLoaded]);
-
-  // Guardar código de ejercicios en cache
-  useEffect(() => {
-    if (isDataLoaded) {
-      cacheStorage.saveExerciseCode(savedCode);
-    }
-  }, [savedCode, isDataLoaded]);
-
-  // Parse URL params
-  const superModuleIdFromUrl = params.superModuleId ? parseInt(params.superModuleId) : null;
-  const sectionIdFromUrl = params.sectionId ? parseInt(params.sectionId) : null;
-
-  const viewMode: ViewMode = superModuleIdFromUrl !== null ? 'sections' : 'super-modules';
-  const activeSuperModule = superModuleIdFromUrl;
-  const activeSection = sectionIdFromUrl ?? (activeSuperModule !== null ? superModules[activeSuperModule]?.sections[0] ?? 0 : 0);
+  }, [params.superModuleId, params.sectionId, setActiveSuperModule, setActiveSection]);
 
   // Calculate total exercises
   const totalExercises = getTotalExercisesCount();
@@ -84,40 +95,44 @@ function App() {
       };
       loadCurrentModule();
     }
-  }, [activeSection, viewMode, activeSuperModule]);
+  }, [activeSection, viewMode, activeSuperModule, setIsLoadingSection, setCurrentSection]);
 
   // Progress data - solo para el supermódulo actual
-  const currentSuperModuleExercises = activeSuperModule !== null
-    ? getExercisesCountForSuperModule(superModules[activeSuperModule].sections)
-    : totalExercises;
+  const currentSuperModuleExercises =
+    activeSuperModule !== null
+      ? getExercisesCountForSuperModule(superModules[activeSuperModule].sections)
+      : totalExercises;
 
   // Contar ejercicios completados solo del supermódulo actual
-  const completedInCurrentSuperModule = activeSuperModule !== null
-    ? Array.from(completedExercises).filter(exerciseId => {
-        // El exerciseId tiene formato: "section-X-exercise-Y"
-        const sectionId = parseInt(exerciseId.split('-')[1]);
-        return superModules[activeSuperModule].sections.includes(sectionId);
-      }).length
-    : completedExercises.size;
+  const completedInCurrentSuperModule =
+    activeSuperModule !== null
+      ? Array.from(completedExercises).filter((exerciseId) => {
+          // El exerciseId tiene formato: "section-X-exercise-Y"
+          const sectionId = parseInt(exerciseId.split('-')[1]);
+          return superModules[activeSuperModule].sections.includes(sectionId);
+        }).length
+      : completedExercises.size;
 
   const progressData: ProgressData = {
     completedExercises,
     completedInCurrentScope: completedInCurrentSuperModule,
     totalExercises: currentSuperModuleExercises,
-    percentage: currentSuperModuleExercises > 0
-      ? (completedInCurrentSuperModule / currentSuperModuleExercises) * 100
-      : 0,
+    percentage:
+      currentSuperModuleExercises > 0
+        ? (completedInCurrentSuperModule / currentSuperModuleExercises) * 100
+        : 0,
   };
 
   // Navigation items (filter by active super module)
-  const navItems = activeSuperModule !== null
-    ? sectionsMetadata
-        .filter(section => superModules[activeSuperModule].sections.includes(section.id))
-        .map((section) => ({
-          id: section.id,
-          title: section.title.replace(':', '').replace(' y', '').trim(),
-        }))
-    : [];
+  const navItems =
+    activeSuperModule !== null
+      ? sectionsMetadata
+          .filter((section) => superModules[activeSuperModule].sections.includes(section.id))
+          .map((section) => ({
+            id: section.id,
+            title: section.title.replace(':', '').replace(' y', '').trim(),
+          }))
+      : [];
 
   const handleSuperModuleSelect = (superModuleId: number) => {
     const firstSection = superModules[superModuleId].sections[0] || 0;
@@ -129,7 +144,6 @@ function App() {
 
   const handleBackToSuperModules = () => {
     navigate('/');
-    setCurrentSection(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -138,14 +152,6 @@ function App() {
       navigate(`/module/${activeSuperModule}/section/${sectionId}`);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  };
-
-  const handleExerciseComplete = (exerciseId: string) => {
-    setCompletedExercises((prev) => {
-      const newSet = new Set(prev);
-      newSet.add(exerciseId);
-      return newSet;
-    });
   };
 
   // Calculate next section
@@ -160,13 +166,13 @@ function App() {
     }
 
     const nextSectionId = currentSuperModuleSections[currentIndex + 1];
-    const nextSectionMetadata = sectionsMetadata.find(s => s.id === nextSectionId);
+    const nextSectionMetadata = sectionsMetadata.find((s) => s.id === nextSectionId);
 
     if (!nextSectionMetadata) return null;
 
     return {
       id: nextSectionId,
-      title: `${nextSectionMetadata.title} ${nextSectionMetadata.titleHighlight}`.trim()
+      title: `${nextSectionMetadata.title} ${nextSectionMetadata.titleHighlight}`.trim(),
     };
   };
 
@@ -188,27 +194,35 @@ function App() {
                 <span className="lab">Path</span>
               </div>
               <div className="nav-links">
-                <a href="/" className="nav-link active">Cursos</a>
-                <a href="#" className="nav-link disabled">Proyectos</a>
-                <a href="/guides" className="nav-link">Guías</a>
+                <a href="/" className="nav-link active">
+                  {t('navigation.courses')}
+                </a>
+                <a href="#" className="nav-link disabled">
+                  {t('navigation.projects')}
+                </a>
+                <a href="/guides" className="nav-link">
+                  {t('navigation.guides')}
+                </a>
+                <LanguageSelector />
               </div>
             </div>
           </nav>
           <div className="super-modules-header">
             <h1 className="super-modules-title">
-              Curso Completo de <span className="highlight-python">Python</span>
+              {t('app.tagline', { language: '' })}{' '}
+              <span className="highlight-python">{t('languages.python')}</span>
             </h1>
-            <p className="super-modules-subtitle">
-              Acompaña tu camino a aprender Python desde cero con ejercicios interactivos y casos de uso reales.
-            </p>
+            <p className="super-modules-subtitle">{t('app.subtitle')}</p>
           </div>
           <div className="modules-section">
             <div className="modules-section-header">
               <h2 className="modules-section-title">
-                <span className="section-icon">📖</span> Módulos del Curso
+                <span className="section-icon">📖</span> {t('modules.title')}
               </h2>
               <div className="progress-indicator">
-                {Math.round((completedExercises.size / totalExercises) * 100)}% Completado
+                {t('modules.progressComplete', {
+                  percent: Math.round((completedExercises.size / totalExercises) * 100),
+                })}
               </div>
             </div>
             <main className="super-modules-grid">
@@ -227,18 +241,20 @@ function App() {
           <Header status={status} showStatus={viewMode === 'sections'} />
           <div className="breadcrumb">
             <button onClick={handleBackToSuperModules} className="back-button">
-              ← Volver al inicio
+              ← {t('navigation.backToHome')}
             </button>
-            {activeSuperModule !== null && (() => {
-              const sm = superModules[activeSuperModule];
-              const IconComponent = iconMap[sm.icon] || Terminal;
-              return (
-                <span className="current-super-module">
-                  <IconComponent size={16} style={{ color: sm.color }} />
-                  {sm.title}
-                </span>
-              );
-            })()}
+            <LanguageSelector />
+            {activeSuperModule !== null &&
+              (() => {
+                const sm = superModules[activeSuperModule];
+                const IconComponent = iconMap[sm.icon] || Terminal;
+                return (
+                  <span className="current-super-module">
+                    <IconComponent size={16} style={{ color: sm.color }} />
+                    {sm.title}
+                  </span>
+                );
+              })()}
           </div>
           <Navigation
             sections={navItems}
@@ -248,20 +264,20 @@ function App() {
           <ProgressBar progress={progressData} />
           <main className="main-content">
             {isLoadingSection ? (
-              <div className="loading-section">Cargando módulo...</div>
+              <div className="loading-section">{t('modules.loading')}</div>
             ) : currentSection ? (
-              <Section
-                key={currentSection.id}
-                section={currentSection}
-                isActive={true}
-                onRunCode={runCode}
-                onExerciseComplete={handleExerciseComplete}
-                nextSection={getNextSection()}
-                onNavigateToNext={handleNavigateToNextSection}
-                savedCode={savedCode}
-                onSaveCode={setSavedCode}
-                completedExercises={completedExercises}
-              />
+              <ErrorBoundary
+                key={`error-boundary-${currentSection.id}`}
+                fallback={<SectionErrorFallback />}
+              >
+                <Section
+                  key={currentSection.id}
+                  section={currentSection}
+                  isActive={true}
+                  nextSection={getNextSection()}
+                  onNavigateToNext={handleNavigateToNextSection}
+                />
+              </ErrorBoundary>
             ) : null}
           </main>
         </>
