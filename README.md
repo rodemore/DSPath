@@ -2,6 +2,9 @@
 
 An interactive web application for learning Python hands-on, with real-time exercises and automatic validation.
 
+
+**Live Demo**: [https://dspath.onrender.com](https://dspath.onrender.com)
+
 ## Features
 
 - **In-browser code editor**: Run Python code directly in the browser using Pyodide
