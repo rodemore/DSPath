@@ -18,7 +18,8 @@ export const module03: Section = {
     {
       icon: '🔤',
       title: '¿Qué es un String?',
-      content: 'Un string es una secuencia de caracteres encerrada entre comillas simples <span class="inline-code">\'...\'</span> o dobles <span class="inline-code">"..."</span>. Son <strong>inmutables</strong>, lo que significa que no se pueden modificar una vez creados (pero sí crear nuevos a partir de ellos).',
+      content:
+        'Un string es una secuencia de caracteres encerrada entre comillas simples <span class="inline-code">\'...\'</span> o dobles <span class="inline-code">"..."</span>. Son <strong>inmutables</strong>, lo que significa que no se pueden modificar una vez creados (pero sí crear nuevos a partir de ellos).',
       codeExample: {
         filename: 'strings.py',
         code: `<span class="identifier">texto</span> = <span class="string">"Python"</span>
@@ -30,7 +31,8 @@ export const module03: Section = {
     {
       icon: '🔢',
       title: 'Índices: Accediendo a caracteres',
-      content: 'Cada carácter en un string tiene una posición (índice). Los <strong>índices positivos</strong> empiezan en 0 desde el inicio. Los <strong>índices negativos</strong> empiezan en -1 desde el final.',
+      content:
+        'Cada carácter en un string tiene una posición (índice). Los <strong>índices positivos</strong> empiezan en 0 desde el inicio. Los <strong>índices negativos</strong> empiezan en -1 desde el final.',
       codeExample: {
         filename: 'indices.py',
         code: `<span class="identifier">palabra</span> = <span class="string">"Python"</span>
@@ -54,7 +56,8 @@ export const module03: Section = {
         {
           id: 'ex-3-1',
           number: 'EJERCICIO 3.1',
-          description: 'Crea una variable <span class="inline-code">placa</span> con el valor <span class="inline-code">"GTS-4512"</span>.<br><br>Extrae el primer carácter usando índice y guárdalo en una variable llamada <span class="inline-code">cod_provincia</span>. Finalmente, imprime el valor de <span class="inline-code">cod_provincia</span>.',
+          description:
+            'Crea una variable <span class="inline-code">placa</span> con el valor <span class="inline-code">"GTS-4512"</span>.<br><br>Extrae el primer carácter usando índice y guárdalo en una variable llamada <span class="inline-code">cod_provincia</span>. Finalmente, imprime el valor de <span class="inline-code">cod_provincia</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validatePlacaFirstChar,
@@ -64,7 +67,8 @@ export const module03: Section = {
     {
       icon: '✂️',
       title: 'Slicing: Extraer subcadenas',
-      content: 'El slicing permite extraer una porción del string usando la sintaxis <span class="inline-code">[inicio:fin]</span>. El índice <span class="inline-code">inicio</span> está incluido, pero el <span class="inline-code">fin</span> no.',
+      content:
+        'El slicing permite extraer una porción del string usando la sintaxis <span class="inline-code">[inicio:fin]</span>. El índice <span class="inline-code">inicio</span> está incluido, pero el <span class="inline-code">fin</span> no.',
       codeExample: {
         filename: 'slicing.py',
         code: `<span class="identifier">mensaje</span> = <span class="string">"Hola Mundo"</span>
@@ -79,7 +83,8 @@ export const module03: Section = {
         {
           id: 'ex-3-2',
           number: 'EJERCICIO 3.2',
-          description: 'Usando la misma placa <span class="inline-code">"GTS-4512"</span>, obtén los 3 primeros caracteres usando slicing e imprímelos.',
+          description:
+            'Usando la misma placa <span class="inline-code">"GTS-4512"</span>, obtén los 3 primeros caracteres usando slicing e imprímelos.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validatePlacaFirstThree,
@@ -87,7 +92,8 @@ export const module03: Section = {
         {
           id: 'ex-3-3',
           number: 'EJERCICIO 3.3',
-          description: 'Crea una variable <span class="inline-code">frase</span> con <span class="inline-code">"Hola Mundo"</span>.<br><br>Usa slicing para extraer e imprimir solo la palabra "Mundo".',
+          description:
+            'Crea una variable <span class="inline-code">frase</span> con <span class="inline-code">"Hola Mundo"</span>.<br><br>Usa slicing para extraer e imprimir solo la palabra "Mundo".',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateExtractMundo,
@@ -97,7 +103,8 @@ export const module03: Section = {
     {
       icon: '🛠️',
       title: 'Métodos de transformación',
-      content: 'Los strings tienen métodos integrados para transformar el texto. Estos métodos <strong>no modifican</strong> el string original, sino que crean y retornan uno nuevo.',
+      content:
+        'Los strings tienen métodos integrados para transformar el texto. Estos métodos <strong>no modifican</strong> el string original, sino que crean y retornan uno nuevo.',
       codeExample: {
         filename: 'metodos_transformacion.py',
         code: `<span class="identifier">texto</span> = <span class="string">"Hola Mundo"</span>
@@ -115,7 +122,8 @@ export const module03: Section = {
         {
           id: 'ex-3-4',
           number: 'EJERCICIO 3.4',
-          description: 'Crea una variable <span class="inline-code">frase</span> con <span class="inline-code">"Hola Mundo"</span>.<br><br>Convierte la frase a mayúsculas usando el método apropiado y guarda el resultado en una variable llamada <span class="inline-code">frase_mayusculas</span>. Finalmente, imprime <span class="inline-code">frase_mayusculas</span>.',
+          description:
+            'Crea una variable <span class="inline-code">frase</span> con <span class="inline-code">"Hola Mundo"</span>.<br><br>Convierte la frase a mayúsculas usando el método apropiado y guarda el resultado en una variable llamada <span class="inline-code">frase_mayusculas</span>. Finalmente, imprime <span class="inline-code">frase_mayusculas</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateUpperCase,
@@ -123,7 +131,8 @@ export const module03: Section = {
         {
           id: 'ex-3-5',
           number: 'EJERCICIO 3.5',
-          description: 'Crea una variable <span class="inline-code">nombre</span> con el valor <span class="inline-code">"robert moreno"</span>.<br><br>Conviértelo a formato título (primera letra de cada palabra en mayúscula) e imprímelo.',
+          description:
+            'Crea una variable <span class="inline-code">nombre</span> con el valor <span class="inline-code">"robert moreno"</span>.<br><br>Conviértelo a formato título (primera letra de cada palabra en mayúscula) e imprímelo.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateTitleCase,
@@ -133,7 +142,8 @@ export const module03: Section = {
     {
       icon: '🔁',
       title: 'Multiplicación de strings',
-      content: 'Los strings se pueden <strong>multiplicar</strong> por un número entero para repetirlos. Esto es útil para crear patrones o separadores.',
+      content:
+        'Los strings se pueden <strong>multiplicar</strong> por un número entero para repetirlos. Esto es útil para crear patrones o separadores.',
       codeExample: {
         filename: 'multiplicacion_strings.py',
         code: `<span class="identifier">patron</span> = <span class="string">"*"</span>
@@ -149,7 +159,8 @@ export const module03: Section = {
         {
           id: 'ex-3-6',
           number: 'EJERCICIO 3.6',
-          description: 'Crea una variable <span class="inline-code">simbolo</span> con el valor <span class="inline-code">"="</span>.<br><br>Multiplica el símbolo por 20 e imprime el resultado para crear una línea separadora.',
+          description:
+            'Crea una variable <span class="inline-code">simbolo</span> con el valor <span class="inline-code">"="</span>.<br><br>Multiplica el símbolo por 20 e imprime el resultado para crear una línea separadora.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateStringMultiplication,
@@ -159,7 +170,8 @@ export const module03: Section = {
     {
       icon: '✂️',
       title: 'Métodos de división y limpieza',
-      content: 'Puedes dividir strings en partes, eliminar espacios innecesarios o unir listas de strings.',
+      content:
+        'Puedes dividir strings en partes, eliminar espacios innecesarios o unir listas de strings.',
       codeExample: {
         filename: 'metodos_division.py',
         code: `<span class="comment"># Dividir en palabras usando espacio</span>
@@ -178,7 +190,8 @@ export const module03: Section = {
         {
           id: 'ex-3-7',
           number: 'EJERCICIO 3.7',
-          description: 'Crea una variable <span class="inline-code">oracion</span> con <span class="inline-code">"Python es divertido"</span>.<br><br>Divide la oración en palabras usando <span class="inline-code">split(" ")</span> e imprime la lista resultante.',
+          description:
+            'Crea una variable <span class="inline-code">oracion</span> con <span class="inline-code">"Python es divertido"</span>.<br><br>Divide la oración en palabras usando <span class="inline-code">split(" ")</span> e imprime la lista resultante.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateSplitWords,

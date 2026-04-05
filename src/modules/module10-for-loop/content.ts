@@ -16,7 +16,8 @@ export const module10: Section = {
     {
       icon: '🔁',
       title: '¿Qué es un bucle?',
-      content: 'Un <strong>bucle</strong> (o loop) es una estructura que permite repetir un bloque de código múltiples veces. En lugar de escribir el mismo código 10 veces, podemos usar un bucle que lo ejecute 10 veces automáticamente.',
+      content:
+        'Un <strong>bucle</strong> (o loop) es una estructura que permite repetir un bloque de código múltiples veces. En lugar de escribir el mismo código 10 veces, podemos usar un bucle que lo ejecute 10 veces automáticamente.',
       codeExample: {
         filename: 'concepto_bucle.py',
         code: `<span class="comment"># Sin bucle (repetitivo y limitado)</span>
@@ -36,7 +37,8 @@ export const module10: Section = {
     {
       icon: '📋',
       title: 'FOR con listas',
-      content: 'El bucle <span class="inline-code">for</span> nos permite <strong>iterar</strong> (recorrer) cada elemento de una lista, uno por uno. En cada iteración, la variable toma el valor del siguiente elemento.',
+      content:
+        'El bucle <span class="inline-code">for</span> nos permite <strong>iterar</strong> (recorrer) cada elemento de una lista, uno por uno. En cada iteración, la variable toma el valor del siguiente elemento.',
       codeExample: {
         filename: 'for_lista.py',
         code: `<span class="identifier">frutas</span> = [<span class="string">"manzana"</span>, <span class="string">"banana"</span>, <span class="string">"naranja"</span>]
@@ -62,7 +64,8 @@ export const module10: Section = {
         {
           id: 'ex-10-1',
           number: 'EJERCICIO 10.1',
-          description: 'Crea una lista <span class="inline-code">colores = ["rojo", "azul", "verde"]</span>.<br><br>Usa un bucle <span class="inline-code">for</span> para imprimir cada color.',
+          description:
+            'Crea una lista <span class="inline-code">colores = ["rojo", "azul", "verde"]</span>.<br><br>Usa un bucle <span class="inline-code">for</span> para imprimir cada color.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateForList,
@@ -72,7 +75,8 @@ export const module10: Section = {
     {
       icon: '🔤',
       title: 'FOR con strings',
-      content: 'Los strings también son secuencias, por lo que podemos iterar sobre cada carácter usando <span class="inline-code">for</span>.',
+      content:
+        'Los strings también son secuencias, por lo que podemos iterar sobre cada carácter usando <span class="inline-code">for</span>.',
       codeExample: {
         filename: 'for_string.py',
         code: `<span class="identifier">palabra</span> = <span class="string">"Python"</span>
@@ -91,7 +95,8 @@ export const module10: Section = {
         {
           id: 'ex-10-2',
           number: 'EJERCICIO 10.2',
-          description: 'Crea una variable <span class="inline-code">palabra = "Python"</span>.<br><br>Usa un bucle <span class="inline-code">for</span> para imprimir cada letra de la palabra.',
+          description:
+            'Crea una variable <span class="inline-code">palabra = "Python"</span>.<br><br>Usa un bucle <span class="inline-code">for</span> para imprimir cada letra de la palabra.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateForString,
@@ -101,7 +106,8 @@ export const module10: Section = {
     {
       icon: '🔢',
       title: 'La función range()',
-      content: 'La función <span class="inline-code">range()</span> genera una secuencia de números. Es extremadamente útil cuando queremos repetir algo un número específico de veces o generar secuencias numéricas. <strong>Es una de las funciones más usadas con FOR.</strong>',
+      content:
+        'La función <span class="inline-code">range()</span> genera una secuencia de números. Es extremadamente útil cuando queremos repetir algo un número específico de veces o generar secuencias numéricas. <strong>Es una de las funciones más usadas con FOR.</strong>',
       codeExample: {
         filename: 'range.py',
         code: `<span class="comment"># range(n) - genera números de 0 a n-1</span>
@@ -137,7 +143,8 @@ export const module10: Section = {
         {
           id: 'ex-10-3',
           number: 'EJERCICIO 10.3',
-          description: 'Usa un bucle <span class="inline-code">for</span> con <span class="inline-code">range(1, 11)</span> para imprimir los números del 1 al 10.',
+          description:
+            'Usa un bucle <span class="inline-code">for</span> con <span class="inline-code">range(1, 11)</span> para imprimir los números del 1 al 10.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateForRange,
@@ -147,7 +154,8 @@ export const module10: Section = {
     {
       icon: '➕',
       title: 'Acumuladores en bucles',
-      content: 'Un patrón muy común es usar una variable <strong>acumuladora</strong> que va sumando, contando o concatenando valores en cada iteración del bucle. Esto es fundamental para cálculos y procesamiento de datos.',
+      content:
+        'Un patrón muy común es usar una variable <strong>acumuladora</strong> que va sumando, contando o concatenando valores en cada iteración del bucle. Esto es fundamental para cálculos y procesamiento de datos.',
       codeExample: {
         filename: 'acumuladores.py',
         code: `<span class="comment"># Sumar números del 1 al 5</span>
@@ -179,7 +187,8 @@ export const module10: Section = {
         {
           id: 'ex-10-4',
           number: 'EJERCICIO 10.4',
-          description: 'Crea una lista <span class="inline-code">numeros = [5, 10, 15, 20, 25]</span>.<br><br>Usa un bucle <span class="inline-code">for</span> para sumar todos los números. Crea una variable <span class="inline-code">suma = 0</span> antes del bucle y ve acumulando cada número. Al final, imprime el total.',
+          description:
+            'Crea una lista <span class="inline-code">numeros = [5, 10, 15, 20, 25]</span>.<br><br>Usa un bucle <span class="inline-code">for</span> para sumar todos los números. Crea una variable <span class="inline-code">suma = 0</span> antes del bucle y ve acumulando cada número. Al final, imprime el total.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateForRangeSum,
@@ -189,7 +198,8 @@ export const module10: Section = {
     {
       icon: '🔀',
       title: 'FOR con condicionales',
-      content: 'Podemos combinar <span class="inline-code">for</span> con <span class="inline-code">if</span> para procesar solo ciertos elementos que cumplan una condición. Esta combinación es muy poderosa para filtrar y analizar datos.',
+      content:
+        'Podemos combinar <span class="inline-code">for</span> con <span class="inline-code">if</span> para procesar solo ciertos elementos que cumplan una condición. Esta combinación es muy poderosa para filtrar y analizar datos.',
       codeExample: {
         filename: 'for_if.py',
         code: `<span class="identifier">numeros</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>]
@@ -219,7 +229,8 @@ export const module10: Section = {
         {
           id: 'ex-10-5',
           number: 'EJERCICIO 10.5',
-          description: 'Crea una lista <span class="inline-code">numeros = [12, 7, 23, 8, 15, 30, 5]</span>.<br><br>Usa un bucle <span class="inline-code">for</span> con <span class="inline-code">if</span> para contar cuántos números son mayores a 10. Crea una variable <span class="inline-code">contador = 0</span> y auméntala cada vez que encuentres un número mayor a 10. Al final, imprime el contador.',
+          description:
+            'Crea una lista <span class="inline-code">numeros = [12, 7, 23, 8, 15, 30, 5]</span>.<br><br>Usa un bucle <span class="inline-code">for</span> con <span class="inline-code">if</span> para contar cuántos números son mayores a 10. Crea una variable <span class="inline-code">contador = 0</span> y auméntala cada vez que encuentres un número mayor a 10. Al final, imprime el contador.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateForWithIf,
@@ -229,7 +240,8 @@ export const module10: Section = {
   ],
   tipBox: {
     icon: '💡',
-    content: '<strong>Recuerda:</strong> La indentación es crucial en los bucles. Todo el código que quieras repetir debe estar indentado dentro del <span class="inline-code">for</span>. El código que no esté indentado se ejecutará solo una vez, después del bucle.',
+    content:
+      '<strong>Recuerda:</strong> La indentación es crucial en los bucles. Todo el código que quieras repetir debe estar indentado dentro del <span class="inline-code">for</span>. El código que no esté indentado se ejecutará solo una vez, después del bucle.',
   },
   exercises: [],
 };

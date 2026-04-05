@@ -1,8 +1,5 @@
 import type { Section } from '../../types';
-import {
-  validateCreateListAndAccess,
-  validateListSlicing,
-} from './validators';
+import { validateCreateListAndAccess, validateListSlicing } from './validators';
 
 export const module04: Section = {
   id: 3,
@@ -13,7 +10,8 @@ export const module04: Section = {
     {
       icon: '📋',
       title: '¿Qué es una lista?',
-      content: 'Una lista es una <strong>colección ordenada</strong> de elementos que puede contener diferentes tipos de datos. Se crean usando corchetes <span class="inline-code">[]</span> y los elementos se separan por comas.',
+      content:
+        'Una lista es una <strong>colección ordenada</strong> de elementos que puede contener diferentes tipos de datos. Se crean usando corchetes <span class="inline-code">[]</span> y los elementos se separan por comas.',
       codeExample: {
         filename: 'listas.py',
         code: `<span class="comment"># Crear listas</span>
@@ -28,7 +26,8 @@ export const module04: Section = {
     {
       icon: '🔢',
       title: 'Acceder a elementos: Indexación',
-      content: 'Al igual que con strings, puedes acceder a elementos de una lista usando índices. Los índices empiezan en 0 y puedes usar índices negativos para acceder desde el final.',
+      content:
+        'Al igual que con strings, puedes acceder a elementos de una lista usando índices. Los índices empiezan en 0 y puedes usar índices negativos para acceder desde el final.',
       codeExample: {
         filename: 'indexacion.py',
         code: `<span class="identifier">colores</span> = [<span class="string">"rojo"</span>, <span class="string">"verde"</span>, <span class="string">"azul"</span>, <span class="string">"amarillo"</span>]
@@ -45,7 +44,8 @@ export const module04: Section = {
     {
       icon: '✂️',
       title: 'Obtener porciones: Slicing',
-      content: 'El slicing permite extraer una porción de la lista usando la sintaxis <span class="inline-code">[inicio:fin]</span>. Funciona igual que con strings.',
+      content:
+        'El slicing permite extraer una porción de la lista usando la sintaxis <span class="inline-code">[inicio:fin]</span>. Funciona igual que con strings.',
       codeExample: {
         filename: 'slicing.py',
         code: `<span class="identifier">numeros</span> = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">60</span>]
@@ -59,7 +59,8 @@ export const module04: Section = {
     {
       icon: '🔄',
       title: 'Modificar elementos',
-      content: 'A diferencia de los strings, las listas son <strong>mutables</strong>, lo que significa que puedes cambiar sus elementos después de crearlas.',
+      content:
+        'A diferencia de los strings, las listas son <strong>mutables</strong>, lo que significa que puedes cambiar sus elementos después de crearlas.',
       codeExample: {
         filename: 'modificar.py',
         code: `<span class="identifier">animales</span> = [<span class="string">"perro"</span>, <span class="string">"gato"</span>, <span class="string">"pez"</span>]
@@ -76,13 +77,15 @@ export const module04: Section = {
   ],
   tipBox: {
     icon: '💡',
-    content: 'Las listas son <strong>mutables</strong> (se pueden modificar) mientras que los strings son <strong>inmutables</strong> (no se pueden modificar). Esta es una diferencia clave entre ambos tipos.',
+    content:
+      'Las listas son <strong>mutables</strong> (se pueden modificar) mientras que los strings son <strong>inmutables</strong> (no se pueden modificar). Esta es una diferencia clave entre ambos tipos.',
   },
   exercises: [
     {
       id: 'ex-4-1',
       number: 'EJERCICIO 4.1',
-      description: 'Crea una lista llamada <span class="inline-code">frutas</span> con al menos 4 frutas.<br><br>Imprime el primer elemento y el último elemento usando índices.',
+      description:
+        'Crea una lista llamada <span class="inline-code">frutas</span> con al menos 4 frutas.<br><br>Imprime el primer elemento y el último elemento usando índices.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateCreateListAndAccess,
@@ -90,7 +93,8 @@ export const module04: Section = {
     {
       id: 'ex-4-2',
       number: 'EJERCICIO 4.2',
-      description: 'Crea una lista llamada <span class="inline-code">numeros</span> con los números del 1 al 10.<br><br>Usa slicing para obtener e imprimir los números del 3 al 7.',
+      description:
+        'Crea una lista llamada <span class="inline-code">numeros</span> con los números del 1 al 10.<br><br>Usa slicing para obtener e imprimir los números del 3 al 7.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateListSlicing,

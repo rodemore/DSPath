@@ -1,7 +1,10 @@
 // Validadores para Módulo 25: Pandas - Apply sobre filas (axis=1)
 
 // Ejercicio 25.1: apply con función definida (def)
-export const validateApplyDef = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateApplyDef = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -32,17 +35,28 @@ export const validateApplyDef = (code: string, output: string): { isValid: boole
   }
 
   // Debe aparecer alguna categoría de transacción en el output
-  const hasCategory = output.includes('alta') || output.includes('media') || output.includes('baja') ||
-                      output.includes('Alta') || output.includes('Media') || output.includes('Baja');
+  const hasCategory =
+    output.includes('alta') ||
+    output.includes('media') ||
+    output.includes('baja') ||
+    output.includes('Alta') ||
+    output.includes('Media') ||
+    output.includes('Baja');
   if (!hasCategory) {
-    return { isValid: false, message: 'El output debe mostrar la clasificación de las transacciones' };
+    return {
+      isValid: false,
+      message: 'El output debe mostrar la clasificación de las transacciones',
+    };
   }
 
   return { isValid: true };
 };
 
 // Ejercicio 25.2: apply con lambda
-export const validateApplyLambda = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateApplyLambda = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -72,18 +86,27 @@ export const validateApplyLambda = (code: string, output: string): { isValid: bo
     return { isValid: false, message: 'Debes imprimir el resultado' };
   }
 
-  const hasDiscountOrTotal = output.includes('con_descuento') || output.includes('sin_descuento') ||
-                              output.includes('True') || output.includes('False') ||
-                              /\d+\.\d+/.test(output);
+  const hasDiscountOrTotal =
+    output.includes('con_descuento') ||
+    output.includes('sin_descuento') ||
+    output.includes('True') ||
+    output.includes('False') ||
+    /\d+\.\d+/.test(output);
   if (!hasDiscountOrTotal) {
-    return { isValid: false, message: 'El output debe mostrar el resultado de aplicar la lambda a cada fila' };
+    return {
+      isValid: false,
+      message: 'El output debe mostrar el resultado de aplicar la lambda a cada fila',
+    };
   }
 
   return { isValid: true };
 };
 
 // Ejercicio 25.3: apply para segmentación multi-columna
-export const validateSegmentation = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateSegmentation = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -100,13 +123,21 @@ export const validateSegmentation = (code: string, output: string): { isValid: b
 
   const hasAxis1 = /axis\s*=\s*1/.test(code);
   if (!hasAxis1) {
-    return { isValid: false, message: 'Usa axis=1 para evaluar condiciones sobre varias columnas de cada fila' };
+    return {
+      isValid: false,
+      message: 'Usa axis=1 para evaluar condiciones sobre varias columnas de cada fila',
+    };
   }
 
-  const hasTotal = /['"\[]total['"\]]|row\[.total.\]|row\.total/.test(code);
-  const hasDiscount = /['"\[]discount['"\]]|row\[.discount.\]|row\.discount/.test(code);
+  // eslint-disable-next-line no-useless-escape
+  const hasTotal = /['"\[]total['"\]]|row\['total'\]|row\.total/.test(code);
+  // eslint-disable-next-line no-useless-escape
+  const hasDiscount = /['"\[]discount['"\]]|row\['discount'\]|row\.discount/.test(code);
   if (!hasTotal || !hasDiscount) {
-    return { isValid: false, message: 'La segmentación debe considerar las columnas "total" y "discount"' };
+    return {
+      isValid: false,
+      message: 'La segmentación debe considerar las columnas "total" y "discount"',
+    };
   }
 
   const hasPrint = /print\s*\(/.test(code);
@@ -115,19 +146,31 @@ export const validateSegmentation = (code: string, output: string): { isValid: b
   }
 
   // Debe aparecer algún segmento
-  const hasSegment = output.includes('premium') || output.includes('Premium') ||
-                     output.includes('regular') || output.includes('Regular') ||
-                     output.includes('economica') || output.includes('Economica') ||
-                     output.includes('económica') || output.includes('Económica');
+  const hasSegment =
+    output.includes('premium') ||
+    output.includes('Premium') ||
+    output.includes('regular') ||
+    output.includes('Regular') ||
+    output.includes('economica') ||
+    output.includes('Economica') ||
+    output.includes('económica') ||
+    output.includes('Económica');
   if (!hasSegment) {
-    return { isValid: false, message: 'El output debe mostrar los segmentos de las transacciones (ej: premium, regular, económica)' };
+    return {
+      isValid: false,
+      message:
+        'El output debe mostrar los segmentos de las transacciones (ej: premium, regular, económica)',
+    };
   }
 
   return { isValid: true };
 };
 
 // Ejercicio 25.4: apply + groupby (integrador)
-export const validateApplyGroupby = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateApplyGroupby = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -149,7 +192,10 @@ export const validateApplyGroupby = (code: string, output: string): { isValid: b
 
   const hasGroupby = /\.groupby\s*\(/.test(code);
   if (!hasGroupby) {
-    return { isValid: false, message: 'Usa .groupby() para analizar los segmentos creados con apply' };
+    return {
+      isValid: false,
+      message: 'Usa .groupby() para analizar los segmentos creados con apply',
+    };
   }
 
   const hasPrint = /print\s*\(/.test(code);
@@ -159,7 +205,10 @@ export const validateApplyGroupby = (code: string, output: string): { isValid: b
 
   const hasNumericOutput = /\d+\.\d+|\d{2,}/.test(output);
   if (!hasNumericOutput) {
-    return { isValid: false, message: 'El output debe mostrar métricas numéricas agrupadas por segmento' };
+    return {
+      isValid: false,
+      message: 'El output debe mostrar métricas numéricas agrupadas por segmento',
+    };
   }
 
   return { isValid: true };

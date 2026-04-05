@@ -1,14 +1,20 @@
 // Validadores para Módulo 20: Pandas - Funciones de agregación
 
 // Ejercicio 20.1: .mean() y .sum() en columnas numéricas
-export const validateMeanSum = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateMeanSum = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
 
   const hasReadCsv = /pd\.read_csv\s*\(\s*['"]tips\.csv['"]/.test(code);
   if (!hasReadCsv) {
-    return { isValid: false, message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")' };
+    return {
+      isValid: false,
+      message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")',
+    };
   }
 
   const hasMean = /\.mean\s*\(\s*\)/.test(code);
@@ -34,21 +40,30 @@ export const validateMeanSum = (code: string, output: string): { isValid: boolea
   // El promedio de total_bill en el dataset tips es ~19.78
   const hasNumericOutput = /1[5-9]\.\d+|2[0-4]\.\d+/.test(output);
   if (!hasNumericOutput) {
-    return { isValid: false, message: 'El output debe mostrar el promedio de total_bill (debería ser ~19.78)' };
+    return {
+      isValid: false,
+      message: 'El output debe mostrar el promedio de total_bill (debería ser ~19.78)',
+    };
   }
 
   return { isValid: true };
 };
 
 // Ejercicio 20.2: .max() y .min()
-export const validateMaxMin = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateMaxMin = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
 
   const hasReadCsv = /pd\.read_csv\s*\(\s*['"]tips\.csv['"]/.test(code);
   if (!hasReadCsv) {
-    return { isValid: false, message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")' };
+    return {
+      isValid: false,
+      message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")',
+    };
   }
 
   const hasMax = /\.max\s*\(\s*\)/.test(code);
@@ -75,21 +90,30 @@ export const validateMaxMin = (code: string, output: string): { isValid: boolean
   const hasMaxValue = /10\.0|10$/.test(output);
   const hasMinValue = /1\.0|^1$/.test(output);
   if (!hasMaxValue || !hasMinValue) {
-    return { isValid: false, message: 'El output debe mostrar el máximo (10.0) y mínimo (1.0) de la columna tip' };
+    return {
+      isValid: false,
+      message: 'El output debe mostrar el máximo (10.0) y mínimo (1.0) de la columna tip',
+    };
   }
 
   return { isValid: true };
 };
 
 // Ejercicio 20.3: .median()
-export const validateMedian = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateMedian = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
 
   const hasReadCsv = /pd\.read_csv\s*\(\s*['"]tips\.csv['"]/.test(code);
   if (!hasReadCsv) {
-    return { isValid: false, message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")' };
+    return {
+      isValid: false,
+      message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")',
+    };
   }
 
   const hasMedian = /\.median\s*\(\s*\)/.test(code);
@@ -110,21 +134,30 @@ export const validateMedian = (code: string, output: string): { isValid: boolean
   // La mediana de total_bill en tips es 17.795
   const hasMedianValue = /17\.[67]\d*|17\.8\d*/.test(output);
   if (!hasMedianValue) {
-    return { isValid: false, message: 'El output debe mostrar la mediana de total_bill (debería ser ~17.80)' };
+    return {
+      isValid: false,
+      message: 'El output debe mostrar la mediana de total_bill (debería ser ~17.80)',
+    };
   }
 
   return { isValid: true };
 };
 
 // Ejercicio 20.4: .nunique() y .unique()
-export const validateNuniqueUnique = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateNuniqueUnique = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
 
   const hasReadCsv = /pd\.read_csv\s*\(\s*['"]tips\.csv['"]/.test(code);
   if (!hasReadCsv) {
-    return { isValid: false, message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")' };
+    return {
+      isValid: false,
+      message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")',
+    };
   }
 
   const hasNunique = /\.nunique\s*\(\s*\)/.test(code);
@@ -150,21 +183,30 @@ export const validateNuniqueUnique = (code: string, output: string): { isValid: 
   // day tiene 4 valores únicos: Sun, Sat, Thur, Fri
   const hasFourDays = output.includes('4') || (output.includes('Sun') && output.includes('Sat'));
   if (!hasFourDays) {
-    return { isValid: false, message: 'El output debe mostrar que hay 4 días únicos (Sun, Sat, Thur, Fri)' };
+    return {
+      isValid: false,
+      message: 'El output debe mostrar que hay 4 días únicos (Sun, Sat, Thur, Fri)',
+    };
   }
 
   return { isValid: true };
 };
 
 // Ejercicio 20.5: .value_counts()
-export const validateValueCounts = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateValueCounts = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
 
   const hasReadCsv = /pd\.read_csv\s*\(\s*['"]tips\.csv['"]/.test(code);
   if (!hasReadCsv) {
-    return { isValid: false, message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")' };
+    return {
+      isValid: false,
+      message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")',
+    };
   }
 
   const hasValueCounts = /\.value_counts\s*\(\s*\)/.test(code);
@@ -186,7 +228,10 @@ export const validateValueCounts = (code: string, output: string): { isValid: bo
   const hasSun = output.includes('Sun');
   const hasSat = output.includes('Sat');
   if (!hasSun || !hasSat) {
-    return { isValid: false, message: 'El output debe mostrar los días y su frecuencia (Sun, Sat, Thur, Fri)' };
+    return {
+      isValid: false,
+      message: 'El output debe mostrar los días y su frecuencia (Sun, Sat, Thur, Fri)',
+    };
   }
 
   return { isValid: true };

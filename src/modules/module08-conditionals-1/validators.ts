@@ -1,6 +1,9 @@
 // Validadores para Módulo 08: Condicionales 1 - Comparaciones y IF
 
-export const validateComparison = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateComparison = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -14,37 +17,55 @@ export const validateComparison = (code: string, output: string): { isValid: boo
   const hasPrecio = /precio\s*=\s*50/.test(code);
 
   if (!hasEdad || !hasPrecio) {
-    return { isValid: false, message: 'Debes crear las variables edad = 22 y precio = 50 como indica el ejercicio' };
+    return {
+      isValid: false,
+      message: 'Debes crear las variables edad = 22 y precio = 50 como indica el ejercicio',
+    };
   }
 
   // Verificar que crea la variable es_mayor con comparación
   const hasEsMayor = /es_mayor\s*=/.test(code);
   if (!hasEsMayor) {
-    return { isValid: false, message: 'Debes crear una variable "es_mayor" con el resultado de comparar edad >= 18' };
+    return {
+      isValid: false,
+      message: 'Debes crear una variable "es_mayor" con el resultado de comparar edad >= 18',
+    };
   }
 
   // Verificar que usa >= para es_mayor
   const hasGreaterEqual = /edad\s*>=\s*18/.test(code) || /18\s*<=\s*edad/.test(code);
   if (!hasGreaterEqual) {
-    return { isValid: false, message: 'Debes usar el operador >= para verificar si edad es mayor o igual a 18' };
+    return {
+      isValid: false,
+      message: 'Debes usar el operador >= para verificar si edad es mayor o igual a 18',
+    };
   }
 
   // Verificar que crea la variable es_barato con comparación
   const hasEsBarato = /es_barato\s*=/.test(code);
   if (!hasEsBarato) {
-    return { isValid: false, message: 'Debes crear una variable "es_barato" con el resultado de comparar precio < 100' };
+    return {
+      isValid: false,
+      message: 'Debes crear una variable "es_barato" con el resultado de comparar precio < 100',
+    };
   }
 
   // Verificar que usa < para es_barato
   const hasLessThan = /precio\s*<\s*100/.test(code) || /100\s*>\s*precio/.test(code);
   if (!hasLessThan) {
-    return { isValid: false, message: 'Debes usar el operador < para verificar si precio es menor que 100' };
+    return {
+      isValid: false,
+      message: 'Debes usar el operador < para verificar si precio es menor que 100',
+    };
   }
 
   // Verificar que imprime ambos resultados
   const printCount = (code.match(/print\s*\(/g) || []).length;
   if (printCount < 2) {
-    return { isValid: false, message: 'Debes usar print() dos veces para mostrar ambos resultados' };
+    return {
+      isValid: false,
+      message: 'Debes usar print() dos veces para mostrar ambos resultados',
+    };
   }
 
   // Verificar que el output contiene True en ambas líneas
@@ -54,13 +75,19 @@ export const validateComparison = (code: string, output: string): { isValid: boo
   }
 
   if (!lines[0].includes('True') || !lines[1].includes('True')) {
-    return { isValid: false, message: 'Ambos resultados deben ser True. Verifica tus comparaciones' };
+    return {
+      isValid: false,
+      message: 'Ambos resultados deben ser True. Verifica tus comparaciones',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateLogicalAnd = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateLogicalAnd = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -75,19 +102,30 @@ export const validateLogicalAnd = (code: string, output: string): { isValid: boo
   const hasBoleto = /tiene_boleto\s*=\s*False/.test(code);
 
   if (!hasPasaporte || !hasVisa || !hasBoleto) {
-    return { isValid: false, message: 'Debes crear las tres variables: tiene_pasaporte = True, tiene_visa = True, tiene_boleto = False' };
+    return {
+      isValid: false,
+      message:
+        'Debes crear las tres variables: tiene_pasaporte = True, tiene_visa = True, tiene_boleto = False',
+    };
   }
 
   // Verificar que usa el operador and
   const hasAnd = /\band\b/.test(code);
   if (!hasAnd) {
-    return { isValid: false, message: 'Debes usar el operador "and" para combinar las condiciones' };
+    return {
+      isValid: false,
+      message: 'Debes usar el operador "and" para combinar las condiciones',
+    };
   }
 
   // Verificar que crea la variable documentos_completos
   const hasDocumentosCompletos = /documentos_completos\s*=/.test(code);
   if (!hasDocumentosCompletos) {
-    return { isValid: false, message: 'Debes crear una variable "documentos_completos" con el resultado de tiene_pasaporte and tiene_visa' };
+    return {
+      isValid: false,
+      message:
+        'Debes crear una variable "documentos_completos" con el resultado de tiene_pasaporte and tiene_visa',
+    };
   }
 
   // Verificar que imprime
@@ -98,13 +136,20 @@ export const validateLogicalAnd = (code: string, output: string): { isValid: boo
 
   // Verificar que el output es True (ambas condiciones son verdaderas)
   if (!output.trim().includes('True')) {
-    return { isValid: false, message: 'El resultado debe ser True ya que ambas condiciones (tiene_pasaporte y tiene_visa) son verdaderas' };
+    return {
+      isValid: false,
+      message:
+        'El resultado debe ser True ya que ambas condiciones (tiene_pasaporte y tiene_visa) son verdaderas',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateLogicalOr = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateLogicalOr = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -118,7 +163,10 @@ export const validateLogicalOr = (code: string, output: string): { isValid: bool
   const hasFeriado = /es_feriado\s*=\s*True/.test(code);
 
   if (!hasFinDeSemana || !hasFeriado) {
-    return { isValid: false, message: 'Debes crear las dos variables: es_fin_de_semana = False y es_feriado = True' };
+    return {
+      isValid: false,
+      message: 'Debes crear las dos variables: es_fin_de_semana = False y es_feriado = True',
+    };
   }
 
   // Verificar que usa el operador or
@@ -130,7 +178,11 @@ export const validateLogicalOr = (code: string, output: string): { isValid: bool
   // Verificar que crea la variable puede_descansar
   const hasPuedeDescansar = /puede_descansar\s*=/.test(code);
   if (!hasPuedeDescansar) {
-    return { isValid: false, message: 'Debes crear una variable "puede_descansar" con el resultado de es_fin_de_semana or es_feriado' };
+    return {
+      isValid: false,
+      message:
+        'Debes crear una variable "puede_descansar" con el resultado de es_fin_de_semana or es_feriado',
+    };
   }
 
   // Verificar que imprime
@@ -141,13 +193,19 @@ export const validateLogicalOr = (code: string, output: string): { isValid: bool
 
   // Verificar que el output es True (al menos una condición es verdadera)
   if (!output.trim().includes('True')) {
-    return { isValid: false, message: 'El resultado debe ser True ya que al menos una condición (es_feriado) es verdadera' };
+    return {
+      isValid: false,
+      message: 'El resultado debe ser True ya que al menos una condición (es_feriado) es verdadera',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateSimpleIf = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateSimpleIf = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -159,7 +217,10 @@ export const validateSimpleIf = (code: string, output: string): { isValid: boole
   // Verificar que crea la variable nota
   const hasNota = /nota\s*=\s*85/.test(code);
   if (!hasNota) {
-    return { isValid: false, message: 'Debes crear la variable nota = 85 como indica el ejercicio' };
+    return {
+      isValid: false,
+      message: 'Debes crear la variable nota = 85 como indica el ejercicio',
+    };
   }
 
   // Verificar que usa if
@@ -182,13 +243,19 @@ export const validateSimpleIf = (code: string, output: string): { isValid: boole
 
   // Verificar que el output contiene "Aprobado"
   if (!output.trim().includes('Aprobado')) {
-    return { isValid: false, message: 'El mensaje debe ser "Aprobado". Recuerda que debe estar dentro del if' };
+    return {
+      isValid: false,
+      message: 'El mensaje debe ser "Aprobado". Recuerda que debe estar dentro del if',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateIfWithCondition = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateIfWithCondition = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -203,19 +270,30 @@ export const validateIfWithCondition = (code: string, output: string): { isValid
   const hasAforoDisponible = /aforo_disponible\s*=\s*True/.test(code);
 
   if (!hasEdad || !hasTieneEntrada || !hasAforoDisponible) {
-    return { isValid: false, message: 'Debes crear las tres variables: edad = 20, tiene_entrada = True, aforo_disponible = True' };
+    return {
+      isValid: false,
+      message:
+        'Debes crear las tres variables: edad = 20, tiene_entrada = True, aforo_disponible = True',
+    };
   }
 
   // Verificar que usa if
   const hasIf = /\bif\b/.test(code);
   if (!hasIf) {
-    return { isValid: false, message: 'Debes usar la estructura "if" para verificar las condiciones' };
+    return {
+      isValid: false,
+      message: 'Debes usar la estructura "if" para verificar las condiciones',
+    };
   }
 
   // Verificar que usa and (al menos 2 veces para 3 condiciones)
   const andCount = (code.match(/\band\b/g) || []).length;
   if (andCount < 2) {
-    return { isValid: false, message: 'Debes usar el operador "and" dos veces para combinar las tres condiciones. Ejemplo: condicion1 and condicion2 and condicion3' };
+    return {
+      isValid: false,
+      message:
+        'Debes usar el operador "and" dos veces para combinar las tres condiciones. Ejemplo: condicion1 and condicion2 and condicion3',
+    };
   }
 
   // Verificar que verifica edad >= 18
@@ -233,13 +311,19 @@ export const validateIfWithCondition = (code: string, output: string): { isValid
   // Verificar que el output contiene el mensaje esperado
   const outputClean = output.trim().toLowerCase();
   if (!outputClean.includes('bienvenido') || !outputClean.includes('evento')) {
-    return { isValid: false, message: 'El mensaje debe ser "Bienvenido al evento". Recuerda que debe estar dentro del if' };
+    return {
+      isValid: false,
+      message: 'El mensaje debe ser "Bienvenido al evento". Recuerda que debe estar dentro del if',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateInOperator = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateInOperator = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -251,7 +335,10 @@ export const validateInOperator = (code: string, output: string): { isValid: boo
   // Verificar que crea la lista de colores
   const hasColores = /colores\s*=\s*\[/.test(code);
   if (!hasColores) {
-    return { isValid: false, message: 'Debes crear una lista llamada "colores" con los valores especificados' };
+    return {
+      isValid: false,
+      message: 'Debes crear una lista llamada "colores" con los valores especificados',
+    };
   }
 
   // Verificar que la lista contiene los colores correctos
@@ -260,7 +347,10 @@ export const validateInOperator = (code: string, output: string): { isValid: boo
   const hasVerde = /["']verde["']/.test(code);
 
   if (!hasRojo || !hasAzul || !hasVerde) {
-    return { isValid: false, message: 'La lista debe contener los colores: "rojo", "azul", "verde"' };
+    return {
+      isValid: false,
+      message: 'La lista debe contener los colores: "rojo", "azul", "verde"',
+    };
   }
 
   // Verificar que crea la variable color_favorito
@@ -272,7 +362,10 @@ export const validateInOperator = (code: string, output: string): { isValid: boo
   // Verificar que usa el operador in
   const hasIn = /\bin\b/.test(code);
   if (!hasIn) {
-    return { isValid: false, message: 'Debes usar el operador "in" para verificar si color_favorito está en la lista' };
+    return {
+      isValid: false,
+      message: 'Debes usar el operador "in" para verificar si color_favorito está en la lista',
+    };
   }
 
   // Verificar que usa if
@@ -290,7 +383,10 @@ export const validateInOperator = (code: string, output: string): { isValid: boo
   // Verificar que el output contiene el mensaje esperado
   const outputClean = output.trim().toLowerCase();
   if (!outputClean.includes('color disponible')) {
-    return { isValid: false, message: 'El mensaje debe ser "Color disponible". Recuerda que debe estar dentro del if' };
+    return {
+      isValid: false,
+      message: 'El mensaje debe ser "Color disponible". Recuerda que debe estar dentro del if',
+    };
   }
 
   return { isValid: true };

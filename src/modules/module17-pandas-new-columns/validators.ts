@@ -1,13 +1,19 @@
 // Validadores para Módulo 18: Pandas - Operaciones con columnas (dataset tips)
 
-export const validateMathColumn = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateMathColumn = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
 
   const hasReadCsv = /pd\.read_csv\s*\(\s*['"]tips\.csv['"]/.test(code);
   if (!hasReadCsv) {
-    return { isValid: false, message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")' };
+    return {
+      isValid: false,
+      message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")',
+    };
   }
 
   const hasNewColumn = /df\s*\[\s*['"]total_con_propina['"]\s*\]/.test(code);
@@ -15,8 +21,9 @@ export const validateMathColumn = (code: string, output: string): { isValid: boo
     return { isValid: false, message: 'Debes crear una columna llamada "total_con_propina"' };
   }
 
-  const hasSum = /['"]total_bill['"]\s*\]\s*\+\s*df\s*\[\s*['"]tip['"]/.test(code) ||
-                 /['"]tip['"]\s*\]\s*\+\s*df\s*\[\s*['"]total_bill['"]/.test(code);
+  const hasSum =
+    /['"]total_bill['"]\s*\]\s*\+\s*df\s*\[\s*['"]tip['"]/.test(code) ||
+    /['"]tip['"]\s*\]\s*\+\s*df\s*\[\s*['"]total_bill['"]/.test(code);
   if (!hasSum) {
     return { isValid: false, message: 'Calcula total_con_propina sumando total_bill y tip' };
   }
@@ -34,14 +41,20 @@ export const validateMathColumn = (code: string, output: string): { isValid: boo
   return { isValid: true };
 };
 
-export const validateMultipleColumns = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateMultipleColumns = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
 
   const hasReadCsv = /pd\.read_csv\s*\(\s*['"]tips\.csv['"]/.test(code);
   if (!hasReadCsv) {
-    return { isValid: false, message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")' };
+    return {
+      isValid: false,
+      message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")',
+    };
   }
 
   const hasNewColumn = /df\s*\[\s*['"]tip_pct['"]\s*\]/.test(code);
@@ -51,7 +64,10 @@ export const validateMultipleColumns = (code: string, output: string): { isValid
 
   const hasDivision = /['"]tip['"]\s*\]\s*\/\s*df\s*\[\s*['"]total_bill['"]/.test(code);
   if (!hasDivision) {
-    return { isValid: false, message: 'Calcula tip_pct dividiendo tip entre total_bill (y multiplica por 100)' };
+    return {
+      isValid: false,
+      message: 'Calcula tip_pct dividiendo tip entre total_bill (y multiplica por 100)',
+    };
   }
 
   const hasMultiply100 = /\*\s*100/.test(code);
@@ -72,14 +88,20 @@ export const validateMultipleColumns = (code: string, output: string): { isValid
   return { isValid: true };
 };
 
-export const validateLocColumn = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateLocColumn = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
 
   const hasReadCsv = /pd\.read_csv\s*\(\s*['"]tips\.csv['"]/.test(code);
   if (!hasReadCsv) {
-    return { isValid: false, message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")' };
+    return {
+      isValid: false,
+      message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")',
+    };
   }
 
   const hasNewColumn = /df\s*\[\s*['"]mesa_grande['"]\s*\]/.test(code);

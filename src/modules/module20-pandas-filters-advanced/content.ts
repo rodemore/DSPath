@@ -1,10 +1,6 @@
 import type { Section } from '../../types';
 import { IRIS_CSV } from '../module14-pandas-dataframes/irisData';
-import {
-  validateIsin,
-  validateBetween,
-  validateQuery,
-} from './validators';
+import { validateIsin, validateBetween, validateQuery } from './validators';
 
 export const module20: Section = {
   id: 19,
@@ -44,7 +40,8 @@ if not hasattr(pd, '_iris_df_cached'):
     {
       icon: '📋',
       title: 'isin(): Filtrar con lista de valores',
-      content: 'El método <span class="inline-code">.isin()</span> permite filtrar filas donde una columna tenga cualquiera de los valores de una lista. Es más limpio que usar múltiples condiciones con OR.',
+      content:
+        'El método <span class="inline-code">.isin()</span> permite filtrar filas donde una columna tenga cualquiera de los valores de una lista. Es más limpio que usar múltiples condiciones con OR.',
       codeExample: {
         filename: 'isin.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -67,7 +64,8 @@ if not hasattr(pd, '_iris_df_cached'):
         {
           id: 'ex-17-1',
           number: 'EJERCICIO 17.1',
-          description: 'Filtra las flores que sean de las especies <span class="inline-code">setosa</span> o <span class="inline-code">virginica</span> usando <span class="inline-code">.isin()</span>. Guarda el resultado en <span class="inline-code">dos_especies</span> e imprime las primeras 5 filas.',
+          description:
+            'Filtra las flores que sean de las especies <span class="inline-code">setosa</span> o <span class="inline-code">virginica</span> usando <span class="inline-code">.isin()</span>. Guarda el resultado en <span class="inline-code">dos_especies</span> e imprime las primeras 5 filas.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateIsin,
@@ -83,7 +81,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '↔️',
       title: 'between(): Filtrar rangos de valores',
-      content: 'El método <span class="inline-code">.between()</span> filtra valores que estén dentro de un rango. Es más claro que usar dos condiciones con AND.',
+      content:
+        'El método <span class="inline-code">.between()</span> filtra valores que estén dentro de un rango. Es más claro que usar dos condiciones con AND.',
       codeExample: {
         filename: 'between.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -107,7 +106,8 @@ df = pd.read_csv('iris.csv')
         {
           id: 'ex-17-2',
           number: 'EJERCICIO 17.2',
-          description: 'Filtra las flores con <span class="inline-code">sepal_length</span> entre 5.0 y 6.0 (inclusivo) usando <span class="inline-code">.between()</span>. Guarda el resultado en <span class="inline-code">rango_medio</span> e imprime las primeras 5 filas.',
+          description:
+            'Filtra las flores con <span class="inline-code">sepal_length</span> entre 5.0 y 6.0 (inclusivo) usando <span class="inline-code">.between()</span>. Guarda el resultado en <span class="inline-code">rango_medio</span> e imprime las primeras 5 filas.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateBetween,
@@ -123,7 +123,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '🔎',
       title: 'query(): Filtrar con strings (SQL-like)',
-      content: 'El método <span class="inline-code">.query()</span> permite escribir filtros como strings, similar a SQL. Es muy útil para filtros complejos y hace el código más legible. <strong>Importante:</strong> Usa <span class="inline-code">and</span>, <span class="inline-code">or</span>, <span class="inline-code">not</span> en minúsculas (no AND, OR, NOT).',
+      content:
+        'El método <span class="inline-code">.query()</span> permite escribir filtros como strings, similar a SQL. Es muy útil para filtros complejos y hace el código más legible. <strong>Importante:</strong> Usa <span class="inline-code">and</span>, <span class="inline-code">or</span>, <span class="inline-code">not</span> en minúsculas (no AND, OR, NOT).',
       codeExample: {
         filename: 'query.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -148,7 +149,8 @@ df = pd.read_csv('iris.csv')
         {
           id: 'ex-17-3',
           number: 'EJERCICIO 17.3',
-          description: 'Usa <span class="inline-code">.query()</span> para filtrar flores con <span class="inline-code">petal_length > 4</span> Y <span class="inline-code">petal_width > 1.5</span>. Recuerda usar <span class="inline-code">and</span> en minúsculas dentro del query. Guarda el resultado en <span class="inline-code">petalos_grandes</span> e imprime las primeras 5 filas.',
+          description:
+            'Usa <span class="inline-code">.query()</span> para filtrar flores con <span class="inline-code">petal_length > 4</span> Y <span class="inline-code">petal_width > 1.5</span>. Recuerda usar <span class="inline-code">and</span> en minúsculas dentro del query. Guarda el resultado en <span class="inline-code">petalos_grandes</span> e imprime las primeras 5 filas.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateQuery,
@@ -172,25 +174,25 @@ df = pd.read_csv('iris.csv')
             Método: 'loc con & y |',
             'Cuándo usarlo': 'Filtros simples con 1-2 condiciones',
             Ventaja: 'Más control y tradicional',
-            Ejemplo: 'df.loc[(df["edad"] > 18) & (df["nota"] > 80)]'
+            Ejemplo: 'df.loc[(df["edad"] > 18) & (df["nota"] > 80)]',
           },
           {
             Método: 'isin()',
             'Cuándo usarlo': 'Filtrar por lista de valores',
             Ventaja: 'Más limpio que múltiples OR',
-            Ejemplo: 'df[df["ciudad"].isin(["Quito", "Cuenca"])]'
+            Ejemplo: 'df[df["ciudad"].isin(["Quito", "Cuenca"])]',
           },
           {
             Método: 'between()',
             'Cuándo usarlo': 'Filtrar por rango numérico',
             Ventaja: 'Más claro que dos condiciones',
-            Ejemplo: 'df[df["edad"].between(18, 25)]'
+            Ejemplo: 'df[df["edad"].between(18, 25)]',
           },
           {
             Método: 'query()',
             'Cuándo usarlo': 'Filtros complejos con múltiples condiciones',
             Ventaja: 'Muy legible, similar a SQL',
-            Ejemplo: 'df.query("edad > 18 and nota >= 80")'
+            Ejemplo: 'df.query("edad > 18 and nota >= 80")',
           },
         ],
       },
@@ -199,7 +201,8 @@ df = pd.read_csv('iris.csv')
 
   tipBox: {
     icon: '💡',
-    content: '<strong>Tip profesional:</strong> Para filtros simples usa <span class="inline-code">loc</span>, para listas usa <span class="inline-code">isin()</span>, para rangos usa <span class="inline-code">between()</span>, y para filtros complejos usa <span class="inline-code">query()</span>.',
+    content:
+      '<strong>Tip profesional:</strong> Para filtros simples usa <span class="inline-code">loc</span>, para listas usa <span class="inline-code">isin()</span>, para rangos usa <span class="inline-code">between()</span>, y para filtros complejos usa <span class="inline-code">query()</span>.',
   },
 
   exercises: [],

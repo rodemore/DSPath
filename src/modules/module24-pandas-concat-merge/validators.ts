@@ -1,7 +1,10 @@
 // Validadores para Módulo 24: Pandas - Concat & Merge
 
 // Ejercicio 24.1: pd.concat() con dos DataFrames
-export const validateConcatTwo = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateConcatTwo = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -35,14 +38,20 @@ export const validateConcatTwo = (code: string, output: string): { isValid: bool
   // enero=120, febrero=135 → total=255 filas
   const has255 = output.includes('255');
   if (!has255) {
-    return { isValid: false, message: 'El DataFrame resultante debe tener 255 filas (120 enero + 135 febrero)' };
+    return {
+      isValid: false,
+      message: 'El DataFrame resultante debe tener 255 filas (120 enero + 135 febrero)',
+    };
   }
 
   return { isValid: true };
 };
 
 // Ejercicio 24.2: pd.concat() con tres DataFrames
-export const validateConcatThree = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateConcatThree = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -56,35 +65,54 @@ export const validateConcatThree = (code: string, output: string): { isValid: bo
   const hasFebrero = /ventas_febrero\.csv/.test(code);
   const hasMarzo = /ventas_marzo\.csv/.test(code);
   if (!hasEnero || !hasFebrero || !hasMarzo) {
-    return { isValid: false, message: 'Debes cargar los tres archivos: ventas_enero.csv, ventas_febrero.csv y ventas_marzo.csv' };
+    return {
+      isValid: false,
+      message:
+        'Debes cargar los tres archivos: ventas_enero.csv, ventas_febrero.csv y ventas_marzo.csv',
+    };
   }
 
   const hasConcat = /pd\.concat\s*\(/.test(code);
   if (!hasConcat) {
-    return { isValid: false, message: 'Usa pd.concat() para combinar los tres DataFrames en una lista []' };
+    return {
+      isValid: false,
+      message: 'Usa pd.concat() para combinar los tres DataFrames en una lista []',
+    };
   }
 
   const hasList = /pd\.concat\s*\(\s*\[/.test(code);
   if (!hasList) {
-    return { isValid: false, message: 'Pasa los tres DataFrames dentro de una lista: pd.concat([df1, df2, df3])' };
+    return {
+      isValid: false,
+      message: 'Pasa los tres DataFrames dentro de una lista: pd.concat([df1, df2, df3])',
+    };
   }
 
   const hasPrint = /print\s*\(/.test(code);
   if (!hasPrint) {
-    return { isValid: false, message: 'Debes imprimir el resultado (usa .shape para ver las dimensiones)' };
+    return {
+      isValid: false,
+      message: 'Debes imprimir el resultado (usa .shape para ver las dimensiones)',
+    };
   }
 
   // enero=120, febrero=135, marzo=150 → total=405 filas
   const has405 = output.includes('405');
   if (!has405) {
-    return { isValid: false, message: 'El DataFrame resultante debe tener 405 filas (120 + 135 + 150)' };
+    return {
+      isValid: false,
+      message: 'El DataFrame resultante debe tener 405 filas (120 + 135 + 150)',
+    };
   }
 
   return { isValid: true };
 };
 
 // Ejercicio 24.3: merge básico (inner join)
-export const validateMergeInner = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateMergeInner = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -106,7 +134,10 @@ export const validateMergeInner = (code: string, output: string): { isValid: boo
 
   const hasIdProducto = /['"]id_producto['"]/.test(code);
   if (!hasIdProducto) {
-    return { isValid: false, message: 'Une los DataFrames usando la columna "id_producto" con on="id_producto"' };
+    return {
+      isValid: false,
+      message: 'Une los DataFrames usando la columna "id_producto" con on="id_producto"',
+    };
   }
 
   const hasPrint = /print\s*\(/.test(code);
@@ -115,16 +146,24 @@ export const validateMergeInner = (code: string, output: string): { isValid: boo
   }
 
   // Después del merge deben aparecer columnas de productos
-  const hasNombre = output.includes('nombre') || output.includes('Laptop') || output.includes('Mouse');
+  const hasNombre =
+    output.includes('nombre') || output.includes('Laptop') || output.includes('Mouse');
   if (!hasNombre) {
-    return { isValid: false, message: 'El resultado debe incluir las columnas de productos (nombre, categoria, precio_unitario)' };
+    return {
+      isValid: false,
+      message:
+        'El resultado debe incluir las columnas de productos (nombre, categoria, precio_unitario)',
+    };
   }
 
   return { isValid: true };
 };
 
 // Ejercicio 24.4: concat + merge + groupby (ejercicio integrador)
-export const validateIntegrador = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateIntegrador = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -151,7 +190,10 @@ export const validateIntegrador = (code: string, output: string): { isValid: boo
 
   const hasCategoria = /['"]categoria['"]/.test(code);
   if (!hasCategoria) {
-    return { isValid: false, message: 'Agrupa por la columna "categoria" del DataFrame de productos' };
+    return {
+      isValid: false,
+      message: 'Agrupa por la columna "categoria" del DataFrame de productos',
+    };
   }
 
   const hasTotal = /['"]total['"]/.test(code);
@@ -165,9 +207,14 @@ export const validateIntegrador = (code: string, output: string): { isValid: boo
   }
 
   // Debe aparecer alguna de las categorías
-  const hasCategories = output.includes('Electronica') || output.includes('Muebles') || output.includes('Papelería');
+  const hasCategories =
+    output.includes('Electronica') || output.includes('Muebles') || output.includes('Papelería');
   if (!hasCategories) {
-    return { isValid: false, message: 'El output debe mostrar las categorías (Electronica, Muebles, Papelería) con sus ventas totales' };
+    return {
+      isValid: false,
+      message:
+        'El output debe mostrar las categorías (Electronica, Muebles, Papelería) con sus ventas totales',
+    };
   }
 
   return { isValid: true };

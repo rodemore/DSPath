@@ -1,6 +1,9 @@
 // Validadores para Módulo 12: Desafíos Integradores
 
-export const validateForIfCounter = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateForIfCounter = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -9,7 +12,8 @@ export const validateForIfCounter = (code: string, output: string): { isValid: b
     return { isValid: false, message: 'Tu código no imprime nada. Usa print()' };
   }
 
-  const hasList = /numeros\s*=\s*\[\s*3\s*,\s*7\s*,\s*12\s*,\s*5\s*,\s*18\s*,\s*9\s*,\s*21\s*\]/.test(code);
+  const hasList =
+    /numeros\s*=\s*\[\s*3\s*,\s*7\s*,\s*12\s*,\s*5\s*,\s*18\s*,\s*9\s*,\s*21\s*\]/.test(code);
   if (!hasList) {
     return { isValid: false, message: 'Debes crear la lista numeros = [3, 7, 12, 5, 18, 9, 21]' };
   }
@@ -36,13 +40,19 @@ export const validateForIfCounter = (code: string, output: string): { isValid: b
 
   const outputNum = parseInt(output.trim().match(/\d+/)?.[0] || '0');
   if (outputNum !== 3) {
-    return { isValid: false, message: 'Hay 3 números pares en la lista: 12, 18. Verifica tu lógica' };
+    return {
+      isValid: false,
+      message: 'Hay 3 números pares en la lista: 12, 18. Verifica tu lógica',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateForIfSum = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateForIfSum = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -78,13 +88,19 @@ export const validateForIfSum = (code: string, output: string): { isValid: boole
 
   const outputNum = parseInt(output.trim().match(/\d+/)?.[0] || '0');
   if (outputNum !== 70) {
-    return { isValid: false, message: 'La suma de los precios menores a 40 (25, 15, 30) debe ser 70' };
+    return {
+      isValid: false,
+      message: 'La suma de los precios menores a 40 (25, 15, 30) debe ser 70',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateForIfList = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateForIfList = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -93,9 +109,13 @@ export const validateForIfList = (code: string, output: string): { isValid: bool
     return { isValid: false, message: 'Tu código no imprime nada. Usa print()' };
   }
 
-  const hasTempList = /temperaturas\s*=\s*\[\s*22\s*,\s*28\s*,\s*19\s*,\s*31\s*,\s*25\s*,\s*18\s*\]/.test(code);
+  const hasTempList =
+    /temperaturas\s*=\s*\[\s*22\s*,\s*28\s*,\s*19\s*,\s*31\s*,\s*25\s*,\s*18\s*\]/.test(code);
   if (!hasTempList) {
-    return { isValid: false, message: 'Debes crear la lista temperaturas = [22, 28, 19, 31, 25, 18]' };
+    return {
+      isValid: false,
+      message: 'Debes crear la lista temperaturas = [22, 28, 19, 31, 25, 18]',
+    };
   }
 
   const hasCalurosos = /dias_calurosos\s*=\s*\[\s*\]/.test(code);
@@ -105,7 +125,10 @@ export const validateForIfList = (code: string, output: string): { isValid: bool
 
   const hasFor = /\bfor\b/.test(code) && /\bin\b/.test(code);
   if (!hasFor) {
-    return { isValid: false, message: 'Debes usar un bucle for para iterar sobre las temperaturas' };
+    return {
+      isValid: false,
+      message: 'Debes usar un bucle for para iterar sobre las temperaturas',
+    };
   }
 
   const hasIf = /\bif\b/.test(code);
@@ -115,18 +138,27 @@ export const validateForIfList = (code: string, output: string): { isValid: bool
 
   const hasAppend = /\.append\s*\(/.test(code);
   if (!hasAppend) {
-    return { isValid: false, message: 'Debes usar .append() para agregar temperaturas a la lista dias_calurosos' };
+    return {
+      isValid: false,
+      message: 'Debes usar .append() para agregar temperaturas a la lista dias_calurosos',
+    };
   }
 
   const outputClean = output.trim();
   if (!outputClean.includes('28') || !outputClean.includes('31')) {
-    return { isValid: false, message: 'La lista debe contener [28, 31], las temperaturas mayores a 25' };
+    return {
+      isValid: false,
+      message: 'La lista debe contener [28, 31], las temperaturas mayores a 25',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateForNestedIf = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateForNestedIf = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -135,7 +167,9 @@ export const validateForNestedIf = (code: string, output: string): { isValid: bo
     return { isValid: false, message: 'Tu código no imprime nada. Usa print()' };
   }
 
-  const hasList = /edades\s*=\s*\[\s*15\s*,\s*22\s*,\s*17\s*,\s*30\s*,\s*12\s*,\s*25\s*\]/.test(code);
+  const hasList = /edades\s*=\s*\[\s*15\s*,\s*22\s*,\s*17\s*,\s*30\s*,\s*12\s*,\s*25\s*\]/.test(
+    code
+  );
   if (!hasList) {
     return { isValid: false, message: 'Debes crear la lista edades = [15, 22, 17, 30, 12, 25]' };
   }
@@ -159,13 +193,19 @@ export const validateForNestedIf = (code: string, output: string): { isValid: bo
   const hasNino = outputLower.includes('niño') || outputLower.includes('nino');
 
   if (!hasAdulto || !hasAdolescente || !hasNino) {
-    return { isValid: false, message: 'Debes imprimir las tres categorías: Niño, Adolescente, y Adulto' };
+    return {
+      isValid: false,
+      message: 'Debes imprimir las tres categorías: Niño, Adolescente, y Adulto',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateForIfStats = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateForIfStats = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -174,7 +214,8 @@ export const validateForIfStats = (code: string, output: string): { isValid: boo
     return { isValid: false, message: 'Tu código no imprime nada. Usa print()' };
   }
 
-  const hasList = /notas\s*=\s*\[\s*85\s*,\s*92\s*,\s*78\s*,\s*65\s*,\s*90\s*,\s*45\s*,\s*88\s*\]/.test(code);
+  const hasList =
+    /notas\s*=\s*\[\s*85\s*,\s*92\s*,\s*78\s*,\s*65\s*,\s*90\s*,\s*45\s*,\s*88\s*\]/.test(code);
   if (!hasList) {
     return { isValid: false, message: 'Debes crear la lista notas = [85, 92, 78, 65, 90, 45, 88]' };
   }
@@ -187,7 +228,10 @@ export const validateForIfStats = (code: string, output: string): { isValid: boo
 
   const hasFor = /\bfor\b/.test(code) && /\bin\b/.test(code);
   if (!hasFor) {
-    return { isValid: false, message: 'Debes usar un bucle for para contar aprobados y reprobados' };
+    return {
+      isValid: false,
+      message: 'Debes usar un bucle for para contar aprobados y reprobados',
+    };
   }
 
   const hasIf = /\bif\b/.test(code);
@@ -197,13 +241,19 @@ export const validateForIfStats = (code: string, output: string): { isValid: boo
 
   const lines = output.trim().split('\n');
   if (lines.length < 3) {
-    return { isValid: false, message: 'Debes imprimir tres valores: promedio, aprobados y reprobados' };
+    return {
+      isValid: false,
+      message: 'Debes imprimir tres valores: promedio, aprobados y reprobados',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateForIfString = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateForIfString = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -245,7 +295,10 @@ export const validateForIfString = (code: string, output: string): { isValid: bo
   return { isValid: true };
 };
 
-export const validateForRangeIf = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateForRangeIf = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -266,7 +319,10 @@ export const validateForRangeIf = (code: string, output: string): { isValid: boo
 
   const hasIf = /\bif\b/.test(code);
   if (!hasIf) {
-    return { isValid: false, message: 'Debes usar if para verificar si el número es divisible entre 3' };
+    return {
+      isValid: false,
+      message: 'Debes usar if para verificar si el número es divisible entre 3',
+    };
   }
 
   const hasModulo = /%\s*3\s*==\s*0/.test(code);
@@ -276,13 +332,19 @@ export const validateForRangeIf = (code: string, output: string): { isValid: boo
 
   const lines = output.trim().split('\n');
   if (lines.length !== 6) {
-    return { isValid: false, message: 'Debes imprimir 6 números divisibles entre 3 (3, 6, 9, 12, 15, 18)' };
+    return {
+      isValid: false,
+      message: 'Debes imprimir 6 números divisibles entre 3 (3, 6, 9, 12, 15, 18)',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateForListConditional = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateForListConditional = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -293,7 +355,10 @@ export const validateForListConditional = (code: string, output: string): { isVa
 
   const hasList = /productos\s*=\s*\[/.test(code) && /manzana/.test(code) && /leche/.test(code);
   if (!hasList) {
-    return { isValid: false, message: 'Debes crear la lista productos = ["manzana", "pan", "leche", "arroz", "agua"]' };
+    return {
+      isValid: false,
+      message: 'Debes crear la lista productos = ["manzana", "pan", "leche", "arroz", "agua"]',
+    };
   }
 
   const hasFor = /\bfor\b/.test(code) && /\bin\b/.test(code);
@@ -308,18 +373,31 @@ export const validateForListConditional = (code: string, output: string): { isVa
 
   const hasLen = /len\s*\(/.test(code);
   if (!hasLen) {
-    return { isValid: false, message: 'Debes usar len() para obtener la longitud de cada producto' };
+    return {
+      isValid: false,
+      message: 'Debes usar len() para obtener la longitud de cada producto',
+    };
   }
 
   const outputLower = output.toLowerCase();
-  if (!outputLower.includes('manzana') || !outputLower.includes('leche') || !outputLower.includes('arroz')) {
-    return { isValid: false, message: 'Debes imprimir los productos con más de 4 letras: manzana, leche, arroz' };
+  if (
+    !outputLower.includes('manzana') ||
+    !outputLower.includes('leche') ||
+    !outputLower.includes('arroz')
+  ) {
+    return {
+      isValid: false,
+      message: 'Debes imprimir los productos con más de 4 letras: manzana, leche, arroz',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateWhileIfCounter = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateWhileIfCounter = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -336,22 +414,33 @@ export const validateWhileIfCounter = (code: string, output: string): { isValid:
 
   const hasWhile = /\bwhile\b/.test(code);
   if (!hasWhile) {
-    return { isValid: false, message: 'Debes usar un bucle while para repetir mientras numero <= 100' };
+    return {
+      isValid: false,
+      message: 'Debes usar un bucle while para repetir mientras numero <= 100',
+    };
   }
 
   const hasMultiply = /numero\s*=\s*numero\s*\*\s*2/.test(code) || /numero\s*\*=\s*2/.test(code);
   if (!hasMultiply) {
-    return { isValid: false, message: 'Debes multiplicar numero por 2 en cada iteración. Ejemplo: numero = numero * 2' };
+    return {
+      isValid: false,
+      message: 'Debes multiplicar numero por 2 en cada iteración. Ejemplo: numero = numero * 2',
+    };
   }
 
-  const hasIncrement = /contador\s*=\s*contador\s*\+\s*1/.test(code) || /contador\s*\+=\s*1/.test(code);
+  const hasIncrement =
+    /contador\s*=\s*contador\s*\+\s*1/.test(code) || /contador\s*\+=\s*1/.test(code);
   if (!hasIncrement) {
     return { isValid: false, message: 'Debes incrementar contador en cada iteración' };
   }
 
   const outputNum = parseInt(output.trim().match(/\d+/)?.[0] || '0');
   if (outputNum !== 6) {
-    return { isValid: false, message: 'El número se puede multiplicar 6 veces por 2 antes de superar 100 (2, 4, 8, 16, 32, 64, 128). Verifica tu lógica' };
+    return {
+      isValid: false,
+      message:
+        'El número se puede multiplicar 6 veces por 2 antes de superar 100 (2, 4, 8, 16, 32, 64, 128). Verifica tu lógica',
+    };
   }
 
   return { isValid: true };

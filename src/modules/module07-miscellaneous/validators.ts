@@ -13,7 +13,7 @@ export const validateBasicCalculations = (
   if (!hasPrice || !hasDiscount || !hasQuantity) {
     return {
       isValid: false,
-      message: 'Necesitas crear las tres variables: precio, descuento y cantidad'
+      message: 'Necesitas crear las tres variables: precio, descuento y cantidad',
     };
   }
 
@@ -21,7 +21,7 @@ export const validateBasicCalculations = (
   if (!code.includes('*') || !code.includes('/')) {
     return {
       isValid: false,
-      message: 'Necesitas realizar cálculos usando multiplicación y división'
+      message: 'Necesitas realizar cálculos usando multiplicación y división',
     };
   }
 
@@ -29,13 +29,13 @@ export const validateBasicCalculations = (
   if (!output.trim().match(/\d+/)) {
     return {
       isValid: false,
-      message: 'Necesitas imprimir el resultado del cálculo'
+      message: 'Necesitas imprimir el resultado del cálculo',
     };
   }
 
   return {
     isValid: true,
-    message: '¡Excelente! Calculaste el precio final correctamente'
+    message: '¡Excelente! Calculaste el precio final correctamente',
   };
 };
 
@@ -50,7 +50,7 @@ export const validateStringManipulation = (
   if (!code.includes('split()')) {
     return {
       isValid: false,
-      message: 'Necesitas usar .split() para convertir el string en lista'
+      message: 'Necesitas usar .split() para convertir el string en lista',
     };
   }
 
@@ -58,7 +58,7 @@ export const validateStringManipulation = (
   if (!code.includes('[0]') && !code.includes('[-1]')) {
     return {
       isValid: false,
-      message: 'Necesitas usar indexación [0] y [-1] para obtener primera y última palabra'
+      message: 'Necesitas usar indexación [0] y [-1] para obtener primera y última palabra',
     };
   }
 
@@ -66,7 +66,7 @@ export const validateStringManipulation = (
   if (!code.includes('upper()')) {
     return {
       isValid: false,
-      message: 'Necesitas usar .upper() para convertir a mayúsculas'
+      message: 'Necesitas usar .upper() para convertir a mayúsculas',
     };
   }
 
@@ -74,13 +74,13 @@ export const validateStringManipulation = (
   if (lines.length < 2) {
     return {
       isValid: false,
-      message: 'Necesitas imprimir tanto la primera como la última palabra'
+      message: 'Necesitas imprimir tanto la primera como la última palabra',
     };
   }
 
   return {
     isValid: true,
-    message: '¡Perfecto! Manipulaste el string correctamente'
+    message: '¡Perfecto! Manipulaste el string correctamente',
   };
 };
 
@@ -95,7 +95,7 @@ export const validateListOperations = (
   if (!code.includes('[') || !code.includes(']')) {
     return {
       isValid: false,
-      message: 'Necesitas crear una lista de números'
+      message: 'Necesitas crear una lista de números',
     };
   }
 
@@ -103,7 +103,7 @@ export const validateListOperations = (
   if (!code.includes('sum(')) {
     return {
       isValid: false,
-      message: 'Necesitas usar sum() para calcular la suma total'
+      message: 'Necesitas usar sum() para calcular la suma total',
     };
   }
 
@@ -111,7 +111,7 @@ export const validateListOperations = (
   if (!code.includes('len(')) {
     return {
       isValid: false,
-      message: 'Necesitas usar len() para calcular el promedio'
+      message: 'Necesitas usar len() para calcular el promedio',
     };
   }
 
@@ -119,7 +119,7 @@ export const validateListOperations = (
   if (!code.includes('max(')) {
     return {
       isValid: false,
-      message: 'Necesitas usar max() para encontrar el número mayor'
+      message: 'Necesitas usar max() para encontrar el número mayor',
     };
   }
 
@@ -127,13 +127,13 @@ export const validateListOperations = (
   if (lines.length < 3) {
     return {
       isValid: false,
-      message: 'Necesitas imprimir 3 valores: suma, promedio y máximo'
+      message: 'Necesitas imprimir 3 valores: suma, promedio y máximo',
     };
   }
 
   return {
     isValid: true,
-    message: '¡Genial! Realizaste las operaciones con listas correctamente'
+    message: '¡Genial! Realizaste las operaciones con listas correctamente',
   };
 };
 
@@ -146,7 +146,7 @@ export const validateNameFormatter = (
   if (!code.includes('title()')) {
     return {
       isValid: false,
-      message: 'Necesitas usar .title() para capitalizar el nombre'
+      message: 'Necesitas usar .title() para capitalizar el nombre',
     };
   }
 
@@ -157,7 +157,7 @@ export const validateNameFormatter = (
   if (!hasName || !hasAge) {
     return {
       isValid: false,
-      message: 'Necesitas crear las variables nombre y edad'
+      message: 'Necesitas crear las variables nombre y edad',
     };
   }
 
@@ -166,13 +166,13 @@ export const validateNameFormatter = (
   if (!outputText.includes('Nombre') && !outputText.includes('Name')) {
     return {
       isValid: false,
-      message: 'Necesitas imprimir un mensaje con el nombre y la edad'
+      message: 'Necesitas imprimir un mensaje con el nombre y la edad',
     };
   }
 
   return {
     isValid: true,
-    message: '¡Perfecto! Formateaste el nombre correctamente'
+    message: '¡Perfecto! Formateaste el nombre correctamente',
   };
 };
 
@@ -187,7 +187,7 @@ export const validateListMethods = (
   if (!code.includes('append(')) {
     return {
       isValid: false,
-      message: 'Necesitas usar .append() para agregar un elemento'
+      message: 'Necesitas usar .append() para agregar un elemento',
     };
   }
 
@@ -195,7 +195,7 @@ export const validateListMethods = (
   if (!code.includes('extend(')) {
     return {
       isValid: false,
-      message: 'Necesitas usar .extend() para agregar múltiples elementos'
+      message: 'Necesitas usar .extend() para agregar múltiples elementos',
     };
   }
 
@@ -203,7 +203,7 @@ export const validateListMethods = (
   if (!code.includes('len(')) {
     return {
       isValid: false,
-      message: 'Necesitas usar len() para obtener la longitud de la lista'
+      message: 'Necesitas usar len() para obtener la longitud de la lista',
     };
   }
 
@@ -211,13 +211,13 @@ export const validateListMethods = (
   if (lines.length < 2) {
     return {
       isValid: false,
-      message: 'Necesitas imprimir tanto la lista final como su longitud'
+      message: 'Necesitas imprimir tanto la lista final como su longitud',
     };
   }
 
   return {
     isValid: true,
-    message: '¡Excelente! Usaste los métodos de lista correctamente'
+    message: '¡Excelente! Usaste los métodos de lista correctamente',
   };
 };
 
@@ -232,7 +232,7 @@ export const validateDictionaryOperations = (
   if (!code.includes('{') || !code.includes('}')) {
     return {
       isValid: false,
-      message: 'Necesitas crear un diccionario'
+      message: 'Necesitas crear un diccionario',
     };
   }
 
@@ -241,7 +241,7 @@ export const validateDictionaryOperations = (
   if (!modifications || modifications.length < 2) {
     return {
       isValid: false,
-      message: 'Necesitas modificar la edad y agregar una nueva llave al diccionario'
+      message: 'Necesitas modificar la edad y agregar una nueva llave al diccionario',
     };
   }
 
@@ -249,7 +249,7 @@ export const validateDictionaryOperations = (
   if (!code.includes('len(')) {
     return {
       isValid: false,
-      message: 'Necesitas usar len() para contar las llaves del diccionario'
+      message: 'Necesitas usar len() para contar las llaves del diccionario',
     };
   }
 
@@ -257,13 +257,13 @@ export const validateDictionaryOperations = (
   if (lines.length < 2) {
     return {
       isValid: false,
-      message: 'Necesitas imprimir el diccionario y el número de llaves'
+      message: 'Necesitas imprimir el diccionario y el número de llaves',
     };
   }
 
   return {
     isValid: true,
-    message: '¡Genial! Manipulaste el diccionario correctamente'
+    message: '¡Genial! Manipulaste el diccionario correctamente',
   };
 };
 
@@ -278,7 +278,7 @@ export const validateTextStatistics = (
   if (!code.includes('* 3') && !code.includes('*3')) {
     return {
       isValid: false,
-      message: 'Necesitas repetir el texto 3 veces usando multiplicación'
+      message: 'Necesitas repetir el texto 3 veces usando multiplicación',
     };
   }
 
@@ -286,7 +286,7 @@ export const validateTextStatistics = (
   if (!code.includes('upper()')) {
     return {
       isValid: false,
-      message: 'Necesitas usar .upper() para convertir a mayúsculas'
+      message: 'Necesitas usar .upper() para convertir a mayúsculas',
     };
   }
 
@@ -294,7 +294,7 @@ export const validateTextStatistics = (
   if (!code.includes('[::-1]')) {
     return {
       isValid: false,
-      message: 'Necesitas usar [::-1] para invertir el texto'
+      message: 'Necesitas usar [::-1] para invertir el texto',
     };
   }
 
@@ -302,7 +302,7 @@ export const validateTextStatistics = (
   if (!code.includes('len(')) {
     return {
       isValid: false,
-      message: 'Necesitas usar len() para obtener la longitud'
+      message: 'Necesitas usar len() para obtener la longitud',
     };
   }
 
@@ -310,13 +310,13 @@ export const validateTextStatistics = (
   if (lines.length < 4) {
     return {
       isValid: false,
-      message: 'Necesitas imprimir 4 resultados diferentes'
+      message: 'Necesitas imprimir 4 resultados diferentes',
     };
   }
 
   return {
     isValid: true,
-    message: '¡Perfecto! Realizaste todas las operaciones de texto correctamente'
+    message: '¡Perfecto! Realizaste todas las operaciones de texto correctamente',
   };
 };
 
@@ -331,7 +331,7 @@ export const validateComplexListManipulation = (
   if (!code.includes('[') || !code.includes(']')) {
     return {
       isValid: false,
-      message: 'Necesitas crear una lista de datos'
+      message: 'Necesitas crear una lista de datos',
     };
   }
 
@@ -339,7 +339,7 @@ export const validateComplexListManipulation = (
   if (!code.includes('[:3]') || !code.includes('[-3:]')) {
     return {
       isValid: false,
-      message: 'Necesitas usar slicing [:3] y [-3:] para dividir la lista'
+      message: 'Necesitas usar slicing [:3] y [-3:] para dividir la lista',
     };
   }
 
@@ -347,7 +347,7 @@ export const validateComplexListManipulation = (
   if (!code.includes('sum(')) {
     return {
       isValid: false,
-      message: 'Necesitas usar sum() para calcular la suma de cada sublista'
+      message: 'Necesitas usar sum() para calcular la suma de cada sublista',
     };
   }
 
@@ -355,13 +355,13 @@ export const validateComplexListManipulation = (
   if (lines.length < 4) {
     return {
       isValid: false,
-      message: 'Necesitas imprimir ambas sublistas y sus sumas'
+      message: 'Necesitas imprimir ambas sublistas y sus sumas',
     };
   }
 
   return {
     isValid: true,
-    message: '¡Excelente! Manipulaste las listas con slicing correctamente'
+    message: '¡Excelente! Manipulaste las listas con slicing correctamente',
   };
 };
 
@@ -376,7 +376,7 @@ export const validateDataCombination = (
   if (!code.includes('{') || !code.includes('}')) {
     return {
       isValid: false,
-      message: 'Necesitas crear un diccionario de producto'
+      message: 'Necesitas crear un diccionario de producto',
     };
   }
 
@@ -384,14 +384,14 @@ export const validateDataCombination = (
   if (!code.includes('*')) {
     return {
       isValid: false,
-      message: 'Necesitas calcular los ingresos totales (precio × cantidad)'
+      message: 'Necesitas calcular los ingresos totales (precio × cantidad)',
     };
   }
 
   if (!code.includes('-')) {
     return {
       isValid: false,
-      message: 'Necesitas calcular el nuevo stock (stock - cantidad_vendida)'
+      message: 'Necesitas calcular el nuevo stock (stock - cantidad_vendida)',
     };
   }
 
@@ -400,7 +400,7 @@ export const validateDataCombination = (
   if (!hasUpdate) {
     return {
       isValid: false,
-      message: 'Necesitas actualizar el stock en el diccionario'
+      message: 'Necesitas actualizar el stock en el diccionario',
     };
   }
 
@@ -408,12 +408,12 @@ export const validateDataCombination = (
   if (lines.length < 2) {
     return {
       isValid: false,
-      message: 'Necesitas imprimir el diccionario actualizado y los ingresos'
+      message: 'Necesitas imprimir el diccionario actualizado y los ingresos',
     };
   }
 
   return {
     isValid: true,
-    message: '¡Excepcional! Combinaste diccionarios y cálculos perfectamente'
+    message: '¡Excepcional! Combinaste diccionarios y cálculos perfectamente',
   };
 };

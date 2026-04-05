@@ -1,11 +1,7 @@
 import type { Section } from '../../types';
 import { IRIS_CSV } from './irisData';
 import { TIPS_CSV } from './tipsData';
-import {
-  validateLoadDataFrame,
-  validateShape,
-  validateReadCsvWithSep,
-} from './validators';
+import { validateLoadDataFrame, validateShape, validateReadCsvWithSep } from './validators';
 
 export const module14: Section = {
   id: 13,
@@ -55,12 +51,14 @@ if not hasattr(pd, '_iris_df_cached'):
     {
       icon: '🐼',
       title: '¿Qué es Pandas?',
-      content: '<strong>Pandas</strong> es la librería más popular de Python para análisis y manipulación de datos. Es esencial para Data Science y permite trabajar con datos tabulares (como hojas de Excel o tablas de bases de datos) de forma eficiente y sencilla.',
+      content:
+        '<strong>Pandas</strong> es la librería más popular de Python para análisis y manipulación de datos. Es esencial para Data Science y permite trabajar con datos tabulares (como hojas de Excel o tablas de bases de datos) de forma eficiente y sencilla.',
     },
     {
       icon: '📊',
       title: 'DataFrames: Tablas en Python',
-      content: 'Un <strong>DataFrame</strong> es la estructura principal de Pandas. Es como una tabla o hoja de Excel: tiene filas y columnas con nombres. Cada columna puede contener un tipo de dato diferente (números, texto, fechas, etc.).',
+      content:
+        'Un <strong>DataFrame</strong> es la estructura principal de Pandas. Es como una tabla o hoja de Excel: tiene filas y columnas con nombres. Cada columna puede contener un tipo de dato diferente (números, texto, fechas, etc.).',
       codeExample: {
         filename: 'dataframe_concepto.py',
         code: `<span class="comment"># Un DataFrame es como esta tabla:</span>
@@ -74,7 +72,8 @@ if not hasattr(pd, '_iris_df_cached'):
     {
       icon: '📁',
       title: 'Cargar datos con read_csv()',
-      content: 'La forma más común de trabajar con Pandas es cargando datos desde un archivo CSV (valores separados por comas). Usamos <span class="inline-code">pd.read_csv()</span> para esto.',
+      content:
+        'La forma más común de trabajar con Pandas es cargando datos desde un archivo CSV (valores separados por comas). Usamos <span class="inline-code">pd.read_csv()</span> para esto.',
       codeExample: {
         filename: 'cargar_csv.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -89,7 +88,8 @@ if not hasattr(pd, '_iris_df_cached'):
     {
       icon: '👀',
       title: 'Explorar el DataFrame: head() y shape',
-      content: 'Para ver rápidamente cómo lucen nuestros datos, usamos <span class="inline-code">.head()</span> que muestra las primeras filas. Para saber cuántas filas y columnas tiene, usamos <span class="inline-code">.shape</span>.',
+      content:
+        'Para ver rápidamente cómo lucen nuestros datos, usamos <span class="inline-code">.head()</span> que muestra las primeras filas. Para saber cuántas filas y columnas tiene, usamos <span class="inline-code">.shape</span>.',
       codeExample: {
         filename: 'explorar.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -109,7 +109,8 @@ if not hasattr(pd, '_iris_df_cached'):
         {
           id: 'ex-14-1',
           number: 'EJERCICIO 14.1',
-          description: 'Importa pandas como <span class="inline-code">pd</span> y carga el archivo <span class="inline-code">iris.csv</span> en una variable llamada <span class="inline-code">df</span>.<br><br>Imprime el DataFrame usando <span class="inline-code">print(df.head())</span> para ver las primeras 5 filas.',
+          description:
+            'Importa pandas como <span class="inline-code">pd</span> y carga el archivo <span class="inline-code">iris.csv</span> en una variable llamada <span class="inline-code">df</span>.<br><br>Imprime el DataFrame usando <span class="inline-code">print(df.head())</span> para ver las primeras 5 filas.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateLoadDataFrame,
@@ -117,7 +118,8 @@ if not hasattr(pd, '_iris_df_cached'):
         {
           id: 'ex-14-2',
           number: 'EJERCICIO 14.2',
-          description: 'Usa <span class="inline-code">.shape</span> para ver las dimensiones del DataFrame (cuántas filas y columnas tiene). Imprime el resultado.',
+          description:
+            'Usa <span class="inline-code">.shape</span> para ver las dimensiones del DataFrame (cuántas filas y columnas tiene). Imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateShape,
@@ -133,7 +135,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '📄',
       title: 'Formatos de archivos en Pandas',
-      content: 'Pandas puede leer múltiples formatos de archivos. Los más comunes son CSV y Excel. Cada uno tiene su función específica.',
+      content:
+        'Pandas puede leer múltiples formatos de archivos. Los más comunes son CSV y Excel. Cada uno tiene su función específica.',
       table: {
         headers: ['Formato', 'Función', 'Ejemplo de uso', 'Cuándo usarlo'],
         rows: [
@@ -141,13 +144,13 @@ df = pd.read_csv('iris.csv')
             Formato: 'CSV',
             Función: 'pd.read_csv()',
             'Ejemplo de uso': 'pd.read_csv("datos.csv")',
-            'Cuándo usarlo': 'Archivos de texto con valores separados por comas'
+            'Cuándo usarlo': 'Archivos de texto con valores separados por comas',
           },
           {
             Formato: 'Excel',
             Función: 'pd.read_excel()',
             'Ejemplo de uso': 'pd.read_excel("datos.xlsx")',
-            'Cuándo usarlo': 'Archivos de Microsoft Excel (.xlsx, .xls)'
+            'Cuándo usarlo': 'Archivos de Microsoft Excel (.xlsx, .xls)',
           },
         ],
       },
@@ -155,7 +158,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '🔧',
       title: 'El parámetro sep: Archivos con otros separadores',
-      content: 'No todos los archivos CSV usan comas como separador. Algunos usan <strong>punto y coma (;)</strong>, <strong>tabulaciones (\\t)</strong>, o <strong>pipes (|)</strong>. Para estos casos, usamos el parámetro <span class="inline-code">sep</span>.',
+      content:
+        'No todos los archivos CSV usan comas como separador. Algunos usan <strong>punto y coma (;)</strong>, <strong>tabulaciones (\\t)</strong>, o <strong>pipes (|)</strong>. Para estos casos, usamos el parámetro <span class="inline-code">sep</span>.',
       codeExample: {
         filename: 'sep_parameter.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -176,7 +180,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '💡',
       title: '¿Cómo se ve un archivo con separador diferente?',
-      content: 'Veamos cómo luce un archivo CSV con separador <span class="inline-code">|</span> (pipe) en lugar de comas:',
+      content:
+        'Veamos cómo luce un archivo CSV con separador <span class="inline-code">|</span> (pipe) en lugar de comas:',
       codeExample: {
         filename: 'tips_pipe.txt',
         code: `<span class="comment"># Contenido de tips.csv (separado por |)</span>
@@ -193,7 +198,8 @@ df = pd.read_csv('iris.csv')
         {
           id: 'ex-14-3',
           number: 'EJERCICIO 14.3',
-          description: 'El archivo <span class="inline-code">tips.csv</span> está separado por pipes (<span class="inline-code">|</span>) en lugar de comas.<br><br>Carga el archivo usando <span class="inline-code">pd.read_csv()</span> con el parámetro <span class="inline-code">sep="|"</span>. Guárdalo en una variable <span class="inline-code">tips</span> e imprime las primeras 5 filas con <span class="inline-code">.head()</span>.',
+          description:
+            'El archivo <span class="inline-code">tips.csv</span> está separado por pipes (<span class="inline-code">|</span>) en lugar de comas.<br><br>Carga el archivo usando <span class="inline-code">pd.read_csv()</span> con el parámetro <span class="inline-code">sep="|"</span>. Guárdalo en una variable <span class="inline-code">tips</span> e imprime las primeras 5 filas con <span class="inline-code">.head()</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateReadCsvWithSep,
@@ -204,7 +210,8 @@ df = pd.read_csv('iris.csv')
 
   tipBox: {
     icon: '💡',
-    content: '<strong>Recuerda:</strong> Siempre usa <span class="inline-code">.head()</span> después de cargar un archivo para verificar que se cargó correctamente. Si ves todas las columnas en una sola, probablemente necesitas ajustar el parámetro <span class="inline-code">sep</span>.',
+    content:
+      '<strong>Recuerda:</strong> Siempre usa <span class="inline-code">.head()</span> después de cargar un archivo para verificar que se cargó correctamente. Si ves todas las columnas en una sola, probablemente necesitas ajustar el parámetro <span class="inline-code">sep</span>.',
   },
 
   exercises: [],

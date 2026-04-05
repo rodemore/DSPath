@@ -15,7 +15,8 @@ export const module11: Section = {
     {
       icon: '🔄',
       title: '¿Qué es un bucle WHILE?',
-      content: 'El bucle <span class="inline-code">while</span> ejecuta un bloque de código <strong>mientras</strong> una condición sea verdadera. A diferencia de <span class="inline-code">for</span> que itera sobre una secuencia, <span class="inline-code">while</span> se repite basándose en una condición.',
+      content:
+        'El bucle <span class="inline-code">while</span> ejecuta un bloque de código <strong>mientras</strong> una condición sea verdadera. A diferencia de <span class="inline-code">for</span> que itera sobre una secuencia, <span class="inline-code">while</span> se repite basándose en una condición.',
       codeExample: {
         filename: 'while_basico.py',
         code: `<span class="identifier">contador</span> = <span class="number">1</span>
@@ -35,7 +36,8 @@ export const module11: Section = {
         {
           id: 'ex-11-1',
           number: 'EJERCICIO 11.1',
-          description: 'Crea una variable <span class="inline-code">contador = 1</span>.<br><br>Usa un bucle <span class="inline-code">while</span> para imprimir los números del 1 al 5. Recuerda incrementar el contador dentro del bucle.',
+          description:
+            'Crea una variable <span class="inline-code">contador = 1</span>.<br><br>Usa un bucle <span class="inline-code">while</span> para imprimir los números del 1 al 5. Recuerda incrementar el contador dentro del bucle.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateWhileBasic,
@@ -45,7 +47,8 @@ export const module11: Section = {
     {
       icon: '⚠️',
       title: 'FOR vs WHILE: ¿Cuándo usar cada uno?',
-      content: 'Usa <span class="inline-code">for</span> cuando sabes <strong>cuántas veces</strong> quieres repetir algo o cuando iteras sobre una colección. Usa <span class="inline-code">while</span> cuando quieres repetir <strong>hasta que se cumpla una condición</strong> y no sabes de antemano cuántas iteraciones serán.',
+      content:
+        'Usa <span class="inline-code">for</span> cuando sabes <strong>cuántas veces</strong> quieres repetir algo o cuando iteras sobre una colección. Usa <span class="inline-code">while</span> cuando quieres repetir <strong>hasta que se cumpla una condición</strong> y no sabes de antemano cuántas iteraciones serán.',
       codeExample: {
         filename: 'for_vs_while.py',
         code: `<span class="comment"># FOR: sabemos exactamente 5 iteraciones</span>
@@ -70,7 +73,8 @@ export const module11: Section = {
         {
           id: 'ex-11-2',
           number: 'EJERCICIO 11.2',
-          description: 'Crea una variable <span class="inline-code">numero = 10</span>.<br><br>Usa un bucle <span class="inline-code">while</span> para imprimir números descendentes del 10 al 1. Disminuye el número en 1 en cada iteración.',
+          description:
+            'Crea una variable <span class="inline-code">numero = 10</span>.<br><br>Usa un bucle <span class="inline-code">while</span> para imprimir números descendentes del 10 al 1. Disminuye el número en 1 en cada iteración.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateWhileCounter,
@@ -80,7 +84,8 @@ export const module11: Section = {
     {
       icon: '⚙️',
       title: 'Estructura del WHILE',
-      content: 'Es <strong>crucial</strong> que la condición eventualmente se vuelva falsa, de lo contrario el bucle será infinito. Siempre debes actualizar la variable de control dentro del bucle.',
+      content:
+        'Es <strong>crucial</strong> que la condición eventualmente se vuelva falsa, de lo contrario el bucle será infinito. Siempre debes actualizar la variable de control dentro del bucle.',
       codeExample: {
         filename: 'estructura_while.py',
         code: `<span class="comment"># ✓ CORRECTO: la condición eventualmente se vuelve falsa</span>
@@ -103,7 +108,8 @@ export const module11: Section = {
         {
           id: 'ex-11-3',
           number: 'EJERCICIO 11.3',
-          description: 'Crea dos variables: <span class="inline-code">suma = 0</span> y <span class="inline-code">numero = 1</span>.<br><br>Usa un bucle <span class="inline-code">while</span> para sumar los números del 1 al 10. En cada iteración, suma el número actual a la variable suma e incrementa numero. Al final (fuera del bucle), imprime la suma total.',
+          description:
+            'Crea dos variables: <span class="inline-code">suma = 0</span> y <span class="inline-code">numero = 1</span>.<br><br>Usa un bucle <span class="inline-code">while</span> para sumar los números del 1 al 10. En cada iteración, suma el número actual a la variable suma e incrementa numero. Al final (fuera del bucle), imprime la suma total.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateWhileSum,
@@ -113,7 +119,8 @@ export const module11: Section = {
     {
       icon: '🛑',
       title: 'BREAK: Salir del bucle',
-      content: 'La palabra clave <span class="inline-code">break</span> permite <strong>salir inmediatamente</strong> de un bucle, sin importar si la condición aún es verdadera. Es muy útil cuando encontramos lo que buscamos y no necesitamos seguir iterando.',
+      content:
+        'La palabra clave <span class="inline-code">break</span> permite <strong>salir inmediatamente</strong> de un bucle, sin importar si la condición aún es verdadera. Es muy útil cuando encontramos lo que buscamos y no necesitamos seguir iterando.',
       codeExample: {
         filename: 'break.py',
         code: `<span class="identifier">numero</span> = <span class="number">1</span>
@@ -139,7 +146,8 @@ export const module11: Section = {
         {
           id: 'ex-11-4',
           number: 'EJERCICIO 11.4',
-          description: 'Crea una variable <span class="inline-code">numero = 1</span>.<br><br>Usa un bucle <span class="inline-code">while True</span> (bucle infinito) para imprimir los números. Usa <span class="inline-code">if</span> con <span class="inline-code">break</span> para salir del bucle cuando el número sea mayor a 5. No olvides incrementar el número.',
+          description:
+            'Crea una variable <span class="inline-code">numero = 1</span>.<br><br>Usa un bucle <span class="inline-code">while True</span> (bucle infinito) para imprimir los números. Usa <span class="inline-code">if</span> con <span class="inline-code">break</span> para salir del bucle cuando el número sea mayor a 5. No olvides incrementar el número.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateWhileBreak,
@@ -149,7 +157,8 @@ export const module11: Section = {
     {
       icon: '⏭️',
       title: 'CONTINUE: Saltar a la siguiente iteración',
-      content: 'La palabra clave <span class="inline-code">continue</span> salta el resto del código en la iteración actual y pasa directamente a la siguiente.',
+      content:
+        'La palabra clave <span class="inline-code">continue</span> salta el resto del código en la iteración actual y pasa directamente a la siguiente.',
       codeExample: {
         filename: 'continue.py',
         code: `<span class="identifier">numero</span> = <span class="number">0</span>
@@ -173,7 +182,8 @@ export const module11: Section = {
     {
       icon: '🎮',
       title: 'Ejemplo práctico: Juego de adivinanza',
-      content: 'Veamos un ejemplo real donde <span class="inline-code">while</span> es ideal: un juego que se repite hasta que el usuario adivine el número correcto.',
+      content:
+        'Veamos un ejemplo real donde <span class="inline-code">while</span> es ideal: un juego que se repite hasta que el usuario adivine el número correcto.',
       codeExample: {
         filename: 'juego_adivinanza.py',
         code: `<span class="identifier">numero_secreto</span> = <span class="number">7</span>
@@ -201,7 +211,8 @@ export const module11: Section = {
   ],
   tipBox: {
     icon: '⚠️',
-    content: '<strong>Cuidado con los bucles infinitos:</strong> Asegúrate siempre de que la condición del <span class="inline-code">while</span> eventualmente se vuelva falsa, o usa <span class="inline-code">break</span> para salir. Un bucle infinito puede hacer que tu programa se congele.',
+    content:
+      '<strong>Cuidado con los bucles infinitos:</strong> Asegúrate siempre de que la condición del <span class="inline-code">while</span> eventualmente se vuelva falsa, o usa <span class="inline-code">break</span> para salir. Un bucle infinito puede hacer que tu programa se congele.',
   },
   exercises: [],
 };

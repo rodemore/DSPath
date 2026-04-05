@@ -15,7 +15,8 @@ export const module02: Section = {
     {
       icon: '🔢',
       title: 'Recordando los tipos numéricos',
-      content: 'En Python trabajamos con dos tipos principales de números: <strong>int</strong> (enteros) y <strong>float</strong> (decimales). Podemos realizar múltiples operaciones matemáticas con ellos.',
+      content:
+        'En Python trabajamos con dos tipos principales de números: <strong>int</strong> (enteros) y <strong>float</strong> (decimales). Podemos realizar múltiples operaciones matemáticas con ellos.',
       codeExample: {
         filename: 'numeros.py',
         code: `<span class="identifier">entero</span> = <span class="number">42</span>
@@ -28,17 +29,53 @@ export const module02: Section = {
     {
       icon: '➕',
       title: 'Operaciones básicas',
-      content: 'Python soporta todas las operaciones matemáticas básicas. Los operadores funcionan tanto con <span class="inline-code">int</span> como con <span class="inline-code">float</span>.',
+      content:
+        'Python soporta todas las operaciones matemáticas básicas. Los operadores funcionan tanto con <span class="inline-code">int</span> como con <span class="inline-code">float</span>.',
       table: {
         headers: ['Operador', 'Operación', 'Ejemplo', 'Resultado'],
         rows: [
-          { Operador: '<code>+</code>', Operación: 'Suma', Ejemplo: '<code>10 + 3</code>', Resultado: '<code>13</code>' },
-          { Operador: '<code>-</code>', Operación: 'Resta', Ejemplo: '<code>10 - 3</code>', Resultado: '<code>7</code>' },
-          { Operador: '<code>*</code>', Operación: 'Multiplicación', Ejemplo: '<code>10 * 3</code>', Resultado: '<code>30</code>' },
-          { Operador: '<code>/</code>', Operación: 'División', Ejemplo: '<code>10 / 3</code>', Resultado: '<code>3.333...</code>' },
-          { Operador: '<code>**</code>', Operación: 'Potencia', Ejemplo: '<code>10 ** 3</code>', Resultado: '<code>1000</code>' },
-          { Operador: '<code>//</code>', Operación: 'División entera', Ejemplo: '<code>10 // 3</code>', Resultado: '<code>3</code>' },
-          { Operador: '<code>%</code>', Operación: 'Módulo (residuo)', Ejemplo: '<code>10 % 3</code>', Resultado: '<code>1</code>' },
+          {
+            Operador: '<code>+</code>',
+            Operación: 'Suma',
+            Ejemplo: '<code>10 + 3</code>',
+            Resultado: '<code>13</code>',
+          },
+          {
+            Operador: '<code>-</code>',
+            Operación: 'Resta',
+            Ejemplo: '<code>10 - 3</code>',
+            Resultado: '<code>7</code>',
+          },
+          {
+            Operador: '<code>*</code>',
+            Operación: 'Multiplicación',
+            Ejemplo: '<code>10 * 3</code>',
+            Resultado: '<code>30</code>',
+          },
+          {
+            Operador: '<code>/</code>',
+            Operación: 'División',
+            Ejemplo: '<code>10 / 3</code>',
+            Resultado: '<code>3.333...</code>',
+          },
+          {
+            Operador: '<code>**</code>',
+            Operación: 'Potencia',
+            Ejemplo: '<code>10 ** 3</code>',
+            Resultado: '<code>1000</code>',
+          },
+          {
+            Operador: '<code>//</code>',
+            Operación: 'División entera',
+            Ejemplo: '<code>10 // 3</code>',
+            Resultado: '<code>3</code>',
+          },
+          {
+            Operador: '<code>%</code>',
+            Operación: 'Módulo (residuo)',
+            Ejemplo: '<code>10 % 3</code>',
+            Resultado: '<code>1</code>',
+          },
         ],
       },
     },
@@ -64,7 +101,8 @@ export const module02: Section = {
     {
       icon: '➗',
       title: 'División entera y módulo',
-      content: 'El operador <span class="inline-code">//</span> realiza división entera (cociente sin decimales) y <span class="inline-code">%</span> obtiene el residuo (resto de la división).',
+      content:
+        'El operador <span class="inline-code">//</span> realiza división entera (cociente sin decimales) y <span class="inline-code">%</span> obtiene el residuo (resto de la división).',
       codeExample: {
         filename: 'division_modulo.py',
         code: `<span class="identifier">dividendo</span> = <span class="number">17</span>
@@ -84,13 +122,15 @@ export const module02: Section = {
   ],
   tipBox: {
     icon: '💡',
-    content: 'La división normal <span class="inline-code">/</span> siempre retorna un <span class="inline-code">float</span>, incluso si el resultado es un número entero. Usa <span class="inline-code">//</span> si necesitas un resultado <span class="inline-code">int</span>.',
+    content:
+      'La división normal <span class="inline-code">/</span> siempre retorna un <span class="inline-code">float</span>, incluso si el resultado es un número entero. Usa <span class="inline-code">//</span> si necesitas un resultado <span class="inline-code">int</span>.',
   },
   exercises: [
     {
       id: 'ex-2-1',
       number: 'EJERCICIO 2.1',
-      description: 'Crea dos variables numéricas: <span class="inline-code">a</span> y <span class="inline-code">b</span> con los valores que quieras. Suma ambas variables e imprime el resultado.',
+      description:
+        'Crea dos variables numéricas: <span class="inline-code">a</span> y <span class="inline-code">b</span> con los valores que quieras. Suma ambas variables e imprime el resultado.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateSumOperation,
@@ -98,7 +138,8 @@ export const module02: Section = {
     {
       id: 'ex-2-2',
       number: 'EJERCICIO 2.2',
-      description: 'Crea dos variables: <span class="inline-code">base</span> con valor 8 y <span class="inline-code">altura</span> con valor 5.<br><br>Calcula el área del rectángulo (base × altura) y guarda el resultado en una variable llamada <span class="inline-code">area</span>. Finalmente, imprime el valor de <span class="inline-code">area</span>.',
+      description:
+        'Crea dos variables: <span class="inline-code">base</span> con valor 8 y <span class="inline-code">altura</span> con valor 5.<br><br>Calcula el área del rectángulo (base × altura) y guarda el resultado en una variable llamada <span class="inline-code">area</span>. Finalmente, imprime el valor de <span class="inline-code">area</span>.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateRectangleArea,
@@ -106,7 +147,8 @@ export const module02: Section = {
     {
       id: 'ex-2-3',
       number: 'EJERCICIO 2.3',
-      description: 'Crea dos variables: <span class="inline-code">numero</span> y <span class="inline-code">exponente</span> con los valores que quieras.<br><br>Calcula la potencia usando el operador <span class="inline-code">**</span> e imprime el resultado.',
+      description:
+        'Crea dos variables: <span class="inline-code">numero</span> y <span class="inline-code">exponente</span> con los valores que quieras.<br><br>Calcula la potencia usando el operador <span class="inline-code">**</span> e imprime el resultado.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validatePowerOperation,
@@ -114,7 +156,8 @@ export const module02: Section = {
     {
       id: 'ex-2-4',
       number: 'EJERCICIO 2.4',
-      description: 'Crea dos variables: <span class="inline-code">dividendo</span> con valor 23 y <span class="inline-code">divisor</span> con valor 4.<br><br>Calcula el cociente usando <span class="inline-code">//</span> y guárdalo en una variable llamada <span class="inline-code">cociente</span>. Calcula el residuo usando <span class="inline-code">%</span> y guárdalo en una variable llamada <span class="inline-code">residuo</span>. Finalmente, imprime ambas variables.',
+      description:
+        'Crea dos variables: <span class="inline-code">dividendo</span> con valor 23 y <span class="inline-code">divisor</span> con valor 4.<br><br>Calcula el cociente usando <span class="inline-code">//</span> y guárdalo en una variable llamada <span class="inline-code">cociente</span>. Calcula el residuo usando <span class="inline-code">%</span> y guárdalo en una variable llamada <span class="inline-code">residuo</span>. Finalmente, imprime ambas variables.',
       expectedOutput: '',
       validationMode: 'custom',
       customValidator: validateDivisionAndModulo,

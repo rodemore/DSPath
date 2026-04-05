@@ -35,18 +35,34 @@ if not hasattr(pd, '_students_patched'):
     {
       icon: '🎓',
       title: 'El dataset: notas de estudiantes',
-      content: 'En este módulo usamos un dataset de <strong>40 estudiantes</strong> con notas en 5 materias y su porcentaje de asistencia. Las notas siguen distribuciones normales con dos perfiles: estudiantes fuertes en ciencias y estudiantes fuertes en humanidades.',
+      content:
+        'En este módulo usamos un dataset de <strong>40 estudiantes</strong> con notas en 5 materias y su porcentaje de asistencia. Las notas siguen distribuciones normales con dos perfiles: estudiantes fuertes en ciencias y estudiantes fuertes en humanidades.',
       table: {
         headers: ['Columna', 'Tipo', 'Descripción', 'Rango'],
         rows: [
-          { Columna: 'id_estudiante', Tipo: 'string', Descripción: 'Identificador único', Rango: 'E001–E040' },
+          {
+            Columna: 'id_estudiante',
+            Tipo: 'string',
+            Descripción: 'Identificador único',
+            Rango: 'E001–E040',
+          },
           { Columna: 'nombre', Tipo: 'string', Descripción: 'Nombre completo', Rango: '—' },
-          { Columna: 'matematicas', Tipo: 'float', Descripción: 'Nota en matemáticas', Rango: '0–100' },
+          {
+            Columna: 'matematicas',
+            Tipo: 'float',
+            Descripción: 'Nota en matemáticas',
+            Rango: '0–100',
+          },
           { Columna: 'ciencias', Tipo: 'float', Descripción: 'Nota en ciencias', Rango: '0–100' },
           { Columna: 'historia', Tipo: 'float', Descripción: 'Nota en historia', Rango: '0–100' },
           { Columna: 'lengua', Tipo: 'float', Descripción: 'Nota en lengua', Rango: '0–100' },
           { Columna: 'ingles', Tipo: 'float', Descripción: 'Nota en inglés', Rango: '0–100' },
-          { Columna: 'asistencia', Tipo: 'float', Descripción: 'Porcentaje de asistencia', Rango: '60–100' },
+          {
+            Columna: 'asistencia',
+            Tipo: 'float',
+            Descripción: 'Porcentaje de asistencia',
+            Rango: '60–100',
+          },
         ],
       },
       codeExample: {
@@ -63,7 +79,8 @@ if not hasattr(pd, '_students_patched'):
     {
       icon: '📊',
       title: 'apply sobre una Serie (columna): transformación valor por valor',
-      content: 'Cuando aplicas <span class="inline-code">.apply()</span> directamente sobre una <strong>Serie</strong> (una columna), la función recibe <strong>un valor por vez</strong> — no una fila completa. Es perfecto para convertir o clasificar cada valor de forma individual.',
+      content:
+        'Cuando aplicas <span class="inline-code">.apply()</span> directamente sobre una <strong>Serie</strong> (una columna), la función recibe <strong>un valor por vez</strong> — no una fila completa. Es perfecto para convertir o clasificar cada valor de forma individual.',
       codeExample: {
         filename: 'apply_serie.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -91,7 +108,8 @@ if not hasattr(pd, '_students_patched'):
         {
           id: 'ex-26-1',
           number: 'EJERCICIO 26.1',
-          description: 'Carga <span class="inline-code">estudiantes.csv</span>. Define una función <span class="inline-code">a_letra(nota)</span> que convierta la nota numérica a letra: <span class="inline-code">"A"</span> (≥ 90), <span class="inline-code">"B"</span> (≥ 75), <span class="inline-code">"C"</span> (≥ 60) o <span class="inline-code">"F"</span>. Aplícala sobre la columna <span class="inline-code">matematicas</span> con <span class="inline-code">.apply()</span> y guarda el resultado en <span class="inline-code">df["mat_letra"]</span>. Imprime las primeras 5 filas mostrando <span class="inline-code">matematicas</span> y <span class="inline-code">mat_letra</span>.',
+          description:
+            'Carga <span class="inline-code">estudiantes.csv</span>. Define una función <span class="inline-code">a_letra(nota)</span> que convierta la nota numérica a letra: <span class="inline-code">"A"</span> (≥ 90), <span class="inline-code">"B"</span> (≥ 75), <span class="inline-code">"C"</span> (≥ 60) o <span class="inline-code">"F"</span>. Aplícala sobre la columna <span class="inline-code">matematicas</span> con <span class="inline-code">.apply()</span> y guarda el resultado en <span class="inline-code">df["mat_letra"]</span>. Imprime las primeras 5 filas mostrando <span class="inline-code">matematicas</span> y <span class="inline-code">mat_letra</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateApplyColumn,
@@ -117,7 +135,8 @@ print(df[['matematicas', 'mat_letra']].head(5))
     {
       icon: '📐',
       title: 'apply sobre un bloque de columnas (axis=0)',
-      content: 'Cuando seleccionas <strong>varias columnas</strong> con <span class="inline-code">df[["col1","col2",...]]</span> y aplicas <span class="inline-code">.apply(función)</span>, por defecto la función se aplica <strong>columna por columna</strong> (<span class="inline-code">axis=0</span>). La función recibe una Serie completa (todos los valores de esa columna) y devuelve una Serie transformada.',
+      content:
+        'Cuando seleccionas <strong>varias columnas</strong> con <span class="inline-code">df[["col1","col2",...]]</span> y aplicas <span class="inline-code">.apply(función)</span>, por defecto la función se aplica <strong>columna por columna</strong> (<span class="inline-code">axis=0</span>). La función recibe una Serie completa (todos los valores de esa columna) y devuelve una Serie transformada.',
       codeExample: {
         filename: 'apply_bloque.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -141,7 +160,8 @@ print(df[['matematicas', 'mat_letra']].head(5))
         {
           id: 'ex-26-2',
           number: 'EJERCICIO 26.2',
-          description: 'Carga <span class="inline-code">estudiantes.csv</span>. Define una función <span class="inline-code">normalizar(col)</span> que aplique la fórmula min-max a una Serie completa. Aplícala sobre el bloque de las 5 materias usando <span class="inline-code">df[materias].apply(normalizar)</span>. Imprime las primeras 3 filas del resultado.',
+          description:
+            'Carga <span class="inline-code">estudiantes.csv</span>. Define una función <span class="inline-code">normalizar(col)</span> que aplique la fórmula min-max a una Serie completa. Aplícala sobre el bloque de las 5 materias usando <span class="inline-code">df[materias].apply(normalizar)</span>. Imprime las primeras 3 filas del resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateApplyMultipleColumns,
@@ -165,7 +185,8 @@ print(df_norm.head(3))
     {
       icon: '🏅',
       title: 'Promedio por fila con apply y clasificación',
-      content: 'Combinando <span class="inline-code">axis=1</span> con <span class="inline-code">.mean()</span> dentro de la función puedes calcular el promedio de varias columnas <strong>por cada estudiante</strong> y luego clasificarlo en una sola pasada.',
+      content:
+        'Combinando <span class="inline-code">axis=1</span> con <span class="inline-code">.mean()</span> dentro de la función puedes calcular el promedio de varias columnas <strong>por cada estudiante</strong> y luego clasificarlo en una sola pasada.',
       codeExample: {
         filename: 'promedio_filas.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -192,7 +213,8 @@ print(df_norm.head(3))
         {
           id: 'ex-26-3',
           number: 'EJERCICIO 26.3',
-          description: 'Carga <span class="inline-code">estudiantes.csv</span>. Usa <span class="inline-code">.apply(axis=1)</span> para crear una columna <span class="inline-code">promedio</span> con la media de las 5 materias, y una columna <span class="inline-code">estado</span> que clasifique como <span class="inline-code">"Sobresaliente"</span> (promedio ≥ 85), <span class="inline-code">"Aprobado"</span> (≥ 70) o <span class="inline-code">"Reprobado"</span>. Imprime las primeras 5 filas con <span class="inline-code">nombre</span>, <span class="inline-code">promedio</span> y <span class="inline-code">estado</span>.',
+          description:
+            'Carga <span class="inline-code">estudiantes.csv</span>. Usa <span class="inline-code">.apply(axis=1)</span> para crear una columna <span class="inline-code">promedio</span> con la media de las 5 materias, y una columna <span class="inline-code">estado</span> que clasifique como <span class="inline-code">"Sobresaliente"</span> (promedio ≥ 85), <span class="inline-code">"Aprobado"</span> (≥ 70) o <span class="inline-code">"Reprobado"</span>. Imprime las primeras 5 filas con <span class="inline-code">nombre</span>, <span class="inline-code">promedio</span> y <span class="inline-code">estado</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validatePromedioClasificacion,
@@ -223,7 +245,8 @@ print(df[['nombre', 'promedio', 'estado']].head(5))
     {
       icon: '🔬',
       title: 'Perfil académico: apply multi-columna con lógica comparativa',
-      content: 'El caso más potente: dentro de la función accedes a <strong>varias columnas a la vez para compararlas entre sí</strong>. Aquí determinamos si cada estudiante tiene perfil de ciencias, humanidades o equilibrado según cuál grupo de materias tiene más alto.',
+      content:
+        'El caso más potente: dentro de la función accedes a <strong>varias columnas a la vez para compararlas entre sí</strong>. Aquí determinamos si cada estudiante tiene perfil de ciencias, humanidades o equilibrado según cuál grupo de materias tiene más alto.',
       codeExample: {
         filename: 'perfil_academico.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -252,7 +275,8 @@ print(df[['nombre', 'promedio', 'estado']].head(5))
         {
           id: 'ex-26-4',
           number: 'EJERCICIO 26.4',
-          description: 'Carga <span class="inline-code">estudiantes.csv</span>. Define una función <span class="inline-code">perfil(row)</span> que compare el promedio de ciencias (<span class="inline-code">matematicas + ciencias</span>) contra el promedio de humanidades (<span class="inline-code">historia + lengua + ingles</span>): si la diferencia es > 10 retorna <span class="inline-code">"Ciencias"</span>, si es &lt; -10 retorna <span class="inline-code">"Humanidades"</span>, y si está en el medio <span class="inline-code">"Equilibrado"</span>. Usa <span class="inline-code">.apply(axis=1)</span> y muestra el <span class="inline-code">.value_counts()</span>.',
+          description:
+            'Carga <span class="inline-code">estudiantes.csv</span>. Define una función <span class="inline-code">perfil(row)</span> que compare el promedio de ciencias (<span class="inline-code">matematicas + ciencias</span>) contra el promedio de humanidades (<span class="inline-code">historia + lengua + ingles</span>): si la diferencia es > 10 retorna <span class="inline-code">"Ciencias"</span>, si es &lt; -10 retorna <span class="inline-code">"Humanidades"</span>, y si está en el medio <span class="inline-code">"Equilibrado"</span>. Usa <span class="inline-code">.apply(axis=1)</span> y muestra el <span class="inline-code">.value_counts()</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateRanking,
@@ -309,7 +333,8 @@ print(df['perfil'].value_counts())
 
   tipBox: {
     icon: '💡',
-    content: '<strong>Tip:</strong> Dentro de una función con <span class="inline-code">axis=1</span> puedes acceder a un subconjunto de columnas y aplicarles agregaciones: <span class="inline-code">row[["mat","cie"]].mean()</span> calcula el promedio solo de esas dos columnas para esa fila.',
+    content:
+      '<strong>Tip:</strong> Dentro de una función con <span class="inline-code">axis=1</span> puedes acceder a un subconjunto de columnas y aplicarles agregaciones: <span class="inline-code">row[["mat","cie"]].mean()</span> calcula el promedio solo de esas dos columnas para esa fila.',
   },
 
   exercises: [],

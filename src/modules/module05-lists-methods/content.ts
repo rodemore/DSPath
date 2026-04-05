@@ -17,7 +17,8 @@ export const module05: Section = {
     {
       icon: '➕',
       title: 'Agregar y eliminar elementos',
-      content: 'Python ofrece varios métodos para modificar listas: agregar elementos con <span class="inline-code">append()</span>, <span class="inline-code">extend()</span> e <span class="inline-code">insert()</span>, y eliminarlos con <span class="inline-code">remove()</span> y <span class="inline-code">pop()</span>.',
+      content:
+        'Python ofrece varios métodos para modificar listas: agregar elementos con <span class="inline-code">append()</span>, <span class="inline-code">extend()</span> e <span class="inline-code">insert()</span>, y eliminarlos con <span class="inline-code">remove()</span> y <span class="inline-code">pop()</span>.',
       codeExample: {
         filename: 'modificar_listas.py',
         code: `<span class="identifier">numeros</span> = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]
@@ -47,7 +48,8 @@ export const module05: Section = {
         {
           id: 'ex-5-1',
           number: 'EJERCICIO 5.1',
-          description: 'Crea una lista vacía llamada <span class="inline-code">colores</span>.<br><br>Usa <span class="inline-code">.append()</span> para agregar 3 colores.<br><br>Imprime la lista resultante.',
+          description:
+            'Crea una lista vacía llamada <span class="inline-code">colores</span>.<br><br>Usa <span class="inline-code">.append()</span> para agregar 3 colores.<br><br>Imprime la lista resultante.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateAppendMethod,
@@ -55,7 +57,8 @@ export const module05: Section = {
         {
           id: 'ex-5-2',
           number: 'EJERCICIO 5.2',
-          description: 'Crea una lista <span class="inline-code">numeros = [1, 2, 3]</span>.<br><br>Usa <span class="inline-code">.extend()</span> para agregar los números 4, 5 y 6.<br><br>Imprime la lista resultante.',
+          description:
+            'Crea una lista <span class="inline-code">numeros = [1, 2, 3]</span>.<br><br>Usa <span class="inline-code">.extend()</span> para agregar los números 4, 5 y 6.<br><br>Imprime la lista resultante.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateExtendMethod,
@@ -63,7 +66,8 @@ export const module05: Section = {
         {
           id: 'ex-5-3',
           number: 'EJERCICIO 5.3',
-          description: 'Crea una lista <span class="inline-code">letras = ["a", "b", "c"]</span>.<br><br>Usa <span class="inline-code">.insert()</span> para insertar "x" en la posición 1. Luego usa <span class="inline-code">.pop()</span> para eliminar el último elemento.<br><br>Imprime la lista resultante.',
+          description:
+            'Crea una lista <span class="inline-code">letras = ["a", "b", "c"]</span>.<br><br>Usa <span class="inline-code">.insert()</span> para insertar "x" en la posición 1. Luego usa <span class="inline-code">.pop()</span> para eliminar el último elemento.<br><br>Imprime la lista resultante.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateInsertAndPop,
@@ -73,7 +77,8 @@ export const module05: Section = {
     {
       icon: '🔍',
       title: 'Buscar y contar',
-      content: 'Métodos útiles para buscar elementos y obtener información sobre la lista. <span class="inline-code">index()</span> encuentra la posición de un elemento y <span class="inline-code">count()</span> cuenta cuántas veces aparece.',
+      content:
+        'Métodos útiles para buscar elementos y obtener información sobre la lista. <span class="inline-code">index()</span> encuentra la posición de un elemento y <span class="inline-code">count()</span> cuenta cuántas veces aparece.',
       codeExample: {
         filename: 'buscar.py',
         code: `<span class="identifier">valores</span> = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">20</span>, <span class="number">40</span>, <span class="number">20</span>]
@@ -90,7 +95,8 @@ export const module05: Section = {
         {
           id: 'ex-5-4',
           number: 'EJERCICIO 5.4',
-          description: 'Crea una lista <span class="inline-code">numeros = [5, 10, 15, 10, 20, 10, 25]</span>.<br><br>Usa <span class="inline-code">.index()</span> para encontrar la posición del número 15 y guárdalo en <span class="inline-code">posicion</span>. Usa <span class="inline-code">.count()</span> para contar cuántas veces aparece el 10 y guárdalo en <span class="inline-code">apariciones</span>.<br><br>Imprime ambos resultados.',
+          description:
+            'Crea una lista <span class="inline-code">numeros = [5, 10, 15, 10, 20, 10, 25]</span>.<br><br>Usa <span class="inline-code">.index()</span> para encontrar la posición del número 15 y guárdalo en <span class="inline-code">posicion</span>. Usa <span class="inline-code">.count()</span> para contar cuántas veces aparece el 10 y guárdalo en <span class="inline-code">apariciones</span>.<br><br>Imprime ambos resultados.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateIndexAndCount,
@@ -100,7 +106,8 @@ export const module05: Section = {
     {
       icon: '📊',
       title: 'Funciones útiles: len() y sum()',
-      content: 'Python incluye funciones integradas muy útiles para trabajar con listas. <span class="inline-code">len()</span> obtiene la cantidad de elementos y <span class="inline-code">sum()</span> suma todos los elementos numéricos.',
+      content:
+        'Python incluye funciones integradas muy útiles para trabajar con listas. <span class="inline-code">len()</span> obtiene la cantidad de elementos y <span class="inline-code">sum()</span> suma todos los elementos numéricos.',
       codeExample: {
         filename: 'len_sum.py',
         code: `<span class="identifier">numeros</span> = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]
@@ -121,7 +128,8 @@ export const module05: Section = {
         {
           id: 'ex-5-5',
           number: 'EJERCICIO 5.5',
-          description: 'Crea una lista <span class="inline-code">calificaciones = [85, 90, 78, 92, 88]</span>.<br><br>Usa <span class="inline-code">sum()</span> para calcular el total y guárdalo en una variable <span class="inline-code">total</span>. Usa <span class="inline-code">len()</span> para obtener la cantidad de calificaciones y guárdalo en <span class="inline-code">cantidad</span>. Calcula el promedio dividiendo total entre cantidad y guárdalo en <span class="inline-code">promedio</span>.<br><br>Imprime el promedio.',
+          description:
+            'Crea una lista <span class="inline-code">calificaciones = [85, 90, 78, 92, 88]</span>.<br><br>Usa <span class="inline-code">sum()</span> para calcular el total y guárdalo en una variable <span class="inline-code">total</span>. Usa <span class="inline-code">len()</span> para obtener la cantidad de calificaciones y guárdalo en <span class="inline-code">cantidad</span>. Calcula el promedio dividiendo total entre cantidad y guárdalo en <span class="inline-code">promedio</span>.<br><br>Imprime el promedio.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateSumAndLen,
@@ -131,7 +139,8 @@ export const module05: Section = {
     {
       icon: '🔀',
       title: 'Ordenar y revertir',
-      content: 'Métodos para reorganizar los elementos de una lista. <span class="inline-code">sort()</span> ordena la lista y <span class="inline-code">reverse()</span> invierte el orden de los elementos.',
+      content:
+        'Métodos para reorganizar los elementos de una lista. <span class="inline-code">sort()</span> ordena la lista y <span class="inline-code">reverse()</span> invierte el orden de los elementos.',
       codeExample: {
         filename: 'ordenar.py',
         code: `<span class="identifier">numeros</span> = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">9</span>, <span class="number">2</span>]
@@ -152,7 +161,8 @@ export const module05: Section = {
         {
           id: 'ex-5-6',
           number: 'EJERCICIO 5.6',
-          description: 'Crea una lista <span class="inline-code">precios = [45, 23, 67, 12, 89, 34]</span>.<br><br>Ordena la lista usando <span class="inline-code">.sort()</span> e imprime el resultado.',
+          description:
+            'Crea una lista <span class="inline-code">precios = [45, 23, 67, 12, 89, 34]</span>.<br><br>Ordena la lista usando <span class="inline-code">.sort()</span> e imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateSortList,
@@ -162,7 +172,8 @@ export const module05: Section = {
   ],
   tipBox: {
     icon: '💡',
-    content: 'Los métodos <span class="inline-code">.append()</span>, <span class="inline-code">.sort()</span>, <span class="inline-code">.reverse()</span> modifican la lista original. No retornan una nueva lista, sino <span class="inline-code">None</span>.',
+    content:
+      'Los métodos <span class="inline-code">.append()</span>, <span class="inline-code">.sort()</span>, <span class="inline-code">.reverse()</span> modifican la lista original. No retornan una nueva lista, sino <span class="inline-code">None</span>.',
   },
   exercises: [],
 };

@@ -36,7 +36,8 @@ if not hasattr(pd, '_tips_df_cached'):
     {
       icon: '🔢',
       title: '¿Qué son las funciones de agregación?',
-      content: 'Las funciones de agregación toman una columna entera y devuelven <strong>un solo valor</strong> que resume esa columna. Con una línea obtienes el promedio, la suma, el máximo o el mínimo de toda una columna sin necesidad de bucles.',
+      content:
+        'Las funciones de agregación toman una columna entera y devuelven <strong>un solo valor</strong> que resume esa columna. Con una línea obtienes el promedio, la suma, el máximo o el mínimo de toda una columna sin necesidad de bucles.',
       codeExample: {
         filename: 'agregaciones_intro.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -53,7 +54,8 @@ if not hasattr(pd, '_tips_df_cached'):
     {
       icon: '➕',
       title: '.mean() y .sum(): promedio y suma',
-      content: '<span class="inline-code">.mean()</span> calcula el promedio aritmético de la columna. <span class="inline-code">.sum()</span> suma todos los valores. Ambas ignoran automáticamente los valores nulos (<span class="inline-code">NaN</span>).',
+      content:
+        '<span class="inline-code">.mean()</span> calcula el promedio aritmético de la columna. <span class="inline-code">.sum()</span> suma todos los valores. Ambas ignoran automáticamente los valores nulos (<span class="inline-code">NaN</span>).',
       codeExample: {
         filename: 'mean_sum.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -74,7 +76,8 @@ if not hasattr(pd, '_tips_df_cached'):
         {
           id: 'ex-20-1',
           number: 'EJERCICIO 20.1',
-          description: 'Calcula el <strong>promedio</strong> y la <strong>suma</strong> de la columna <span class="inline-code">total_bill</span> usando <span class="inline-code">.mean()</span> y <span class="inline-code">.sum()</span>. Imprime ambos resultados.',
+          description:
+            'Calcula el <strong>promedio</strong> y la <strong>suma</strong> de la columna <span class="inline-code">total_bill</span> usando <span class="inline-code">.mean()</span> y <span class="inline-code">.sum()</span>. Imprime ambos resultados.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateMeanSum,
@@ -90,7 +93,8 @@ df = pd.read_csv('tips.csv', sep='|')
     {
       icon: '📈',
       title: '.max() y .min(): máximo y mínimo',
-      content: '<span class="inline-code">.max()</span> devuelve el valor más alto de la columna y <span class="inline-code">.min()</span> el más bajo. Funcionan tanto en columnas numéricas como en columnas de texto (orden alfabético).',
+      content:
+        '<span class="inline-code">.max()</span> devuelve el valor más alto de la columna y <span class="inline-code">.min()</span> el más bajo. Funcionan tanto en columnas numéricas como en columnas de texto (orden alfabético).',
       codeExample: {
         filename: 'max_min.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -109,7 +113,8 @@ df = pd.read_csv('tips.csv', sep='|')
         {
           id: 'ex-20-2',
           number: 'EJERCICIO 20.2',
-          description: 'Encuentra la propina <strong>máxima</strong> y la propina <strong>mínima</strong> de la columna <span class="inline-code">tip</span> usando <span class="inline-code">.max()</span> y <span class="inline-code">.min()</span>. Imprime ambos valores.',
+          description:
+            'Encuentra la propina <strong>máxima</strong> y la propina <strong>mínima</strong> de la columna <span class="inline-code">tip</span> usando <span class="inline-code">.max()</span> y <span class="inline-code">.min()</span>. Imprime ambos valores.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateMaxMin,
@@ -125,7 +130,8 @@ df = pd.read_csv('tips.csv', sep='|')
     {
       icon: '📊',
       title: '.median(): la mediana',
-      content: 'La mediana es el valor central cuando los datos están ordenados. A diferencia del promedio, <strong>no se ve afectada por valores extremos</strong>. Si hay unos pocos clientes que pagaron cuentas muy altas, el promedio sube pero la mediana se mantiene estable.',
+      content:
+        'La mediana es el valor central cuando los datos están ordenados. A diferencia del promedio, <strong>no se ve afectada por valores extremos</strong>. Si hay unos pocos clientes que pagaron cuentas muy altas, el promedio sube pero la mediana se mantiene estable.',
       codeExample: {
         filename: 'median.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -142,7 +148,8 @@ df = pd.read_csv('tips.csv', sep='|')
         {
           id: 'ex-20-3',
           number: 'EJERCICIO 20.3',
-          description: 'Calcula la <strong>mediana</strong> de la columna <span class="inline-code">total_bill</span> usando <span class="inline-code">.median()</span>. Imprime el resultado.',
+          description:
+            'Calcula la <strong>mediana</strong> de la columna <span class="inline-code">total_bill</span> usando <span class="inline-code">.median()</span>. Imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateMedian,
@@ -158,7 +165,8 @@ df = pd.read_csv('tips.csv', sep='|')
     {
       icon: '🔤',
       title: '.nunique() y .unique(): valores únicos',
-      content: '<span class="inline-code">.nunique()</span> devuelve <strong>cuántos</strong> valores distintos hay en la columna (un número). <span class="inline-code">.unique()</span> devuelve <strong>cuáles</strong> son esos valores (un array). Son muy útiles para explorar columnas de texto o categorías.',
+      content:
+        '<span class="inline-code">.nunique()</span> devuelve <strong>cuántos</strong> valores distintos hay en la columna (un número). <span class="inline-code">.unique()</span> devuelve <strong>cuáles</strong> son esos valores (un array). Son muy útiles para explorar columnas de texto o categorías.',
       codeExample: {
         filename: 'nunique_unique.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -179,7 +187,8 @@ df = pd.read_csv('tips.csv', sep='|')
         {
           id: 'ex-20-4',
           number: 'EJERCICIO 20.4',
-          description: 'Usa <span class="inline-code">.nunique()</span> para saber cuántos días distintos hay en la columna <span class="inline-code">day</span>, y <span class="inline-code">.unique()</span> para ver cuáles son. Imprime ambos resultados.',
+          description:
+            'Usa <span class="inline-code">.nunique()</span> para saber cuántos días distintos hay en la columna <span class="inline-code">day</span>, y <span class="inline-code">.unique()</span> para ver cuáles son. Imprime ambos resultados.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateNuniqueUnique,
@@ -195,7 +204,8 @@ df = pd.read_csv('tips.csv', sep='|')
     {
       icon: '📋',
       title: '.value_counts(): frecuencia de cada valor',
-      content: '<span class="inline-code">.value_counts()</span> cuenta cuántas veces aparece cada valor en la columna y ordena los resultados de mayor a menor. Es la forma más rápida de ver cuál es el valor más frecuente.',
+      content:
+        '<span class="inline-code">.value_counts()</span> cuenta cuántas veces aparece cada valor en la columna y ordena los resultados de mayor a menor. Es la forma más rápida de ver cuál es el valor más frecuente.',
       codeExample: {
         filename: 'value_counts.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -218,7 +228,8 @@ df = pd.read_csv('tips.csv', sep='|')
         {
           id: 'ex-20-5',
           number: 'EJERCICIO 20.5',
-          description: 'Usa <span class="inline-code">.value_counts()</span> sobre la columna <span class="inline-code">day</span> para ver cuántos registros hay por día. Imprime el resultado.',
+          description:
+            'Usa <span class="inline-code">.value_counts()</span> sobre la columna <span class="inline-code">day</span> para ver cuántos registros hay por día. Imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateValueCounts,
@@ -293,7 +304,8 @@ df = pd.read_csv('tips.csv', sep='|')
 
   tipBox: {
     icon: '💡',
-    content: '<strong>Tip:</strong> Puedes combinar filtros con agregaciones: <span class="inline-code">df[df["day"] == "Sat"]["tip"].mean()</span> te da el promedio de propinas solo los sábados.',
+    content:
+      '<strong>Tip:</strong> Puedes combinar filtros con agregaciones: <span class="inline-code">df[df["day"] == "Sat"]["tip"].mean()</span> te da el promedio de propinas solo los sábados.',
   },
 
   exercises: [],
