@@ -15,12 +15,20 @@ import {
   BookOpen,
   ShieldCheck,
   FileCode,
-  Settings
+  Settings,
 } from 'lucide-react';
 import './CopilotGuide.css';
 import '../../styles/guides-theme.css';
 
-type SectionId = 'intro' | 'instalacion' | 'autocompletado' | 'copilot-chat' | 'slash-commands' | 'mejores-practicas' | 'casos-uso' | 'limitaciones';
+type SectionId =
+  | 'intro'
+  | 'instalacion'
+  | 'autocompletado'
+  | 'copilot-chat'
+  | 'slash-commands'
+  | 'mejores-practicas'
+  | 'casos-uso'
+  | 'limitaciones';
 
 interface Section {
   id: SectionId;
@@ -38,7 +46,7 @@ interface TipBoxProps {
   children: React.ReactNode;
 }
 
-const CodeBlock = ({ code, language = "python" }: CodeBlockProps) => (
+const CodeBlock = ({ code, language = 'python' }: CodeBlockProps) => (
   <div className="copilot-code-block">
     <div className="code-header">
       <span className="code-language">{language}</span>
@@ -48,9 +56,7 @@ const CodeBlock = ({ code, language = "python" }: CodeBlockProps) => (
         <div className="dot green"></div>
       </div>
     </div>
-    <pre className="code-content">
-      {code}
-    </pre>
+    <pre className="code-content">{code}</pre>
   </div>
 );
 
@@ -79,7 +85,11 @@ export const CopilotGuide = () => {
     { id: 'autocompletado', label: '3. Autocompletado', icon: <Zap className="w-4 h-4" /> },
     { id: 'copilot-chat', label: '4. Copilot Chat', icon: <MessageSquare className="w-4 h-4" /> },
     { id: 'slash-commands', label: '5. Slash Commands', icon: <Terminal className="w-4 h-4" /> },
-    { id: 'mejores-practicas', label: '6. Mejores Prácticas', icon: <CheckCircle2 className="w-4 h-4" /> },
+    {
+      id: 'mejores-practicas',
+      label: '6. Mejores Prácticas',
+      icon: <CheckCircle2 className="w-4 h-4" />,
+    },
     { id: 'casos-uso', label: '7. Casos de Uso', icon: <FileCode className="w-4 h-4" /> },
     { id: 'limitaciones', label: '8. Limitaciones', icon: <ShieldCheck className="w-4 h-4" /> },
   ];
@@ -90,14 +100,14 @@ export const CopilotGuide = () => {
       <header className="copilot-header">
         <div className="header-content">
           <h1 className="header-title">
-            Guía Completa de <br/> <span className="title-highlight">GitHub Copilot en VS Code</span>
+            Guía Completa de <br />{' '}
+            <span className="title-highlight">GitHub Copilot en VS Code</span>
           </h1>
           <p className="header-subtitle">
-            Domina el uso de GitHub Copilot en Visual Studio Code: desde la instalación hasta técnicas avanzadas con Copilot Chat y Slash Commands.
+            Domina el uso de GitHub Copilot en Visual Studio Code: desde la instalación hasta
+            técnicas avanzadas con Copilot Chat y Slash Commands.
           </p>
-          <p className="header-author">
-            Por Robert Moreno
-          </p>
+          <p className="header-author">Por Robert Moreno</p>
         </div>
         <div className="header-blur"></div>
       </header>
@@ -114,9 +124,7 @@ export const CopilotGuide = () => {
                 className={`sidebar-btn ${activeSection === s.id ? 'active' : ''}`}
               >
                 <div className="sidebar-btn-content">
-                  <span className="sidebar-icon">
-                    {s.icon}
-                  </span>
+                  <span className="sidebar-icon">{s.icon}</span>
                   {s.label}
                 </div>
                 {activeSection === s.id && <ChevronRight className="chevron-icon" />}
@@ -127,16 +135,16 @@ export const CopilotGuide = () => {
 
         {/* Main Content */}
         <main className="guide-main">
-
           {/* SECTION: INTRO */}
           {activeSection === 'intro' && (
             <div className="section-content">
               <h2 className="section-title">1. ¿Qué es GitHub Copilot?</h2>
               <div className="section-text">
                 <p className="section-paragraph">
-                  <strong>GitHub Copilot</strong> es un asistente de programación con IA desarrollado por GitHub y OpenAI.
-                  Funciona como tu "copiloto" en VS Code, sugiriendo código completo mientras escribes, respondiendo preguntas
-                  y ayudándote a entender y depurar código.
+                  <strong>GitHub Copilot</strong> es un asistente de programación con IA
+                  desarrollado por GitHub y OpenAI. Funciona como tu "copiloto" en VS Code,
+                  sugiriendo código completo mientras escribes, respondiendo preguntas y ayudándote
+                  a entender y depurar código.
                 </p>
 
                 <div className="feature-grid">
@@ -145,20 +153,20 @@ export const CopilotGuide = () => {
                       title: 'Sugerencias Contextuales',
                       desc: 'Completa líneas y funciones enteras basándose en tu código y comentarios.',
                       icon: <Sparkles className="feature-icon" />,
-                      color: 'purple'
+                      color: 'purple',
                     },
                     {
                       title: 'Copilot Chat',
                       desc: 'Chatea con el AI directamente en el editor para hacer preguntas y resolver dudas.',
                       icon: <MessageSquare className="feature-icon" />,
-                      color: 'blue'
+                      color: 'blue',
                     },
                     {
                       title: 'Slash Commands',
                       desc: 'Comandos especiales como /explain, /fix, /tests para tareas específicas.',
                       icon: <Terminal className="feature-icon" />,
-                      color: 'emerald'
-                    }
+                      color: 'emerald',
+                    },
                   ].map((item, idx) => (
                     <div key={idx} className={`feature-card ${item.color}`}>
                       <div className="feature-icon-container">{item.icon}</div>
@@ -169,8 +177,9 @@ export const CopilotGuide = () => {
                 </div>
 
                 <TipBox type="warning">
-                  <strong>Nota:</strong> GitHub Copilot es un <strong>servicio de pago</strong> ($10/mes), aunque es gratuito
-                  para estudiantes verificados y mantenedores de proyectos open source populares.
+                  <strong>Nota:</strong> GitHub Copilot es un <strong>servicio de pago</strong>{' '}
+                  ($10/mes), aunque es gratuito para estudiantes verificados y mantenedores de
+                  proyectos open source populares.
                 </TipBox>
               </div>
             </div>
@@ -180,7 +189,9 @@ export const CopilotGuide = () => {
           {activeSection === 'instalacion' && (
             <div className="section-content">
               <h2 className="section-title">2. Instalación y Configuración</h2>
-              <p className="section-intro">Sigue estos pasos para empezar a usar GitHub Copilot en VS Code:</p>
+              <p className="section-intro">
+                Sigue estos pasos para empezar a usar GitHub Copilot en VS Code:
+              </p>
 
               <div className="steps-container">
                 <div className="installation-step">
@@ -188,11 +199,20 @@ export const CopilotGuide = () => {
                   <div className="step-content-box">
                     <h3 className="step-title">Suscríbete a GitHub Copilot</h3>
                     <p className="step-description">
-                      Ve a <a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer" className="link">github.com/features/copilot</a> y
-                      suscríbete al servicio. Puedes probar gratis por 30 días.
+                      Ve a{' '}
+                      <a
+                        href="https://github.com/features/copilot"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link"
+                      >
+                        github.com/features/copilot
+                      </a>{' '}
+                      y suscríbete al servicio. Puedes probar gratis por 30 días.
                     </p>
                     <TipBox type="tip">
-                      <strong>Estudiantes:</strong> Si tienes el GitHub Student Developer Pack, Copilot es completamente gratis.
+                      <strong>Estudiantes:</strong> Si tienes el GitHub Student Developer Pack,
+                      Copilot es completamente gratis.
                     </TipBox>
                   </div>
                 </div>
@@ -202,7 +222,8 @@ export const CopilotGuide = () => {
                   <div className="step-content-box">
                     <h3 className="step-title">Instala la Extensión en VS Code</h3>
                     <p className="step-description">
-                      Abre VS Code y ve a la pestaña de Extensiones (<kbd>Ctrl/Cmd + Shift + X</kbd>), busca:
+                      Abre VS Code y ve a la pestaña de Extensiones (<kbd>Ctrl/Cmd + Shift + X</kbd>
+                      ), busca:
                     </p>
                     <div className="extension-box">
                       <Settings className="extension-icon" />
@@ -220,7 +241,9 @@ export const CopilotGuide = () => {
                 <div className="installation-step">
                   <div className="step-number">3</div>
                   <div className="step-content-box">
-                    <h3 className="step-title">Instala GitHub Copilot Chat (Opcional pero Recomendado)</h3>
+                    <h3 className="step-title">
+                      Instala GitHub Copilot Chat (Opcional pero Recomendado)
+                    </h3>
                     <p className="step-description">
                       En la misma pestaña de Extensiones, busca e instala:
                     </p>
@@ -242,8 +265,8 @@ export const CopilotGuide = () => {
                   <div className="step-content-box">
                     <h3 className="step-title">Inicia Sesión con GitHub</h3>
                     <p className="step-description">
-                      VS Code te pedirá que inicies sesión con tu cuenta de GitHub. Haz clic en <strong>Sign in to GitHub</strong>
-                      y autoriza la extensión.
+                      VS Code te pedirá que inicies sesión con tu cuenta de GitHub. Haz clic en{' '}
+                      <strong>Sign in to GitHub</strong>y autoriza la extensión.
                     </p>
                   </div>
                 </div>
@@ -253,8 +276,8 @@ export const CopilotGuide = () => {
                   <div className="step-content-box">
                     <h3 className="step-title">¡Listo para Usar!</h3>
                     <p className="step-description">
-                      Verás el ícono de Copilot <Sparkles className="inline-icon" /> en la barra de estado de VS Code.
-                      Si está en gris, haz clic para habilitarlo.
+                      Verás el ícono de Copilot <Sparkles className="inline-icon" /> en la barra de
+                      estado de VS Code. Si está en gris, haz clic para habilitarlo.
                     </p>
                     <div className="status-indicators">
                       <div className="status-item enabled">
@@ -276,7 +299,9 @@ export const CopilotGuide = () => {
           {activeSection === 'autocompletado' && (
             <div className="section-content">
               <h2 className="section-title">3. Autocompletado Inteligente</h2>
-              <p className="section-intro">Copilot sugiere código en tiempo real mientras escribes:</p>
+              <p className="section-intro">
+                Copilot sugiere código en tiempo real mientras escribes:
+              </p>
 
               <div className="autocomplete-demo">
                 <h3 className="demo-title">Cómo Funciona</h3>
@@ -284,22 +309,29 @@ export const CopilotGuide = () => {
                   <div className="demo-step">
                     <div className="demo-number">1</div>
                     <h4>Escribe un comentario o empieza una función</h4>
-                    <CodeBlock code={`# Función que calcula el promedio de una lista
-def`} />
+                    <CodeBlock
+                      code={`# Función que calcula el promedio de una lista
+def`}
+                    />
                   </div>
                   <div className="demo-step">
                     <div className="demo-number">2</div>
                     <h4>Copilot sugiere código (en gris)</h4>
-                    <CodeBlock code={`# Función que calcula el promedio de una lista
+                    <CodeBlock
+                      code={`# Función que calcula el promedio de una lista
 def calcular_promedio(lista):
-    return sum(lista) / len(lista)`} language="python (sugerencia)" />
+    return sum(lista) / len(lista)`}
+                      language="python (sugerencia)"
+                    />
                   </div>
                   <div className="demo-step">
                     <div className="demo-number">3</div>
                     <h4>Presiona Tab para aceptar</h4>
-                    <CodeBlock code={`# Función que calcula el promedio de una lista
+                    <CodeBlock
+                      code={`# Función que calcula el promedio de una lista
 def calcular_promedio(lista):
-    return sum(lista) / len(lista)  # ✅ Aceptada`} />
+    return sum(lista) / len(lista)  # ✅ Aceptada`}
+                    />
                   </div>
                 </div>
 
@@ -342,18 +374,22 @@ def calcular_promedio(lista):
                   <div className="example-comparison">
                     <div>
                       <span className="example-label">Tú escribes:</span>
-                      <CodeBlock code={`import pandas as pd
+                      <CodeBlock
+                        code={`import pandas as pd
 
-# Cargar el dataset de ventas y limpiar valores nulos`} />
+# Cargar el dataset de ventas y limpiar valores nulos`}
+                      />
                     </div>
                     <div>
                       <span className="example-label success">Copilot sugiere:</span>
-                      <CodeBlock code={`import pandas as pd
+                      <CodeBlock
+                        code={`import pandas as pd
 
 # Cargar el dataset de ventas y limpiar valores nulos
 df = pd.read_csv('ventas.csv')
 df = df.dropna()
-df = df.drop_duplicates()`} />
+df = df.drop_duplicates()`}
+                      />
                     </div>
                   </div>
                 </div>
@@ -363,18 +399,22 @@ df = df.drop_duplicates()`} />
                   <div className="example-comparison">
                     <div>
                       <span className="example-label">Tú escribes:</span>
-                      <CodeBlock code={`from sklearn.ensemble import RandomForestClassifier
+                      <CodeBlock
+                        code={`from sklearn.ensemble import RandomForestClassifier
 
-# Entrenar un Random Forest con 100 árboles`} />
+# Entrenar un Random Forest con 100 árboles`}
+                      />
                     </div>
                     <div>
                       <span className="example-label success">Copilot sugiere:</span>
-                      <CodeBlock code={`from sklearn.ensemble import RandomForestClassifier
+                      <CodeBlock
+                        code={`from sklearn.ensemble import RandomForestClassifier
 
 # Entrenar un Random Forest con 100 árboles
 model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
-y_pred = model.predict(X_test)`} />
+y_pred = model.predict(X_test)`}
+                      />
                     </div>
                   </div>
                 </div>
@@ -386,7 +426,9 @@ y_pred = model.predict(X_test)`} />
           {activeSection === 'copilot-chat' && (
             <div className="section-content">
               <h2 className="section-title">4. Copilot Chat: Tu Asistente Conversacional</h2>
-              <p className="section-intro">Chatea con Copilot para obtener ayuda, explicaciones y generar código:</p>
+              <p className="section-intro">
+                Chatea con Copilot para obtener ayuda, explicaciones y generar código:
+              </p>
 
               <div className="chat-features">
                 <div className="chat-access">
@@ -396,21 +438,29 @@ y_pred = model.predict(X_test)`} />
                       <Code2 className="access-icon" />
                       <div>
                         <strong>Sidebar de Chat</strong>
-                        <p>Haz clic en el ícono de chat <MessageSquare className="inline-icon" /> en la barra lateral izquierda</p>
+                        <p>
+                          Haz clic en el ícono de chat <MessageSquare className="inline-icon" /> en
+                          la barra lateral izquierda
+                        </p>
                       </div>
                     </div>
                     <div className="access-method">
                       <Terminal className="access-icon" />
                       <div>
                         <strong>Inline Chat</strong>
-                        <p>Presiona <kbd>Ctrl/Cmd + I</kbd> para abrir el chat en línea dentro del editor</p>
+                        <p>
+                          Presiona <kbd>Ctrl/Cmd + I</kbd> para abrir el chat en línea dentro del
+                          editor
+                        </p>
                       </div>
                     </div>
                     <div className="access-method">
                       <FileCode className="access-icon" />
                       <div>
                         <strong>Quick Chat</strong>
-                        <p>Presiona <kbd>Ctrl/Cmd + Shift + I</kbd> para un chat rápido flotante</p>
+                        <p>
+                          Presiona <kbd>Ctrl/Cmd + Shift + I</kbd> para un chat rápido flotante
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -430,8 +480,9 @@ y_pred = model.predict(X_test)`} />
                           <strong>Tú:</strong> ¿Qué hace esta función?
                         </div>
                         <div className="chat-message copilot">
-                          <strong>Copilot:</strong> Esta función implementa el algoritmo de búsqueda binaria.
-                          Recibe una lista ordenada y un valor objetivo, y retorna el índice...
+                          <strong>Copilot:</strong> Esta función implementa el algoritmo de búsqueda
+                          binaria. Recibe una lista ordenada y un valor objetivo, y retorna el
+                          índice...
                         </div>
                       </div>
                     </div>
@@ -446,8 +497,8 @@ y_pred = model.predict(X_test)`} />
                           <strong>Tú:</strong> ¿Por qué obtengo un IndexError en la línea 45?
                         </div>
                         <div className="chat-message copilot">
-                          <strong>Copilot:</strong> El error ocurre porque estás intentando acceder a lista[i+1]
-                          pero cuando i es el último índice, i+1 está fuera de rango...
+                          <strong>Copilot:</strong> El error ocurre porque estás intentando acceder
+                          a lista[i+1] pero cuando i es el último índice, i+1 está fuera de rango...
                         </div>
                       </div>
                     </div>
@@ -459,10 +510,12 @@ y_pred = model.predict(X_test)`} />
                       </div>
                       <div className="chat-example">
                         <div className="chat-message user">
-                          <strong>Tú:</strong> Crea una función que lea un CSV, lo convierta a JSON y lo guarde
+                          <strong>Tú:</strong> Crea una función que lea un CSV, lo convierta a JSON
+                          y lo guarde
                         </div>
                         <div className="chat-message copilot">
-                          <strong>Copilot:</strong> Aquí está la función:<br/>
+                          <strong>Copilot:</strong> Aquí está la función:
+                          <br />
                           <code>def csv_to_json(csv_file, json_file): ...</code>
                         </div>
                       </div>
@@ -478,7 +531,8 @@ y_pred = model.predict(X_test)`} />
                           <strong>Tú:</strong> Genera unit tests para la función calcular_promedio
                         </div>
                         <div className="chat-message copilot">
-                          <strong>Copilot:</strong> Aquí tienes los tests usando pytest:<br/>
+                          <strong>Copilot:</strong> Aquí tienes los tests usando pytest:
+                          <br />
                           <code>def test_calcular_promedio(): ...</code>
                         </div>
                       </div>
@@ -487,8 +541,9 @@ y_pred = model.predict(X_test)`} />
                 </div>
 
                 <TipBox type="success">
-                  <strong>Consejo Pro:</strong> Puedes <strong>seleccionar código</strong> en el editor y luego hacer una pregunta
-                  en Copilot Chat. El AI usará ese código como contexto para su respuesta.
+                  <strong>Consejo Pro:</strong> Puedes <strong>seleccionar código</strong> en el
+                  editor y luego hacer una pregunta en Copilot Chat. El AI usará ese código como
+                  contexto para su respuesta.
                 </TipBox>
               </div>
             </div>
@@ -498,7 +553,9 @@ y_pred = model.predict(X_test)`} />
           {activeSection === 'slash-commands' && (
             <div className="section-content">
               <h2 className="section-title">5. Slash Commands: Comandos Poderosos</h2>
-              <p className="section-intro">Los Slash Commands son atajos para tareas específicas en Copilot Chat:</p>
+              <p className="section-intro">
+                Los Slash Commands son atajos para tareas específicas en Copilot Chat:
+              </p>
 
               <div className="slash-commands-grid">
                 <div className="command-card">
@@ -511,9 +568,12 @@ y_pred = model.predict(X_test)`} />
                   </p>
                   <div className="command-example">
                     <strong>Ejemplo:</strong>
-                    <p className="command-usage">Selecciona una función compleja → Escribe <code>/explain</code> en el chat</p>
+                    <p className="command-usage">
+                      Selecciona una función compleja → Escribe <code>/explain</code> en el chat
+                    </p>
                     <div className="command-result">
-                      <strong>Resultado:</strong> Copilot te da una explicación detallada paso a paso de qué hace la función.
+                      <strong>Resultado:</strong> Copilot te da una explicación detallada paso a
+                      paso de qué hace la función.
                     </div>
                   </div>
                 </div>
@@ -528,9 +588,12 @@ y_pred = model.predict(X_test)`} />
                   </p>
                   <div className="command-example">
                     <strong>Ejemplo:</strong>
-                    <p className="command-usage">Selecciona código con bug → Escribe <code>/fix</code></p>
+                    <p className="command-usage">
+                      Selecciona código con bug → Escribe <code>/fix</code>
+                    </p>
                     <div className="command-result">
-                      <strong>Resultado:</strong> Copilot identifica el problema y propone una solución.
+                      <strong>Resultado:</strong> Copilot identifica el problema y propone una
+                      solución.
                     </div>
                   </div>
                 </div>
@@ -545,9 +608,12 @@ y_pred = model.predict(X_test)`} />
                   </p>
                   <div className="command-example">
                     <strong>Ejemplo:</strong>
-                    <p className="command-usage">Selecciona una función → Escribe <code>/tests</code></p>
+                    <p className="command-usage">
+                      Selecciona una función → Escribe <code>/tests</code>
+                    </p>
                     <div className="command-result">
-                      <strong>Resultado:</strong> Copilot genera tests completos con pytest o unittest.
+                      <strong>Resultado:</strong> Copilot genera tests completos con pytest o
+                      unittest.
                     </div>
                   </div>
                 </div>
@@ -562,9 +628,12 @@ y_pred = model.predict(X_test)`} />
                   </p>
                   <div className="command-example">
                     <strong>Ejemplo:</strong>
-                    <p className="command-usage">Selecciona una función → Escribe <code>/doc</code></p>
+                    <p className="command-usage">
+                      Selecciona una función → Escribe <code>/doc</code>
+                    </p>
                     <div className="command-result">
-                      <strong>Resultado:</strong> Copilot añade docstrings con descripción, parámetros y return.
+                      <strong>Resultado:</strong> Copilot añade docstrings con descripción,
+                      parámetros y return.
                     </div>
                   </div>
                 </div>
@@ -579,9 +648,12 @@ y_pred = model.predict(X_test)`} />
                   </p>
                   <div className="command-example">
                     <strong>Ejemplo:</strong>
-                    <p className="command-usage">Selecciona código lento → Escribe <code>/optimize</code></p>
+                    <p className="command-usage">
+                      Selecciona código lento → Escribe <code>/optimize</code>
+                    </p>
                     <div className="command-result">
-                      <strong>Resultado:</strong> Copilot sugiere una versión más eficiente (ej: vectorización en pandas).
+                      <strong>Resultado:</strong> Copilot sugiere una versión más eficiente (ej:
+                      vectorización en pandas).
                     </div>
                   </div>
                 </div>
@@ -596,9 +668,12 @@ y_pred = model.predict(X_test)`} />
                   </p>
                   <div className="command-example">
                     <strong>Ejemplo:</strong>
-                    <p className="command-usage">Selecciona código complicado → Escribe <code>/simplify</code></p>
+                    <p className="command-usage">
+                      Selecciona código complicado → Escribe <code>/simplify</code>
+                    </p>
                     <div className="command-result">
-                      <strong>Resultado:</strong> Copilot refactoriza para hacer el código más simple y claro.
+                      <strong>Resultado:</strong> Copilot refactoriza para hacer el código más
+                      simple y claro.
                     </div>
                   </div>
                 </div>
@@ -614,22 +689,30 @@ y_pred = model.predict(X_test)`} />
                   <span className="workflow-arrow">→</span>
                   <div className="workflow-step">
                     <span className="step-num">2</span>
-                    <p>Usa <code>/explain</code> para entenderlo</p>
+                    <p>
+                      Usa <code>/explain</code> para entenderlo
+                    </p>
                   </div>
                   <span className="workflow-arrow">→</span>
                   <div className="workflow-step">
                     <span className="step-num">3</span>
-                    <p>Usa <code>/optimize</code> para mejorar</p>
+                    <p>
+                      Usa <code>/optimize</code> para mejorar
+                    </p>
                   </div>
                   <span className="workflow-arrow">→</span>
                   <div className="workflow-step">
                     <span className="step-num">4</span>
-                    <p>Usa <code>/tests</code> para validar</p>
+                    <p>
+                      Usa <code>/tests</code> para validar
+                    </p>
                   </div>
                   <span className="workflow-arrow">→</span>
                   <div className="workflow-step">
                     <span className="step-num">5</span>
-                    <p>Usa <code>/doc</code> para documentar</p>
+                    <p>
+                      Usa <code>/doc</code> para documentar
+                    </p>
                   </div>
                 </div>
               </div>
@@ -640,7 +723,9 @@ y_pred = model.predict(X_test)`} />
           {activeSection === 'mejores-practicas' && (
             <div className="section-content">
               <h2 className="section-title">6. Mejores Prácticas con Copilot</h2>
-              <p className="section-intro">Maximiza tu productividad siguiendo estos consejos probados:</p>
+              <p className="section-intro">
+                Maximiza tu productividad siguiendo estos consejos probados:
+              </p>
 
               <div className="practices-grid">
                 <div className="practice-card">
@@ -656,7 +741,10 @@ y_pred = model.predict(X_test)`} />
                     </div>
                     <div className="practice-good">
                       <span className="practice-label">✅ Específico</span>
-                      <code># Leer CSV, filtrar filas con age {'>'} 18, y calcular promedio de salary por departamento</code>
+                      <code>
+                        # Leer CSV, filtrar filas con age {'>'} 18, y calcular promedio de salary
+                        por departamento
+                      </code>
                     </div>
                   </div>
                 </div>
@@ -667,20 +755,21 @@ y_pred = model.predict(X_test)`} />
                   <p className="practice-text">
                     Nombres claros ayudan a Copilot a entender tu intención:
                   </p>
-                  <CodeBlock code={`# Copilot entiende mejor con nombres claros
+                  <CodeBlock
+                    code={`# Copilot entiende mejor con nombres claros
 customer_data = pd.read_csv('customers.csv')
 high_value_customers = customer_data[customer_data['total_spent'] > 1000]
 
-# vs nombres genéricos como 'df', 'data', 'x'`} />
+# vs nombres genéricos como 'df', 'data', 'x'`}
+                  />
                 </div>
 
                 <div className="practice-card">
                   <div className="practice-badge">3</div>
                   <h3 className="practice-title">Divide Tareas Complejas</h3>
-                  <p className="practice-text">
-                    En lugar de pedir todo a la vez, divide en pasos:
-                  </p>
-                  <CodeBlock code={`# Paso 1: Cargar datos
+                  <p className="practice-text">En lugar de pedir todo a la vez, divide en pasos:</p>
+                  <CodeBlock
+                    code={`# Paso 1: Cargar datos
 df = pd.read_csv('sales.csv')
 
 # Paso 2: Limpiar valores nulos
@@ -689,7 +778,8 @@ df = df.dropna(subset=['price', 'quantity'])
 # Paso 3: Crear columna de total
 df['total'] = df['price'] * df['quantity']
 
-# Copilot completa cada paso de manera más precisa`} />
+# Copilot completa cada paso de manera más precisa`}
+                  />
                 </div>
 
                 <div className="practice-card">
@@ -712,13 +802,15 @@ df['total'] = df['price'] * df['quantity']
                   <p className="practice-text">
                     Copilot lee todo tu archivo actual. Usa esto a tu favor:
                   </p>
-                  <CodeBlock code={`# Al inicio del archivo, define tus imports y constantes
+                  <CodeBlock
+                    code={`# Al inicio del archivo, define tus imports y constantes
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 
 # Copilot usará estos imports en sugerencias posteriores
-# No tendrás que repetir los imports`} />
+# No tendrás que repetir los imports`}
+                  />
                 </div>
 
                 <div className="practice-card">
@@ -747,7 +839,9 @@ from sklearn.model_selection import train_test_split
           {activeSection === 'casos-uso' && (
             <div className="section-content">
               <h2 className="section-title">7. Casos de Uso Reales</h2>
-              <p className="section-intro">Ejemplos prácticos de cómo usar Copilot en escenarios reales de Data Science:</p>
+              <p className="section-intro">
+                Ejemplos prácticos de cómo usar Copilot en escenarios reales de Data Science:
+              </p>
 
               <div className="real-cases">
                 <div className="case-study-card">
@@ -756,18 +850,21 @@ from sklearn.model_selection import train_test_split
                     <h3>Caso 1: EDA Rápido de un Dataset</h3>
                   </div>
                   <div className="case-scenario">
-                    <strong>Escenario:</strong> Acabas de recibir un nuevo dataset y necesitas entenderlo rápidamente.
+                    <strong>Escenario:</strong> Acabas de recibir un nuevo dataset y necesitas
+                    entenderlo rápidamente.
                   </div>
                   <div className="case-steps">
                     <div className="case-step">
                       <strong>Paso 1:</strong> Escribe comentario y deja que Copilot complete
-                      <CodeBlock code={`import pandas as pd
+                      <CodeBlock
+                        code={`import pandas as pd
 
 # Cargar dataset y mostrar información básica
 df = pd.read_csv('new_dataset.csv')
 print(df.info())
 print(df.describe())
-print(df.head())`} />
+print(df.head())`}
+                      />
                     </div>
                     <div className="case-step">
                       <strong>Paso 2:</strong> Usa Copilot Chat para análisis más profundo
@@ -776,7 +873,8 @@ print(df.head())`} />
                           Tú: Analiza este dataset y sugiere qué columnas podrían tener problemas
                         </div>
                         <div className="chat-msg assistant">
-                          Copilot: Basándome en el código, veo que hay 3 columnas con muchos nulos...
+                          Copilot: Basándome en el código, veo que hay 3 columnas con muchos
+                          nulos...
                         </div>
                       </div>
                     </div>
@@ -789,12 +887,14 @@ print(df.head())`} />
                     <h3>Caso 2: Pipeline de ML Completo</h3>
                   </div>
                   <div className="case-scenario">
-                    <strong>Escenario:</strong> Necesitas crear un pipeline de Machine Learning desde cero.
+                    <strong>Escenario:</strong> Necesitas crear un pipeline de Machine Learning
+                    desde cero.
                   </div>
                   <div className="case-steps">
                     <div className="case-step">
                       <strong>Con Copilot:</strong> Escribe comentarios para cada paso
-                      <CodeBlock code={`# 1. Cargar y dividir datos
+                      <CodeBlock
+                        code={`# 1. Cargar y dividir datos
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
 # 2. Crear pipeline con preprocessing y modelo
@@ -810,11 +910,13 @@ pipeline = Pipeline([
 # 3. Entrenar y evaluar
 pipeline.fit(X_train, y_train)
 score = pipeline.score(X_test, y_test)
-print(f'Accuracy: {score:.2%}')`} />
+print(f'Accuracy: {score:.2%}')`}
+                      />
                     </div>
                   </div>
                   <TipBox type="success">
-                    Copilot completó automáticamente todo el código del pipeline siguiendo las mejores prácticas de scikit-learn.
+                    Copilot completó automáticamente todo el código del pipeline siguiendo las
+                    mejores prácticas de scikit-learn.
                   </TipBox>
                 </div>
 
@@ -824,16 +926,23 @@ print(f'Accuracy: {score:.2%}')`} />
                     <h3>Caso 3: Debugging de Código Complejo</h3>
                   </div>
                   <div className="case-scenario">
-                    <strong>Escenario:</strong> Tienes un bug en tu código de procesamiento de datos y no sabes dónde está.
+                    <strong>Escenario:</strong> Tienes un bug en tu código de procesamiento de datos
+                    y no sabes dónde está.
                   </div>
                   <div className="case-steps">
                     <div className="case-step">
                       <strong>Solución con Slash Commands:</strong>
                       <ol className="case-list">
                         <li>Selecciona la función problemática</li>
-                        <li>Abre Copilot Chat (<kbd>Ctrl/Cmd + I</kbd>)</li>
-                        <li>Escribe <code>/explain</code> para entender el código</li>
-                        <li>Si encuentras el bug, escribe <code>/fix</code></li>
+                        <li>
+                          Abre Copilot Chat (<kbd>Ctrl/Cmd + I</kbd>)
+                        </li>
+                        <li>
+                          Escribe <code>/explain</code> para entender el código
+                        </li>
+                        <li>
+                          Si encuentras el bug, escribe <code>/fix</code>
+                        </li>
                         <li>Copilot sugerirá la corrección</li>
                       </ol>
                     </div>
@@ -846,15 +955,19 @@ print(f'Accuracy: {score:.2%}')`} />
                     <h3>Caso 4: Documentar Código Legacy</h3>
                   </div>
                   <div className="case-scenario">
-                    <strong>Escenario:</strong> Heredaste código sin documentación y necesitas añadir docstrings.
+                    <strong>Escenario:</strong> Heredaste código sin documentación y necesitas
+                    añadir docstrings.
                   </div>
                   <div className="case-steps">
                     <div className="case-step">
                       <strong>Proceso:</strong>
                       <ol className="case-list">
                         <li>Selecciona cada función una por una</li>
-                        <li>Usa <code>/doc</code> en Copilot Chat</li>
-                        <li>Copilot genera docstrings completos con:
+                        <li>
+                          Usa <code>/doc</code> en Copilot Chat
+                        </li>
+                        <li>
+                          Copilot genera docstrings completos con:
                           <ul>
                             <li>Descripción de la función</li>
                             <li>Parámetros con tipos</li>
@@ -892,7 +1005,10 @@ print(f'Accuracy: {score:.2%}')`} />
           {activeSection === 'limitaciones' && (
             <div className="section-content">
               <h2 className="section-title">8. Limitaciones y Consideraciones</h2>
-              <p className="section-intro">Es importante conocer las limitaciones para usar Copilot de manera efectiva y segura:</p>
+              <p className="section-intro">
+                Es importante conocer las limitaciones para usar Copilot de manera efectiva y
+                segura:
+              </p>
 
               <div className="limitations-section">
                 <div className="limitation-category warning">
@@ -902,19 +1018,20 @@ print(f'Accuracy: {score:.2%}')`} />
                   </div>
                   <ul className="limitation-list">
                     <li>
-                      <strong>No siempre es correcto:</strong> Copilot puede generar código con bugs o lógica incorrecta.
-                      SIEMPRE revisa el código antes de usarlo.
+                      <strong>No siempre es correcto:</strong> Copilot puede generar código con bugs
+                      o lógica incorrecta. SIEMPRE revisa el código antes de usarlo.
                     </li>
                     <li>
-                      <strong>Contexto limitado:</strong> Solo ve el archivo actual y algunos archivos relacionados.
-                      No conoce toda tu arquitectura de proyecto.
+                      <strong>Contexto limitado:</strong> Solo ve el archivo actual y algunos
+                      archivos relacionados. No conoce toda tu arquitectura de proyecto.
                     </li>
                     <li>
-                      <strong>Puede sugerir código obsoleto:</strong> A veces sugiere librerías o métodos deprecados.
-                      Verifica las versiones.
+                      <strong>Puede sugerir código obsoleto:</strong> A veces sugiere librerías o
+                      métodos deprecados. Verifica las versiones.
                     </li>
                     <li>
-                      <strong>Depende de tu descripción:</strong> Si tu comentario es vago, la sugerencia será genérica.
+                      <strong>Depende de tu descripción:</strong> Si tu comentario es vago, la
+                      sugerencia será genérica.
                     </li>
                   </ul>
                 </div>
@@ -925,22 +1042,30 @@ print(f'Accuracy: {score:.2%}')`} />
                     <h3>🔒 Privacidad y Seguridad</h3>
                   </div>
                   <TipBox type="warning">
-                    <strong>CRÍTICO:</strong> GitHub Copilot envía fragmentos de tu código a los servidores de OpenAI para procesar.
+                    <strong>CRÍTICO:</strong> GitHub Copilot envía fragmentos de tu código a los
+                    servidores de OpenAI para procesar.
                   </TipBox>
 
                   <div className="security-guidelines">
                     <h4>❌ NO hacer:</h4>
                     <ul className="security-dont-list">
                       <li>NO incluyas API keys, tokens o credenciales en el código</li>
-                      <li>NO trabajes con datos sensibles (PII, datos médicos, financieros) sin ofuscar</li>
-                      <li>NO uses Copilot en proyectos con NDA estrictos sin verificar políticas</li>
+                      <li>
+                        NO trabajes con datos sensibles (PII, datos médicos, financieros) sin
+                        ofuscar
+                      </li>
+                      <li>
+                        NO uses Copilot en proyectos con NDA estrictos sin verificar políticas
+                      </li>
                       <li>NO confíes ciegamente en código de seguridad generado por Copilot</li>
                     </ul>
 
                     <h4>✅ SÍ hacer:</h4>
                     <ul className="security-do-list">
                       <li>Usa variables de entorno para secretos</li>
-                      <li>Configura <code>.copilotignore</code> para excluir archivos sensibles</li>
+                      <li>
+                        Configura <code>.copilotignore</code> para excluir archivos sensibles
+                      </li>
                       <li>Revisa las políticas de tu empresa antes de usar Copilot</li>
                       <li>Usa Copilot for Business si necesitas controles empresariales</li>
                     </ul>
@@ -960,7 +1085,8 @@ print(f'Accuracy: {score:.2%}')`} />
                       <strong>Business:</strong> $19/usuario/mes (con features adicionales)
                     </div>
                     <div className="pricing-tier free">
-                      <strong>Gratis para:</strong> Estudiantes verificados y mantenedores de proyectos open source populares
+                      <strong>Gratis para:</strong> Estudiantes verificados y mantenedores de
+                      proyectos open source populares
                     </div>
                   </div>
                 </div>
@@ -970,15 +1096,24 @@ print(f'Accuracy: {score:.2%}')`} />
                   <div className="when-not-grid">
                     <div className="when-not-card">
                       <h4>Algoritmos Críticos</h4>
-                      <p>Para lógica de negocio crítica, encriptación, o algoritmos de seguridad, escribe el código manualmente.</p>
+                      <p>
+                        Para lógica de negocio crítica, encriptación, o algoritmos de seguridad,
+                        escribe el código manualmente.
+                      </p>
                     </div>
                     <div className="when-not-card">
                       <h4>Aprendizaje</h4>
-                      <p>Si estás aprendiendo a programar, no dependas de Copilot. Intenta resolver por ti mismo primero.</p>
+                      <p>
+                        Si estás aprendiendo a programar, no dependas de Copilot. Intenta resolver
+                        por ti mismo primero.
+                      </p>
                     </div>
                     <div className="when-not-card">
                       <h4>Código de Producción Crítico</h4>
-                      <p>Código que afecta vidas o dinero debe ser revisado exhaustivamente por humanos.</p>
+                      <p>
+                        Código que afecta vidas o dinero debe ser revisado exhaustivamente por
+                        humanos.
+                      </p>
                     </div>
                     <div className="when-not-card">
                       <h4>Problemas de Performance</h4>
@@ -991,8 +1126,8 @@ print(f'Accuracy: {score:.2%}')`} />
                   <h3 className="thoughts-title">💭 Reflexión Final</h3>
                   <div className="thoughts-content">
                     <p>
-                      GitHub Copilot es una <strong>herramienta increíblemente poderosa</strong> que puede
-                      multiplicar tu productividad, PERO:
+                      GitHub Copilot es una <strong>herramienta increíblemente poderosa</strong> que
+                      puede multiplicar tu productividad, PERO:
                     </p>
                     <div className="thoughts-points">
                       <div className="thought-point">
@@ -1013,21 +1148,20 @@ print(f'Accuracy: {score:.2%}')`} />
                       </div>
                     </div>
                     <p className="thoughts-conclusion">
-                      Úsalo para acelerar tareas repetitivas, aprender nuevas librerías y explorar soluciones,
-                      pero <strong>siempre mantén el control</strong> sobre el código que escribes.
+                      Úsalo para acelerar tareas repetitivas, aprender nuevas librerías y explorar
+                      soluciones, pero <strong>siempre mantén el control</strong> sobre el código
+                      que escribes.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
           )}
-
         </main>
       </div>
 
       {/* Footer */}
-      <footer className="copilot-footer">
-      </footer>
+      <footer className="copilot-footer"></footer>
     </div>
   );
 };

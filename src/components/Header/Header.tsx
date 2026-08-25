@@ -1,4 +1,5 @@
 import type { PyodideStatus } from '../../types';
+import { APP_TEXTS } from '../../constants/texts';
 
 interface HeaderProps {
   status: PyodideStatus;
@@ -7,10 +8,10 @@ interface HeaderProps {
 
 export const Header = ({ status, showStatus = true }: HeaderProps) => {
   const getStatusText = () => {
-    if (status.error) return 'Error al cargar Python';
-    if (status.isLoading) return 'Cargando Python...';
-    if (status.isReady) return 'Python listo ✓';
-    return 'Inicializando...';
+    if (status.error) return APP_TEXTS.pyodide.error;
+    if (status.isLoading) return APP_TEXTS.pyodide.loading;
+    if (status.isReady) return APP_TEXTS.pyodide.ready;
+    return APP_TEXTS.pyodide.initializing;
   };
 
   const getStatusDotClass = () => {
@@ -21,15 +22,17 @@ export const Header = ({ status, showStatus = true }: HeaderProps) => {
     <header className="hero">
       <div className="hero-content">
         <div className="logo">
-          <div className="py">DS</div>
-          <span className="lab">Path</span>
+          <div className="py">avo</div>
+          <span className="lab">Code Lab</span>
         </div>
-        {showStatus && (
-          <div className="status-bar">
-            <span className={getStatusDotClass()} />
-            <span>{getStatusText()}</span>
-          </div>
-        )}
+        <div className="header-actions">
+          {showStatus && (
+            <div className="status-bar">
+              <span className={getStatusDotClass()} />
+              <span>{getStatusText()}</span>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );

@@ -1,6 +1,10 @@
 // Validadores para Módulo 16: Pandas - Filtros y Operadores Lógicos
 
-export const validateSimpleFilter = (code: string, _output: string): { isValid: boolean; message?: string } => {
+export const validateSimpleFilter = (
+  code: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -18,7 +22,8 @@ export const validateSimpleFilter = (code: string, _output: string): { isValid: 
   }
 
   // Verificar que filtra por sepal_length > 6.0
-  const hasCorrectFilter = /['"]sepal_length['"]\]\s*>\s*6\.0/.test(code) || /['"]sepal_length['"]\]\s*>\s*6/.test(code);
+  const hasCorrectFilter =
+    /['"]sepal_length['"]\]\s*>\s*6\.0/.test(code) || /['"]sepal_length['"]\]\s*>\s*6/.test(code);
   if (!hasCorrectFilter) {
     return { isValid: false, message: 'Debes filtrar por sepal_length > 6.0' };
   }
@@ -26,13 +31,19 @@ export const validateSimpleFilter = (code: string, _output: string): { isValid: 
   // Verificar que guarda en flores_grandes
   const hasVariable = /flores_grandes\s*=/.test(code);
   if (!hasVariable) {
-    return { isValid: false, message: 'Debes guardar el resultado en una variable llamada "flores_grandes"' };
+    return {
+      isValid: false,
+      message: 'Debes guardar el resultado en una variable llamada "flores_grandes"',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateAndFilter = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateAndFilter = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -58,19 +69,29 @@ export const validateAndFilter = (code: string, output: string): { isValid: bool
   // Verificar que guarda en setosa_grandes
   const hasVariable = /setosa_grandes\s*=/.test(code);
   if (!hasVariable) {
-    return { isValid: false, message: 'Debes guardar el resultado en una variable llamada "setosa_grandes"' };
+    return {
+      isValid: false,
+      message: 'Debes guardar el resultado en una variable llamada "setosa_grandes"',
+    };
   }
 
   // Verificar que el output contiene solo setosa
-  const hasOnlySetosa = output.includes('setosa') && !output.includes('versicolor') && !output.includes('virginica');
+  const hasOnlySetosa =
+    output.includes('setosa') && !output.includes('versicolor') && !output.includes('virginica');
   if (!hasOnlySetosa) {
-    return { isValid: false, message: 'El resultado debe contener solo flores de la especie setosa' };
+    return {
+      isValid: false,
+      message: 'El resultado debe contener solo flores de la especie setosa',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateOrFilter = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateOrFilter = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -86,13 +107,19 @@ export const validateOrFilter = (code: string, output: string): { isValid: boole
   const hasVirginica = /['"]species['"]\]\s*==\s*['"]virginica['"]/.test(code);
 
   if (!hasSetosa || !hasVirginica) {
-    return { isValid: false, message: 'Debes filtrar por species == "setosa" O species == "virginica"' };
+    return {
+      isValid: false,
+      message: 'Debes filtrar por species == "setosa" O species == "virginica"',
+    };
   }
 
   // Verificar que guarda en dos_especies
   const hasVariable = /dos_especies\s*=/.test(code);
   if (!hasVariable) {
-    return { isValid: false, message: 'Debes guardar el resultado en una variable llamada "dos_especies"' };
+    return {
+      isValid: false,
+      message: 'Debes guardar el resultado en una variable llamada "dos_especies"',
+    };
   }
 
   // Verificar que el output contiene setosa y virginica pero no versicolor
@@ -101,17 +128,26 @@ export const validateOrFilter = (code: string, output: string): { isValid: boole
   const hasVersicolor = output.includes('versicolor');
 
   if (!hasSetosaOutput || !hasVirginicaOutput) {
-    return { isValid: false, message: 'El resultado debe contener flores de ambas especies: setosa y virginica' };
+    return {
+      isValid: false,
+      message: 'El resultado debe contener flores de ambas especies: setosa y virginica',
+    };
   }
 
   if (hasVersicolor) {
-    return { isValid: false, message: 'El resultado NO debe contener flores versicolor. Verifica tu filtro con |' };
+    return {
+      isValid: false,
+      message: 'El resultado NO debe contener flores versicolor. Verifica tu filtro con |',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateNotFilter = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateNotFilter = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -131,7 +167,10 @@ export const validateNotFilter = (code: string, output: string): { isValid: bool
   // Verificar que guarda en no_versicolor
   const hasVariable = /no_versicolor\s*=/.test(code);
   if (!hasVariable) {
-    return { isValid: false, message: 'Debes guardar el resultado en una variable llamada "no_versicolor"' };
+    return {
+      isValid: false,
+      message: 'Debes guardar el resultado en una variable llamada "no_versicolor"',
+    };
   }
 
   // Verificar que el output NO contiene versicolor pero sí las otras
@@ -140,11 +179,17 @@ export const validateNotFilter = (code: string, output: string): { isValid: bool
   const hasVirginica = output.includes('virginica');
 
   if (hasVersicolorOutput) {
-    return { isValid: false, message: 'El resultado NO debe contener flores versicolor. Verifica tu filtro' };
+    return {
+      isValid: false,
+      message: 'El resultado NO debe contener flores versicolor. Verifica tu filtro',
+    };
   }
 
   if (!hasSetosa || !hasVirginica) {
-    return { isValid: false, message: 'El resultado debe contener flores setosa y virginica (todas excepto versicolor)' };
+    return {
+      isValid: false,
+      message: 'El resultado debe contener flores setosa y virginica (todas excepto versicolor)',
+    };
   }
 
   return { isValid: true };

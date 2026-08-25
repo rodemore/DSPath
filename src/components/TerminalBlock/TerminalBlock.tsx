@@ -21,11 +21,7 @@ export const TerminalBlock = ({ command, description }: TerminalBlockProps) => {
           <span className="terminal-prompt">$</span>
           <span className="terminal-command">{command}</span>
         </div>
-        {description && (
-          <div className="terminal-description">
-            {description}
-          </div>
-        )}
+        {description && <div className="terminal-description">{description}</div>}
       </div>
     </div>
   );

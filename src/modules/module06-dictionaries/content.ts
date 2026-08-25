@@ -16,7 +16,8 @@ export const module06: Section = {
     {
       icon: '📚',
       title: '¿Qué es un diccionario?',
-      content: 'Un <strong>diccionario</strong> es una estructura de datos que almacena pares <strong>clave-valor</strong>. Cada clave es única y se usa para acceder a su valor asociado. Se definen con llaves <span class="inline-code">{}</span>.',
+      content:
+        'Un <strong>diccionario</strong> es una estructura de datos que almacena pares <strong>clave-valor</strong>. Cada clave es única y se usa para acceder a su valor asociado. Se definen con llaves <span class="inline-code">{}</span>.',
       codeExample: {
         filename: 'diccionario_basico.py',
         code: `<span class="comment"># Crear un diccionario</span>
@@ -37,7 +38,8 @@ export const module06: Section = {
         {
           id: 'ex-6-1',
           number: 'EJERCICIO 6.1',
-          description: 'Crea un diccionario llamado <span class="inline-code">libro</span> con las claves <span class="inline-code">"titulo"</span>, <span class="inline-code">"autor"</span> y <span class="inline-code">"año"</span> con los valores que prefieras.<br><br>Luego imprime el valor de <span class="inline-code">"autor"</span>.',
+          description:
+            'Crea un diccionario llamado <span class="inline-code">libro</span> con las claves <span class="inline-code">"titulo"</span>, <span class="inline-code">"autor"</span> y <span class="inline-code">"año"</span> con los valores que prefieras.<br><br>Luego imprime el valor de <span class="inline-code">"autor"</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateCreateDictAndAccess,
@@ -47,7 +49,8 @@ export const module06: Section = {
     {
       icon: '🔑',
       title: 'Métodos keys() y values()',
-      content: 'El método <span class="inline-code">.keys()</span> devuelve todas las <strong>claves</strong> y <span class="inline-code">.values()</span> devuelve todos los <strong>valores</strong> del diccionario. Puedes convertirlos a listas para trabajar con ellos.',
+      content:
+        'El método <span class="inline-code">.keys()</span> devuelve todas las <strong>claves</strong> y <span class="inline-code">.values()</span> devuelve todos los <strong>valores</strong> del diccionario. Puedes convertirlos a listas para trabajar con ellos.',
       codeExample: {
         filename: 'keys_values.py',
         code: `<span class="identifier">persona</span> = {
@@ -68,7 +71,8 @@ export const module06: Section = {
         {
           id: 'ex-6-2',
           number: 'EJERCICIO 6.2',
-          description: 'Crea un diccionario <span class="inline-code">colores</span> con al menos 3 pares clave-valor (ejemplo: <span class="inline-code">"cielo": "azul"</span>).<br><br>Usa el método <span class="inline-code">.keys()</span> y conviértelo a lista con <span class="inline-code">list()</span> para imprimir todas las claves.',
+          description:
+            'Crea un diccionario <span class="inline-code">colores</span> con al menos 3 pares clave-valor (ejemplo: <span class="inline-code">"cielo": "azul"</span>).<br><br>Usa el método <span class="inline-code">.keys()</span> y conviértelo a lista con <span class="inline-code">list()</span> para imprimir todas las claves.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateKeysMethod,
@@ -76,7 +80,8 @@ export const module06: Section = {
         {
           id: 'ex-6-3',
           number: 'EJERCICIO 6.3',
-          description: 'Usando el mismo diccionario <span class="inline-code">colores</span> del ejercicio anterior, usa el método <span class="inline-code">.values()</span> y conviértelo a lista para imprimir todos los valores.',
+          description:
+            'Usando el mismo diccionario <span class="inline-code">colores</span> del ejercicio anterior, usa el método <span class="inline-code">.values()</span> y conviértelo a lista para imprimir todos los valores.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateValuesMethod,
@@ -86,7 +91,8 @@ export const module06: Section = {
     {
       icon: '✏️',
       title: 'Actualizar y agregar valores',
-      content: 'Puedes <strong>actualizar</strong> valores existentes o <strong>agregar</strong> nuevos pares clave-valor simplemente asignando un valor a una clave.',
+      content:
+        'Puedes <strong>actualizar</strong> valores existentes o <strong>agregar</strong> nuevos pares clave-valor simplemente asignando un valor a una clave.',
       codeExample: {
         filename: 'actualizar_dict.py',
         code: `<span class="identifier">config</span> = {<span class="string">"tema"</span>: <span class="string">"oscuro"</span>, <span class="string">"idioma"</span>: <span class="string">"es"</span>}
@@ -103,7 +109,8 @@ export const module06: Section = {
         {
           id: 'ex-6-4',
           number: 'EJERCICIO 6.4',
-          description: 'Crea un diccionario <span class="inline-code">usuario</span> con <span class="inline-code">"nombre"</span> y <span class="inline-code">"edad"</span>.<br><br>Actualiza la edad a un nuevo valor y agrega una nueva clave <span class="inline-code">"email"</span> con un correo.<br><br>Imprime el diccionario completo.',
+          description:
+            'Crea un diccionario <span class="inline-code">usuario</span> con <span class="inline-code">"nombre"</span> y <span class="inline-code">"edad"</span>.<br><br>Actualiza la edad a un nuevo valor y agrega una nueva clave <span class="inline-code">"email"</span> con un correo.<br><br>Imprime el diccionario completo.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateUpdateDict,
@@ -113,7 +120,8 @@ export const module06: Section = {
     {
       icon: '📋',
       title: 'Método items() y eliminar elementos',
-      content: 'El método <span class="inline-code">.items()</span> devuelve pares (clave, valor) y <span class="inline-code">del</span> permite eliminar elementos del diccionario.',
+      content:
+        'El método <span class="inline-code">.items()</span> devuelve pares (clave, valor) y <span class="inline-code">del</span> permite eliminar elementos del diccionario.',
       codeExample: {
         filename: 'items_delete.py',
         code: `<span class="identifier">producto</span> = {
@@ -135,7 +143,8 @@ export const module06: Section = {
         {
           id: 'ex-6-5',
           number: 'EJERCICIO 6.5',
-          description: 'Crea un diccionario <span class="inline-code">inventario</span> con 3 productos y sus cantidades (ejemplo: <span class="inline-code">"manzanas": 10</span>).<br><br>Usa <span class="inline-code">.items()</span> y conviértelo a lista para imprimir todos los pares clave-valor.',
+          description:
+            'Crea un diccionario <span class="inline-code">inventario</span> con 3 productos y sus cantidades (ejemplo: <span class="inline-code">"manzanas": 10</span>).<br><br>Usa <span class="inline-code">.items()</span> y conviértelo a lista para imprimir todos los pares clave-valor.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateItemsMethod,
@@ -145,7 +154,8 @@ export const module06: Section = {
   ],
   tipBox: {
     icon: '💡',
-    content: 'Las claves de un diccionario deben ser <strong>únicas</strong> e <strong>inmutables</strong> (strings, números, tuplas). Los valores pueden ser de cualquier tipo.',
+    content:
+      'Las claves de un diccionario deben ser <strong>únicas</strong> e <strong>inmutables</strong> (strings, números, tuplas). Los valores pueden ser de cualquier tipo.',
   },
   exercises: [],
 };

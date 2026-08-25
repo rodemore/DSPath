@@ -45,7 +45,8 @@ if not hasattr(pd, '_iris_df_cached'):
     {
       icon: '🔍',
       title: 'Filtrar datos con condiciones',
-      content: 'Una de las tareas más comunes en análisis de datos es <strong>filtrar</strong> filas que cumplan ciertas condiciones. En Pandas usamos <span class="inline-code">loc</span> con condiciones lógicas para esto.',
+      content:
+        'Una de las tareas más comunes en análisis de datos es <strong>filtrar</strong> filas que cumplan ciertas condiciones. En Pandas usamos <span class="inline-code">loc</span> con condiciones lógicas para esto.',
       codeExample: {
         filename: 'filtro_simple.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -64,7 +65,8 @@ if not hasattr(pd, '_iris_df_cached'):
         {
           id: 'ex-16-1',
           number: 'EJERCICIO 16.1',
-          description: 'Filtra las flores con <span class="inline-code">sepal_length</span> mayor a 6.0. Guarda el resultado en <span class="inline-code">flores_grandes</span> e imprime las primeras 5 filas.',
+          description:
+            'Filtra las flores con <span class="inline-code">sepal_length</span> mayor a 6.0. Guarda el resultado en <span class="inline-code">flores_grandes</span> e imprime las primeras 5 filas.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateSimpleFilter,
@@ -80,7 +82,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '⚙️',
       title: 'Operadores lógicos en Pandas',
-      content: 'Para combinar múltiples condiciones, Pandas usa operadores especiales diferentes a los de Python normal:',
+      content:
+        'Para combinar múltiples condiciones, Pandas usa operadores especiales diferentes a los de Python normal:',
       table: {
         headers: ['Operador', 'Símbolo en Pandas', 'Ejemplo', 'Significado'],
         rows: [
@@ -88,19 +91,19 @@ df = pd.read_csv('iris.csv')
             Operador: 'AND (y)',
             'Símbolo en Pandas': '&',
             Ejemplo: '(df["edad"] > 18) & (df["ciudad"] == "Quito")',
-            Significado: 'Ambas condiciones deben cumplirse'
+            Significado: 'Ambas condiciones deben cumplirse',
           },
           {
             Operador: 'OR (o)',
             'Símbolo en Pandas': '|',
             Ejemplo: '(df["nota"] > 90) | (df["nota"] < 50)',
-            Significado: 'Al menos una condición debe cumplirse'
+            Significado: 'Al menos una condición debe cumplirse',
           },
           {
             Operador: 'NOT (no)',
             'Símbolo en Pandas': '~',
             Ejemplo: '~(df["ciudad"] == "Quito")',
-            Significado: 'Niega la condición (lo opuesto)'
+            Significado: 'Niega la condición (lo opuesto)',
           },
         ],
       },
@@ -108,7 +111,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '➕',
       title: 'Operador AND (&): Ambas condiciones',
-      content: 'El operador <span class="inline-code">&</span> filtra filas donde <strong>ambas</strong> condiciones son verdaderas. <strong>Importante:</strong> Cada condición debe estar entre paréntesis.',
+      content:
+        'El operador <span class="inline-code">&</span> filtra filas donde <strong>ambas</strong> condiciones son verdaderas. <strong>Importante:</strong> Cada condición debe estar entre paréntesis.',
       codeExample: {
         filename: 'filtro_and.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -126,7 +130,8 @@ df = pd.read_csv('iris.csv')
         {
           id: 'ex-16-2',
           number: 'EJERCICIO 16.2',
-          description: 'Filtra las flores que sean de la especie <span class="inline-code">setosa</span> Y que tengan <span class="inline-code">petal_length</span> mayor a 1.5. Guarda el resultado en <span class="inline-code">setosa_grandes</span> e imprime.',
+          description:
+            'Filtra las flores que sean de la especie <span class="inline-code">setosa</span> Y que tengan <span class="inline-code">petal_length</span> mayor a 1.5. Guarda el resultado en <span class="inline-code">setosa_grandes</span> e imprime.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateAndFilter,
@@ -142,7 +147,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '🔀',
       title: 'Operador OR (|): Al menos una condición',
-      content: 'El operador <span class="inline-code">|</span> filtra filas donde <strong>al menos una</strong> de las condiciones es verdadera.',
+      content:
+        'El operador <span class="inline-code">|</span> filtra filas donde <strong>al menos una</strong> de las condiciones es verdadera.',
       codeExample: {
         filename: 'filtro_or.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -160,7 +166,8 @@ df = pd.read_csv('iris.csv')
         {
           id: 'ex-16-3',
           number: 'EJERCICIO 16.3',
-          description: 'Filtra las flores que sean de la especie <span class="inline-code">setosa</span> O de la especie <span class="inline-code">virginica</span>. Guarda el resultado en <span class="inline-code">dos_especies</span> e imprime las primeras 5 filas.',
+          description:
+            'Filtra las flores que sean de la especie <span class="inline-code">setosa</span> O de la especie <span class="inline-code">virginica</span>. Guarda el resultado en <span class="inline-code">dos_especies</span> e imprime las primeras 5 filas.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateOrFilter,
@@ -176,7 +183,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '🚫',
       title: 'Operador NOT (~): Negar una condición',
-      content: 'El operador <span class="inline-code">~</span> niega una condición, es decir, selecciona lo opuesto.',
+      content:
+        'El operador <span class="inline-code">~</span> niega una condición, es decir, selecciona lo opuesto.',
       codeExample: {
         filename: 'filtro_not.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -196,7 +204,8 @@ df = pd.read_csv('iris.csv')
         {
           id: 'ex-16-4',
           number: 'EJERCICIO 16.4',
-          description: 'Filtra las flores que NO sean de la especie <span class="inline-code">versicolor</span>. Guarda el resultado en <span class="inline-code">no_versicolor</span> e imprime las primeras 5 filas.',
+          description:
+            'Filtra las flores que NO sean de la especie <span class="inline-code">versicolor</span>. Guarda el resultado en <span class="inline-code">no_versicolor</span> e imprime las primeras 5 filas.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateNotFilter,
@@ -213,7 +222,8 @@ df = pd.read_csv('iris.csv')
 
   tipBox: {
     icon: '💡',
-    content: '<strong>Recuerda:</strong> En Pandas usa <span class="inline-code">&</span> para AND, <span class="inline-code">|</span> para OR, y <span class="inline-code">~</span> para NOT. Siempre pon cada condición entre paréntesis.',
+    content:
+      '<strong>Recuerda:</strong> En Pandas usa <span class="inline-code">&</span> para AND, <span class="inline-code">|</span> para OR, y <span class="inline-code">~</span> para NOT. Siempre pon cada condición entre paréntesis.',
   },
 
   exercises: [],

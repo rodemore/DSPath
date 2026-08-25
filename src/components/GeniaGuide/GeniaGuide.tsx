@@ -12,12 +12,21 @@ import {
   ChevronRight,
   Target,
   Lightbulb,
-  FileCode
+  FileCode,
 } from 'lucide-react';
 import './GeniaGuide.css';
 import '../../styles/guides-theme.css';
 
-type SectionId = 'intro' | 'principios' | 'anatomia' | 'contexto' | 'eda' | 'optimization' | 'estrategia' | 'caso-real' | 'validación';
+type SectionId =
+  | 'intro'
+  | 'principios'
+  | 'anatomia'
+  | 'contexto'
+  | 'eda'
+  | 'optimization'
+  | 'estrategia'
+  | 'caso-real'
+  | 'validación';
 
 interface Section {
   id: SectionId;
@@ -35,7 +44,7 @@ interface PromptBoxProps {
   children: React.ReactNode;
 }
 
-const CodeBlock = ({ code, language = "python" }: CodeBlockProps) => (
+const CodeBlock = ({ code, language = 'python' }: CodeBlockProps) => (
   <div className="genia-code-block">
     <div className="code-header">
       <span className="code-language">{language}</span>
@@ -45,16 +54,18 @@ const CodeBlock = ({ code, language = "python" }: CodeBlockProps) => (
         <div className="dot green"></div>
       </div>
     </div>
-    <pre className="code-content">
-      {code}
-    </pre>
+    <pre className="code-content">{code}</pre>
   </div>
 );
 
 const PromptBox = ({ type, children }: PromptBoxProps) => (
   <div className={`prompt-box ${type}`}>
     <div className="prompt-header">
-      {type === 'weak' ? <AlertTriangle className="prompt-icon"/> : <Target className="prompt-icon"/>}
+      {type === 'weak' ? (
+        <AlertTriangle className="prompt-icon" />
+      ) : (
+        <Target className="prompt-icon" />
+      )}
       {type === 'weak' ? 'Prompt Débil' : 'Prompt Elite'}
     </div>
     <p className="prompt-content">{children}</p>
@@ -71,9 +82,17 @@ export const GeniaGuide = () => {
     { id: 'contexto', label: '4. Estrategia de Contexto', icon: <Database className="w-4 h-4" /> },
     { id: 'eda', label: '5. EDA & Visualización', icon: <BarChart3 className="w-4 h-4" /> },
     { id: 'optimization', label: '6. Optimización & Refactor', icon: <Zap className="w-4 h-4" /> },
-    { id: 'estrategia', label: '7. Planificación Estratégica', icon: <Lightbulb className="w-4 h-4" /> },
+    {
+      id: 'estrategia',
+      label: '7. Planificación Estratégica',
+      icon: <Lightbulb className="w-4 h-4" />,
+    },
     { id: 'caso-real', label: '8. Caso de Uso Real', icon: <FileCode className="w-4 h-4" /> },
-    { id: 'validación', label: '9. Validación & Errores', icon: <ShieldCheck className="w-4 h-4" /> },
+    {
+      id: 'validación',
+      label: '9. Validación & Errores',
+      icon: <ShieldCheck className="w-4 h-4" />,
+    },
   ];
 
   return (
@@ -82,20 +101,19 @@ export const GeniaGuide = () => {
       <header className="genia-header">
         <div className="header-content">
           <h1 className="header-title">
-            Ingeniería de Prompts <br/> <span className="title-highlight">para Data Science con Genia</span>
+            Ingeniería de Prompts <br />{' '}
+            <span className="title-highlight">para Data Science con Genia</span>
           </h1>
           <p className="header-subtitle">
-            Domina la colaboración con Genia para escalar tu productividad técnica de "copiar código" a "arquitecturar soluciones".
+            Domina la colaboración con Genia para escalar tu productividad técnica de "copiar
+            código" a "arquitecturar soluciones".
           </p>
-          <p className="header-author">
-            Por Robert Moreno
-          </p>
+          <p className="header-author">Por Robert Moreno</p>
         </div>
         <div className="header-blur"></div>
       </header>
 
       <div className="guide-content">
-
         {/* Navigation Sidebar */}
         <aside className="guide-sidebar">
           <div className="sidebar-sticky">
@@ -107,9 +125,7 @@ export const GeniaGuide = () => {
                 className={`sidebar-btn ${activeSection === s.id ? 'active' : ''}`}
               >
                 <div className="sidebar-btn-content">
-                  <span className="sidebar-icon">
-                    {s.icon}
-                  </span>
+                  <span className="sidebar-icon">{s.icon}</span>
                   {s.label}
                 </div>
                 {activeSection === s.id && <ChevronRight className="chevron-icon" />}
@@ -120,20 +136,36 @@ export const GeniaGuide = () => {
 
         {/* Main Content */}
         <main className="guide-main">
-
           {/* SECTION: INTRO */}
           {activeSection === 'intro' && (
             <div className="section-content">
-              <h2 className="section-title">1. Programación Asistida con Genia: El Nuevo Paradigma</h2>
+              <h2 className="section-title">
+                1. Programación Asistida con Genia: El Nuevo Paradigma
+              </h2>
               <div className="section-text">
                 <p className="section-paragraph">
-                  En el pasado, un Data Scientist pasaba el 60% de su tiempo depurando sintaxis en StackOverflow. Hoy, con <strong>Genia</strong>, el foco ha cambiado hacia el <strong>diseño de prompts contextuales</strong> y la <strong>validación de lógica</strong>.
+                  En el pasado, un Data Scientist pasaba el 60% de su tiempo depurando sintaxis en
+                  StackOverflow. Hoy, con <strong>Genia</strong>, el foco ha cambiado hacia el{' '}
+                  <strong>diseño de prompts contextuales</strong> y la{' '}
+                  <strong>validación de lógica</strong>.
                 </p>
                 <div className="feature-grid">
                   {[
-                    { title: 'Velocidad', desc: 'Generación de boilerplate y scripts de limpieza en segundos.', color: 'blue' },
-                    { title: 'Calidad', desc: 'Refactorización instantánea para seguir estándares PEP8.', color: 'emerald' },
-                    { title: 'Exploración', desc: 'Posibilidad de probar 5 arquitecturas de modelos en 10 minutos.', color: 'purple' }
+                    {
+                      title: 'Velocidad',
+                      desc: 'Generación de boilerplate y scripts de limpieza en segundos.',
+                      color: 'blue',
+                    },
+                    {
+                      title: 'Calidad',
+                      desc: 'Refactorización instantánea para seguir estándares PEP8.',
+                      color: 'emerald',
+                    },
+                    {
+                      title: 'Exploración',
+                      desc: 'Posibilidad de probar 5 arquitecturas de modelos en 10 minutos.',
+                      color: 'purple',
+                    },
                   ].map((item, idx) => (
                     <div key={idx} className={`feature-card ${item.color}`}>
                       <h4 className="feature-title">{item.title}</h4>
@@ -155,16 +187,32 @@ export const GeniaGuide = () => {
                     <h3 className="principle-title">Genia no es el "Piloto", es tu "Copiloto"</h3>
                     <ul className="principle-list">
                       <li className="principle-item">
-                        <div className="principle-check"><CheckCircle2 className="check-icon"/></div>
-                        <span><strong>Validación Empírica:</strong> Ejecuta siempre el código en un entorno controlado (Notebook) antes de confiar.</span>
+                        <div className="principle-check">
+                          <CheckCircle2 className="check-icon" />
+                        </div>
+                        <span>
+                          <strong>Validación Empírica:</strong> Ejecuta siempre el código en un
+                          entorno controlado (Notebook) antes de confiar.
+                        </span>
                       </li>
                       <li className="principle-item">
-                        <div className="principle-check"><CheckCircle2 className="check-icon"/></div>
-                        <span><strong>Entendimiento Lógico:</strong> Si no puedes explicar por qué Genia usó una `pivot_table` en lugar de un `groupby`, pídele una explicación técnica.</span>
+                        <div className="principle-check">
+                          <CheckCircle2 className="check-icon" />
+                        </div>
+                        <span>
+                          <strong>Entendimiento Lógico:</strong> Si no puedes explicar por qué Genia
+                          usó una `pivot_table` en lugar de un `groupby`, pídele una explicación
+                          técnica.
+                        </span>
                       </li>
                       <li className="principle-item">
-                        <div className="principle-check"><CheckCircle2 className="check-icon"/></div>
-                        <span><strong>Seguridad:</strong> Nunca proporciones PII (Información Personal Identificable) o claves de API.</span>
+                        <div className="principle-check">
+                          <CheckCircle2 className="check-icon" />
+                        </div>
+                        <span>
+                          <strong>Seguridad:</strong> Nunca proporciones PII (Información Personal
+                          Identificable) o claves de API.
+                        </span>
                       </li>
                     </ul>
                   </div>
@@ -172,7 +220,8 @@ export const GeniaGuide = () => {
                     <div className="ratio-number">60/40</div>
                     <p className="ratio-label">Relación Esfuerzo</p>
                     <p className="ratio-description">
-                      "60% del tiempo pensando en la arquitectura de datos, 40% iterando con Genia para generar la implementación."
+                      "60% del tiempo pensando en la arquitectura de datos, 40% iterando con Genia
+                      para generar la implementación."
                     </p>
                   </div>
                 </div>
@@ -184,28 +233,41 @@ export const GeniaGuide = () => {
           {activeSection === 'anatomia' && (
             <div className="section-content">
               <h2 className="section-title">3. Ingeniería de Prompts Elite</h2>
-              <p className="section-intro">Comparemos cómo un principiante y un experto piden la misma tarea de limpieza de datos a Genia.</p>
+              <p className="section-intro">
+                Comparemos cómo un principiante y un experto piden la misma tarea de limpieza de
+                datos a Genia.
+              </p>
 
               <div className="prompt-examples">
                 <div>
-                  <PromptBox type="weak">
-                    "Limpia mi dataset de ventas en Python."
-                  </PromptBox>
+                  <PromptBox type="weak">"Limpia mi dataset de ventas en Python."</PromptBox>
                   <div className="prompt-result error">
-                    <AlertTriangle className="result-icon"/> <strong>Resultado:</strong> Código genérico que no funcionará porque Genia no conoce tus columnas ni tus nulos.
+                    <AlertTriangle className="result-icon" /> <strong>Resultado:</strong> Código
+                    genérico que no funcionará porque Genia no conoce tus columnas ni tus nulos.
                   </div>
                 </div>
 
                 <div>
                   <PromptBox type="strong">
-                    "Actúa como un Senior Data Engineer. Tengo un DataFrame de ventas (`df`) con columnas: `order_id` (int), `price` (float), `category` (string) y `timestamp` (object). <br/><br/>
-                    <strong>Tareas:</strong><br/>
-                    1. Convierte `timestamp` a datetime.<br/>
-                    2. Imputa valores nulos en `price` usando la mediana de su respectiva `category`.<br/>
-                    3. Elimina filas donde `order_id` esté duplicado.<br/><br/>
-                    <strong>Formato:</strong> Devuelve una función Python llamada `clean_sales_data` altamente eficiente."
+                    "Actúa como un Senior Data Engineer. Tengo un DataFrame de ventas (`df`) con
+                    columnas: `order_id` (int), `price` (float), `category` (string) y `timestamp`
+                    (object). <br />
+                    <br />
+                    <strong>Tareas:</strong>
+                    <br />
+                    1. Convierte `timestamp` a datetime.
+                    <br />
+                    2. Imputa valores nulos en `price` usando la mediana de su respectiva
+                    `category`.
+                    <br />
+                    3. Elimina filas donde `order_id` esté duplicado.
+                    <br />
+                    <br />
+                    <strong>Formato:</strong> Devuelve una función Python llamada `clean_sales_data`
+                    altamente eficiente."
                   </PromptBox>
-                  <CodeBlock code={`def clean_sales_data(df):
+                  <CodeBlock
+                    code={`def clean_sales_data(df):
     # 1. Conversión de tipos
     df['timestamp'] = pd.to_datetime(df['timestamp'])
 
@@ -215,7 +277,8 @@ export const GeniaGuide = () => {
     # 3. Limpieza de duplicados
     df = df.drop_duplicates(subset=['order_id'])
 
-    return df`} />
+    return df`}
+                  />
                 </div>
               </div>
             </div>
@@ -228,31 +291,47 @@ export const GeniaGuide = () => {
               <div className="context-grid">
                 <div className="context-card">
                   <div className="context-icon-box">
-                    <Database className="context-icon"/>
+                    <Database className="context-icon" />
                   </div>
                   <h3 className="context-title">Cómo "dibujar" tu Dataset para Genia</h3>
                   <p className="context-description">
                     Si no pasas el esquema, Genia alucinará nombres de columnas. Usa este formato:
                   </p>
                   <div className="context-schema">
-                    ### CONTEXTO DE DATOS ###<br/>
-                    Dataset: Telecom Churn<br/>
-                    Columnas: <br/>
-                    - customer_id: UUID<br/>
-                    - tenure: meses (int)<br/>
-                    - monthly_charges: USD (float)<br/>
-                    - churn: 'Yes'/'No' (target)<br/>
+                    ### CONTEXTO DE DATOS ###
+                    <br />
+                    Dataset: Telecom Churn
+                    <br />
+                    Columnas: <br />
+                    - customer_id: UUID
+                    <br />
+                    - tenure: meses (int)
+                    <br />
+                    - monthly_charges: USD (float)
+                    <br />
+                    - churn: 'Yes'/'No' (target)
+                    <br />
                     df.head(2): [Copia y pega 2 filas reales]
                   </div>
                 </div>
                 <div className="tips-stack">
                   <div className="tip-card dark">
-                    <h4 className="tip-title"><ChevronRight className="tip-icon"/> Tip Pro</h4>
-                    <p className="tip-text">Si el dataset es grande, pega el output de `df.describe().to_string()` para que Genia entienda las distribuciones y rangos.</p>
+                    <h4 className="tip-title">
+                      <ChevronRight className="tip-icon" /> Tip Pro
+                    </h4>
+                    <p className="tip-text">
+                      Si el dataset es grande, pega el output de `df.describe().to_string()` para
+                      que Genia entienda las distribuciones y rangos.
+                    </p>
                   </div>
                   <div className="tip-card blue">
-                    <h4 className="tip-title"><ChevronRight className="tip-icon"/> ¿Por qué funciona?</h4>
-                    <p className="tip-text">Al conocer los tipos de datos, Genia sugerirá métodos específicos (ej. `.dt.month` solo si sabe que es datetime).</p>
+                    <h4 className="tip-title">
+                      <ChevronRight className="tip-icon" /> ¿Por qué funciona?
+                    </h4>
+                    <p className="tip-text">
+                      Al conocer los tipos de datos, Genia sugerirá métodos específicos (ej.
+                      `.dt.month` solo si sabe que es datetime).
+                    </p>
                   </div>
                 </div>
               </div>
@@ -270,13 +349,13 @@ export const GeniaGuide = () => {
                   </h3>
                   <PromptBox type="strong">
                     "Usando Seaborn y Matplotlib, crea un gráfico de calor (Heatmap) de correlación.
-                    - Solo incluye variables numéricas.
-                    - Usa la paleta de colores 'coolwarm'.
-                    - Añade anotaciones con solo 2 decimales.
-                    - Haz que el gráfico sea triangular (quitar la parte superior repetida).
-                    - Ajusta el tamaño para que sea legible en una presentación (10x8)."
+                    - Solo incluye variables numéricas. - Usa la paleta de colores 'coolwarm'. -
+                    Añade anotaciones con solo 2 decimales. - Haz que el gráfico sea triangular
+                    (quitar la parte superior repetida). - Ajusta el tamaño para que sea legible en
+                    una presentación (10x8)."
                   </PromptBox>
-                  <CodeBlock code={`import numpy as np
+                  <CodeBlock
+                    code={`import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -290,7 +369,8 @@ mask = np.triu(np.ones_like(corr, dtype=bool))
 plt.figure(figsize=(10, 8))
 sns.heatmap(corr, mask=mask, annot=True, fmt=".2f", cmap='coolwarm', center=0)
 plt.title('Matriz de Correlación de Variables Numéricas', fontsize=16)
-plt.show()`} />
+plt.show()`}
+                  />
                 </div>
               </div>
             </div>
@@ -300,26 +380,33 @@ plt.show()`} />
           {activeSection === 'optimization' && (
             <div className="section-content">
               <h2 className="section-title">6. Optimización de Rendimiento</h2>
-              <p className="section-intro">Usa Genia para transformar código ineficiente en código de producción.</p>
+              <p className="section-intro">
+                Usa Genia para transformar código ineficiente en código de producción.
+              </p>
 
               <div className="optimization-grid">
                 <div className="optimization-card">
                   <h4 className="optimization-title bad">Código Lento (Bucle For)</h4>
-                  <CodeBlock code={`# NO HACER ESTO
+                  <CodeBlock
+                    code={`# NO HACER ESTO
 for index, row in df.iterrows():
     if row['sales'] > 100:
         df.at[index, 'label'] = 'High'
     else:
-        df.at[index, 'label'] = 'Low'`} />
+        df.at[index, 'label'] = 'Low'`}
+                  />
                 </div>
                 <div className="optimization-card">
                   <h4 className="optimization-title good">Prompt de Optimización para Genia</h4>
                   <div className="optimization-prompt">
-                    "Tengo un bucle for que itera sobre un DataFrame de 1M de filas. ¿Cómo puedo vectorizar esta lógica usando `np.where` o `.loc` para mejorar el rendimiento?"
+                    "Tengo un bucle for que itera sobre un DataFrame de 1M de filas. ¿Cómo puedo
+                    vectorizar esta lógica usando `np.where` o `.loc` para mejorar el rendimiento?"
                   </div>
-                  <CodeBlock code={`# VERSIÓN VECTORIZADA (Genia)
+                  <CodeBlock
+                    code={`# VERSIÓN VECTORIZADA (Genia)
 import numpy as np
-df['label'] = np.where(df['sales'] > 100, 'High', 'Low')`} />
+df['label'] = np.where(df['sales'] > 100, 'High', 'Low')`}
+                  />
                 </div>
               </div>
             </div>
@@ -329,7 +416,10 @@ df['label'] = np.where(df['sales'] > 100, 'High', 'Low')`} />
           {activeSection === 'estrategia' && (
             <div className="section-content">
               <h2 className="section-title">7. Planificación Estratégica con Genia</h2>
-              <p className="section-intro">Antes de escribir código, usa Genia para explorar diferentes enfoques y planificar tu estrategia.</p>
+              <p className="section-intro">
+                Antes de escribir código, usa Genia para explorar diferentes enfoques y planificar
+                tu estrategia.
+              </p>
 
               <div className="strategy-container">
                 <div className="strategy-principle">
@@ -339,8 +429,9 @@ df['label'] = np.where(df['sales'] > 100, 'High', 'Low')`} />
                   </div>
                   <h3 className="strategy-subtitle">No te quedes con la primera respuesta</h3>
                   <p className="strategy-text">
-                    La mejor solución rara vez es la primera que obtienes. Pregunta por <strong>alternativas</strong>,
-                    <strong> trade-offs</strong> y <strong>mejores prácticas</strong> antes de implementar.
+                    La mejor solución rara vez es la primera que obtienes. Pregunta por{' '}
+                    <strong>alternativas</strong>,<strong> trade-offs</strong> y{' '}
+                    <strong>mejores prácticas</strong> antes de implementar.
                   </p>
                 </div>
 
@@ -353,11 +444,10 @@ df['label'] = np.where(df['sales'] > 100, 'High', 'Low')`} />
                       <h4>Explorar Enfoques</h4>
                     </div>
                     <PromptBox type="strong">
-                      "Tengo un dataset de transacciones bancarias con 5M de filas. Necesito detectar fraudes.
-                      ¿Cuáles son las 3 mejores estrategias que podrías proponer? Para cada una, menciona:
-                      - Algoritmo/técnica recomendada
-                      - Pros y contras
-                      - Complejidad de implementación"
+                      "Tengo un dataset de transacciones bancarias con 5M de filas. Necesito
+                      detectar fraudes. ¿Cuáles son las 3 mejores estrategias que podrías proponer?
+                      Para cada una, menciona: - Algoritmo/técnica recomendada - Pros y contras -
+                      Complejidad de implementación"
                     </PromptBox>
                   </div>
 
@@ -367,8 +457,10 @@ df['label'] = np.where(df['sales'] > 100, 'High', 'Low')`} />
                       <h4>Comparar Soluciones</h4>
                     </div>
                     <PromptBox type="strong">
-                      "¿Qué diferencias hay entre usar Random Forest vs XGBoost para este problema de clasificación desbalanceada?
-                      Considera: tiempo de entrenamiento, interpretabilidad, rendimiento con datos desbalanceados, y facilidad de tuning."
+                      "¿Qué diferencias hay entre usar Random Forest vs XGBoost para este problema
+                      de clasificación desbalanceada? Considera: tiempo de entrenamiento,
+                      interpretabilidad, rendimiento con datos desbalanceados, y facilidad de
+                      tuning."
                     </PromptBox>
                   </div>
 
@@ -378,8 +470,9 @@ df['label'] = np.where(df['sales'] > 100, 'High', 'Low')`} />
                       <h4>Validar Decisiones</h4>
                     </div>
                     <PromptBox type="strong">
-                      "Estoy pensando en usar SMOTE para balancear mis clases. ¿Es esta la mejor opción o existen alternativas más efectivas?
-                      ¿Cuáles serían los riesgos de usar SMOTE en mi caso?"
+                      "Estoy pensando en usar SMOTE para balancear mis clases. ¿Es esta la mejor
+                      opción o existen alternativas más efectivas? ¿Cuáles serían los riesgos de
+                      usar SMOTE en mi caso?"
                     </PromptBox>
                   </div>
 
@@ -389,8 +482,9 @@ df['label'] = np.where(df['sales'] > 100, 'High', 'Low')`} />
                       <h4>Iterar y Refinar</h4>
                     </div>
                     <PromptBox type="strong">
-                      "Propusiste usar MinMaxScaler. ¿Por qué no StandardScaler? ¿En qué casos uno es mejor que otro?
-                      Dado que tengo outliers en mi dataset, ¿cambiaría tu recomendación?"
+                      "Propusiste usar MinMaxScaler. ¿Por qué no StandardScaler? ¿En qué casos uno
+                      es mejor que otro? Dado que tengo outliers en mi dataset, ¿cambiaría tu
+                      recomendación?"
                     </PromptBox>
                   </div>
                 </div>
@@ -400,22 +494,30 @@ df['label'] = np.where(df['sales'] > 100, 'High', 'Low')`} />
                   <div className="workflow-boxes">
                     <div className="workflow-box">
                       <span className="workflow-step-num">1</span>
-                      <p><strong>Pregunta abierta:</strong> "¿Cómo resolverías este problema?"</p>
+                      <p>
+                        <strong>Pregunta abierta:</strong> "¿Cómo resolverías este problema?"
+                      </p>
                     </div>
                     <div className="workflow-arrow">→</div>
                     <div className="workflow-box">
                       <span className="workflow-step-num">2</span>
-                      <p><strong>Explora alternativas:</strong> "Dame 3 enfoques diferentes"</p>
+                      <p>
+                        <strong>Explora alternativas:</strong> "Dame 3 enfoques diferentes"
+                      </p>
                     </div>
                     <div className="workflow-arrow">→</div>
                     <div className="workflow-box">
                       <span className="workflow-step-num">3</span>
-                      <p><strong>Profundiza:</strong> "¿Por qué recomiendas X sobre Y?"</p>
+                      <p>
+                        <strong>Profundiza:</strong> "¿Por qué recomiendas X sobre Y?"
+                      </p>
                     </div>
                     <div className="workflow-arrow">→</div>
                     <div className="workflow-box">
                       <span className="workflow-step-num">4</span>
-                      <p><strong>Valida:</strong> "¿Qué podría salir mal con esta solución?"</p>
+                      <p>
+                        <strong>Valida:</strong> "¿Qué podría salir mal con esta solución?"
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -427,15 +529,26 @@ df['label'] = np.where(df['sales'] > 100, 'High', 'Low')`} />
           {activeSection === 'caso-real' && (
             <div className="section-content">
               <h2 className="section-title">8. Caso de Uso Real: Segmentación de Clientes</h2>
-              <p className="section-intro">Veamos un ejemplo completo de cómo usar Genia para resolver un problema real de negocio.</p>
+              <p className="section-intro">
+                Veamos un ejemplo completo de cómo usar Genia para resolver un problema real de
+                negocio.
+              </p>
 
               <div className="case-study">
                 <div className="case-context">
                   <h3 className="case-subtitle">📋 Contexto del Problema</h3>
                   <div className="context-box">
-                    <p><strong>Situación:</strong> Una empresa de e-commerce quiere segmentar a sus clientes para personalizar campañas de marketing.</p>
-                    <p><strong>Dataset:</strong> 50,000 clientes con datos de: compras históricas, frecuencia, monto promedio, categorías preferidas, días desde última compra.</p>
-                    <p><strong>Objetivo:</strong> Crear 4-5 segmentos significativos de clientes.</p>
+                    <p>
+                      <strong>Situación:</strong> Una empresa de e-commerce quiere segmentar a sus
+                      clientes para personalizar campañas de marketing.
+                    </p>
+                    <p>
+                      <strong>Dataset:</strong> 50,000 clientes con datos de: compras históricas,
+                      frecuencia, monto promedio, categorías preferidas, días desde última compra.
+                    </p>
+                    <p>
+                      <strong>Objetivo:</strong> Crear 4-5 segmentos significativos de clientes.
+                    </p>
                   </div>
                 </div>
 
@@ -449,12 +562,13 @@ df['label'] = np.where(df['sales'] > 100, 'High', 'Low')`} />
                     </div>
                     <div className="step-content">
                       <PromptBox type="strong">
-                        "Tengo un dataset de 50k clientes con las siguientes columnas: customer_id, total_purchases (int),
-                        avg_order_value (float), purchase_frequency (compras/mes), days_since_last_purchase (int),
-                        favorite_category (string).
-                        <br/><br/>
-                        Quiero segmentar a los clientes. ¿Qué técnica de clustering recomiendas y por qué?
-                        Dame al menos 2 opciones con sus pros/contras."
+                        "Tengo un dataset de 50k clientes con las siguientes columnas: customer_id,
+                        total_purchases (int), avg_order_value (float), purchase_frequency
+                        (compras/mes), days_since_last_purchase (int), favorite_category (string).
+                        <br />
+                        <br />
+                        Quiero segmentar a los clientes. ¿Qué técnica de clustering recomiendas y
+                        por qué? Dame al menos 2 opciones con sus pros/contras."
                       </PromptBox>
                     </div>
                   </div>
@@ -465,13 +579,17 @@ df['label'] = np.where(df['sales'] > 100, 'High', 'Low')`} />
                       <span className="step-title">Respuesta: Propuestas de Solución</span>
                     </div>
                     <div className="step-content response">
-                      <p><strong>Opción 1: K-Means</strong></p>
+                      <p>
+                        <strong>Opción 1: K-Means</strong>
+                      </p>
                       <ul>
                         <li>✅ Rápido y escalable</li>
                         <li>✅ Fácil de interpretar</li>
                         <li>❌ Sensible a outliers y escala</li>
                       </ul>
-                      <p><strong>Opción 2: DBSCAN</strong></p>
+                      <p>
+                        <strong>Opción 2: DBSCAN</strong>
+                      </p>
                       <ul>
                         <li>✅ Detecta formas arbitrarias</li>
                         <li>✅ Robusto a outliers</li>
@@ -487,11 +605,9 @@ df['label'] = np.where(df['sales'] > 100, 'High', 'Low')`} />
                     </div>
                     <div className="step-content">
                       <PromptBox type="strong">
-                        "Voy a usar K-Means. ¿Qué preprocesamiento necesito? Genera el código Python para:
-                        1. Normalizar las variables numéricas
-                        2. Codificar 'favorite_category'
-                        3. Manejar outliers extremos
-                        Usa RobustScaler porque tengo outliers."
+                        "Voy a usar K-Means. ¿Qué preprocesamiento necesito? Genera el código Python
+                        para: 1. Normalizar las variables numéricas 2. Codificar 'favorite_category'
+                        3. Manejar outliers extremos Usa RobustScaler porque tengo outliers."
                       </PromptBox>
                     </div>
                   </div>
@@ -502,7 +618,8 @@ df['label'] = np.where(df['sales'] > 100, 'High', 'Low')`} />
                       <span className="step-title">Código Generado</span>
                     </div>
                     <div className="step-content">
-                      <CodeBlock code={`from sklearn.preprocessing import RobustScaler
+                      <CodeBlock
+                        code={`from sklearn.preprocessing import RobustScaler
 from sklearn.preprocessing import LabelEncoder
 import pandas as pd
 
@@ -520,7 +637,8 @@ scaler = RobustScaler()
 df[numerical_features] = scaler.fit_transform(df[numerical_features])
 
 # 4. Dataset final para clustering
-X = df[numerical_features + ['category_encoded']]`} />
+X = df[numerical_features + ['category_encoded']]`}
+                      />
                     </div>
                   </div>
 
@@ -531,8 +649,9 @@ X = df[numerical_features + ['category_encoded']]`} />
                     </div>
                     <div className="step-content">
                       <PromptBox type="strong">
-                        "Ahora implementa K-Means. Usa el método del codo para encontrar el K óptimo entre 3 y 8 clusters.
-                        Genera un gráfico con matplotlib que muestre la inercia vs número de clusters."
+                        "Ahora implementa K-Means. Usa el método del codo para encontrar el K óptimo
+                        entre 3 y 8 clusters. Genera un gráfico con matplotlib que muestre la
+                        inercia vs número de clusters."
                       </PromptBox>
                     </div>
                   </div>
@@ -543,7 +662,8 @@ X = df[numerical_features + ['category_encoded']]`} />
                       <span className="step-title">Código Generado</span>
                     </div>
                     <div className="step-content">
-                      <CodeBlock code={`from sklearn.cluster import KMeans
+                      <CodeBlock
+                        code={`from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
 # Método del codo
@@ -566,7 +686,8 @@ plt.show()
 
 # Aplicar clustering con K óptimo (ejemplo: 5)
 kmeans_final = KMeans(n_clusters=5, random_state=42, n_init=10)
-df['cluster'] = kmeans_final.fit_predict(X)`} />
+df['cluster'] = kmeans_final.fit_predict(X)`}
+                      />
                     </div>
                   </div>
 
@@ -577,10 +698,9 @@ df['cluster'] = kmeans_final.fit_predict(X)`} />
                     </div>
                     <div className="step-content">
                       <PromptBox type="strong">
-                        "Perfecto. Ahora ayúdame a interpretar los clusters. Genera código que muestre:
-                        - Tamaño de cada cluster
-                        - Promedio de cada variable por cluster
-                        - Crea nombres descriptivos para cada segmento basados en sus características"
+                        "Perfecto. Ahora ayúdame a interpretar los clusters. Genera código que
+                        muestre: - Tamaño de cada cluster - Promedio de cada variable por cluster -
+                        Crea nombres descriptivos para cada segmento basados en sus características"
                       </PromptBox>
                     </div>
                   </div>
@@ -591,19 +711,30 @@ df['cluster'] = kmeans_final.fit_predict(X)`} />
                   <div className="takeaway-grid">
                     <div className="takeaway-item">
                       <CheckCircle2 className="takeaway-icon" />
-                      <p><strong>Conversación iterativa:</strong> Cada prompt construye sobre el anterior</p>
+                      <p>
+                        <strong>Conversación iterativa:</strong> Cada prompt construye sobre el
+                        anterior
+                      </p>
                     </div>
                     <div className="takeaway-item">
                       <CheckCircle2 className="takeaway-icon" />
-                      <p><strong>Contexto específico:</strong> Siempre incluye detalles del dataset</p>
+                      <p>
+                        <strong>Contexto específico:</strong> Siempre incluye detalles del dataset
+                      </p>
                     </div>
                     <div className="takeaway-item">
                       <CheckCircle2 className="takeaway-icon" />
-                      <p><strong>Validación constante:</strong> Pregunta por alternativas y trade-offs</p>
+                      <p>
+                        <strong>Validación constante:</strong> Pregunta por alternativas y
+                        trade-offs
+                      </p>
                     </div>
                     <div className="takeaway-item">
                       <CheckCircle2 className="takeaway-icon" />
-                      <p><strong>Código + Entendimiento:</strong> No solo código, también explicaciones</p>
+                      <p>
+                        <strong>Código + Entendimiento:</strong> No solo código, también
+                        explicaciones
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -621,9 +752,18 @@ df['cluster'] = kmeans_final.fit_predict(X)`} />
                     <AlertTriangle className="validation-icon" /> Errores Críticos
                   </h3>
                   <ul className="validation-list">
-                    <li className="validation-item"><strong>1. Alucinación de Librerías:</strong> Genia sugiere `pandas.magic_clean()` (que no existe).</li>
-                    <li className="validation-item"><strong>2. Bias de Entrenamiento:</strong> Sugiere modelos que no se adaptan al desbalanceo de tus clases.</li>
-                    <li className="validation-item"><strong>3. Código Depreciado:</strong> Usa funciones que en la versión actual de Scikit-Learn lanzan un `FutureWarning`.</li>
+                    <li className="validation-item">
+                      <strong>1. Alucinación de Librerías:</strong> Genia sugiere
+                      `pandas.magic_clean()` (que no existe).
+                    </li>
+                    <li className="validation-item">
+                      <strong>2. Bias de Entrenamiento:</strong> Sugiere modelos que no se adaptan
+                      al desbalanceo de tus clases.
+                    </li>
+                    <li className="validation-item">
+                      <strong>3. Código Depreciado:</strong> Usa funciones que en la versión actual
+                      de Scikit-Learn lanzan un `FutureWarning`.
+                    </li>
                   </ul>
                 </div>
 
@@ -632,7 +772,12 @@ df['cluster'] = kmeans_final.fit_predict(X)`} />
                     <ShieldCheck className="validation-icon" /> Senior Checklist
                   </h3>
                   <div className="checklist">
-                    {["¿El código maneja NaNs?", "¿Es el algoritmo adecuado para el tamaño del dato?", "¿La métrica de evaluación es razonable (ej. F1 vs Accuracy)?", "¿Es legible para otros humanos?"].map((check, i) => (
+                    {[
+                      '¿El código maneja NaNs?',
+                      '¿Es el algoritmo adecuado para el tamaño del dato?',
+                      '¿La métrica de evaluación es razonable (ej. F1 vs Accuracy)?',
+                      '¿Es legible para otros humanos?',
+                    ].map((check, i) => (
                       <label key={i} className="checklist-item">
                         <input type="checkbox" className="checklist-checkbox" />
                         <span className="checklist-text">{check}</span>
@@ -643,13 +788,11 @@ df['cluster'] = kmeans_final.fit_predict(X)`} />
               </div>
             </div>
           )}
-
         </main>
       </div>
 
       {/* Footer */}
-      <footer className="genia-footer">
-      </footer>
+      <footer className="genia-footer"></footer>
     </div>
   );
 };

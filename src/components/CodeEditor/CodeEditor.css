@@ -17,7 +17,8 @@
 }
 
 /* ━━━━━ DARK THEME SYNTAX HIGHLIGHTING ━━━━━ */
-:root, [data-theme="dark"] {
+:root,
+[data-theme='dark'] {
   /* Python syntax colors for dark theme */
   --prism-comment: #546e8a;
   --prism-keyword: #c792ea;
@@ -32,7 +33,7 @@
 }
 
 /* ━━━━━ LIGHT THEME SYNTAX HIGHLIGHTING ━━━━━ */
-[data-theme="light"] {
+[data-theme='light'] {
   /* Python syntax colors for light theme */
   --prism-comment: #708090;
   --prism-keyword: #9c27b0;

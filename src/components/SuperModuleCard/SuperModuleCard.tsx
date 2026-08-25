@@ -1,4 +1,14 @@
-import { Lock, Terminal, Layers, Code2, Table2, TrendingUp, FolderKanban, ChevronRight } from 'lucide-react';
+import { memo } from 'react';
+import {
+  Lock,
+  Terminal,
+  Layers,
+  Code2,
+  Table2,
+  TrendingUp,
+  FolderKanban,
+  ChevronRight,
+} from 'lucide-react';
 import type { SuperModule } from '../../types';
 import './SuperModuleCard.css';
 
@@ -16,7 +26,10 @@ const iconMap: Record<string, typeof Terminal> = {
   FolderKanban,
 };
 
-export function SuperModuleCard({ superModule, onSelect }: SuperModuleCardProps) {
+export const SuperModuleCard = memo(function SuperModuleCard({
+  superModule,
+  onSelect,
+}: SuperModuleCardProps) {
   const handleClick = () => {
     if (superModule.isAvailable) {
       onSelect(superModule.id);
@@ -29,10 +42,12 @@ export function SuperModuleCard({ superModule, onSelect }: SuperModuleCardProps)
     <div
       className={`super-module-card ${!superModule.isAvailable ? 'locked' : ''}`}
       onClick={handleClick}
-      style={{
-        '--module-color': superModule.color,
-        '--module-color-light': `${superModule.color}15`
-      } as React.CSSProperties}
+      style={
+        {
+          '--module-color': superModule.color,
+          '--module-color-light': `${superModule.color}15`,
+        } as React.CSSProperties
+      }
     >
       <div className="super-module-card-header">
         <div className="super-module-icon-container">
@@ -65,4 +80,4 @@ export function SuperModuleCard({ superModule, onSelect }: SuperModuleCardProps)
       )}
     </div>
   );
-}
+});

@@ -14,7 +14,8 @@ export const module01: Section = {
     {
       icon: '🖨️',
       title: 'Mostrar información: print()',
-      content: 'La función <span class="inline-code">print()</span> te permite <strong>mostrar</strong> información en la consola. Es fundamental para ver los resultados de tu código.',
+      content:
+        'La función <span class="inline-code">print()</span> te permite <strong>mostrar</strong> información en la consola. Es fundamental para ver los resultados de tu código.',
       codeExample: {
         filename: 'hola_mundo.py',
         code: `<span class="comment"># Tu primer programa en Python</span>
@@ -28,7 +29,8 @@ export const module01: Section = {
     {
       icon: '📦',
       title: '¿Qué es una variable?',
-      content: 'Una variable es un <strong>nombre</strong> que apunta a un valor almacenado en memoria. En Python no necesitas declarar el tipo — se infiere automáticamente.',
+      content:
+        'Una variable es un <strong>nombre</strong> que apunta a un valor almacenado en memoria. En Python no necesitas declarar el tipo — se infiere automáticamente.',
       codeExample: {
         filename: 'ejemplo.py',
         code: `<span class="comment"># Asignación de variables</span>
@@ -50,17 +52,34 @@ export const module01: Section = {
         headers: ['Tipo', 'Descripción', 'Ejemplo'],
         rows: [
           { Tipo: '<code>int</code>', Descripción: 'Número entero', Ejemplo: '<code>42</code>' },
-          { Tipo: '<code>float</code>', Descripción: 'Número decimal', Ejemplo: '<code>3.14</code>' },
-          { Tipo: '<code>str</code>', Descripción: 'Cadena de texto', Ejemplo: '<code>"Hola"</code>' },
-          { Tipo: '<code>bool</code>', Descripción: 'Verdadero o falso', Ejemplo: '<code>True / False</code>' },
-          { Tipo: '<code>NoneType</code>', Descripción: 'Ausencia de valor', Ejemplo: '<code>None</code>' },
+          {
+            Tipo: '<code>float</code>',
+            Descripción: 'Número decimal',
+            Ejemplo: '<code>3.14</code>',
+          },
+          {
+            Tipo: '<code>str</code>',
+            Descripción: 'Cadena de texto',
+            Ejemplo: '<code>"Hola"</code>',
+          },
+          {
+            Tipo: '<code>bool</code>',
+            Descripción: 'Verdadero o falso',
+            Ejemplo: '<code>True / False</code>',
+          },
+          {
+            Tipo: '<code>NoneType</code>',
+            Descripción: 'Ausencia de valor',
+            Ejemplo: '<code>None</code>',
+          },
         ],
       },
     },
     {
       icon: '🖨️',
       title: 'Imprimir múltiples valores',
-      content: 'Puedes usar <span class="inline-code">print()</span> con varios argumentos separados por comas para combinar texto y variables. Python automáticamente agrega un espacio entre cada valor.',
+      content:
+        'Puedes usar <span class="inline-code">print()</span> con varios argumentos separados por comas para combinar texto y variables. Python automáticamente agrega un espacio entre cada valor.',
       codeExample: {
         filename: 'print_multiple.py',
         code: `<span class="identifier">nombre</span> = <span class="string">"Ana"</span>
@@ -77,13 +96,15 @@ export const module01: Section = {
   ],
   tipBox: {
     icon: '💡',
-    content: 'Los nombres de variables deben empezar con una letra o guión bajo, no pueden tener espacios y son <strong>sensibles a mayúsculas</strong> (<span class="inline-code">edad</span> ≠ <span class="inline-code">Edad</span>).',
+    content:
+      'Los nombres de variables deben empezar con una letra o guión bajo, no pueden tener espacios y son <strong>sensibles a mayúsculas</strong> (<span class="inline-code">edad</span> ≠ <span class="inline-code">Edad</span>).',
   },
   exercises: [
     {
       id: 'ex-1-1',
       number: 'EJERCICIO 1.1',
-      description: 'Crea una variable llamada <span class="inline-code">nombre</span> con tu nombre (entre comillas). Luego usa <span class="inline-code">print()</span> para mostrar tu variable.',
+      description:
+        'Crea una variable llamada <span class="inline-code">nombre</span> con tu nombre (entre comillas). Luego usa <span class="inline-code">print()</span> para mostrar tu variable.',
       expectedOutput: '', // No se usa en validación custom
       validationMode: 'custom',
       customValidator: validateVariableAndPrint,
@@ -91,7 +112,8 @@ export const module01: Section = {
     {
       id: 'ex-1-2',
       number: 'EJERCICIO 1.2',
-      description: 'Crea una variable <span class="inline-code">pi</span> con valor <span class="inline-code">3.14159</span> y una variable <span class="inline-code">es_positivo</span> con valor <span class="inline-code">True</span>.<br><br>Imprime el tipo de cada una usando <span class="inline-code">type()</span>.',
+      description:
+        'Crea una variable <span class="inline-code">pi</span> con valor <span class="inline-code">3.14159</span> y una variable <span class="inline-code">es_positivo</span> con valor <span class="inline-code">True</span>.<br><br>Imprime el tipo de cada una usando <span class="inline-code">type()</span>.',
       expectedOutput: '', // No se usa en validación custom
       validationMode: 'custom',
       customValidator: validateTwoVariablesAndTypes,
@@ -99,7 +121,8 @@ export const module01: Section = {
     {
       id: 'ex-1-3',
       number: 'EJERCICIO 1.3',
-      description: 'Crea dos variables: <span class="inline-code">ciudad</span> con tu ciudad y <span class="inline-code">pais</span> con tu país.<br><br>Usa <span class="inline-code">print()</span> para mostrar un mensaje como: "Vivo en [ciudad], [pais]" combinando texto y variables con comas.',
+      description:
+        'Crea dos variables: <span class="inline-code">ciudad</span> con tu ciudad y <span class="inline-code">pais</span> con tu país.<br><br>Usa <span class="inline-code">print()</span> para mostrar un mensaje como: "Vivo en [ciudad], [pais]" combinando texto y variables con comas.',
       expectedOutput: '', // No se usa en validación custom
       validationMode: 'custom',
       customValidator: validatePrintWithTextAndVariables,

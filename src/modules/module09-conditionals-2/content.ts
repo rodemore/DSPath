@@ -16,7 +16,8 @@ export const module09: Section = {
     {
       icon: '🔀',
       title: 'La estructura IF-ELSE',
-      content: 'Con <span class="inline-code">if</span> solo, el código se ejecuta si la condición es verdadera. Con <span class="inline-code">else</span> podemos especificar qué hacer cuando la condición es <strong>falsa</strong>. Es como decir: "si se cumple esto, haz A, de lo contrario, haz B".',
+      content:
+        'Con <span class="inline-code">if</span> solo, el código se ejecuta si la condición es verdadera. Con <span class="inline-code">else</span> podemos especificar qué hacer cuando la condición es <strong>falsa</strong>. Es como decir: "si se cumple esto, haz A, de lo contrario, haz B".',
       codeExample: {
         filename: 'if_else.py',
         code: `<span class="identifier">edad</span> = <span class="number">15</span>
@@ -32,7 +33,8 @@ export const module09: Section = {
         {
           id: 'ex-9-1',
           number: 'EJERCICIO 9.1',
-          description: 'Crea una variable <span class="inline-code">temperatura = 30</span>.<br><br>Usa <span class="inline-code">if-else</span> para verificar si la temperatura es mayor a 25. Si es así, imprime "Hace calor", de lo contrario imprime "Clima agradable".',
+          description:
+            'Crea una variable <span class="inline-code">temperatura = 30</span>.<br><br>Usa <span class="inline-code">if-else</span> para verificar si la temperatura es mayor a 25. Si es así, imprime "Hace calor", de lo contrario imprime "Clima agradable".',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateIfElse,
@@ -42,7 +44,8 @@ export const module09: Section = {
     {
       icon: '💡',
       title: 'IF-ELSE en acción',
-      content: 'Veamos más ejemplos prácticos de cómo usar <span class="inline-code">if-else</span> en situaciones reales:',
+      content:
+        'Veamos más ejemplos prácticos de cómo usar <span class="inline-code">if-else</span> en situaciones reales:',
       codeExample: {
         filename: 'ejemplos_if_else.py',
         code: `<span class="identifier">temperatura</span> = <span class="number">18</span>
@@ -68,7 +71,8 @@ export const module09: Section = {
         {
           id: 'ex-9-2',
           number: 'EJERCICIO 9.2',
-          description: 'Crea una variable <span class="inline-code">edad = 16</span>.<br><br>Usa <span class="inline-code">if-else</span> para verificar si la edad es mayor o igual a 18. Si es así, imprime "Puedes votar", de lo contrario imprime "No puedes votar aún".',
+          description:
+            'Crea una variable <span class="inline-code">edad = 16</span>.<br><br>Usa <span class="inline-code">if-else</span> para verificar si la edad es mayor o igual a 18. Si es así, imprime "Puedes votar", de lo contrario imprime "No puedes votar aún".',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateIfElseAge,
@@ -78,7 +82,8 @@ export const module09: Section = {
     {
       icon: '🎯',
       title: 'La estructura IF-ELIF-ELSE',
-      content: '<span class="inline-code">elif</span> (abreviatura de "else if") permite evaluar <strong>múltiples condiciones</strong> en secuencia. Python evalúa cada condición en orden y ejecuta el primer bloque cuya condición sea verdadera.',
+      content:
+        '<span class="inline-code">elif</span> (abreviatura de "else if") permite evaluar <strong>múltiples condiciones</strong> en secuencia. Python evalúa cada condición en orden y ejecuta el primer bloque cuya condición sea verdadera.',
       codeExample: {
         filename: 'if_elif_else.py',
         code: `<span class="identifier">nota</span> = <span class="number">75</span>
@@ -98,7 +103,8 @@ export const module09: Section = {
         {
           id: 'ex-9-3',
           number: 'EJERCICIO 9.3',
-          description: 'Crea una variable <span class="inline-code">hora = 14</span>.<br><br>Usa <span class="inline-code">if-elif-else</span> para imprimir un saludo según la hora:<br>- Si hora &lt; 12: "Buenos días"<br>- Si hora &lt; 18: "Buenas tardes"<br>- De lo contrario: "Buenas noches"',
+          description:
+            'Crea una variable <span class="inline-code">hora = 14</span>.<br><br>Usa <span class="inline-code">if-elif-else</span> para imprimir un saludo según la hora:<br>- Si hora &lt; 12: "Buenos días"<br>- Si hora &lt; 18: "Buenas tardes"<br>- De lo contrario: "Buenas noches"',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateIfElifElse,
@@ -108,7 +114,8 @@ export const module09: Section = {
     {
       icon: '📊',
       title: 'Orden de evaluación en IF-ELIF-ELSE',
-      content: 'Es importante entender que Python evalúa las condiciones <strong>de arriba hacia abajo</strong> y se detiene en la primera que sea verdadera. Las condiciones posteriores no se evalúan.',
+      content:
+        'Es importante entender que Python evalúa las condiciones <strong>de arriba hacia abajo</strong> y se detiene en la primera que sea verdadera. Las condiciones posteriores no se evalúan.',
       codeExample: {
         filename: 'orden_evaluacion.py',
         code: `<span class="identifier">edad</span> = <span class="number">25</span>
@@ -130,7 +137,8 @@ export const module09: Section = {
         {
           id: 'ex-9-4',
           number: 'EJERCICIO 9.4',
-          description: 'Crea una variable <span class="inline-code">nota = 78</span>.<br><br>Usa <span class="inline-code">if-elif-else</span> para clasificar la nota:<br>- Si nota &gt;&#61; 90: "Excelente"<br>- Si nota &gt;&#61; 80: "Muy bueno"<br>- Si nota &gt;&#61; 70: "Bueno"<br>- Si nota &gt;&#61; 60: "Aprobado"<br>- De lo contrario: "Reprobado"',
+          description:
+            'Crea una variable <span class="inline-code">nota = 78</span>.<br><br>Usa <span class="inline-code">if-elif-else</span> para clasificar la nota:<br>- Si nota &gt;&#61; 90: "Excelente"<br>- Si nota &gt;&#61; 80: "Muy bueno"<br>- Si nota &gt;&#61; 70: "Bueno"<br>- Si nota &gt;&#61; 60: "Aprobado"<br>- De lo contrario: "Reprobado"',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateIfElifElseGrade,
@@ -169,7 +177,8 @@ export const module09: Section = {
     {
       icon: '🔧',
       title: 'Condiciones anidadas',
-      content: 'Puedes colocar estructuras <span class="inline-code">if</span> dentro de otras estructuras <span class="inline-code">if</span>. Esto se llama <strong>anidamiento</strong>. Es útil para condiciones más complejas.',
+      content:
+        'Puedes colocar estructuras <span class="inline-code">if</span> dentro de otras estructuras <span class="inline-code">if</span>. Esto se llama <strong>anidamiento</strong>. Es útil para condiciones más complejas.',
       codeExample: {
         filename: 'anidadas.py',
         code: `<span class="identifier">edad</span> = <span class="number">20</span>
@@ -191,7 +200,8 @@ export const module09: Section = {
         {
           id: 'ex-9-5',
           number: 'EJERCICIO 9.5',
-          description: 'Crea tres variables: <span class="inline-code">edad = 25</span>, <span class="inline-code">es_estudiante = True</span> y <span class="inline-code">tiene_descuento = False</span>.<br><br>Usa <span class="inline-code">if-elif-else</span> para determinar el precio del boleto:<br>- Si edad &lt; 18 OR es_estudiante: imprime "Precio: $5"<br>- Si edad &gt;&#61; 65: imprime "Precio: $7"<br>- De lo contrario: imprime "Precio: $10"',
+          description:
+            'Crea tres variables: <span class="inline-code">edad = 25</span>, <span class="inline-code">es_estudiante = True</span> y <span class="inline-code">tiene_descuento = False</span>.<br><br>Usa <span class="inline-code">if-elif-else</span> para determinar el precio del boleto:<br>- Si edad &lt; 18 OR es_estudiante: imprime "Precio: $5"<br>- Si edad &gt;&#61; 65: imprime "Precio: $7"<br>- De lo contrario: imprime "Precio: $10"',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateComplexConditions,
@@ -201,7 +211,8 @@ export const module09: Section = {
   ],
   tipBox: {
     icon: '⚠️',
-    content: '<strong>Importante:</strong> Recuerda que <span class="inline-code">elif</span> y <span class="inline-code">else</span> solo funcionan después de un <span class="inline-code">if</span>. No pueden existir solos. Además, <span class="inline-code">else</span> siempre debe ir al final.',
+    content:
+      '<strong>Importante:</strong> Recuerda que <span class="inline-code">elif</span> y <span class="inline-code">else</span> solo funcionan después de un <span class="inline-code">if</span>. No pueden existir solos. Además, <span class="inline-code">else</span> siempre debe ir al final.',
   },
   exercises: [],
 };

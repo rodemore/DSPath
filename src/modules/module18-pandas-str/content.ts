@@ -1,10 +1,6 @@
 import type { Section } from '../../types';
 import { TIPS_CSV } from '../module14-pandas-dataframes/tipsData';
-import {
-  validateStrLower,
-  validateStrContains,
-  validateStrReplace,
-} from './validators';
+import { validateStrLower, validateStrContains, validateStrReplace } from './validators';
 
 export const module18: Section = {
   id: 17,
@@ -34,7 +30,8 @@ if not hasattr(pd, '_tips_df_cached'):
     {
       icon: '🔤',
       title: '¿Qué es el accessor .str?',
-      content: 'Pandas incluye el accessor <span class="inline-code">.str</span> que permite aplicar operaciones de texto directamente sobre una columna entera. En lugar de iterar fila por fila, escribes una sola línea y Pandas lo aplica a todos los valores automáticamente.',
+      content:
+        'Pandas incluye el accessor <span class="inline-code">.str</span> que permite aplicar operaciones de texto directamente sobre una columna entera. En lugar de iterar fila por fila, escribes una sola línea y Pandas lo aplica a todos los valores automáticamente.',
       codeExample: {
         filename: 'str_intro.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -55,7 +52,8 @@ if not hasattr(pd, '_tips_df_cached'):
     {
       icon: '🔡',
       title: '.str.lower() y .str.upper(): cambiar mayúsculas',
-      content: 'Convierte todos los valores de una columna a minúsculas o mayúsculas. Muy útil para normalizar datos antes de comparar o filtrar.',
+      content:
+        'Convierte todos los valores de una columna a minúsculas o mayúsculas. Muy útil para normalizar datos antes de comparar o filtrar.',
       codeExample: {
         filename: 'lower_upper.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -74,7 +72,8 @@ if not hasattr(pd, '_tips_df_cached'):
         {
           id: 'ex-19-1',
           number: 'EJERCICIO 19.1',
-          description: 'Crea una columna <span class="inline-code">day_lower</span> con los valores de <span class="inline-code">day</span> en minúsculas usando <span class="inline-code">.str.lower()</span>. Imprime las primeras 5 filas mostrando <span class="inline-code">day</span> y <span class="inline-code">day_lower</span>.',
+          description:
+            'Crea una columna <span class="inline-code">day_lower</span> con los valores de <span class="inline-code">day</span> en minúsculas usando <span class="inline-code">.str.lower()</span>. Imprime las primeras 5 filas mostrando <span class="inline-code">day</span> y <span class="inline-code">day_lower</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateStrLower,
@@ -90,7 +89,8 @@ df = pd.read_csv('tips.csv', sep='|')
     {
       icon: '🔍',
       title: '.str.contains(): buscar texto dentro de una columna',
-      content: '<span class="inline-code">.str.contains()</span> devuelve <span class="inline-code">True</span> o <span class="inline-code">False</span> por cada fila según si el texto buscado aparece en el valor. Es perfecto para usarlo como filtro.',
+      content:
+        '<span class="inline-code">.str.contains()</span> devuelve <span class="inline-code">True</span> o <span class="inline-code">False</span> por cada fila según si el texto buscado aparece en el valor. Es perfecto para usarlo como filtro.',
       codeExample: {
         filename: 'str_contains.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -109,7 +109,8 @@ df = pd.read_csv('tips.csv', sep='|')
         {
           id: 'ex-19-2',
           number: 'EJERCICIO 19.2',
-          description: 'Usa <span class="inline-code">.str.contains()</span> para filtrar las filas del fin de semana (<span class="inline-code">day</span> es <span class="inline-code">"Sat"</span> o <span class="inline-code">"Sun"</span>). Guarda el resultado en <span class="inline-code">fin_de_semana</span> e imprime las primeras 5 filas.',
+          description:
+            'Usa <span class="inline-code">.str.contains()</span> para filtrar las filas del fin de semana (<span class="inline-code">day</span> es <span class="inline-code">"Sat"</span> o <span class="inline-code">"Sun"</span>). Guarda el resultado en <span class="inline-code">fin_de_semana</span> e imprime las primeras 5 filas.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateStrContains,
@@ -125,7 +126,8 @@ df = pd.read_csv('tips.csv', sep='|')
     {
       icon: '🔄',
       title: '.str.replace(): reemplazar texto',
-      content: '<span class="inline-code">.str.replace(valor_viejo, valor_nuevo)</span> reemplaza todas las ocurrencias de un texto por otro. Muy útil para traducir valores, limpiar datos o estandarizar categorías.',
+      content:
+        '<span class="inline-code">.str.replace(valor_viejo, valor_nuevo)</span> reemplaza todas las ocurrencias de un texto por otro. Muy útil para traducir valores, limpiar datos o estandarizar categorías.',
       codeExample: {
         filename: 'str_replace.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -142,7 +144,8 @@ df = pd.read_csv('tips.csv', sep='|')
         {
           id: 'ex-19-3',
           number: 'EJERCICIO 19.3',
-          description: 'Crea una columna <span class="inline-code">sex_es</span> traduciendo la columna <span class="inline-code">sex</span>: reemplaza <span class="inline-code">"Male"</span> por <span class="inline-code">"Hombre"</span> y <span class="inline-code">"Female"</span> por <span class="inline-code">"Mujer"</span> usando <span class="inline-code">.str.replace()</span>. Imprime las primeras 5 filas mostrando <span class="inline-code">sex</span> y <span class="inline-code">sex_es</span>.',
+          description:
+            'Crea una columna <span class="inline-code">sex_es</span> traduciendo la columna <span class="inline-code">sex</span>: reemplaza <span class="inline-code">"Male"</span> por <span class="inline-code">"Hombre"</span> y <span class="inline-code">"Female"</span> por <span class="inline-code">"Mujer"</span> usando <span class="inline-code">.str.replace()</span>. Imprime las primeras 5 filas mostrando <span class="inline-code">sex</span> y <span class="inline-code">sex_es</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateStrReplace,
@@ -158,7 +161,8 @@ df = pd.read_csv('tips.csv', sep='|')
     {
       icon: '📋',
       title: 'Resumen del accessor .str',
-      content: 'Los métodos más usados del accessor <span class="inline-code">.str</span> en Pandas:',
+      content:
+        'Los métodos más usados del accessor <span class="inline-code">.str</span> en Pandas:',
       table: {
         headers: ['Método', 'Qué hace', 'Ejemplo'],
         rows: [
@@ -189,7 +193,8 @@ df = pd.read_csv('tips.csv', sep='|')
 
   tipBox: {
     icon: '💡',
-    content: '<strong>Tip:</strong> <span class="inline-code">.str.contains()</span> acepta patrones con <span class="inline-code">|</span> para buscar varios valores a la vez: <span class="inline-code">df["day"].str.contains("Sat|Sun")</span> es equivalente a buscar Sat OR Sun.',
+    content:
+      '<strong>Tip:</strong> <span class="inline-code">.str.contains()</span> acepta patrones con <span class="inline-code">|</span> para buscar varios valores a la vez: <span class="inline-code">df["day"].str.contains("Sat|Sun")</span> es equivalente a buscar Sat OR Sun.',
   },
 
   exercises: [],

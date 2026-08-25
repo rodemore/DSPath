@@ -1,16 +1,12 @@
 import { useState } from 'react';
 import type { Exercise, ExerciseResult } from '../../types';
+import { usePyodideStore } from '@/stores/pyodideStore';
 import { CodeEditor } from '../CodeEditor';
 import { OutputArea } from '../OutputArea';
+import { APP_TEXTS } from '../../constants/texts';
 
 interface ExerciseCardProps {
   exercise: Exercise;
-  onRun: (
-    code: string,
-    expectedOutput: string,
-    customValidator?: (code: string, output: string) => { isValid: boolean; message?: string },
-    initialCode?: string
-  ) => Promise<ExerciseResult>;
   onComplete: (exerciseId: string) => void;
   sectionInitialCode?: string;
   savedCode?: string;
@@ -20,14 +16,16 @@ interface ExerciseCardProps {
 
 export const ExerciseCard = ({
   exercise,
-  onRun,
   onComplete,
   sectionInitialCode,
   savedCode,
   onSaveCode,
-  isCompleted = false
+  isCompleted = false,
 }: ExerciseCardProps) => {
-  const [result, setResult] = useState<ExerciseResult | null>(isCompleted ? { isCorrect: true, output: '', error: null } : null);
+  const { runCode } = usePyodideStore();
+  const [result, setResult] = useState<ExerciseResult | null>(
+    isCompleted ? { isCorrect: true, output: '', error: null } : null
+  );
   const [showOutput, setShowOutput] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
 
@@ -40,7 +38,12 @@ export const ExerciseCard = ({
       onSaveCode(code);
     }
 
-    const execResult = await onRun(code, exercise.expectedOutput, exercise.customValidator, sectionInitialCode);
+    const execResult = await runCode(
+      code,
+      exercise.expectedOutput,
+      exercise.customValidator,
+      sectionInitialCode
+    );
     setResult(execResult);
 
     if (execResult.isCorrect) {
@@ -64,17 +67,23 @@ export const ExerciseCard = ({
   };
 
   return (
-    <div className={getCardClassName()} id={exercise.id}>
-      <div className="task-number">
+    <div
+      className={getCardClassName()}
+      id={exercise.id}
+      role="region"
+      aria-labelledby={`exercise-desc-${exercise.id}`}
+    >
+      <div className="task-number" aria-hidden="true">
         {isCompleted ? `✓ ${exercise.number}` : exercise.number}
       </div>
       <div
         className="task-desc"
+        id={`exercise-desc-${exercise.id}`}
         dangerouslySetInnerHTML={{ __html: exercise.description }}
       />
       {exercise.validationMode !== 'custom' && exercise.expectedOutput && (
-        <div className="expected-output">
-          <strong>Salida esperada:</strong>
+        <div className="expected-output" aria-label="Salida esperada">
+          <strong>{APP_TEXTS.exercise.expectedOutput}:</strong>
           <br />
           {exercise.expectedOutput.split('\\n').map((line, i) => (
             <span key={i}>

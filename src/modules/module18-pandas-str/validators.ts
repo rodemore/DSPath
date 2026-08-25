@@ -1,13 +1,19 @@
 // Validadores para Módulo 19: Pandas - Operaciones con strings (.str)
 
-export const validateStrLower = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateStrLower = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
 
   const hasReadCsv = /pd\.read_csv\s*\(\s*['"]tips\.csv['"]/.test(code);
   if (!hasReadCsv) {
-    return { isValid: false, message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")' };
+    return {
+      isValid: false,
+      message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")',
+    };
   }
 
   const hasStrLower = /\.str\.lower\s*\(\s*\)/.test(code);
@@ -22,7 +28,10 @@ export const validateStrLower = (code: string, output: string): { isValid: boole
 
   const hasNewColumn = /df\s*\[\s*['"]day_lower['"]\s*\]/.test(code);
   if (!hasNewColumn) {
-    return { isValid: false, message: 'Guarda el resultado en una nueva columna llamada "day_lower"' };
+    return {
+      isValid: false,
+      message: 'Guarda el resultado en una nueva columna llamada "day_lower"',
+    };
   }
 
   const hasPrint = /print\s*\(/.test(code);
@@ -31,22 +40,35 @@ export const validateStrLower = (code: string, output: string): { isValid: boole
   }
 
   // Verificar que el output tiene valores en minúsculas
-  const hasLowerValues = output.includes('sun') || output.includes('sat') || output.includes('fri') || output.includes('thur');
+  const hasLowerValues =
+    output.includes('sun') ||
+    output.includes('sat') ||
+    output.includes('fri') ||
+    output.includes('thur');
   if (!hasLowerValues) {
-    return { isValid: false, message: 'El output debe mostrar los días en minúsculas (sun, sat, fri, thur)' };
+    return {
+      isValid: false,
+      message: 'El output debe mostrar los días en minúsculas (sun, sat, fri, thur)',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateStrContains = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateStrContains = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
 
   const hasReadCsv = /pd\.read_csv\s*\(\s*['"]tips\.csv['"]/.test(code);
   if (!hasReadCsv) {
-    return { isValid: false, message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")' };
+    return {
+      isValid: false,
+      message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")',
+    };
   }
 
   const hasStrContains = /\.str\.contains\s*\(/.test(code);
@@ -61,7 +83,10 @@ export const validateStrContains = (code: string, output: string): { isValid: bo
 
   const hasVariable = /fin_de_semana\s*=/.test(code);
   if (!hasVariable) {
-    return { isValid: false, message: 'Guarda el resultado en una variable llamada "fin_de_semana"' };
+    return {
+      isValid: false,
+      message: 'Guarda el resultado en una variable llamada "fin_de_semana"',
+    };
   }
 
   const hasPrint = /print\s*\(/.test(code);
@@ -71,7 +96,10 @@ export const validateStrContains = (code: string, output: string): { isValid: bo
 
   const hasWeekendOutput = output.includes('Sun') || output.includes('Sat');
   if (!hasWeekendOutput) {
-    return { isValid: false, message: 'El resultado debe contener filas del fin de semana (Sun o Sat)' };
+    return {
+      isValid: false,
+      message: 'El resultado debe contener filas del fin de semana (Sun o Sat)',
+    };
   }
 
   const hasFridayOutput = output.includes('Fri');
@@ -83,14 +111,20 @@ export const validateStrContains = (code: string, output: string): { isValid: bo
   return { isValid: true };
 };
 
-export const validateStrReplace = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateStrReplace = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
 
   const hasReadCsv = /pd\.read_csv\s*\(\s*['"]tips\.csv['"]/.test(code);
   if (!hasReadCsv) {
-    return { isValid: false, message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")' };
+    return {
+      isValid: false,
+      message: 'Debes cargar el dataset con pd.read_csv("tips.csv", sep="|")',
+    };
   }
 
   const hasStrReplace = /\.str\.replace\s*\(/.test(code);
@@ -122,7 +156,10 @@ export const validateStrReplace = (code: string, output: string): { isValid: boo
 
   const hasSpanishInOutput = output.includes('Hombre') || output.includes('Mujer');
   if (!hasSpanishInOutput) {
-    return { isValid: false, message: 'El output debe mostrar "Hombre" o "Mujer" en la columna sex_es' };
+    return {
+      isValid: false,
+      message: 'El output debe mostrar "Hombre" o "Mujer" en la columna sex_es',
+    };
   }
 
   return { isValid: true };

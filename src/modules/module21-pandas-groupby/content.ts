@@ -1,10 +1,6 @@
 import type { Section } from '../../types';
 import { TIPS_CSV } from '../module14-pandas-dataframes/tipsData';
-import {
-  validateGroupbyOne,
-  validateGroupbyTwo,
-  validateResetIndex,
-} from './validators';
+import { validateGroupbyOne, validateGroupbyTwo, validateResetIndex } from './validators';
 
 export const module21: Section = {
   id: 20,
@@ -34,7 +30,8 @@ if not hasattr(pd, '_tips_df_cached'):
     {
       icon: '🗂️',
       title: '¿Qué es GroupBy?',
-      content: '<span class="inline-code">.groupby()</span> divide el DataFrame en grupos según los valores de una columna, luego aplica una función a cada grupo por separado. El resultado es una tabla resumen: una fila por grupo. Piénsalo como: <strong>"divide → aplica → combina"</strong>.',
+      content:
+        '<span class="inline-code">.groupby()</span> divide el DataFrame en grupos según los valores de una columna, luego aplica una función a cada grupo por separado. El resultado es una tabla resumen: una fila por grupo. Piénsalo como: <strong>"divide → aplica → combina"</strong>.',
       codeExample: {
         filename: 'groupby_concepto.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -56,7 +53,8 @@ if not hasattr(pd, '_tips_df_cached'):
     {
       icon: '1️⃣',
       title: 'Agrupar por una columna',
-      content: 'La estructura básica es: <span class="inline-code">df.groupby("columna_grupo")["columna_valor"].funcion()</span>. Primero indicas <strong>por qué columna agrupar</strong>, luego <strong>qué columna calcular</strong>, y finalmente <strong>qué función aplicar</strong>.',
+      content:
+        'La estructura básica es: <span class="inline-code">df.groupby("columna_grupo")["columna_valor"].funcion()</span>. Primero indicas <strong>por qué columna agrupar</strong>, luego <strong>qué columna calcular</strong>, y finalmente <strong>qué función aplicar</strong>.',
       codeExample: {
         filename: 'groupby_una.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -79,7 +77,8 @@ if not hasattr(pd, '_tips_df_cached'):
         {
           id: 'ex-21-1',
           number: 'EJERCICIO 21.1',
-          description: 'Agrupa el DataFrame por la columna <span class="inline-code">day</span> y calcula el <strong>promedio</strong> de <span class="inline-code">total_bill</span> por día usando <span class="inline-code">.groupby()</span> y <span class="inline-code">.mean()</span>. Imprime el resultado.',
+          description:
+            'Agrupa el DataFrame por la columna <span class="inline-code">day</span> y calcula el <strong>promedio</strong> de <span class="inline-code">total_bill</span> por día usando <span class="inline-code">.groupby()</span> y <span class="inline-code">.mean()</span>. Imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateGroupbyOne,
@@ -95,7 +94,8 @@ df = pd.read_csv('tips.csv', sep='|')
     {
       icon: '2️⃣',
       title: 'Agrupar por dos columnas',
-      content: 'Para agrupar por más de una columna, pásalas dentro de una <strong>lista</strong> <span class="inline-code">[]</span>. El resultado tendrá una fila por cada combinación única de valores entre las dos columnas.',
+      content:
+        'Para agrupar por más de una columna, pásalas dentro de una <strong>lista</strong> <span class="inline-code">[]</span>. El resultado tendrá una fila por cada combinación única de valores entre las dos columnas.',
       codeExample: {
         filename: 'groupby_dos.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -117,7 +117,8 @@ df = pd.read_csv('tips.csv', sep='|')
         {
           id: 'ex-21-2',
           number: 'EJERCICIO 21.2',
-          description: 'Agrupa por <span class="inline-code">day</span> y <span class="inline-code">smoker</span> (usando una lista <span class="inline-code">[]</span>) y calcula el promedio de <span class="inline-code">tip</span>. Imprime el resultado.',
+          description:
+            'Agrupa por <span class="inline-code">day</span> y <span class="inline-code">smoker</span> (usando una lista <span class="inline-code">[]</span>) y calcula el promedio de <span class="inline-code">tip</span>. Imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateGroupbyTwo,
@@ -133,7 +134,8 @@ df = pd.read_csv('tips.csv', sep='|')
     {
       icon: '🔄',
       title: 'reset_index() y as_index=False',
-      content: 'Por defecto, las columnas de agrupación se convierten en el <strong>índice</strong> del resultado. Para que queden como columnas normales tienes dos opciones:<br><br><strong>Opción 1:</strong> Encadenar <span class="inline-code">.reset_index()</span> al final.<br><strong>Opción 2:</strong> Pasar <span class="inline-code">as_index=False</span> dentro del <span class="inline-code">.groupby()</span>. Ambas dan el mismo resultado: un DataFrame con índice numérico 0, 1, 2...',
+      content:
+        'Por defecto, las columnas de agrupación se convierten en el <strong>índice</strong> del resultado. Para que queden como columnas normales tienes dos opciones:<br><br><strong>Opción 1:</strong> Encadenar <span class="inline-code">.reset_index()</span> al final.<br><strong>Opción 2:</strong> Pasar <span class="inline-code">as_index=False</span> dentro del <span class="inline-code">.groupby()</span>. Ambas dan el mismo resultado: un DataFrame con índice numérico 0, 1, 2...',
       codeExample: {
         filename: 'reset_index.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -159,7 +161,8 @@ df = pd.read_csv('tips.csv', sep='|')
         {
           id: 'ex-21-3',
           number: 'EJERCICIO 21.3',
-          description: 'Agrupa por <span class="inline-code">day</span> y calcula el promedio de <span class="inline-code">total_bill</span>. Usa <span class="inline-code">.reset_index()</span> (o <span class="inline-code">as_index=False</span>) para obtener un DataFrame con índice numérico. Imprime el resultado.',
+          description:
+            'Agrupa por <span class="inline-code">day</span> y calcula el promedio de <span class="inline-code">total_bill</span>. Usa <span class="inline-code">.reset_index()</span> (o <span class="inline-code">as_index=False</span>) para obtener un DataFrame con índice numérico. Imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateResetIndex,
@@ -211,7 +214,8 @@ df = pd.read_csv('tips.csv', sep='|')
 
   tipBox: {
     icon: '💡',
-    content: '<strong>Tip:</strong> Puedes encadenar un filtro antes del groupby: <span class="inline-code">df[df["time"] == "Dinner"].groupby("day")["tip"].mean()</span> calcula el promedio de propinas solo en las cenas, por día.',
+    content:
+      '<strong>Tip:</strong> Puedes encadenar un filtro antes del groupby: <span class="inline-code">df[df["time"] == "Dinner"].groupby("day")["tip"].mean()</span> calcula el promedio de propinas solo en las cenas, por día.',
   },
 
   exercises: [],

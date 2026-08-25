@@ -1,6 +1,9 @@
 // Validadores para Módulo 17: Pandas - Filtros Avanzados
 
-export const validateIsin = (code: string, output: string): { isValid: boolean; message?: string } => {
+export const validateIsin = (
+  code: string,
+  output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -22,13 +25,19 @@ export const validateIsin = (code: string, output: string): { isValid: boolean; 
   const hasVirginica = /['"]virginica['"]/.test(code);
 
   if (!hasSetosa || !hasVirginica) {
-    return { isValid: false, message: 'Debes crear una lista con las especies "setosa" y "virginica"' };
+    return {
+      isValid: false,
+      message: 'Debes crear una lista con las especies "setosa" y "virginica"',
+    };
   }
 
   // Verificar que guarda en dos_especies
   const hasVariable = /dos_especies\s*=/.test(code);
   if (!hasVariable) {
-    return { isValid: false, message: 'Debes guardar el resultado en una variable llamada "dos_especies"' };
+    return {
+      isValid: false,
+      message: 'Debes guardar el resultado en una variable llamada "dos_especies"',
+    };
   }
 
   // Verificar que el output contiene setosa y virginica pero no versicolor
@@ -37,17 +46,27 @@ export const validateIsin = (code: string, output: string): { isValid: boolean; 
   const hasVersicolor = output.includes('versicolor');
 
   if (!hasSetosaOutput || !hasVirginicaOutput) {
-    return { isValid: false, message: 'El resultado debe contener flores de ambas especies: setosa y virginica' };
+    return {
+      isValid: false,
+      message: 'El resultado debe contener flores de ambas especies: setosa y virginica',
+    };
   }
 
   if (hasVersicolor) {
-    return { isValid: false, message: 'El resultado NO debe contener flores versicolor. Verifica tu lista de especies' };
+    return {
+      isValid: false,
+      message: 'El resultado NO debe contener flores versicolor. Verifica tu lista de especies',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateBetween = (code: string, _output: string): { isValid: boolean; message?: string } => {
+export const validateBetween = (
+  code: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -79,13 +98,20 @@ export const validateBetween = (code: string, _output: string): { isValid: boole
   // Verificar que guarda en rango_medio
   const hasVariable = /rango_medio\s*=/.test(code);
   if (!hasVariable) {
-    return { isValid: false, message: 'Debes guardar el resultado en una variable llamada "rango_medio"' };
+    return {
+      isValid: false,
+      message: 'Debes guardar el resultado en una variable llamada "rango_medio"',
+    };
   }
 
   return { isValid: true };
 };
 
-export const validateQuery = (code: string, _output: string): { isValid: boolean; message?: string } => {
+export const validateQuery = (
+  code: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _output: string
+): { isValid: boolean; message?: string } => {
   if (!code.trim()) {
     return { isValid: false, message: 'No has escrito ningún código' };
   }
@@ -117,13 +143,19 @@ export const validateQuery = (code: string, _output: string): { isValid: boolean
   // Verificar que usa 'and' (no necesariamente &, ya que en query se puede usar 'and')
   const hasAnd = /\sand\s/.test(code) || /&/.test(code);
   if (!hasAnd) {
-    return { isValid: false, message: 'Debes combinar ambas condiciones con "and" dentro de query()' };
+    return {
+      isValid: false,
+      message: 'Debes combinar ambas condiciones con "and" dentro de query()',
+    };
   }
 
   // Verificar que guarda en petalos_grandes
   const hasVariable = /petalos_grandes\s*=/.test(code);
   if (!hasVariable) {
-    return { isValid: false, message: 'Debes guardar el resultado en una variable llamada "petalos_grandes"' };
+    return {
+      isValid: false,
+      message: 'Debes guardar el resultado en una variable llamada "petalos_grandes"',
+    };
   }
 
   return { isValid: true };

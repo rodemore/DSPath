@@ -48,12 +48,14 @@ if not hasattr(pd, '_iris_df_cached'):
     {
       icon: '🐼',
       title: '¿Qué es Pandas?',
-      content: '<strong>Pandas</strong> es la librería más popular de Python para análisis y manipulación de datos. Es esencial para Data Science y permite trabajar con datos tabulares (como hojas de Excel o tablas de bases de datos) de forma eficiente y sencilla.',
+      content:
+        '<strong>Pandas</strong> es la librería más popular de Python para análisis y manipulación de datos. Es esencial para Data Science y permite trabajar con datos tabulares (como hojas de Excel o tablas de bases de datos) de forma eficiente y sencilla.',
     },
     {
       icon: '📊',
       title: 'DataFrames: Tablas en Python',
-      content: 'Un <strong>DataFrame</strong> es la estructura principal de Pandas. Es como una tabla o hoja de Excel: tiene filas y columnas con nombres. Cada columna puede contener un tipo de dato diferente (números, texto, fechas, etc.).',
+      content:
+        'Un <strong>DataFrame</strong> es la estructura principal de Pandas. Es como una tabla o hoja de Excel: tiene filas y columnas con nombres. Cada columna puede contener un tipo de dato diferente (números, texto, fechas, etc.).',
       codeExample: {
         filename: 'dataframe_concepto.py',
         code: `<span class="comment"># Un DataFrame es como esta tabla:</span>
@@ -67,7 +69,8 @@ if not hasattr(pd, '_iris_df_cached'):
     {
       icon: '📁',
       title: 'Cargar datos con read_csv()',
-      content: 'La forma más común de trabajar con Pandas es cargando datos desde un archivo CSV (valores separados por comas). Usamos <span class="inline-code">pd.read_csv()</span> para esto.',
+      content:
+        'La forma más común de trabajar con Pandas es cargando datos desde un archivo CSV (valores separados por comas). Usamos <span class="inline-code">pd.read_csv()</span> para esto.',
       codeExample: {
         filename: 'cargar_csv.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -82,7 +85,8 @@ if not hasattr(pd, '_iris_df_cached'):
     {
       icon: '👀',
       title: 'Explorar el DataFrame: head() y shape',
-      content: 'Para ver rápidamente cómo lucen nuestros datos, usamos <span class="inline-code">.head()</span> que muestra las primeras filas. Para saber cuántas filas y columnas tiene, usamos <span class="inline-code">.shape</span>.',
+      content:
+        'Para ver rápidamente cómo lucen nuestros datos, usamos <span class="inline-code">.head()</span> que muestra las primeras filas. Para saber cuántas filas y columnas tiene, usamos <span class="inline-code">.shape</span>.',
       codeExample: {
         filename: 'explorar.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -102,7 +106,8 @@ if not hasattr(pd, '_iris_df_cached'):
         {
           id: 'ex-13-1',
           number: 'EJERCICIO 13.1',
-          description: 'Importa pandas como <span class="inline-code">pd</span> y carga el archivo <span class="inline-code">iris.csv</span> en una variable llamada <span class="inline-code">df</span>.<br><br>Imprime el DataFrame usando <span class="inline-code">print(df.head())</span> para ver las primeras 5 filas.',
+          description:
+            'Importa pandas como <span class="inline-code">pd</span> y carga el archivo <span class="inline-code">iris.csv</span> en una variable llamada <span class="inline-code">df</span>.<br><br>Imprime el DataFrame usando <span class="inline-code">print(df.head())</span> para ver las primeras 5 filas.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateLoadDataFrame,
@@ -110,7 +115,8 @@ if not hasattr(pd, '_iris_df_cached'):
         {
           id: 'ex-13-2',
           number: 'EJERCICIO 13.2',
-          description: 'Usa <span class="inline-code">.shape</span> para ver las dimensiones del DataFrame (cuántas filas y columnas tiene). Imprime el resultado.',
+          description:
+            'Usa <span class="inline-code">.shape</span> para ver las dimensiones del DataFrame (cuántas filas y columnas tiene). Imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateShape,
@@ -126,7 +132,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '📌',
       title: 'Seleccionar una columna',
-      content: 'Para trabajar con una sola columna del DataFrame, usamos corchetes con el nombre de la columna. El resultado es una <strong>Serie</strong> (una columna de datos).',
+      content:
+        'Para trabajar con una sola columna del DataFrame, usamos corchetes con el nombre de la columna. El resultado es una <strong>Serie</strong> (una columna de datos).',
       codeExample: {
         filename: 'seleccionar_columna.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -149,7 +156,8 @@ df = pd.read_csv('iris.csv')
         {
           id: 'ex-13-3',
           number: 'EJERCICIO 13.3',
-          description: 'Selecciona solo la columna <span class="inline-code">species</span> y guárdala en una variable llamada <span class="inline-code">especies</span>. Imprime las primeras 5 valores con <span class="inline-code">print(especies.head())</span>.',
+          description:
+            'Selecciona solo la columna <span class="inline-code">species</span> y guárdala en una variable llamada <span class="inline-code">especies</span>. Imprime las primeras 5 valores con <span class="inline-code">print(especies.head())</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateSelectColumn,
@@ -165,7 +173,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '📋',
       title: 'Seleccionar múltiples columnas',
-      content: 'Para seleccionar varias columnas a la vez, pasamos una <strong>lista</strong> con los nombres de las columnas. El resultado es un nuevo DataFrame con solo esas columnas.',
+      content:
+        'Para seleccionar varias columnas a la vez, pasamos una <strong>lista</strong> con los nombres de las columnas. El resultado es un nuevo DataFrame con solo esas columnas.',
       codeExample: {
         filename: 'multiples_columnas.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -189,7 +198,8 @@ df = pd.read_csv('iris.csv')
         {
           id: 'ex-13-4',
           number: 'EJERCICIO 13.4',
-          description: 'Selecciona las columnas <span class="inline-code">sepal_length</span> y <span class="inline-code">sepal_width</span> (recuerda usar doble corchete). Guarda el resultado en <span class="inline-code">sepalos</span> e imprime las primeras 5 filas.',
+          description:
+            'Selecciona las columnas <span class="inline-code">sepal_length</span> y <span class="inline-code">sepal_width</span> (recuerda usar doble corchete). Guarda el resultado en <span class="inline-code">sepalos</span> e imprime las primeras 5 filas.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateSelectMultipleColumns,
@@ -205,7 +215,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '🔢',
       title: 'iloc: Selección por posición',
-      content: '<span class="inline-code">.iloc[]</span> permite seleccionar filas y columnas usando <strong>índices numéricos</strong> (posiciones). Es como trabajar con listas: el primer elemento es 0, el segundo es 1, etc.',
+      content:
+        '<span class="inline-code">.iloc[]</span> permite seleccionar filas y columnas usando <strong>índices numéricos</strong> (posiciones). Es como trabajar con listas: el primer elemento es 0, el segundo es 1, etc.',
       codeExample: {
         filename: 'iloc.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -231,7 +242,8 @@ df = pd.read_csv('iris.csv')
         {
           id: 'ex-13-5',
           number: 'EJERCICIO 13.5',
-          description: 'Usa <span class="inline-code">iloc</span> para seleccionar las filas de la 5 a la 10 (índices 5 a 9). Guarda el resultado en <span class="inline-code">subset</span> e imprímelo.',
+          description:
+            'Usa <span class="inline-code">iloc</span> para seleccionar las filas de la 5 a la 10 (índices 5 a 9). Guarda el resultado en <span class="inline-code">subset</span> e imprímelo.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateIloc,
@@ -247,7 +259,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '🏷️',
       title: 'loc: Selección por etiqueta',
-      content: '<span class="inline-code">.loc[]</span> permite seleccionar filas y columnas usando <strong>nombres</strong> o <strong>condiciones</strong>. Es más intuitivo cuando sabemos los nombres de las columnas o queremos filtrar datos.',
+      content:
+        '<span class="inline-code">.loc[]</span> permite seleccionar filas y columnas usando <strong>nombres</strong> o <strong>condiciones</strong>. Es más intuitivo cuando sabemos los nombres de las columnas o queremos filtrar datos.',
       codeExample: {
         filename: 'loc.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -272,7 +285,8 @@ df = pd.read_csv('iris.csv')
         {
           id: 'ex-13-6',
           number: 'EJERCICIO 13.6',
-          description: 'Usa <span class="inline-code">loc</span> para filtrar solo las flores de la especie <span class="inline-code">virginica</span>. Guarda el resultado en <span class="inline-code">virginicas</span> e imprime las primeras 5 filas.',
+          description:
+            'Usa <span class="inline-code">loc</span> para filtrar solo las flores de la especie <span class="inline-code">virginica</span>. Guarda el resultado en <span class="inline-code">virginicas</span> e imprime las primeras 5 filas.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateLoc,
@@ -289,7 +303,8 @@ df = pd.read_csv('iris.csv')
 
   tipBox: {
     icon: '💡',
-    content: '<strong>Diferencia clave:</strong> <span class="inline-code">iloc</span> usa números (posiciones), <span class="inline-code">loc</span> usa nombres y condiciones. Para empezar, <span class="inline-code">loc</span> es más intuitivo.',
+    content:
+      '<strong>Diferencia clave:</strong> <span class="inline-code">iloc</span> usa números (posiciones), <span class="inline-code">loc</span> usa nombres y condiciones. Para empezar, <span class="inline-code">loc</span> es más intuitivo.',
   },
 
   exercises: [],

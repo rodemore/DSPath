@@ -1,0 +1,32 @@
+# Dependencies
+node_modules
+server/node_modules
+
+# Build outputs
+dist
+dist-ssr
+build
+.vite
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+
+# Cache
+.cache
+.tmp
+
+# Coverage
+coverage
+
+# Generated files
+*.min.js
+*.min.css
+
+# Package manager files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

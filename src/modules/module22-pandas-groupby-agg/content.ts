@@ -1,10 +1,6 @@
 import type { Section } from '../../types';
 import { TIPS_CSV } from '../module14-pandas-dataframes/tipsData';
-import {
-  validateAggDict,
-  validateAggList,
-  validateAggComplete,
-} from './validators';
+import { validateAggDict, validateAggList, validateAggComplete } from './validators';
 
 export const module22: Section = {
   id: 21,
@@ -34,7 +30,8 @@ if not hasattr(pd, '_tips_df_cached'):
     {
       icon: '⚙️',
       title: '¿Por qué usar .agg()?',
-      content: 'El método <span class="inline-code">.groupby()</span> con una función simple como <span class="inline-code">.mean()</span> solo permite calcular <strong>una cosa a la vez</strong>. Con <span class="inline-code">.agg()</span> puedes calcular <strong>múltiples métricas de distintas columnas en una sola operación</strong>.',
+      content:
+        'El método <span class="inline-code">.groupby()</span> con una función simple como <span class="inline-code">.mean()</span> solo permite calcular <strong>una cosa a la vez</strong>. Con <span class="inline-code">.agg()</span> puedes calcular <strong>múltiples métricas de distintas columnas en una sola operación</strong>.',
       codeExample: {
         filename: 'agg_vs_simple.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -57,7 +54,8 @@ if not hasattr(pd, '_tips_df_cached'):
     {
       icon: '📖',
       title: '.agg() con diccionario: una función por columna',
-      content: 'Pasa un <strong>diccionario</strong> a <span class="inline-code">.agg()</span> donde cada clave es el nombre de una columna y el valor es la función a aplicar. Así puedes calcular cosas distintas en columnas distintas.',
+      content:
+        'Pasa un <strong>diccionario</strong> a <span class="inline-code">.agg()</span> donde cada clave es el nombre de una columna y el valor es la función a aplicar. Así puedes calcular cosas distintas en columnas distintas.',
       codeExample: {
         filename: 'agg_dict.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -82,7 +80,8 @@ if not hasattr(pd, '_tips_df_cached'):
         {
           id: 'ex-22-1',
           number: 'EJERCICIO 22.1',
-          description: 'Agrupa por <span class="inline-code">day</span> y usa <span class="inline-code">.agg()</span> con un diccionario para calcular: el <strong>promedio</strong> de <span class="inline-code">total_bill</span> y la <strong>suma</strong> de <span class="inline-code">tip</span>. Imprime el resultado.',
+          description:
+            'Agrupa por <span class="inline-code">day</span> y usa <span class="inline-code">.agg()</span> con un diccionario para calcular: el <strong>promedio</strong> de <span class="inline-code">total_bill</span> y la <strong>suma</strong> de <span class="inline-code">tip</span>. Imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateAggDict,
@@ -102,7 +101,8 @@ print(resultado)
     {
       icon: '📋',
       title: '.agg() con lista: varias funciones sobre la misma columna',
-      content: 'Si quieres aplicar <strong>varias funciones a la misma columna</strong>, pasa una <strong>lista</strong> como valor en el diccionario. El resultado tendrá columnas con nombres como <span class="inline-code">(columna, función)</span>.',
+      content:
+        'Si quieres aplicar <strong>varias funciones a la misma columna</strong>, pasa una <strong>lista</strong> como valor en el diccionario. El resultado tendrá columnas con nombres como <span class="inline-code">(columna, función)</span>.',
       codeExample: {
         filename: 'agg_list.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -128,7 +128,8 @@ print(resultado)
         {
           id: 'ex-22-2',
           number: 'EJERCICIO 22.2',
-          description: 'Agrupa por <span class="inline-code">day</span> y usa <span class="inline-code">.agg()</span> para calcular el <strong>promedio</strong>, <strong>máximo</strong> y <strong>mínimo</strong> de la columna <span class="inline-code">tip</span> (pasándolos en una lista). Imprime el resultado.',
+          description:
+            'Agrupa por <span class="inline-code">day</span> y usa <span class="inline-code">.agg()</span> para calcular el <strong>promedio</strong>, <strong>máximo</strong> y <strong>mínimo</strong> de la columna <span class="inline-code">tip</span> (pasándolos en una lista). Imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateAggList,
@@ -148,7 +149,8 @@ print(resultado)
     {
       icon: '🏆',
       title: '.agg() completo: distintas funciones por columna + reset_index()',
-      content: 'Combina todo lo aprendido: agrupa, aplica distintas funciones a distintas columnas con un diccionario, y usa <span class="inline-code">.reset_index()</span> para obtener un DataFrame limpio con índice numérico.',
+      content:
+        'Combina todo lo aprendido: agrupa, aplica distintas funciones a distintas columnas con un diccionario, y usa <span class="inline-code">.reset_index()</span> para obtener un DataFrame limpio con índice numérico.',
       codeExample: {
         filename: 'agg_completo.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -171,7 +173,8 @@ print(resultado)
         {
           id: 'ex-22-3',
           number: 'EJERCICIO 22.3',
-          description: 'Agrupa por <span class="inline-code">day</span> y usa <span class="inline-code">.agg()</span> con un diccionario para calcular el <strong>promedio</strong> y la <strong>suma</strong> de <span class="inline-code">total_bill</span>, y el <strong>promedio</strong> y el <strong>máximo</strong> de <span class="inline-code">tip</span>. Añade <span class="inline-code">.reset_index()</span> al final. Imprime el resultado.',
+          description:
+            'Agrupa por <span class="inline-code">day</span> y usa <span class="inline-code">.agg()</span> con un diccionario para calcular el <strong>promedio</strong> y la <strong>suma</strong> de <span class="inline-code">total_bill</span>, y el <strong>promedio</strong> y el <strong>máximo</strong> de <span class="inline-code">tip</span>. Añade <span class="inline-code">.reset_index()</span> al final. Imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateAggComplete,
@@ -218,7 +221,8 @@ print(resumen)
 
   tipBox: {
     icon: '💡',
-    content: '<strong>Tip:</strong> Si el resultado de <span class="inline-code">.agg()</span> tiene columnas con nombres compuestos como <span class="inline-code">(tip, mean)</span>, puedes aplanarlos con: <span class="inline-code">df.columns = ["_".join(col).strip() for col in df.columns]</span> para obtener nombres como <span class="inline-code">tip_mean</span>.',
+    content:
+      '<strong>Tip:</strong> Si el resultado de <span class="inline-code">.agg()</span> tiene columnas con nombres compuestos como <span class="inline-code">(tip, mean)</span>, puedes aplanarlos con: <span class="inline-code">df.columns = ["_".join(col).strip() for col in df.columns]</span> para obtener nombres como <span class="inline-code">tip_mean</span>.',
   },
 
   exercises: [],

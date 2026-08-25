@@ -1,10 +1,6 @@
 import type { Section } from '../../types';
 import { TIPS_CSV } from '../module14-pandas-dataframes/tipsData';
-import {
-  validateMathColumn,
-  validateMultipleColumns,
-  validateLocColumn,
-} from './validators';
+import { validateMathColumn, validateMultipleColumns, validateLocColumn } from './validators';
 
 export const module17: Section = {
   id: 16,
@@ -34,17 +30,53 @@ if not hasattr(pd, '_tips_df_cached'):
     {
       icon: '🍽️',
       title: 'El dataset tips',
-      content: 'En este módulo usaremos el dataset <span class="inline-code">tips</span>, que registra las cuentas y propinas de un restaurante. Tiene 244 filas y 7 columnas:',
+      content:
+        'En este módulo usaremos el dataset <span class="inline-code">tips</span>, que registra las cuentas y propinas de un restaurante. Tiene 244 filas y 7 columnas:',
       table: {
         headers: ['Columna', 'Tipo', 'Descripción', 'Ejemplo'],
         rows: [
-          { Columna: 'total_bill', Tipo: 'float', Descripción: 'Total de la cuenta en dólares', Ejemplo: '16.99' },
-          { Columna: 'tip', Tipo: 'float', Descripción: 'Propina dejada por el cliente', Ejemplo: '1.01' },
-          { Columna: 'sex', Tipo: 'string', Descripción: 'Género de quien paga', Ejemplo: 'Female / Male' },
-          { Columna: 'smoker', Tipo: 'string', Descripción: 'Si la mesa era de fumadores', Ejemplo: 'Yes / No' },
-          { Columna: 'day', Tipo: 'string', Descripción: 'Día de la semana', Ejemplo: 'Sun, Sat, Fri, Thur' },
-          { Columna: 'time', Tipo: 'string', Descripción: 'Turno del servicio', Ejemplo: 'Dinner / Lunch' },
-          { Columna: 'size', Tipo: 'int', Descripción: 'Número de personas en la mesa', Ejemplo: '2' },
+          {
+            Columna: 'total_bill',
+            Tipo: 'float',
+            Descripción: 'Total de la cuenta en dólares',
+            Ejemplo: '16.99',
+          },
+          {
+            Columna: 'tip',
+            Tipo: 'float',
+            Descripción: 'Propina dejada por el cliente',
+            Ejemplo: '1.01',
+          },
+          {
+            Columna: 'sex',
+            Tipo: 'string',
+            Descripción: 'Género de quien paga',
+            Ejemplo: 'Female / Male',
+          },
+          {
+            Columna: 'smoker',
+            Tipo: 'string',
+            Descripción: 'Si la mesa era de fumadores',
+            Ejemplo: 'Yes / No',
+          },
+          {
+            Columna: 'day',
+            Tipo: 'string',
+            Descripción: 'Día de la semana',
+            Ejemplo: 'Sun, Sat, Fri, Thur',
+          },
+          {
+            Columna: 'time',
+            Tipo: 'string',
+            Descripción: 'Turno del servicio',
+            Ejemplo: 'Dinner / Lunch',
+          },
+          {
+            Columna: 'size',
+            Tipo: 'int',
+            Descripción: 'Número de personas en la mesa',
+            Ejemplo: '2',
+          },
         ],
       },
       codeExample: {
@@ -63,7 +95,8 @@ if not hasattr(pd, '_tips_df_cached'):
     {
       icon: '➕',
       title: 'Crear una nueva columna',
-      content: 'En Pandas puedes crear una nueva columna simplemente asignándole valores. Si el nombre no existe, Pandas la crea automáticamente.',
+      content:
+        'En Pandas puedes crear una nueva columna simplemente asignándole valores. Si el nombre no existe, Pandas la crea automáticamente.',
       codeExample: {
         filename: 'nueva_columna.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -82,7 +115,8 @@ if not hasattr(pd, '_tips_df_cached'):
     {
       icon: '🔢',
       title: 'Operaciones matemáticas entre columnas',
-      content: 'Puedes combinar columnas con <span class="inline-code">+</span>, <span class="inline-code">-</span>, <span class="inline-code">*</span>, <span class="inline-code">/</span>. Pandas aplica la operación fila por fila automáticamente. También puedes combinar con números fijos.',
+      content:
+        'Puedes combinar columnas con <span class="inline-code">+</span>, <span class="inline-code">-</span>, <span class="inline-code">*</span>, <span class="inline-code">/</span>. Pandas aplica la operación fila por fila automáticamente. También puedes combinar con números fijos.',
       codeExample: {
         filename: 'operaciones.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -101,7 +135,8 @@ if not hasattr(pd, '_tips_df_cached'):
         {
           id: 'ex-18-1',
           number: 'EJERCICIO 18.1',
-          description: 'Crea una columna llamada <span class="inline-code">total_con_propina</span> que sea la suma de <span class="inline-code">total_bill</span> y <span class="inline-code">tip</span>. Imprime las primeras 5 filas mostrando <span class="inline-code">total_bill</span>, <span class="inline-code">tip</span> y <span class="inline-code">total_con_propina</span>.',
+          description:
+            'Crea una columna llamada <span class="inline-code">total_con_propina</span> que sea la suma de <span class="inline-code">total_bill</span> y <span class="inline-code">tip</span>. Imprime las primeras 5 filas mostrando <span class="inline-code">total_bill</span>, <span class="inline-code">tip</span> y <span class="inline-code">total_con_propina</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateMathColumn,
@@ -115,7 +150,8 @@ df = pd.read_csv('tips.csv', sep='|')
         {
           id: 'ex-18-2',
           number: 'EJERCICIO 18.2',
-          description: 'Crea una columna llamada <span class="inline-code">tip_pct</span> que represente el porcentaje de propina: <span class="inline-code">(tip / total_bill) * 100</span>. Imprime las primeras 5 filas mostrando <span class="inline-code">total_bill</span>, <span class="inline-code">tip</span> y <span class="inline-code">tip_pct</span>.',
+          description:
+            'Crea una columna llamada <span class="inline-code">tip_pct</span> que represente el porcentaje de propina: <span class="inline-code">(tip / total_bill) * 100</span>. Imprime las primeras 5 filas mostrando <span class="inline-code">total_bill</span>, <span class="inline-code">tip</span> y <span class="inline-code">tip_pct</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateMultipleColumns,
@@ -131,7 +167,8 @@ df = pd.read_csv('tips.csv', sep='|')
     {
       icon: '🔀',
       title: 'Columnas condicionales con loc',
-      content: 'Para crear una columna cuyo valor depende de una condición, usa <span class="inline-code">.loc[]</span> en dos pasos: primero asigna un valor por defecto a toda la columna, luego sobreescribe los valores que cumplen la condición.',
+      content:
+        'Para crear una columna cuyo valor depende de una condición, usa <span class="inline-code">.loc[]</span> en dos pasos: primero asigna un valor por defecto a toda la columna, luego sobreescribe los valores que cumplen la condición.',
       codeExample: {
         filename: 'columna_condicional.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -150,7 +187,8 @@ df = pd.read_csv('tips.csv', sep='|')
         {
           id: 'ex-18-3',
           number: 'EJERCICIO 18.3',
-          description: 'Crea una columna <span class="inline-code">mesa_grande</span> usando <span class="inline-code">.loc[]</span>: si <span class="inline-code">size >= 4</span> asigna <span class="inline-code">"grande"</span>, si no <span class="inline-code">"pequeña"</span>. Imprime las primeras 10 filas mostrando <span class="inline-code">size</span> y <span class="inline-code">mesa_grande</span>.',
+          description:
+            'Crea una columna <span class="inline-code">mesa_grande</span> usando <span class="inline-code">.loc[]</span>: si <span class="inline-code">size >= 4</span> asigna <span class="inline-code">"grande"</span>, si no <span class="inline-code">"pequeña"</span>. Imprime las primeras 10 filas mostrando <span class="inline-code">size</span> y <span class="inline-code">mesa_grande</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateLocColumn,
@@ -193,7 +231,8 @@ df = pd.read_csv('tips.csv', sep='|')
 
   tipBox: {
     icon: '💡',
-    content: '<strong>Tip:</strong> Con <span class="inline-code">.loc[condición, "columna"] = valor</span> modificas solo las celdas que cumplen la condición. Recuerda siempre crear primero la columna con un valor por defecto.',
+    content:
+      '<strong>Tip:</strong> Con <span class="inline-code">.loc[condición, "columna"] = valor</span> modificas solo las celdas que cumplen la condición. Recuerda siempre crear primero la columna con un valor por defecto.',
   },
 
   exercises: [],

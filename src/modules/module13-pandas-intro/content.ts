@@ -12,34 +12,36 @@ export const module13: Section = {
     {
       icon: '🐼',
       title: '¿Qué es Pandas?',
-      content: '<strong>Pandas</strong> es la librería más popular de Python para análisis y manipulación de datos. Su nombre viene de "Panel Data" (datos en panel) y es fundamental en Data Science, Machine Learning y Análisis de Datos.',
+      content:
+        '<strong>Pandas</strong> es la librería más popular de Python para análisis y manipulación de datos. Su nombre viene de "Panel Data" (datos en panel) y es fundamental en Data Science, Machine Learning y Análisis de Datos.',
     },
     {
       icon: '🎯',
       title: '¿Por qué Pandas es importante?',
-      content: 'Pandas te permite trabajar con datos tabulares (como hojas de Excel o tablas de bases de datos) de forma eficiente. Es usado por millones de científicos de datos, analistas y desarrolladores en todo el mundo para:',
+      content:
+        'Pandas te permite trabajar con datos tabulares (como hojas de Excel o tablas de bases de datos) de forma eficiente. Es usado por millones de científicos de datos, analistas y desarrolladores en todo el mundo para:',
       table: {
         headers: ['Tarea', 'Descripción', 'Ejemplo'],
         rows: [
           {
             Tarea: 'Leer datos',
             Descripción: 'Cargar datos desde CSV, Excel, SQL, JSON',
-            Ejemplo: 'Importar ventas desde Excel'
+            Ejemplo: 'Importar ventas desde Excel',
           },
           {
             Tarea: 'Limpiar datos',
             Descripción: 'Manejar valores faltantes, duplicados',
-            Ejemplo: 'Eliminar filas vacías'
+            Ejemplo: 'Eliminar filas vacías',
           },
           {
             Tarea: 'Analizar datos',
             Descripción: 'Calcular estadísticas, agrupar, filtrar',
-            Ejemplo: 'Promedio de ventas por mes'
+            Ejemplo: 'Promedio de ventas por mes',
           },
           {
             Tarea: 'Transformar datos',
             Descripción: 'Crear nuevas columnas, fusionar tablas',
-            Ejemplo: 'Calcular totales con IVA'
+            Ejemplo: 'Calcular totales con IVA',
           },
         ],
       },
@@ -47,16 +49,18 @@ export const module13: Section = {
     {
       icon: '📦',
       title: 'Instalar Pandas',
-      content: 'Para usar Pandas, primero debes instalarlo (generalmente viene incluido con Anaconda). Si no lo tienes, instálalo con pip:',
+      content:
+        'Para usar Pandas, primero debes instalarlo (generalmente viene incluido con Anaconda). Si no lo tienes, instálalo con pip:',
       terminalCommand: {
         command: 'pip install pandas',
-        description: 'Ejecuta este comando en tu terminal una sola vez para instalar Pandas'
+        description: 'Ejecuta este comando en tu terminal una sola vez para instalar Pandas',
       },
     },
     {
       icon: '⚙️',
       title: 'Importar Pandas',
-      content: 'Una vez instalado, debes importar Pandas en tu código Python. La convención universal es usar el alias <span class="inline-code">pd</span>:',
+      content:
+        'Una vez instalado, debes importar Pandas en tu código Python. La convención universal es usar el alias <span class="inline-code">pd</span>:',
       codeExample: {
         filename: 'importar_pandas.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -68,12 +72,14 @@ export const module13: Section = {
     {
       icon: '📊',
       title: 'Estructuras principales de Pandas',
-      content: 'Pandas tiene dos estructuras de datos fundamentales: <strong>Series</strong> y <strong>DataFrame</strong>. Es crucial entender la diferencia entre ambas.',
+      content:
+        'Pandas tiene dos estructuras de datos fundamentales: <strong>Series</strong> y <strong>DataFrame</strong>. Es crucial entender la diferencia entre ambas.',
     },
     {
       icon: '📋',
       title: 'DataFrame: Tablas completas',
-      content: 'Un <strong>DataFrame</strong> es una tabla bidimensional con filas y columnas. Es similar a una hoja de Excel o una tabla de base de datos. Cada columna puede tener un tipo de dato diferente (números, texto, fechas, etc.).',
+      content:
+        'Un <strong>DataFrame</strong> es una tabla bidimensional con filas y columnas. Es similar a una hoja de Excel o una tabla de base de datos. Cada columna puede tener un tipo de dato diferente (números, texto, fechas, etc.).',
       codeExample: {
         filename: 'dataframe.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -99,25 +105,29 @@ export const module13: Section = {
               id: 'opt-1',
               text: 'Una lista de Python con números',
               isCorrect: false,
-              feedback: 'Incorrecto. Un DataFrame no es una lista de Python, es una estructura de Pandas específicamente diseñada para datos tabulares.'
+              feedback:
+                'Incorrecto. Un DataFrame no es una lista de Python, es una estructura de Pandas específicamente diseñada para datos tabulares.',
             },
             {
               id: 'opt-2',
               text: 'Una tabla bidimensional con filas y columnas',
               isCorrect: true,
-              feedback: '¡Exacto! Un DataFrame es como una hoja de Excel: tiene filas y columnas, y puede contener diferentes tipos de datos.'
+              feedback:
+                '¡Exacto! Un DataFrame es como una hoja de Excel: tiene filas y columnas, y puede contener diferentes tipos de datos.',
             },
             {
               id: 'opt-3',
               text: 'Una función para leer archivos',
               isCorrect: false,
-              feedback: 'Incorrecto. pd.read_csv() es una función para leer archivos, pero un DataFrame es la estructura que contiene los datos.'
+              feedback:
+                'Incorrecto. pd.read_csv() es una función para leer archivos, pero un DataFrame es la estructura que contiene los datos.',
             },
             {
               id: 'opt-4',
               text: 'Un tipo de gráfico',
               isCorrect: false,
-              feedback: 'Incorrecto. Un DataFrame no es un tipo de gráfico, es una estructura de datos en forma de tabla.'
+              feedback:
+                'Incorrecto. Un DataFrame no es un tipo de gráfico, es una estructura de datos en forma de tabla.',
             },
           ],
         },
@@ -126,7 +136,8 @@ export const module13: Section = {
     {
       icon: '📏',
       title: 'Series: Una sola columna',
-      content: 'Una <strong>Serie</strong> es una estructura unidimensional que representa una sola columna de datos. Cuando seleccionas una columna de un DataFrame, obtienes una Serie.',
+      content:
+        'Una <strong>Serie</strong> es una estructura unidimensional que representa una sola columna de datos. Cuando seleccionas una columna de un DataFrame, obtienes una Serie.',
       codeExample: {
         filename: 'series.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -154,25 +165,29 @@ export const module13: Section = {
               id: 'opt-1',
               text: 'Un DataFrame es más rápido que una Serie',
               isCorrect: false,
-              feedback: 'Incorrecto. La diferencia no está en la velocidad, sino en la estructura dimensional.'
+              feedback:
+                'Incorrecto. La diferencia no está en la velocidad, sino en la estructura dimensional.',
             },
             {
               id: 'opt-2',
               text: 'Un DataFrame tiene filas y columnas (2D), una Serie solo tiene una columna (1D)',
               isCorrect: true,
-              feedback: '¡Perfecto! Un DataFrame es bidimensional (como una tabla completa), mientras que una Serie es unidimensional (solo una columna).'
+              feedback:
+                '¡Perfecto! Un DataFrame es bidimensional (como una tabla completa), mientras que una Serie es unidimensional (solo una columna).',
             },
             {
               id: 'opt-3',
               text: 'Una Serie solo puede contener números',
               isCorrect: false,
-              feedback: 'Incorrecto. Una Serie puede contener cualquier tipo de dato (números, texto, fechas, etc.).'
+              feedback:
+                'Incorrecto. Una Serie puede contener cualquier tipo de dato (números, texto, fechas, etc.).',
             },
             {
               id: 'opt-4',
               text: 'No hay ninguna diferencia',
               isCorrect: false,
-              feedback: 'Incorrecto. Sí hay una diferencia importante: un DataFrame es 2D (tabla completa) y una Serie es 1D (una sola columna).'
+              feedback:
+                'Incorrecto. Sí hay una diferencia importante: un DataFrame es 2D (tabla completa) y una Serie es 1D (una sola columna).',
             },
           ],
         },
@@ -188,22 +203,22 @@ export const module13: Section = {
           {
             Característica: 'Dimensiones',
             DataFrame: '2D (filas y columnas)',
-            Serie: '1D (solo una columna)'
+            Serie: '1D (solo una columna)',
           },
           {
             Característica: 'Estructura',
             DataFrame: 'Tabla completa',
-            Serie: 'Una sola columna'
+            Serie: 'Una sola columna',
           },
           {
             Característica: 'Cuándo usarlo',
             DataFrame: 'Datos con múltiples variables',
-            Serie: 'Una sola variable o columna'
+            Serie: 'Una sola variable o columna',
           },
           {
             Característica: 'Ejemplo',
             DataFrame: 'Tabla de estudiantes con nombre, edad, nota',
-            Serie: 'Solo la columna de edades'
+            Serie: 'Solo la columna de edades',
           },
         ],
       },
@@ -212,7 +227,8 @@ export const module13: Section = {
 
   tipBox: {
     icon: '💡',
-    content: '<strong>Tip importante:</strong> Siempre importa pandas como <span class="inline-code">pd</span> (es la convención universal). En los próximos módulos aprenderás a trabajar con DataFrames y Series en detalle.',
+    content:
+      '<strong>Tip importante:</strong> Siempre importa pandas como <span class="inline-code">pd</span> (es la convención universal). En los próximos módulos aprenderás a trabajar con DataFrames y Series en detalle.',
   },
 
   exercises: [],

@@ -47,7 +47,8 @@ if not hasattr(pd, '_apply_patched'):
     {
       icon: '⚙️',
       title: '¿Qué es .apply() y cuándo usarlo?',
-      content: '<span class="inline-code">.apply()</span> ejecuta una función sobre cada fila (o columna) del DataFrame. Úsalo cuando la lógica <strong>depende de varias columnas a la vez</strong> y no se puede expresar con operaciones vectorizadas simples. Si puedes resolver algo con <span class="inline-code">+</span>, <span class="inline-code">*</span> o <span class="inline-code">.str</span>, esas opciones son más rápidas.',
+      content:
+        '<span class="inline-code">.apply()</span> ejecuta una función sobre cada fila (o columna) del DataFrame. Úsalo cuando la lógica <strong>depende de varias columnas a la vez</strong> y no se puede expresar con operaciones vectorizadas simples. Si puedes resolver algo con <span class="inline-code">+</span>, <span class="inline-code">*</span> o <span class="inline-code">.str</span>, esas opciones son más rápidas.',
       codeExample: {
         filename: 'apply_cuando.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -73,7 +74,8 @@ if not hasattr(pd, '_apply_patched'):
     {
       icon: '🔧',
       title: 'Apply con función def: la forma más legible',
-      content: 'Define una función con <span class="inline-code">def</span>, donde el parámetro es <span class="inline-code">row</span> (una fila completa). Accedes a cada columna con <span class="inline-code">row["columna"]</span>. Luego pásala a <span class="inline-code">.apply(función, axis=1)</span>. Este estilo es el más legible cuando la lógica tiene varias condiciones.',
+      content:
+        'Define una función con <span class="inline-code">def</span>, donde el parámetro es <span class="inline-code">row</span> (una fila completa). Accedes a cada columna con <span class="inline-code">row["columna"]</span>. Luego pásala a <span class="inline-code">.apply(función, axis=1)</span>. Este estilo es el más legible cuando la lógica tiene varias condiciones.',
       codeExample: {
         filename: 'apply_def.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -101,7 +103,8 @@ if not hasattr(pd, '_apply_patched'):
         {
           id: 'ex-25-1',
           number: 'EJERCICIO 25.1',
-          description: 'Carga <span class="inline-code">ventas_enero.csv</span>. Define una función <span class="inline-code">nivel_venta(row)</span> que clasifique cada fila: <span class="inline-code">"alta"</span> si <span class="inline-code">total >= 500</span>, <span class="inline-code">"media"</span> si <span class="inline-code">total >= 100</span>, y <span class="inline-code">"baja"</span> en el resto. Aplícala con <span class="inline-code">.apply(axis=1)</span> y guarda el resultado en una columna <span class="inline-code">nivel</span>. Imprime las primeras 5 filas mostrando <span class="inline-code">total</span> y <span class="inline-code">nivel</span>.',
+          description:
+            'Carga <span class="inline-code">ventas_enero.csv</span>. Define una función <span class="inline-code">nivel_venta(row)</span> que clasifique cada fila: <span class="inline-code">"alta"</span> si <span class="inline-code">total >= 500</span>, <span class="inline-code">"media"</span> si <span class="inline-code">total >= 100</span>, y <span class="inline-code">"baja"</span> en el resto. Aplícala con <span class="inline-code">.apply(axis=1)</span> y guarda el resultado en una columna <span class="inline-code">nivel</span>. Imprime las primeras 5 filas mostrando <span class="inline-code">total</span> y <span class="inline-code">nivel</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateApplyDef,
@@ -124,7 +127,8 @@ print(df[['total', 'nivel']].head(5))
     {
       icon: '⚡',
       title: 'Apply con lambda: inline y conciso',
-      content: 'Cuando la lógica es simple, puedes escribirla directamente como <span class="inline-code">lambda row: ...</span> sin definir una función aparte. Es más compacto, aunque para condiciones múltiples el <span class="inline-code">def</span> es más legible.',
+      content:
+        'Cuando la lógica es simple, puedes escribirla directamente como <span class="inline-code">lambda row: ...</span> sin definir una función aparte. Es más compacto, aunque para condiciones múltiples el <span class="inline-code">def</span> es más legible.',
       codeExample: {
         filename: 'apply_lambda.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -148,7 +152,8 @@ print(df[['total', 'nivel']].head(5))
         {
           id: 'ex-25-2',
           number: 'EJERCICIO 25.2',
-          description: 'Carga <span class="inline-code">ventas_enero.csv</span>. Usa <span class="inline-code">.apply()</span> con una <strong>lambda</strong> y <span class="inline-code">axis=1</span> para crear una columna <span class="inline-code">precio_por_unidad</span> calculada como <span class="inline-code">total / quantity</span>. Imprime las primeras 5 filas mostrando <span class="inline-code">quantity</span>, <span class="inline-code">total</span> y <span class="inline-code">precio_por_unidad</span>.',
+          description:
+            'Carga <span class="inline-code">ventas_enero.csv</span>. Usa <span class="inline-code">.apply()</span> con una <strong>lambda</strong> y <span class="inline-code">axis=1</span> para crear una columna <span class="inline-code">precio_por_unidad</span> calculada como <span class="inline-code">total / quantity</span>. Imprime las primeras 5 filas mostrando <span class="inline-code">quantity</span>, <span class="inline-code">total</span> y <span class="inline-code">precio_por_unidad</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateApplyLambda,
@@ -170,7 +175,8 @@ print(df[['quantity', 'total', 'precio_por_unidad']].head(5))
     {
       icon: '🎯',
       title: 'Segmentación multi-columna: el caso de uso ideal de apply',
-      content: 'El poder real de <span class="inline-code">apply(axis=1)</span> está en evaluar <strong>condiciones que cruzan varias columnas</strong> en la misma fila. Aquí no hay alternativa vectorizada directa — necesitas apply.',
+      content:
+        'El poder real de <span class="inline-code">apply(axis=1)</span> está en evaluar <strong>condiciones que cruzan varias columnas</strong> en la misma fila. Aquí no hay alternativa vectorizada directa — necesitas apply.',
       codeExample: {
         filename: 'segmentacion.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -197,7 +203,8 @@ print(df[['quantity', 'total', 'precio_por_unidad']].head(5))
         {
           id: 'ex-25-3',
           number: 'EJERCICIO 25.3',
-          description: 'Carga <span class="inline-code">ventas_enero.csv</span>. Define una función que cree la columna <span class="inline-code">segmento</span> cruzando <span class="inline-code">total</span> y <span class="inline-code">discount</span>: <span class="inline-code">"premium"</span> si <span class="inline-code">total > 500</span> y <span class="inline-code">discount == 0</span>, <span class="inline-code">"económica"</span> si <span class="inline-code">total < 30</span>, y <span class="inline-code">"regular"</span> en el resto. Usa <span class="inline-code">.apply(axis=1)</span>. Imprime el resultado de <span class="inline-code">.value_counts()</span>.',
+          description:
+            'Carga <span class="inline-code">ventas_enero.csv</span>. Define una función que cree la columna <span class="inline-code">segmento</span> cruzando <span class="inline-code">total</span> y <span class="inline-code">discount</span>: <span class="inline-code">"premium"</span> si <span class="inline-code">total > 500</span> y <span class="inline-code">discount == 0</span>, <span class="inline-code">"económica"</span> si <span class="inline-code">total < 30</span>, y <span class="inline-code">"regular"</span> en el resto. Usa <span class="inline-code">.apply(axis=1)</span>. Imprime el resultado de <span class="inline-code">.value_counts()</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateSegmentation,
@@ -222,7 +229,8 @@ print(df['segmento'].value_counts())
     {
       icon: '🔗',
       title: 'Apply + GroupBy: segmentar y analizar',
-      content: 'La combinación <span class="inline-code">apply</span> → <span class="inline-code">groupby</span> es muy potente: primero creas los segmentos con <span class="inline-code">apply</span>, luego analizas cada segmento con <span class="inline-code">groupby</span>. Esto te permite comparar métricas entre grupos que definiste con lógica personalizada.',
+      content:
+        'La combinación <span class="inline-code">apply</span> → <span class="inline-code">groupby</span> es muy potente: primero creas los segmentos con <span class="inline-code">apply</span>, luego analizas cada segmento con <span class="inline-code">groupby</span>. Esto te permite comparar métricas entre grupos que definiste con lógica personalizada.',
       codeExample: {
         filename: 'apply_groupby.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -249,7 +257,8 @@ print(df['segmento'].value_counts())
         {
           id: 'ex-25-4',
           number: 'EJERCICIO 25.4',
-          description: 'Carga <span class="inline-code">ventas_enero.csv</span>. Crea la columna <span class="inline-code">segmento</span> con <span class="inline-code">apply</span> (usando la misma lógica del ejercicio anterior). Luego usa <span class="inline-code">.groupby("segmento")</span> para calcular el <strong>promedio</strong> y la <strong>suma</strong> de <span class="inline-code">total</span> por segmento. Imprime el resultado.',
+          description:
+            'Carga <span class="inline-code">ventas_enero.csv</span>. Crea la columna <span class="inline-code">segmento</span> con <span class="inline-code">apply</span> (usando la misma lógica del ejercicio anterior). Luego usa <span class="inline-code">.groupby("segmento")</span> para calcular el <strong>promedio</strong> y la <strong>suma</strong> de <span class="inline-code">total</span> por segmento. Imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateApplyGroupby,
@@ -302,7 +311,8 @@ print(resumen)
 
   tipBox: {
     icon: '💡',
-    content: '<strong>Tip:</strong> Dentro de la función puedes acceder a los valores de la fila como <span class="inline-code">row["columna"]</span> o como atributo <span class="inline-code">row.columna</span>. La segunda forma es más corta pero falla si el nombre de columna tiene espacios o coincide con un atributo de pandas.',
+    content:
+      '<strong>Tip:</strong> Dentro de la función puedes acceder a los valores de la fila como <span class="inline-code">row["columna"]</span> o como atributo <span class="inline-code">row.columna</span>. La segunda forma es más corta pero falla si el nombre de columna tiene espacios o coincide con un atributo de pandas.',
   },
 
   exercises: [],

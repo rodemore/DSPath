@@ -35,7 +35,8 @@ if not hasattr(pd, '_tips_df_cached'):
     {
       icon: '🔃',
       title: 'sort_values(): ordenar un DataFrame',
-      content: '<span class="inline-code">.sort_values("columna")</span> ordena el DataFrame por los valores de esa columna. Por defecto ordena de <strong>menor a mayor</strong>. Para invertir el orden usa <span class="inline-code">ascending=False</span>.',
+      content:
+        '<span class="inline-code">.sort_values("columna")</span> ordena el DataFrame por los valores de esa columna. Por defecto ordena de <strong>menor a mayor</strong>. Para invertir el orden usa <span class="inline-code">ascending=False</span>.',
       codeExample: {
         filename: 'sort_values.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -56,7 +57,8 @@ if not hasattr(pd, '_tips_df_cached'):
         {
           id: 'ex-23-1',
           number: 'EJERCICIO 23.1',
-          description: 'Ordena el DataFrame por <span class="inline-code">total_bill</span> de <strong>mayor a menor</strong> usando <span class="inline-code">ascending=False</span>. Imprime las primeras 5 filas.',
+          description:
+            'Ordena el DataFrame por <span class="inline-code">total_bill</span> de <strong>mayor a menor</strong> usando <span class="inline-code">ascending=False</span>. Imprime las primeras 5 filas.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateSortValues,
@@ -72,7 +74,8 @@ df = pd.read_csv('tips.csv', sep='|')
     {
       icon: '🏆',
       title: 'Top N con sort_values() + head()',
-      content: 'La combinación <span class="inline-code">.sort_values(ascending=False).head(N)</span> es el patrón estándar para obtener los <strong>N mejores</strong> registros de cualquier columna. Es más explícito y flexible que <span class="inline-code">.nlargest()</span>.',
+      content:
+        'La combinación <span class="inline-code">.sort_values(ascending=False).head(N)</span> es el patrón estándar para obtener los <strong>N mejores</strong> registros de cualquier columna. Es más explícito y flexible que <span class="inline-code">.nlargest()</span>.',
       codeExample: {
         filename: 'top5.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -93,7 +96,8 @@ df = pd.read_csv('tips.csv', sep='|')
         {
           id: 'ex-23-2',
           number: 'EJERCICIO 23.2',
-          description: 'Obtén el <strong>top 5 de propinas más altas</strong>: ordena por <span class="inline-code">tip</span> de mayor a menor y usa <span class="inline-code">.head(5)</span>. Imprime el resultado.',
+          description:
+            'Obtén el <strong>top 5 de propinas más altas</strong>: ordena por <span class="inline-code">tip</span> de mayor a menor y usa <span class="inline-code">.head(5)</span>. Imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateTop5,
@@ -109,7 +113,8 @@ df = pd.read_csv('tips.csv', sep='|')
     {
       icon: '📉',
       title: 'Bottom N con sort_values() + tail()',
-      content: '<span class="inline-code">.tail(N)</span> devuelve las últimas N filas. Combinado con <span class="inline-code">.sort_values(ascending=False)</span>, te da los <strong>N peores</strong> registros: los de menor propina, la cuenta más baja, etc.',
+      content:
+        '<span class="inline-code">.tail(N)</span> devuelve las últimas N filas. Combinado con <span class="inline-code">.sort_values(ascending=False)</span>, te da los <strong>N peores</strong> registros: los de menor propina, la cuenta más baja, etc.',
       codeExample: {
         filename: 'bottom5.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -129,7 +134,8 @@ df = pd.read_csv('tips.csv', sep='|')
         {
           id: 'ex-23-3',
           number: 'EJERCICIO 23.3',
-          description: 'Obtén las <strong>5 propinas más bajas</strong> usando <span class="inline-code">.sort_values()</span> y <span class="inline-code">.tail(5)</span> (o <span class="inline-code">.head(5)</span> con orden ascendente). Imprime el resultado.',
+          description:
+            'Obtén las <strong>5 propinas más bajas</strong> usando <span class="inline-code">.sort_values()</span> y <span class="inline-code">.tail(5)</span> (o <span class="inline-code">.head(5)</span> con orden ascendente). Imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateBottom5,
@@ -145,7 +151,8 @@ df = pd.read_csv('tips.csv', sep='|')
     {
       icon: '🔗',
       title: 'Groupby + sort_values(): ranking por grupo',
-      content: 'El patrón más potente: primero <span class="inline-code">.groupby()</span> para resumir por categoría, luego <span class="inline-code">.sort_values()</span> para ordenar ese resumen. Así obtienes un <strong>ranking real</strong>: qué día tuvo mayor propina promedio, qué categoría vendió más, etc.',
+      content:
+        'El patrón más potente: primero <span class="inline-code">.groupby()</span> para resumir por categoría, luego <span class="inline-code">.sort_values()</span> para ordenar ese resumen. Así obtienes un <strong>ranking real</strong>: qué día tuvo mayor propina promedio, qué categoría vendió más, etc.',
       codeExample: {
         filename: 'groupby_sort.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -168,7 +175,8 @@ df = pd.read_csv('tips.csv', sep='|')
         {
           id: 'ex-23-4',
           number: 'EJERCICIO 23.4',
-          description: 'Calcula el <strong>promedio de propina por día</strong> con <span class="inline-code">.groupby()</span>, luego ordena el resultado de <strong>mayor a menor</strong> con <span class="inline-code">.sort_values(ascending=False)</span> para ver el ranking de días. Imprime el resultado.',
+          description:
+            'Calcula el <strong>promedio de propina por día</strong> con <span class="inline-code">.groupby()</span>, luego ordena el resultado de <strong>mayor a menor</strong> con <span class="inline-code">.sort_values(ascending=False)</span> para ver el ranking de días. Imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateGroupbySort,
@@ -216,7 +224,8 @@ print(ranking)
           },
           {
             Patrón: 'Ranking por grupo',
-            Código: '.groupby("cat")["col"].mean().reset_index().sort_values("col", ascending=False)',
+            Código:
+              '.groupby("cat")["col"].mean().reset_index().sort_values("col", ascending=False)',
             Resultado: 'Categorías ordenadas por su métrica',
           },
         ],
@@ -226,7 +235,8 @@ print(ranking)
 
   tipBox: {
     icon: '💡',
-    content: '<strong>Tip:</strong> Puedes ordenar por varias columnas a la vez: <span class="inline-code">.sort_values(["day", "tip"], ascending=[True, False])</span> ordena primero por día (A→Z) y luego por propina (mayor a menor) dentro de cada día.',
+    content:
+      '<strong>Tip:</strong> Puedes ordenar por varias columnas a la vez: <span class="inline-code">.sort_values(["day", "tip"], ascending=[True, False])</span> ordena primero por día (A→Z) y luego por propina (mayor a menor) dentro de cada día.',
   },
 
   exercises: [],

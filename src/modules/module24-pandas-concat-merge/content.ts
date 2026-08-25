@@ -1,10 +1,5 @@
 import type { Section } from '../../types';
-import {
-  VENTAS_ENERO_CSV,
-  VENTAS_FEBRERO_CSV,
-  VENTAS_MARZO_CSV,
-  PRODUCTOS_CSV,
-} from './salesData';
+import { VENTAS_ENERO_CSV, VENTAS_FEBRERO_CSV, VENTAS_MARZO_CSV, PRODUCTOS_CSV } from './salesData';
 import {
   validateConcatTwo,
   validateConcatThree,
@@ -50,7 +45,8 @@ if not hasattr(pd, '_sales_patched'):
     {
       icon: '📦',
       title: 'Los datasets: ventas por mes + catálogo de productos',
-      content: 'En este módulo trabajamos con datos de ventas de una tienda. Tenemos <strong>cuatro archivos</strong>: tres de ventas mensuales y uno con el catálogo de productos.',
+      content:
+        'En este módulo trabajamos con datos de ventas de una tienda. Tenemos <strong>cuatro archivos</strong>: tres de ventas mensuales y uno con el catálogo de productos.',
       table: {
         headers: ['Archivo', 'Filas', 'Columnas clave'],
         rows: [
@@ -95,7 +91,8 @@ if not hasattr(pd, '_sales_patched'):
     {
       icon: '🔗',
       title: 'pd.concat(): apilar DataFrames verticalmente',
-      content: '<span class="inline-code">pd.concat()</span> apila DataFrames uno encima del otro (mismas columnas). Es perfecto cuando tienes los mismos datos divididos en varios archivos. Siempre usa <span class="inline-code">ignore_index=True</span> para que el índice sea continuo (0, 1, 2...) y no se repita.',
+      content:
+        '<span class="inline-code">pd.concat()</span> apila DataFrames uno encima del otro (mismas columnas). Es perfecto cuando tienes los mismos datos divididos en varios archivos. Siempre usa <span class="inline-code">ignore_index=True</span> para que el índice sea continuo (0, 1, 2...) y no se repita.',
       codeExample: {
         filename: 'concat_basico.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -113,7 +110,8 @@ if not hasattr(pd, '_sales_patched'):
         {
           id: 'ex-24-1',
           number: 'EJERCICIO 24.1',
-          description: 'Carga <span class="inline-code">ventas_enero.csv</span> y <span class="inline-code">ventas_febrero.csv</span>. Úsalos con <span class="inline-code">pd.concat()</span> e <span class="inline-code">ignore_index=True</span> para crear un solo DataFrame. Imprime su <span class="inline-code">.shape</span> para verificar que tiene 255 filas.',
+          description:
+            'Carga <span class="inline-code">ventas_enero.csv</span> y <span class="inline-code">ventas_febrero.csv</span>. Úsalos con <span class="inline-code">pd.concat()</span> e <span class="inline-code">ignore_index=True</span> para crear un solo DataFrame. Imprime su <span class="inline-code">.shape</span> para verificar que tiene 255 filas.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateConcatTwo,
@@ -130,7 +128,8 @@ febrero = pd.read_csv('ventas_febrero.csv', sep='|')
     {
       icon: '📚',
       title: 'pd.concat() con tres o más DataFrames',
-      content: 'Puedes pasar tantos DataFrames como quieras dentro de la lista. Este es el patrón habitual cuando tienes archivos por mes, por región o por cualquier otra partición.',
+      content:
+        'Puedes pasar tantos DataFrames como quieras dentro de la lista. Este es el patrón habitual cuando tienes archivos por mes, por región o por cualquier otra partición.',
       codeExample: {
         filename: 'concat_tres.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -148,7 +147,8 @@ febrero = pd.read_csv('ventas_febrero.csv', sep='|')
         {
           id: 'ex-24-2',
           number: 'EJERCICIO 24.2',
-          description: 'Carga los tres archivos de ventas y úsalos con <span class="inline-code">pd.concat()</span> para crear un único DataFrame con todos los meses. Imprime su <span class="inline-code">.shape</span> — debe mostrar <strong>405 filas</strong>.',
+          description:
+            'Carga los tres archivos de ventas y úsalos con <span class="inline-code">pd.concat()</span> para crear un único DataFrame con todos los meses. Imprime su <span class="inline-code">.shape</span> — debe mostrar <strong>405 filas</strong>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateConcatThree,
@@ -166,7 +166,8 @@ marzo   = pd.read_csv('ventas_marzo.csv',   sep='|')
     {
       icon: '🔀',
       title: 'merge(): unir dos tablas por una columna clave',
-      content: '<span class="inline-code">.merge()</span> une dos DataFrames horizontalmente buscando filas que coincidan en una columna clave. Es equivalente a un JOIN en SQL. El parámetro <span class="inline-code">on="columna"</span> indica qué columna usar como llave de unión.',
+      content:
+        '<span class="inline-code">.merge()</span> une dos DataFrames horizontalmente buscando filas que coincidan en una columna clave. Es equivalente a un JOIN en SQL. El parámetro <span class="inline-code">on="columna"</span> indica qué columna usar como llave de unión.',
       codeExample: {
         filename: 'merge_basico.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -188,7 +189,8 @@ marzo   = pd.read_csv('ventas_marzo.csv',   sep='|')
         {
           id: 'ex-24-3',
           number: 'EJERCICIO 24.3',
-          description: 'Carga <span class="inline-code">ventas_enero.csv</span> y <span class="inline-code">productos.csv</span>. Usa <span class="inline-code">.merge()</span> con <span class="inline-code">on="id_producto"</span> para añadir el nombre, categoría y precio de cada producto a las ventas. Imprime las primeras 5 filas del resultado.',
+          description:
+            'Carga <span class="inline-code">ventas_enero.csv</span> y <span class="inline-code">productos.csv</span>. Usa <span class="inline-code">.merge()</span> con <span class="inline-code">on="id_producto"</span> para añadir el nombre, categoría y precio de cada producto a las ventas. Imprime las primeras 5 filas del resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateMergeInner,
@@ -205,7 +207,8 @@ productos = pd.read_csv('productos.csv',   sep='|')
     {
       icon: '🏗️',
       title: 'Concat + Merge + GroupBy: el flujo completo',
-      content: 'En la práctica estos tres pasos se encadenan: <strong>1)</strong> <span class="inline-code">concat</span> para unir los archivos mensuales, <strong>2)</strong> <span class="inline-code">merge</span> para enriquecer con el catálogo de productos, <strong>3)</strong> <span class="inline-code">groupby</span> para analizar por categoría, por mes, etc.',
+      content:
+        'En la práctica estos tres pasos se encadenan: <strong>1)</strong> <span class="inline-code">concat</span> para unir los archivos mensuales, <strong>2)</strong> <span class="inline-code">merge</span> para enriquecer con el catálogo de productos, <strong>3)</strong> <span class="inline-code">groupby</span> para analizar por categoría, por mes, etc.',
       codeExample: {
         filename: 'flujo_completo.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -245,7 +248,8 @@ productos = pd.read_csv('productos.csv',   sep='|')
         {
           id: 'ex-24-4',
           number: 'EJERCICIO 24.4',
-          description: 'Combina los tres meses con <span class="inline-code">pd.concat()</span>, enriquece con <span class="inline-code">productos.csv</span> usando <span class="inline-code">.merge()</span>, y calcula las <strong>ventas totales</strong> (<span class="inline-code">total</span>) por <span class="inline-code">categoria</span> con <span class="inline-code">.groupby()</span>. Imprime el resultado.',
+          description:
+            'Combina los tres meses con <span class="inline-code">pd.concat()</span>, enriquece con <span class="inline-code">productos.csv</span> usando <span class="inline-code">.merge()</span>, y calcula las <strong>ventas totales</strong> (<span class="inline-code">total</span>) por <span class="inline-code">categoria</span> con <span class="inline-code">.groupby()</span>. Imprime el resultado.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateIntegrador,
@@ -309,7 +313,8 @@ print(resumen)
 
   tipBox: {
     icon: '💡',
-    content: '<strong>Tip:</strong> <span class="inline-code">.merge()</span> hace por defecto un <strong>inner join</strong>: solo conserva las filas que tienen coincidencia en ambas tablas. Si quieres conservar todas las filas de la tabla izquierda (aunque no haya match), usa <span class="inline-code">how="left"</span>.',
+    content:
+      '<strong>Tip:</strong> <span class="inline-code">.merge()</span> hace por defecto un <strong>inner join</strong>: solo conserva las filas que tienen coincidencia en ambas tablas. Si quieres conservar todas las filas de la tabla izquierda (aunque no haya match), usa <span class="inline-code">how="left"</span>.',
   },
 
   exercises: [],

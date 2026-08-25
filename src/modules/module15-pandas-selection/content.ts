@@ -1,10 +1,6 @@
 import type { Section } from '../../types';
 import { IRIS_CSV } from '../module14-pandas-dataframes/irisData';
-import {
-  validateSelectColumn,
-  validateSelectMultipleColumns,
-  validateIloc,
-} from './validators';
+import { validateSelectColumn, validateSelectMultipleColumns, validateIloc } from './validators';
 
 export const module15: Section = {
   id: 14,
@@ -45,7 +41,8 @@ if not hasattr(pd, '_iris_df_cached'):
     {
       icon: '📌',
       title: 'Seleccionar una columna',
-      content: 'Para trabajar con una sola columna del DataFrame, usamos corchetes con el nombre de la columna. El resultado es una <strong>Serie</strong> (una columna de datos).',
+      content:
+        'Para trabajar con una sola columna del DataFrame, usamos corchetes con el nombre de la columna. El resultado es una <strong>Serie</strong> (una columna de datos).',
       codeExample: {
         filename: 'seleccionar_columna.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -68,7 +65,8 @@ if not hasattr(pd, '_iris_df_cached'):
         {
           id: 'ex-15-1',
           number: 'EJERCICIO 15.1',
-          description: 'Selecciona solo la columna <span class="inline-code">species</span> y guárdala en una variable llamada <span class="inline-code">especies</span>. Imprime las primeras 5 valores con <span class="inline-code">print(especies.head())</span>.',
+          description:
+            'Selecciona solo la columna <span class="inline-code">species</span> y guárdala en una variable llamada <span class="inline-code">especies</span>. Imprime las primeras 5 valores con <span class="inline-code">print(especies.head())</span>.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateSelectColumn,
@@ -84,7 +82,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '📋',
       title: 'Seleccionar múltiples columnas',
-      content: 'Para seleccionar varias columnas a la vez, pasamos una <strong>lista</strong> con los nombres de las columnas. El resultado es un nuevo DataFrame con solo esas columnas.',
+      content:
+        'Para seleccionar varias columnas a la vez, pasamos una <strong>lista</strong> con los nombres de las columnas. El resultado es un nuevo DataFrame con solo esas columnas.',
       codeExample: {
         filename: 'multiples_columnas.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -108,7 +107,8 @@ df = pd.read_csv('iris.csv')
         {
           id: 'ex-15-2',
           number: 'EJERCICIO 15.2',
-          description: 'Selecciona las columnas <span class="inline-code">sepal_length</span> y <span class="inline-code">sepal_width</span> (recuerda usar doble corchete). Guarda el resultado en <span class="inline-code">sepalos</span> e imprime las primeras 5 filas.',
+          description:
+            'Selecciona las columnas <span class="inline-code">sepal_length</span> y <span class="inline-code">sepal_width</span> (recuerda usar doble corchete). Guarda el resultado en <span class="inline-code">sepalos</span> e imprime las primeras 5 filas.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateSelectMultipleColumns,
@@ -124,7 +124,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '🔢',
       title: 'iloc: Selección por posición',
-      content: '<span class="inline-code">.iloc[]</span> permite seleccionar filas y columnas usando <strong>índices numéricos</strong> (posiciones). Es como trabajar con listas: el primer elemento es 0, el segundo es 1, etc.',
+      content:
+        '<span class="inline-code">.iloc[]</span> permite seleccionar filas y columnas usando <strong>índices numéricos</strong> (posiciones). Es como trabajar con listas: el primer elemento es 0, el segundo es 1, etc.',
       codeExample: {
         filename: 'iloc.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -150,7 +151,8 @@ df = pd.read_csv('iris.csv')
         {
           id: 'ex-15-3',
           number: 'EJERCICIO 15.3',
-          description: 'Usa <span class="inline-code">iloc</span> para seleccionar las filas de la 5 a la 10 (índices 5 a 9). Guarda el resultado en <span class="inline-code">subset</span> e imprímelo.',
+          description:
+            'Usa <span class="inline-code">iloc</span> para seleccionar las filas de la 5 a la 10 (índices 5 a 9). Guarda el resultado en <span class="inline-code">subset</span> e imprímelo.',
           expectedOutput: '',
           validationMode: 'custom',
           customValidator: validateIloc,
@@ -166,7 +168,8 @@ df = pd.read_csv('iris.csv')
     {
       icon: '🏷️',
       title: 'loc: Selección por etiqueta',
-      content: '<span class="inline-code">.loc[]</span> permite seleccionar filas y columnas usando <strong>nombres</strong>. Es útil cuando quieres seleccionar filas específicas y columnas por su nombre.',
+      content:
+        '<span class="inline-code">.loc[]</span> permite seleccionar filas y columnas usando <strong>nombres</strong>. Es útil cuando quieres seleccionar filas específicas y columnas por su nombre.',
       codeExample: {
         filename: 'loc.py',
         code: `<span class="keyword">import</span> <span class="identifier">pandas</span> <span class="keyword">as</span> <span class="identifier">pd</span>
@@ -186,67 +189,78 @@ df = pd.read_csv('iris.csv')
     {
       icon: '🧠',
       title: 'Reconocer iloc vs loc',
-      content: 'Ahora que conoces ambos métodos, es importante saber cuándo usar cada uno. Veamos si puedes identificarlos:',
+      content:
+        'Ahora que conoces ambos métodos, es importante saber cuándo usar cada uno. Veamos si puedes identificarlos:',
       quizzes: [
         {
           id: 'quiz-15-1',
           number: 'QUIZ 15.1',
-          question: 'Tienes un DataFrame de ventas y quieres seleccionar las primeras 10 filas. ¿Qué código usarías?',
+          question:
+            'Tienes un DataFrame de ventas y quieres seleccionar las primeras 10 filas. ¿Qué código usarías?',
           options: [
             {
               id: 'opt-1',
               text: 'ventas.loc[0:10]',
               isCorrect: false,
-              feedback: 'Incorrecto. Aunque loc puede usar números de índice, el rango con loc es inclusivo en ambos extremos. Además, iloc es más apropiado para seleccionar por posición numérica.'
+              feedback:
+                'Incorrecto. Aunque loc puede usar números de índice, el rango con loc es inclusivo en ambos extremos. Además, iloc es más apropiado para seleccionar por posición numérica.',
             },
             {
               id: 'opt-2',
               text: 'ventas.iloc[0:10]',
               isCorrect: true,
-              feedback: '¡Correcto! iloc es ideal para seleccionar filas por posición numérica. iloc[0:10] selecciona las primeras 10 filas (índices 0 a 9).'
+              feedback:
+                '¡Correcto! iloc es ideal para seleccionar filas por posición numérica. iloc[0:10] selecciona las primeras 10 filas (índices 0 a 9).',
             },
             {
               id: 'opt-3',
               text: 'ventas[0:10]',
               isCorrect: false,
-              feedback: 'Incorrecto. Aunque esto funciona, es mejor usar iloc explícitamente para selección por posición, ya que hace el código más claro y legible.'
+              feedback:
+                'Incorrecto. Aunque esto funciona, es mejor usar iloc explícitamente para selección por posición, ya que hace el código más claro y legible.',
             },
             {
               id: 'opt-4',
               text: 'ventas.head(10)',
               isCorrect: false,
-              feedback: 'Aunque head(10) también funciona para este caso específico, la pregunta busca que identifiques cuándo usar iloc vs loc. Para seleccionar por posición numérica, iloc es la respuesta correcta.'
+              feedback:
+                'Aunque head(10) también funciona para este caso específico, la pregunta busca que identifiques cuándo usar iloc vs loc. Para seleccionar por posición numérica, iloc es la respuesta correcta.',
             },
           ],
         },
         {
           id: 'quiz-15-2',
           number: 'QUIZ 15.2',
-          question: 'Quieres seleccionar las filas 10 a 20 pero solo las columnas "nombre" y "edad". ¿Qué método usarías?',
+          question:
+            'Quieres seleccionar las filas 10 a 20 pero solo las columnas "nombre" y "edad". ¿Qué método usarías?',
           options: [
             {
               id: 'opt-1',
               text: 'iloc[10:20, ["nombre", "edad"]]',
               isCorrect: false,
-              feedback: 'Incorrecto. iloc usa posiciones numéricas para TODO, incluyendo columnas. No acepta nombres de columnas.'
+              feedback:
+                'Incorrecto. iloc usa posiciones numéricas para TODO, incluyendo columnas. No acepta nombres de columnas.',
             },
             {
               id: 'opt-2',
               text: 'loc[10:20, ["nombre", "edad"]]',
               isCorrect: true,
-              feedback: '¡Correcto! loc permite mezclar índices numéricos de filas con nombres de columnas. Es perfecto para este caso.'
+              feedback:
+                '¡Correcto! loc permite mezclar índices numéricos de filas con nombres de columnas. Es perfecto para este caso.',
             },
             {
               id: 'opt-3',
               text: 'iloc[10:20, [0, 1]]',
               isCorrect: false,
-              feedback: 'Esto funcionaría solo si "nombre" y "edad" son las columnas en posiciones 0 y 1. loc es más claro usando los nombres directamente.'
+              feedback:
+                'Esto funcionaría solo si "nombre" y "edad" son las columnas en posiciones 0 y 1. loc es más claro usando los nombres directamente.',
             },
             {
               id: 'opt-4',
               text: 'Ninguno, necesitas dos pasos',
               isCorrect: false,
-              feedback: 'Incorrecto. loc puede hacer ambas selecciones en un solo paso: filas por índice y columnas por nombre.'
+              feedback:
+                'Incorrecto. loc puede hacer ambas selecciones en un solo paso: filas por índice y columnas por nombre.',
             },
           ],
         },
@@ -256,7 +270,8 @@ df = pd.read_csv('iris.csv')
 
   tipBox: {
     icon: '💡',
-    content: '<strong>Diferencia clave:</strong> <span class="inline-code">iloc</span> usa números (posiciones), <span class="inline-code">loc</span> usa nombres y condiciones. Para empezar, <span class="inline-code">loc</span> es más intuitivo.',
+    content:
+      '<strong>Diferencia clave:</strong> <span class="inline-code">iloc</span> usa números (posiciones), <span class="inline-code">loc</span> usa nombres y condiciones. Para empezar, <span class="inline-code">loc</span> es más intuitivo.',
   },
 
   exercises: [],
