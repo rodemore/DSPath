@@ -1,6 +1,5 @@
-import { useTranslation } from 'react-i18next';
 import type { PyodideStatus } from '../../types';
-import { LanguageSelector } from '../LanguageSelector';
+import { APP_TEXTS } from '../../constants/texts';
 
 interface HeaderProps {
   status: PyodideStatus;
@@ -8,13 +7,11 @@ interface HeaderProps {
 }
 
 export const Header = ({ status, showStatus = true }: HeaderProps) => {
-  const { t } = useTranslation('common');
-
   const getStatusText = () => {
-    if (status.error) return t('pyodide.error');
-    if (status.isLoading) return t('pyodide.loading');
-    if (status.isReady) return t('pyodide.ready');
-    return t('pyodide.initializing');
+    if (status.error) return APP_TEXTS.pyodide.error;
+    if (status.isLoading) return APP_TEXTS.pyodide.loading;
+    if (status.isReady) return APP_TEXTS.pyodide.ready;
+    return APP_TEXTS.pyodide.initializing;
   };
 
   const getStatusDotClass = () => {
@@ -25,8 +22,8 @@ export const Header = ({ status, showStatus = true }: HeaderProps) => {
     <header className="hero">
       <div className="hero-content">
         <div className="logo">
-          <div className="py">DS</div>
-          <span className="lab">Path</span>
+          <div className="py">avo</div>
+          <span className="lab">Code Lab</span>
         </div>
         <div className="header-actions">
           {showStatus && (
@@ -35,7 +32,6 @@ export const Header = ({ status, showStatus = true }: HeaderProps) => {
               <span>{getStatusText()}</span>
             </div>
           )}
-          <LanguageSelector />
         </div>
       </div>
     </header>

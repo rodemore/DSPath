@@ -12,47 +12,20 @@ export const superModules: SuperModule[] = [
   },
   {
     id: 1,
-    title: 'Estructuras de Control y Bucles',
-    description: 'Condicionales (if/else), bucles (for/while) y control de flujo avanzado.',
-    icon: 'Layers',
-    isAvailable: true,
-    sections: [7, 8, 9, 10, 11],
-    color: '#8b5cf6', // Purple
-  },
-  {
-    id: 2,
-    title: 'Funciones e Introducción a Librerías',
-    description: 'Definición de funciones, parámetros, return y uso de librerías básicas.',
-    icon: 'Code2',
-    isAvailable: false,
-    sections: [], // Will be populated later
-    color: '#f59e0b', // Amber
-  },
-  {
-    id: 3,
-    title: 'Introducción a Pandas I',
-    description: 'Manipulación y análisis de datos con la librería líder en Data Science.',
+    title: 'Pandas - Lección 1: Intro y Lectura',
+    description: 'Introducción a Pandas y lectura de DataFrames.',
     icon: 'Table2',
     isAvailable: true,
-    sections: [12, 13, 14, 15, 16, 17, 18], // Módulo 13-19: Intro, Lectura, Selección, Filtros, Operaciones, .str, Agregaciones
+    sections: [12, 13], // Intro y Lectura
     color: '#10b981', // Green
   },
   {
-    id: 4,
-    title: 'Introducción a Pandas II',
-    description: 'Agrupaciones, agregaciones avanzadas y análisis por grupos con GroupBy.',
+    id: 2,
+    title: 'Pandas - Lección 2: Filtros y Operaciones',
+    description: 'Aprende a filtrar datos y realizar operaciones básicas con Pandas.',
     icon: 'TrendingUp',
     isAvailable: true,
-    sections: [19, 20, 21, 22, 23, 24], // Módulo 20-25: Filtros Avanzados, GroupBy, GroupBy Agg, Sort & Top, Concat & Merge, Apply
+    sections: [15, 16], // Filtros y Operaciones
     color: '#06b6d4', // Cyan
-  },
-  {
-    id: 5,
-    title: 'Proyectos Prácticos',
-    description: 'Desarrolla proyectos reales aplicando todos los conocimientos adquiridos.',
-    icon: 'FolderKanban',
-    isAvailable: false,
-    sections: [], // Will be populated later
-    color: '#ec4899', // Pink
   },
 ];

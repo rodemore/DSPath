@@ -1,11 +1,14 @@
 import { useEffect, useRef } from 'react';
 import type { PyodideStatus } from '../types';
-import { usePyodideStore } from '@/stores/pyodideStore';
+import { usePyodideStore, type PyodideInstance } from '@/stores/pyodideStore';
 
 // Extend window to include loadPyodide
 declare global {
   interface Window {
-    loadPyodide: (config?: { indexURL?: string; [key: string]: unknown }) => Promise<unknown>;
+    loadPyodide: (config?: {
+      indexURL?: string;
+      [key: string]: unknown;
+    }) => Promise<PyodideInstance>;
   }
 }
 

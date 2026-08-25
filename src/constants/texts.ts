@@ -1,0 +1,78 @@
+// Textos constantes de la aplicación (solo español)
+export const APP_TEXTS = {
+  app: {
+    name: 'avoCode Lab',
+    tagline: 'Curso Completo de Python',
+    subtitle:
+      'Acompaña tu camino a aprender Python desde cero con ejercicios interactivos y casos de uso reales.',
+  },
+  navigation: {
+    courses: 'Cursos',
+    projects: 'Proyectos',
+    guides: 'Guías',
+    backToHome: 'Volver al inicio',
+  },
+  modules: {
+    title: 'Lecciones Disponibles',
+    loading: 'Cargando lección...',
+    progressComplete: (percent: number) => `${percent}% Completado`,
+  },
+  theme: {
+    light: 'Modo Claro',
+    dark: 'Modo Oscuro',
+    toggle: 'Cambiar tema',
+  },
+  languages: {
+    python: 'Python',
+  },
+  common: {
+    loading: 'Cargando...',
+    error: 'Error',
+    success: 'Éxito',
+    cancel: 'Cancelar',
+    confirm: 'Confirmar',
+    close: 'Cerrar',
+    save: 'Guardar',
+  },
+  pyodide: {
+    loading: 'Cargando Python...',
+    ready: 'Python listo ✓',
+    error: 'Error al cargar Python',
+    initializing: 'Inicializando...',
+  },
+  exercise: {
+    practice: 'Práctica',
+    run: 'Ejecutar',
+    running: 'Ejecutando...',
+    reset: 'Reiniciar',
+    correct: '¡Correcto!',
+    incorrect: 'Incorrecto',
+    tryAgain: 'Intenta de nuevo',
+    nextSection: 'Siguiente sección',
+    showHint: 'Ver pista',
+    hideHint: 'Ocultar pista',
+    hint: 'Pista',
+    output: 'Salida',
+    expectedOutput: 'Salida esperada',
+    yourOutput: 'Tu salida',
+    description: 'Descripción',
+    completed: 'Completado',
+  },
+  quiz: {
+    question: 'Pregunta',
+    selectAnswer: 'Selecciona una respuesta',
+    checkAnswer: 'Verificar respuesta',
+    correct: '¡Respuesta correcta!',
+    incorrect: 'Respuesta incorrecta',
+    tryAgain: 'Intenta de nuevo',
+    explanation: 'Explicación',
+  },
+  theory: {
+    readMore: 'Leer más',
+    collapse: 'Colapsar',
+    example: 'Ejemplo',
+    note: 'Nota',
+    important: 'Importante',
+    tip: 'Consejo',
+  },
+};

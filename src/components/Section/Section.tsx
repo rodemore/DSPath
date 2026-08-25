@@ -1,7 +1,7 @@
 import type { Section as SectionType } from '../../types';
-import { useTranslation } from 'react-i18next';
 import { sectionsMetadata } from '@data/sections';
 import { useProgressStore } from '@/stores/progressStore';
+import { APP_TEXTS } from '../../constants/texts';
 import { TheoryBlock } from '../TheoryBlock';
 import { ExerciseCard } from '../ExerciseCard';
 import { QuizCard } from '../QuizCard';
@@ -14,7 +14,6 @@ interface SectionProps {
 }
 
 export const Section = ({ section, isActive, nextSection, onNavigateToNext }: SectionProps) => {
-  const { t } = useTranslation('exercises');
   const { completedExercises, savedCode, addCompletedExercise, setSavedCode } = useProgressStore();
 
   if (!isActive) return null;
@@ -82,7 +81,7 @@ export const Section = ({ section, isActive, nextSection, onNavigateToNext }: Se
 
       {section.exercises && section.exercises.length > 0 && (
         <div className="exercise-area">
-          <div className="exercise-label">🧪 {t('exercise.practice')}</div>
+          <div className="exercise-label">🧪 {APP_TEXTS.exercise.practice}</div>
           <div className="exercise-title">{exerciseAreaTitle}</div>
 
           {section.exercises.map((exercise) => (
@@ -102,7 +101,7 @@ export const Section = ({ section, isActive, nextSection, onNavigateToNext }: Se
       {nextSection && onNavigateToNext && (
         <div className="next-section-container">
           <button className="next-section-button" onClick={onNavigateToNext}>
-            <span className="next-section-text">{t('exercise.nextSection')}</span>
+            <span className="next-section-text">{APP_TEXTS.exercise.nextSection}</span>
             <span className="next-section-title">{nextSection.title}</span>
             <span className="next-section-arrow">→</span>
           </button>

@@ -1,7 +1,5 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { Terminal, Layers, Code2, Table2, TrendingUp, FolderKanban } from 'lucide-react';
 import { usePyodide } from './hooks/usePyodide';
 import { useProgressStore } from './stores/progressStore';
 import { useNavigationStore } from './stores/navigationStore';
@@ -10,9 +8,9 @@ import { Navigation } from './components/Navigation';
 import { ProgressBar } from './components/ProgressBar';
 import { Section } from './components/Section';
 import { ThemeToggle } from './components/ThemeToggle';
-import { LanguageSelector } from './components/LanguageSelector';
 import { SuperModuleCard } from './components/SuperModuleCard';
 import { ErrorBoundary, SectionErrorFallback } from './components/ErrorBoundary';
+import { APP_TEXTS } from './constants/texts';
 import {
   sectionsMetadata,
   loadModule,
@@ -23,17 +21,7 @@ import { superModules } from './data/superModules';
 import type { ProgressData } from './types';
 import './styles/globals.css';
 
-const iconMap: Record<string, typeof Terminal> = {
-  Terminal,
-  Layers,
-  Code2,
-  Table2,
-  TrendingUp,
-  FolderKanban,
-};
-
 function App() {
-  const { t } = useTranslation('common');
   const navigate = useNavigate();
   const params = useParams();
 
@@ -142,11 +130,6 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleBackToSuperModules = () => {
-    navigate('/');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   const handleSectionChange = (sectionId: number) => {
     if (activeSuperModule !== null) {
       navigate(`/module/${activeSuperModule}/section/${sectionId}`);
@@ -190,39 +173,29 @@ function App() {
           <nav className="landing-nav">
             <div className="nav-content">
               <div className="logo">
-                <span className="py">DS</span>
-                <span className="lab">Path</span>
+                <span className="py">avo</span>
+                <span className="lab">Code Lab</span>
               </div>
               <div className="nav-links">
                 <a href="/" className="nav-link active">
-                  {t('navigation.courses')}
+                  {APP_TEXTS.navigation.courses}
                 </a>
-                <a href="#" className="nav-link disabled">
-                  {t('navigation.projects')}
-                </a>
-                <a href="/guides" className="nav-link">
-                  {t('navigation.guides')}
-                </a>
-                <LanguageSelector />
               </div>
             </div>
           </nav>
           <div className="super-modules-header">
-            <h1 className="super-modules-title">
-              {t('app.tagline', { language: '' })}{' '}
-              <span className="highlight-python">{t('languages.python')}</span>
-            </h1>
-            <p className="super-modules-subtitle">{t('app.subtitle')}</p>
+            <h1 className="super-modules-title">{APP_TEXTS.app.tagline}</h1>
+            <p className="super-modules-subtitle">{APP_TEXTS.app.subtitle}</p>
           </div>
           <div className="modules-section">
             <div className="modules-section-header">
               <h2 className="modules-section-title">
-                <span className="section-icon">📖</span> {t('modules.title')}
+                <span className="section-icon">📖</span> {APP_TEXTS.modules.title}
               </h2>
               <div className="progress-indicator">
-                {t('modules.progressComplete', {
-                  percent: Math.round((completedExercises.size / totalExercises) * 100),
-                })}
+                {APP_TEXTS.modules.progressComplete(
+                  Math.round((completedExercises.size / totalExercises) * 100)
+                )}
               </div>
             </div>
             <main className="super-modules-grid">
@@ -239,23 +212,6 @@ function App() {
       ) : (
         <>
           <Header status={status} showStatus={viewMode === 'sections'} />
-          <div className="breadcrumb">
-            <button onClick={handleBackToSuperModules} className="back-button">
-              ← {t('navigation.backToHome')}
-            </button>
-            <LanguageSelector />
-            {activeSuperModule !== null &&
-              (() => {
-                const sm = superModules[activeSuperModule];
-                const IconComponent = iconMap[sm.icon] || Terminal;
-                return (
-                  <span className="current-super-module">
-                    <IconComponent size={16} style={{ color: sm.color }} />
-                    {sm.title}
-                  </span>
-                );
-              })()}
-          </div>
           <Navigation
             sections={navItems}
             activeSection={activeSection}
@@ -264,7 +220,7 @@ function App() {
           <ProgressBar progress={progressData} />
           <main className="main-content">
             {isLoadingSection ? (
-              <div className="loading-section">{t('modules.loading')}</div>
+              <div className="loading-section">{APP_TEXTS.modules.loading}</div>
             ) : currentSection ? (
               <ErrorBoundary
                 key={`error-boundary-${currentSection.id}`}

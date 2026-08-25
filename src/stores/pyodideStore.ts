@@ -3,8 +3,9 @@ import type { ExerciseResult } from '@/types';
 
 type PyodideStatus = 'loading' | 'ready' | 'error';
 
-interface PyodideInstance {
+export interface PyodideInstance {
   runPythonAsync: (code: string) => Promise<unknown>;
+  loadPackage: (packages: string[]) => Promise<void>;
   [key: string]: unknown;
 }
 

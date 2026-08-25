@@ -5,7 +5,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext.tsx';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { GlobalErrorHandler } from './utils/globalErrorHandler';
-import './i18n'; // Initialize i18n
 import App from './App.tsx';
 
 // Initialize global error handler
