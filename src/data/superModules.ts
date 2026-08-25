@@ -12,20 +12,11 @@ export const superModules: SuperModule[] = [
   },
   {
     id: 1,
-    title: 'Pandas - Lección 1: Intro y Lectura',
-    description: 'Introducción a Pandas y lectura de DataFrames.',
+    title: 'Pandas - Fundamentos',
+    description: 'Introducción a Pandas: lectura, selección, filtros y operaciones con DataFrames.',
     icon: 'Table2',
     isAvailable: true,
-    sections: [12, 13], // Intro y Lectura
+    sections: [12, 13, 14, 15, 16], // Intro, Lectura, Selección, Filtros, Operaciones
     color: '#10b981', // Green
-  },
-  {
-    id: 2,
-    title: 'Pandas - Lección 2: Filtros y Operaciones',
-    description: 'Aprende a filtrar datos y realizar operaciones básicas con Pandas.',
-    icon: 'TrendingUp',
-    isAvailable: true,
-    sections: [15, 16], // Filtros y Operaciones
-    color: '#06b6d4', // Cyan
   },
 ];
